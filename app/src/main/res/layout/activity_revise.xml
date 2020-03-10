@@ -1,0 +1,1027 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue">
+    <ImageView
+        android:id="@+id/revise_out"
+        android:layout_width="@dimen/default_margin_size_2"
+        android:layout_height="@dimen/default_margin_size_2"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:layout_marginStart="@dimen/default_margin_size"
+        android:src="@drawable/back"/>
+
+    <TextView
+        android:id="@+id/revise_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:text="@string/revise_head_text"
+        android:textSize="@dimen/default_text_size_4"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/revise_title"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/revise_head"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/revise_title_text"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size_5"/>
+
+    <TextView
+        android:id="@+id/revise_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/default_margin_size_2"
+        android:layout_marginEnd="@dimen/default_margin_size"
+        android:text="@string/revise_list_text"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size"/>
+
+    <RelativeLayout
+        android:id="@+id/revise_relative_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/default_margin_size_4"
+        android:background="@drawable/btn_background_radius">
+
+        <ImageView
+            android:id="@+id/revise_help"
+            android:layout_width="@dimen/default_margin_size_2"
+            android:layout_height="@dimen/default_margin_size_2"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/default_margin_size"
+            android:src="@drawable/group_lobby_rule_icon" />
+
+        <TextView
+            android:id="@+id/revise_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/revise_help"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/default_margin_size_2"
+            android:text="@string/revise_day_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size" />
+
+        <TextView
+            android:id="@+id/revise_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/revise_day"
+            android:layout_below="@+id/revise_day"
+            android:layout_marginBottom="@dimen/default_margin_size_8"
+            android:layout_marginStart="@dimen/default_margin_size_2_1"
+            android:text="@string/revise_number_text"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/default_text_size_2" />
+
+        <TextView
+            android:id="@+id/revise_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/revise_day"
+            android:layout_marginTop="@dimen/default_margin_size_2"
+            android:layout_toEndOf="@+id/revise_number"
+            android:text="@string/revise_num_text"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4" />
+
+        <TextView
+            android:id="@+id/revise_done_numbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/revise_number"
+            android:layout_below="@+id/revise_number"
+            android:layout_marginStart="@dimen/default_margin_size_2_1"
+            android:layout_marginTop="-50dp"
+            android:text="@string/revise_done_numbers_text"
+            android:textColor="@color/black_2"
+            android:textSize="@dimen/default_text_size_5"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/revise_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/revise_number"
+            android:layout_marginStart="@dimen/default_margin_size_7"
+            android:text="@string/revise_word_text"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4" />
+
+        <LinearLayout
+            android:id="@+id/revise_word_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/revise_word"
+            android:layout_below="@+id/revise_word"
+            android:layout_marginBottom="@dimen/default_margin_size_3"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:layout_marginTop="@dimen/default_margin_size"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/revise_word_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/revise_word_left_text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size_4" />
+
+            <ImageView
+                android:id="@+id/revise_word_img_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_submenu" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/revise_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/revise_number"
+            android:layout_marginEnd="@dimen/default_margin_size_9"
+            android:text="@string/revise_class_text"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4" />
+
+        <LinearLayout
+            android:id="@+id/revise_class_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/revise_class"
+            android:layout_below="@+id/revise_word"
+            android:layout_marginStart="-10dp"
+            android:layout_marginTop="@dimen/default_margin_size"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/revise_class_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/revise_class_left_text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size_4" />
+
+            <ImageView
+                android:id="@+id/revise_class_img_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_submenu" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/revise_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/revise_word_linear"
+            android:layout_margin="@dimen/default_margin_size"
+            android:background="@drawable/review_btn_bg"
+            android:gravity="center"
+            android:text="@string/revise_start_text"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size" />
+
+        <LinearLayout
+            android:id="@+id/revise_start_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/revise_start"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/default_margin_size_2"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/revise_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/revise_bottom_text"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size_4" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_go_task_detail" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/revise_relative_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/default_margin_size_4"
+        android:background="@drawable/btn_background_radius"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/revise_help_one"
+            android:layout_width="@dimen/default_margin_size_2"
+            android:layout_height="@dimen/default_margin_size_2"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/default_margin_size"
+            android:src="@drawable/group_lobby_rule_icon" />
+
+        <ImageView
+            android:id="@+id/revise_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/revise_help_one"
+            android:layout_centerInParent="true"
+            android:src="@drawable/img_review_finished" />
+
+        <TextView
+            android:id="@+id/revise_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/revise_img"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/default_margin_size_2"
+            android:layout_marginTop="@dimen/default_margin_size"
+            android:text="@string/revise_done_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size" />
+
+        <TextView
+            android:id="@+id/revise_done_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/revise_done"
+            android:layout_below="@+id/revise_done"
+            android:layout_marginBottom="@dimen/default_margin_size_4"
+            android:layout_marginStart="@dimen/default_margin_size_3"
+            android:text="@string/revise_done_number_text"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/default_text_size_4" />
+
+        <TextView
+            android:id="@+id/revise_done_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/revise_done"
+            android:layout_marginStart="@dimen/default_margin_size_1"
+            android:layout_toEndOf="@+id/revise_done_number"
+            android:text="@string/revise_done_num_text"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4" />
+
+        <TextView
+            android:id="@+id/revise_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/revise_done_number"
+            android:layout_marginBottom="@dimen/default_margin_size_2"
+            android:layout_marginStart="@dimen/default_margin_size_2"
+            android:background="@drawable/btn_revise_button"
+            android:gravity="center"
+            android:text="@string/revise_select_text"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/default_text_size" />
+
+        <TextView
+            android:id="@+id/recite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/revise_done_number"
+            android:layout_marginEnd="@dimen/default_margin_size_2"
+            android:background="@drawable/btn_revise_button"
+            android:gravity="center"
+            android:text="@string/revise_recite_text"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/default_text_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/revise_relative_three"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.4"
+            android:background="@color/black"
+            android:orientation="vertical"></LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/revise_select_relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/select_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/default_margin_size_2"
+                android:layout_marginTop="@dimen/default_margin_size_2"
+                android:text="@string/select_title_text"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size" />
+
+            <View
+                android:id="@+id/select_view_1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/select_title"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/select_linear_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/select_view_1"
+                android:paddingBottom="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/select_linear_1_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="@dimen/default_margin_size_1"
+                    android:text="@string/select_linear_1_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/select_linear_1_title"
+                    android:text="@string/select_linear_1_bottom"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_5" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/next_normal" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/select_view_2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/select_linear_1"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/select_linear_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/select_view_2"
+                android:paddingBottom="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/select_linear_2_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="@dimen/default_margin_size_1"
+                    android:text="@string/select_linear_2_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/select_linear_2_title"
+                    android:text="@string/select_linear_2_bottom"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_5" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/next_normal" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/select_view_3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/select_linear_2"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/select_linear_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/select_view_3"
+                android:paddingBottom="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/select_linear_3_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="@dimen/default_margin_size_1"
+                    android:text="@string/select_linear_3_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/select_linear_3_title"
+                    android:text="@string/select_linear_3_bottom"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_5" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/next_normal" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/select_view_4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/select_linear_3"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/select_linear_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/select_view_4"
+                android:paddingBottom="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/select_linear_4_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="@dimen/default_margin_size_1"
+                    android:text="@string/select_linear_4_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/select_linear_4_title"
+                    android:text="@string/select_linear_4_bottom"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_5" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/next_normal" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/select_view_5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/select_linear_4"
+                android:background="@color/black_2" />
+
+            <TextView
+                android:id="@+id/select_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/select_view_5"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/default_margin_size_2"
+                android:layout_marginTop="@dimen/default_margin_size_2"
+                android:text="@string/select_out"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/default_text_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/revise_number_relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/number_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/default_margin_size_2"
+                android:layout_marginTop="@dimen/default_margin_size_2"
+                android:text="@string/number_title_text"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size" />
+
+            <View
+                android:id="@+id/number_view_1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/number_title"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/number_linear_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/number_view_1"
+                android:paddingBottom="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/number_linear_1_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="@dimen/default_margin_size_1"
+                    android:text="@string/number_linear_1_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin_size_1"
+                    android:layout_marginTop="@dimen/default_margin_size_1"
+                    android:layout_toEndOf="@+id/number_linear_1_title"
+                    android:text="@string/number_linear_word"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_5" />
+
+                <ImageView
+                    android:id="@+id/number_linear_1_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/pic_select" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/number_view_2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/number_linear_1"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/number_linear_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/number_view_2"
+                android:paddingBottom="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/number_linear_2_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="@dimen/default_margin_size_1"
+                    android:text="@string/number_linear_2_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin_size_1"
+                    android:layout_marginTop="@dimen/default_margin_size_1"
+                    android:layout_toEndOf="@+id/number_linear_2_title"
+                    android:text="@string/number_linear_word"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_5" />
+
+                <ImageView
+                    android:id="@+id/number_linear_2_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/pic_select"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/number_view_3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/number_linear_2"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/number_linear_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/number_view_3"
+                android:paddingBottom="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/number_linear_3_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="@dimen/default_margin_size_1"
+                    android:text="@string/number_linear_3_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin_size_1"
+                    android:layout_marginTop="@dimen/default_margin_size_1"
+                    android:layout_toEndOf="@+id/number_linear_3_title"
+                    android:text="@string/number_linear_word"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_5" />
+
+                <ImageView
+                    android:id="@+id/number_linear_3_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/pic_select"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/number_view_4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/number_linear_3"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/number_linear_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/number_view_4"
+                android:paddingBottom="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/number_linear_4_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="@dimen/default_margin_size_1"
+                    android:text="@string/number_linear_4_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin_size_1"
+                    android:layout_marginTop="@dimen/default_margin_size_1"
+                    android:layout_toEndOf="@+id/number_linear_4_title"
+                    android:text="@string/number_linear_2_word"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_5" />
+
+                <ImageView
+                    android:id="@+id/number_linear_4_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/pic_select"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/number_view_5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/number_linear_4"
+                android:background="@color/black_2" />
+
+            <TextView
+                android:id="@+id/number_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/number_view_5"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/default_margin_size_2"
+                android:layout_marginTop="@dimen/default_margin_size_2"
+                android:text="@string/select_out"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/default_text_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/revise_class_relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/class_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/default_margin_size_2"
+                android:layout_marginTop="@dimen/default_margin_size_2"
+                android:text="@string/select_title_text"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size" />
+
+            <View
+                android:id="@+id/class_view_1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/class_title"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/class_linear_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/class_view_1"
+                android:paddingBottom="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/class_linear_1_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="@dimen/default_margin_size_1"
+                    android:text="@string/select_linear_1_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/class_linear_1_title"
+                    android:text="@string/select_linear_1_bottom"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_5" />
+
+                <ImageView
+                    android:id="@+id/class_linear_1_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/pic_select" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/class_view_2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/class_linear_1"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/class_linear_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/class_view_2"
+                android:paddingBottom="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/class_linear_2_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="@dimen/default_margin_size_1"
+                    android:text="@string/select_linear_2_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/class_linear_2_title"
+                    android:text="@string/select_linear_2_bottom"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_5" />
+
+                <ImageView
+                    android:id="@+id/class_linear_2_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/pic_select"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/class_view_3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/class_linear_2"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/class_linear_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/class_view_3"
+                android:paddingBottom="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/class_linear_3_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="@dimen/default_margin_size_1"
+                    android:text="@string/select_linear_3_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/class_linear_3_title"
+                    android:text="@string/select_linear_3_bottom"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_5" />
+
+                <ImageView
+                    android:id="@+id/class_linear_3_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/pic_select"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/class_view_4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/class_linear_3"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/class_linear_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/class_view_4"
+                android:paddingBottom="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/class_linear_4_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="@dimen/default_margin_size_1"
+                    android:text="@string/select_linear_4_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/class_linear_4_title"
+                    android:text="@string/select_linear_4_bottom"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_5" />
+
+                <ImageView
+                    android:id="@+id/class_linear_4_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/pic_select"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/class_view_5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/class_linear_4"
+                android:background="@color/black_2" />
+
+            <TextView
+                android:id="@+id/class_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/class_view_5"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/default_margin_size_2"
+                android:layout_marginTop="@dimen/default_margin_size_2"
+                android:text="@string/select_out"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/default_text_size" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+

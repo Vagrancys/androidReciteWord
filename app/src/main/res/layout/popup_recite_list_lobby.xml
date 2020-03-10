@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup_recite_linear"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/btn_recite_item_button"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/default_margin_size"
+    android:paddingStart="@dimen/default_margin_size"
+    android:paddingBottom="@dimen/default_margin_size_2"
+    android:paddingEnd="@dimen/default_margin_size">
+
+    <TextView
+        android:layout_width="@dimen/popup_recite_text_width"
+        android:layout_height="wrap_content"
+        android:text="@string/popup_recite_lobby_text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size" />
+</LinearLayout>

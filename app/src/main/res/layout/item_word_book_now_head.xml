@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/word_book_layout_height"
+    android:background="@color/word_book_layout_color"
+    android:gravity="center|left">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin_size_2"
+        android:text="@string/word_book_now_head_text"
+        android:textSize="@dimen/word_book_size"
+        android:textColor="@color/word_book_text_color"/>
+</LinearLayout>

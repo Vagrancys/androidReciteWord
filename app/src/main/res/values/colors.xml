@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="white">#fff</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="splash_time">#fff</color>
+    <color name="splash_solid">#515151</color>
+    <color name="splash_stroke">#7A7A7A</color>
+    <color name="main_anim">#666</color>
+    <color name="recite_background">#00B2EE</color>
+    <color name="recite_head_task_background">#88cbe6</color>
+    <color name="recite_circle_un_background">#88cbe0</color>
+    <color name="recite_circle_background">#FFD700</color>
+    <color name="blue">#009ACD</color>
+    <color name="black">#000</color>
+    <color name="recite_sign">#00B1EE</color>
+    <color name="recite_footer_tab">#000</color>
+    <color name="recite_footer_push_head_text">#000</color>
+    <color name="recite_footer_push_footer_text">#555</color>
+    <color name="word_book_tab_color">#77cbe6</color>
+    <color name="word_book_text_color">#919191</color>
+    <color name="word_book_layout_color">#F2F2F2</color>
+    <color name="item_word_book_head_text_color">#000</color>
+    <color name="item_word_book_foot_text_color">#009ACD</color>
+    <color name="word_book_menu_text_color">#555</color>
+    <color name="word_book_menu_color">#F2F2F2</color>
+    <color name="item_word_book_num_text_color">#555</color>
+    <color name="item_word_book_item_text_color">#009ACD</color>
+    <color name="whole_item_footer_text_color">#555</color>
+    <color name="whole_item_footer_url_color">#009ACD</color>
+    <color name="word_whole_left_layout">#F2F2F2</color>
+    <color name="word_whole_text_color">#000</color>
+    <color name="word_book_pop_num_left_color">#009ACD</color>
+    <color name="word_book_pop_num_right_color">#555</color>
+    <color name="word_book_pop_summary_text_color">#444</color>
+    <color name="main_task_pop_num_color">#555</color>
+    <color name="main_task_pop_time_color">#555</color>
+    <color name="main_task_pop_hint_text_color">#444</color>
+
+    <color name="book_background_color">#F2F2F2</color>
+    <color name="book_background_text_color">#444</color>
+    <color name="recite_star_hint_color">#444</color>
+    <color name="task_list_background_color">#F2F2F2</color>
+    <color name="task_list_text_color">#555</color>
+    <color name="task_list_progress_text_color">#444</color>
+    <color name="task_list_neck_text_color">#EE9A00</color>
+    <color name="task_list_neck_button_color">#CD3700</color>
+    <color name="view_color">#F2F2F2</color>
+
+    <color name="white_1">#C9C9C9</color>
+    <color name="white_2">#F2F2F2</color>
+    <color name="recite_book_left_text_color">#000</color>
+    <color name="recite_book_right_text_color">#444</color>
+    <color name="recite_item_list_color">#444</color>
+    <color name="recite_item_button_color">#F2F2F2</color>
+    <color name="pull_word_color">#C9C9C9</color>
+    <color name="word_content_text_root_color">#555</color>
+    <color name="word_content_text_etyma_color">#111</color>
+    <color name="word_content_text_row">#444</color>
+    <color name="word_content_text_show">#444</color>
+    <color name="word_content_text_hide">#444</color>
+    <color name="item_word_details_left">#CD6839</color>
+    <color name="item_word_details_letter_color">#555</color>
+    <color name="default_recite_anim_button_color">#36BD66</color>
+    <color name="anim_live">#3C5667</color>
+    <color name="register_login_color">#32CD32</color>
+    <color name="register_view">#F7F7F7</color>
+    <color name="register_img_text_color">#CFCFCF</color>
+    <color name="red">#ff0000</color>
+    <color name="register_powerful_color">#F7F7F7</color>
+    <color name="register_caption_left_color">#555</color>
+    <color name="register_extra_color">#555</color>
+    <color name="register_one">#CD6839</color>
+    <color name="register_two">#EEB422</color>
+    <color name="register_three">#32CD32</color>
+    <color name="red_1">#f79e8c</color>
+    <color name="black_1">#555</color>
+    <color name="black_2">#CFCFCF</color>
+    <color name="black_3">#919191</color>
+    <color name="green_1">#32CD32</color>
+    <color name="orange">#EEB422</color>
+    <color name="recite_open_end_color">#FF83FA</color>
+    <color name="recite_open_content_color">#FFBBFF</color>
+    <color name="recite_anim_open_linear_color">#EE1289</color>
+    <color name="recite_check_linear_color">#EEC900</color>
+    <color name="blue_1">#88cbe6</color>
+    <color name="user_1">#cc4125</color>
+    <color name="user_2">#CD4F39</color>
+    <color name="orange_1">#CDCD00</color>
+    <color name="green_2">#76EE00</color>
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_sliding_tab">55dp</dimen>
+
+    <dimen name="default_two_text_size">14dp</dimen>
+
+    <dimen name="min_size">100dp</dimen>
+    <dimen name="recite_word_book_width">30dp</dimen>
+    <dimen name="recite_word_book_height">40dp</dimen>
+    <dimen name="default_margin_size_1">5dp</dimen>
+    <dimen name="default_margin_size">10dp</dimen>
+    <dimen name="default_margin_size_2_1">15dp</dimen>
+    <dimen name="default_margin_size_2">20dp</dimen>
+    <dimen name="default_margin_size_3">30dp</dimen>
+    <dimen name="default_size_35dp">35dp</dimen>
+    <dimen name="default_margin_size_4">40dp</dimen>
+    <dimen name="default_recite_background_size">300dp</dimen>
+    <dimen name="recite_head_title_size">20sp</dimen>
+    <dimen name="recite_head_new_circle">2dp</dimen>
+    <dimen name="recite_head_circle_width">35dp</dimen>
+    <dimen name="recite_head_circle_height">35dp</dimen>
+    <dimen name="recite_star_width">30dp</dimen>
+    <dimen name="recite_star_height">30dp</dimen>
+    <dimen name="recite_star_text_size">8sp</dimen>
+    <dimen name="recite_star_icon_width">35dp</dimen>
+    <dimen name="recite_star_icon_height">30dp</dimen>
+    <dimen name="recite_head_task_img">15dp</dimen>
+    <dimen name="recite_head_task_text_size">15sp</dimen>
+    <dimen name="recite_task_icon_img">20dp</dimen>
+    <dimen name="recite_task_icon_text">8sp</dimen>
+    <dimen name="recite_down_audio_end">14dp</dimen>
+    <dimen name="recite_circle_progress_width">200dp</dimen>
+    <dimen name="recite_circle_progress_height">220dp</dimen>
+    <dimen name="recite_start_rush_text_size">20sp</dimen>
+    <dimen name="recite_start_rush_width">270dp</dimen>
+    <dimen name="recite_start_rush_height">80dp</dimen>
+    <dimen name="recite_new_circle">55dp</dimen>
+    <dimen name="recite_new_circle_top">10dp</dimen>
+    <dimen name="recite_sign_size">15sp</dimen>
+    <dimen name="recite_sign_width">75dp</dimen>
+    <dimen name="recite_sign_height">35dp</dimen>
+    <dimen name="recite_footer_tab_width">65dp</dimen>
+    <dimen name="recite_footer_tab_height">65dp</dimen>
+    <dimen name="recite_footer_tab_text_size">15sp</dimen>
+    <dimen name="recite_footer_push_height">75dp</dimen>
+    <dimen name="recite_footer_push_img_width">45dp</dimen>
+    <dimen name="recite_footer_push_img_height">45dp</dimen>
+    <dimen name="recite_footer_push_head_text_size">14sp</dimen>
+    <dimen name="recite_footer_push_footer_text_size">11sp</dimen>
+    <dimen name="recite_footer_push_skip_width">10dp</dimen>
+    <dimen name="recite_footer_push_skip_height">30dp</dimen>
+    <dimen name="main_tab_icon_width">20dp</dimen>
+    <dimen name="main_tab_icon_height">20dp</dimen>
+
+    <dimen name="word_book_sliding_tab_width">200dp</dimen>
+    <dimen name="word_book_sliding_tab_height">45dp</dimen>
+    <dimen name="default_out_width">15dp</dimen>
+    <dimen name="default_out_height">20dp</dimen>
+    <dimen name="default_menu_width">30dp</dimen>
+    <dimen name="default_menu_height">30dp</dimen>
+    <dimen name="word_book_size">20sp</dimen>
+    <dimen name="word_book_layout_height">45dp</dimen>
+    <dimen name="word_book_item_layout_height">150dp</dimen>
+    <dimen name="item_word_book_img_width">95dp</dimen>
+    <dimen name="item_word_book_img_height">110dp</dimen>
+    <dimen name="item_word_book_head_text_size">20sp</dimen>
+    <dimen name="item_word_book_foot_text_size">15sp</dimen>
+    <dimen name="item_word_book_perfect_width">30dp</dimen>
+    <dimen name="item_word_book_perfect_height">35dp</dimen>
+    <dimen name="word_book_menu_height">55dp</dimen>
+    <dimen name="word_book_menu_text_size">16sp</dimen>
+    <dimen name="word_book_right_height">370dp</dimen>
+    <dimen name="whole_language_text_size">16sp</dimen>
+    <dimen name="whole_language_img">71dp</dimen>
+    <dimen name="whole_language_img_select_width">71dp</dimen>
+    <dimen name="whole_language_img_select_height">71dp</dimen>
+    <dimen name="item_word_book_num_text_size">14sp</dimen>
+    <dimen name="item_word_book_item_text_size">16sp</dimen>
+    <dimen name="item_word_book_item_perfect_width">30dp</dimen>
+    <dimen name="item_word_book_item_perfect_height">50dp</dimen>
+    <dimen name="item_word_book_now_img_width">55dp</dimen>
+    <dimen name="item_word_book_now_img_height">30dp</dimen>
+    <dimen name="item_word_book_train_img_width">30dp</dimen>
+    <dimen name="item_word_book_train_img_height">30dp</dimen>
+    <dimen name="item_word_item_img_width">95dp</dimen>
+    <dimen name="item_word_item_img_height">130dp</dimen>
+    <dimen name="word_item_layout_height">170dp</dimen>
+    <dimen name="item_word_book_item_text_width">185dp</dimen>
+    <dimen name="whole_item_footer_text_size">16sp</dimen>
+    <dimen name="whole_item_footer_url_size">16sp</dimen>
+    <dimen name="word_whole_text_size">16sp</dimen>
+
+    <dimen name="word_book_pop_height">450dp</dimen>
+    <dimen name="word_book_pop_title_size">22sp</dimen>
+    <dimen name="word_book_pop_title_top">85dp</dimen>
+    <dimen name="word_book_pop_num_size">15sp</dimen>
+    <dimen name="word_book_pop_summary_text_size">16sp</dimen>
+    <dimen name="word_book_pop_perfect_width">35dp</dimen>
+    <dimen name="word_book_pop_perfect_height">50dp</dimen>
+    <dimen name="word_book_pop_perfect_margin">50dp</dimen>
+    <dimen name="word_book_pop_exit_width">35dp</dimen>
+    <dimen name="word_book_pop_exit_height">35dp</dimen>
+    <dimen name="word_book_pop_img_width">98dp</dimen>
+    <dimen name="word_book_pop_img_height">128dp</dimen>
+    <dimen name="word_book_pop_button_size">23sp</dimen>
+    <dimen name="word_book_pop_share_size">15sp</dimen>
+    <dimen name="word_book_pop_delete_width">30dp</dimen>
+    <dimen name="word_book_pop_delete_height">40dp</dimen>
+
+    <dimen name="main_task_pop_height">450dp</dimen>
+    <dimen name="main_task_pop_layout">410dp</dimen>
+    <dimen name="main_task_pop_title_top">125dp</dimen>
+    <dimen name="main_task_pop_exit_width">35dp</dimen>
+    <dimen name="main_task_pop_exit_height">35dp</dimen>
+    <dimen name="main_task_pop_title_size">20sp</dimen>
+    <dimen name="main_task_pop_num_size">16sp</dimen>
+    <dimen name="main_task_pop_time_size">16sp</dimen>
+    <dimen name="main_task_pop_hint_text_size">12sp</dimen>
+    <dimen name="main_task_pop_button_size">18sp</dimen>
+    <dimen name="recite_star_hint_size">14sp</dimen>
+    <dimen name="recite_star_hint_width">200dp</dimen>
+    <dimen name="recite_star_hint_height">55dp</dimen>
+    <dimen name="task_list_text_size">20sp</dimen>
+
+    <dimen name="task_advertise_img_height">180dp</dimen>
+
+    <dimen name="default_text_size_5">12sp</dimen>
+    <dimen name="default_text_size_4">14sp</dimen>
+    <dimen name="default_text_size_6">16sp</dimen>
+    <dimen name="default_text_size">18sp</dimen>
+    <dimen name="default_text_size_7">22sp</dimen>
+    <dimen name="default_text_size_3">28sp</dimen>
+    <dimen name="default_text_size_2">40sp</dimen>
+    <dimen name="default_text_size_10sp">10sp</dimen>
+
+    <dimen name="task_list_title_text_size">20sp</dimen>
+    <dimen name="task_list_summary_text_size">14sp</dimen>
+    <dimen name="task_list_status_width">70dp</dimen>
+    <dimen name="task_list_status_height">50dp</dimen>
+    <dimen name="task_list_progress_width">220dp</dimen>
+    <dimen name="task_list_progress_height">10dp</dimen>
+    <dimen name="task_list_progress_text_size">15sp</dimen>
+    <dimen name="task_list_neck_img_width">20dp</dimen>
+    <dimen name="task_list_neck_summary_text_size">14sp</dimen>
+    <dimen name="task_list_neck_img_height">20dp</dimen>
+    <dimen name="task_list_pop_img_width">100dp</dimen>
+    <dimen name="task_list_pop_img_height">110dp</dimen>
+    <dimen name="task_list_pop_height">450dp</dimen>
+    <dimen name="task_list_pop_title_top">70dp</dimen>
+    <dimen name="task_list_pop_time_size">14sp</dimen>
+    <dimen name="task_done_head_img_width">80dp</dimen>
+    <dimen name="task_done_head_img_height">90dp</dimen>
+    <dimen name="recite_word_tab_bottom">85dp</dimen>
+    <dimen name="recite_book_img">75dp</dimen>
+    <dimen name="recite_book_out_width">20dp</dimen>
+    <dimen name="recite_book_out_height">30dp</dimen>
+    <dimen name="recite_book_left_text_size">20sp</dimen>
+    <dimen name="recite_book_right_text_size">19sp</dimen>
+    <dimen name="recite_star_img">35dp</dimen>
+    <dimen name="recite_book_item_width">80dp</dimen>
+    <dimen name="recite_book_item_height">90dp</dimen>
+    <dimen name="user_goal_img_width">70dp</dimen>
+    <dimen name="user_goal_img_height">80dp</dimen>
+    <dimen name="default_avatar_img">60dp</dimen>
+    <dimen name="default_avatar_img_1">30dp</dimen>
+    <dimen name="recite_word_list_tab">60dp</dimen>
+    <dimen name="default_recite_empty_width">200dp</dimen>
+    <dimen name="default_recite_empty_height">180dp</dimen>
+    <dimen name="recite_item_list_size">16sp</dimen>
+    <dimen name="recite_know_search_width">25dp</dimen>
+    <dimen name="recite_know_search_height">25dp</dimen>
+    <dimen name="recite_list_lobby">25dp</dimen>
+    <dimen name="popup_recite_text_width">200dp</dimen>
+    <dimen name="recite_word_manage_img">30dp</dimen>
+    <dimen name="word_content_out_img">20dp</dimen>
+    <dimen name="word_content_text_head_size">30sp</dimen>
+    <dimen name="word_content_text_noise">20dp</dimen>
+    <dimen name="default_margin_size_6">60dp</dimen>
+    <dimen name="default_margin_size_7">70dp</dimen>
+    <dimen name="word_content_text_book">30dp</dimen>
+    <dimen name="default_margin_size_5">50dp</dimen>
+    <dimen name="word_details_out">20dp</dimen>
+    <dimen name="item_word_details_linear_height">80dp</dimen>
+    <dimen name="item_word_details_select">30dp</dimen>
+    <dimen name="item_word_details_meaning_size">14sp</dimen>
+    <dimen name="item_word_details_letter_size">16sp</dimen>
+    <dimen name="item_word_details_error">50dp</dimen>
+    <dimen name="recite_anim_arrow_size">22sp</dimen>
+    <dimen name="recite_anim_out">20dp</dimen>
+    <dimen name="recite_anim_progress_top_width">195dp</dimen>
+    <dimen name="recite_anim_progress_top_height">28dp</dimen>
+    <dimen name="recite_anim_progress_bottom_width">200dp</dimen>
+    <dimen name="recite_anim_progress_bottom_height">30dp</dimen>
+    <dimen name="recite_anim_fate_width">60dp</dimen>
+    <dimen name="recite_anim_fate_height">30dp</dimen>
+    <dimen name="recite_anim_progress_text_size">16sp</dimen>
+    <dimen name="recite_anim_fate_text_size">16sp</dimen>
+    <dimen name="default_recite_anim_size">14sp</dimen>
+    <dimen name="recite_anim_select_title_size">40sp</dimen>
+    <dimen name="recite_anim_cram_title_size">40sp</dimen>
+    <dimen name="recite_anim_cram_text_size">25sp</dimen>
+    <dimen name="recite_anim_spell_title_size">24sp</dimen>
+    <dimen name="item_word_recite_anim_letter_size">22dp</dimen>
+    <dimen name="item_anim_error_text_size">10dp</dimen>
+    <dimen name="user_decide_content_height">320dp</dimen>
+    <dimen name="register_img_text_size">22sp</dimen>
+    <dimen name="register_powerful_width">105dp</dimen>
+    <dimen name="register_powerful_height">10dp</dimen>
+    <dimen name="register_caption_text_size">15sp</dimen>
+    <dimen name="login_code_hint_text_width">170dp</dimen>
+    <dimen name="forget_img">100dp</dimen>
+    <dimen name="default_margin_size_8">80dp</dimen>
+    <dimen name="forget_bottom_text_size">16sp</dimen>
+    <dimen name="anim_content_scroll_height">350dp</dimen>
+    <dimen name="recite_anim_open_title_text_size">28sp</dimen>
+    <dimen name="recite_anim_open_short_size">11sp</dimen>
+    <dimen name="recite_check_view_pager">370dp</dimen>
+    <dimen name="main_music_explanation_text_size">16sp</dimen>
+    <dimen name="main_music_progress_width">250dp</dimen>
+    <dimen name="revise_list_text_size">22sp</dimen>
+    <dimen name="default_margin_size_9">90dp</dimen>
+    <dimen name="default_anim_on_linear_height">380dp</dimen>
+    <dimen name="default_margin_size_14">140dp</dimen>
+    <dimen name="pin_content_recycler_height">150dp</dimen>
+    <dimen name="user_time_sliding_width">160dp</dimen>
+    <dimen name="user_date_month_height">280dp</dimen>
+    <dimen name="item_screen_back_height">120dp</dimen>
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

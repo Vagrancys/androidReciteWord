@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/recite_anim_open_relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/recite_anim_open_content"
+                android:layout_marginEnd="@dimen/default_margin_size_4"
+                android:layout_marginStart="@dimen/default_margin_size_4"
+                android:layout_marginTop="-110dp"
+                android:background="@drawable/recite_open_gradient_back"
+                android:paddingTop="@dimen/default_margin_size_8">
+
+                <TextView
+                    android:id="@+id/recite_anim_open_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="@dimen/default_margin_size_5"
+                    android:layout_marginStart="@dimen/default_margin_size_5"
+                    android:layout_marginTop="@dimen/default_margin_size_2"
+                    android:gravity="center"
+                    android:text="@string/recite_anim_open_title_text"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/recite_anim_open_title_text_size" />
+
+                <TextView
+                    android:id="@+id/recite_anim_open_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/recite_anim_open_title"
+                    android:layout_below="@id/recite_anim_open_title"
+                    android:layout_marginStart="@dimen/default_margin_size_8"
+                    android:layout_marginTop="@dimen/default_margin_size_3"
+                    android:text="@string/recite_anim_open_day_text"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:id="@+id/recite_anim_open_day_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/recite_anim_open_title"
+                    android:layout_below="@id/recite_anim_open_day"
+                    android:layout_marginStart="@dimen/default_margin_size_8"
+                    android:layout_marginTop="@dimen/default_margin_size"
+                    android:text="@string/recite_anim_open_day_num_text"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size_2" />
+
+                <TextView
+                    android:id="@+id/recite_anim_open_days"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/recite_anim_open_day"
+                    android:layout_marginStart="@dimen/default_margin_size"
+                    android:layout_marginTop="@dimen/default_margin_size_3"
+                    android:layout_toEndOf="@+id/recite_anim_open_day_num"
+                    android:text="@string/recite_anim_open_days_text"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:id="@+id/recite_anim_open_recite_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/recite_anim_open_title"
+                    android:layout_below="@id/recite_anim_open_day_num"
+                    android:layout_marginStart="@dimen/default_margin_size_8"
+                    android:layout_marginTop="@dimen/default_margin_size"
+                    android:text="@string/recite_anim_open_day_num"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:id="@+id/recite_anim_open_recite_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/recite_anim_open_title"
+                    android:layout_below="@id/recite_anim_open_recite_text"
+                    android:layout_marginStart="@dimen/default_margin_size_8"
+                    android:layout_marginTop="@dimen/default_margin_size_2"
+                    android:text="@string/recite_anim_open_recite_num"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size_2" />
+
+                <TextView
+                    android:id="@+id/recite_anim_open_recites"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/recite_anim_open_recite_text"
+                    android:layout_marginStart="@dimen/default_margin_size"
+                    android:layout_marginTop="@dimen/default_margin_size_4"
+                    android:layout_toEndOf="@+id/recite_anim_open_recite_num"
+                    android:text="@string/recite_anim_open_recites_text"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size" />
+
+                <ImageView
+                    android:id="@+id/recite_anim_open_img"
+                    android:layout_width="@dimen/default_margin_size_5"
+                    android:layout_height="@dimen/default_margin_size_5"
+                    android:layout_below="@+id/recite_anim_open_recite_num"
+                    android:layout_marginBottom="@dimen/default_margin_size_1"
+                    android:layout_marginStart="@dimen/default_margin_size_7"
+                    android:layout_marginTop="@dimen/default_margin_size"
+                    android:background="@drawable/user_circle"
+                    android:src="@drawable/user_avater" />
+
+                <TextView
+                    android:id="@+id/recite_anim_open_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/recite_anim_open_recite_num"
+                    android:layout_marginTop="@dimen/default_margin_size_2"
+                    android:layout_toEndOf="@+id/recite_anim_open_img"
+                    android:text="@string/recite_anim_open_time_text"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size" />
+            </RelativeLayout>
+            <ImageView
+                android:id="@+id/recite_anim_open_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_new_show_off_congratulation"
+                android:layout_marginTop="-25dp"
+                android:layout_centerInParent="true"
+                android:layout_below="@+id/recite_anim_open_head"/>
+            <ImageView
+                android:id="@+id/recite_anim_open_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_new_show_off_congratulation_2"
+                android:layout_marginTop="-15dp"
+                android:layout_centerInParent="true"
+                android:layout_alignParentTop="true"/>
+
+            <LinearLayout
+                android:id="@+id/recite_anim_open_linear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_below="@+id/recite_anim_open_relative"
+                android:layout_marginTop="@dimen/default_margin_size_2"
+                android:background="@drawable/btn_recite_anim_open_linear"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="@dimen/default_margin_size_2"
+                    android:layout_height="@dimen/default_margin_size_2"
+                    android:src="@drawable/icon_wechat_moments_clocking_in"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recite_anim_open_linear_text"
+                    android:layout_marginStart="@dimen/default_margin_size"
+                    android:textSize="@dimen/default_text_size"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/recite_anim_open_weixin"
+                android:layout_width="@dimen/default_margin_size_2"
+                android:layout_height="@dimen/default_margin_size_2"
+                android:src="@drawable/icon_new_show_off_wechat"
+                android:layout_below="@+id/recite_anim_open_linear"
+                android:layout_marginTop="@dimen/default_margin_size_3"
+                android:layout_alignStart="@+id/recite_anim_open_linear"
+                android:layout_marginStart="@dimen/default_margin_size_2"/>
+            <ImageView
+                android:id="@+id/recite_anim_open_weibo"
+                android:layout_width="@dimen/default_margin_size_2"
+                android:layout_height="@dimen/default_margin_size_2"
+                android:src="@drawable/icon_new_show_off_weibo"
+                android:layout_below="@+id/recite_anim_open_linear"
+                android:layout_toEndOf="@+id/recite_anim_open_weixin"
+                android:layout_marginTop="@dimen/default_margin_size_3"
+                android:layout_marginStart="@dimen/default_margin_size_4"/>
+            <ImageView
+                android:id="@+id/recite_anim_open_qq"
+                android:layout_width="@dimen/default_margin_size_2"
+                android:layout_height="@dimen/default_margin_size_2"
+                android:src="@drawable/icon_new_show_off_qq"
+                android:layout_below="@+id/recite_anim_open_linear"
+                android:layout_toEndOf="@+id/recite_anim_open_weibo"
+                android:layout_marginTop="@dimen/default_margin_size_3"
+                android:layout_marginStart="@dimen/default_margin_size_4"/>
+            <ImageView
+                android:id="@+id/recite_anim_open_down"
+                android:layout_width="@dimen/default_margin_size_2"
+                android:layout_height="@dimen/default_margin_size_2"
+                android:src="@drawable/icon_new_show_off_downloading"
+                android:layout_below="@+id/recite_anim_open_linear"
+                android:layout_toEndOf="@+id/recite_anim_open_qq"
+                android:layout_marginTop="@dimen/default_margin_size_3"
+                android:layout_marginStart="@dimen/default_margin_size_4"/>
+            <TextView
+                android:id="@+id/recite_anim_open_short"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recite_anim_open_short_text"
+                android:textSize="@dimen/recite_anim_open_short_size"
+                android:layout_below="@+id/recite_anim_open_weixin"
+                android:layout_marginStart="@dimen/default_margin_size_2"
+                android:layout_marginTop="@dimen/default_margin_size_2"
+                android:layout_marginBottom="@dimen/default_margin_size_3"
+                android:layout_alignStart="@+id/recite_anim_open_weixin"
+                android:textColor="@color/black_1"/>
+            <ImageView
+                android:id="@+id/recite_anim_open_help"
+                android:layout_width="@dimen/default_margin_size_2_1"
+                android:layout_height="@dimen/default_margin_size_2_1"
+                android:src="@drawable/icon_show_off_help"
+                android:layout_below="@+id/recite_anim_open_weixin"
+                android:layout_toEndOf="@+id/recite_anim_open_short"
+                android:layout_marginStart="@dimen/default_margin_size"
+                android:layout_marginTop="@dimen/default_margin_size_2"/>
+        </RelativeLayout>
+    </ScrollView>
+    <ImageView
+        android:id="@+id/recite_open_out"
+        android:layout_width="@dimen/default_margin_size_2"
+        android:layout_height="@dimen/default_margin_size_2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/default_margin_size_2"
+        android:layout_marginStart="@dimen/default_margin_size_2"
+        android:src="@drawable/icon_close_clocking_in" />
+</RelativeLayout>

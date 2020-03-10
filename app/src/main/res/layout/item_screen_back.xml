@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_screen_relative"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/item_screen_back_height"
+    android:background="@drawable/pic_bookcover_default"
+    android:layout_margin="1dp">
+
+    <ImageView
+        android:id="@+id/item_screen_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/default_margin_size_1"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:src="@drawable/icon_word_book_selected" />
+</RelativeLayout>

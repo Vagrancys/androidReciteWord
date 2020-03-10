@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="@dimen/default_margin_size_2_1"/>
+    <solid android:color="@color/task_list_neck_button_color"/>
+    <size android:height="40dp" android:width="100dp"/>
+</shape>

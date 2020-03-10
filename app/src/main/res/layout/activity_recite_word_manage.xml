@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        app:elevation="0dp">
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/recite_word_manage_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/default_margin_size"
+                    android:src="@drawable/back" />
+
+                <TextView
+                    android:id="@+id/recite_manage_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/recite_word_manage_text"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size" />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:id="@+id/recite_word_book_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:padding="@dimen/default_margin_size">
+        <ImageView
+            android:id="@+id/recite_word_manage_img"
+            android:layout_width="@dimen/recite_word_manage_img"
+            android:layout_height="@dimen/recite_word_manage_img"
+            android:src="@drawable/icon_word_book_unselect"
+            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_toEndOf="@+id/recite_word_manage_img"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recite_word_manage_select"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size"/>
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/view_manage_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/recite_word_book_relative"
+        android:layout_above="@+id/recite_word_manage_start"
+        android:overScrollMode="never">
+    </android.support.v7.widget.RecyclerView>
+    <TextView
+        android:id="@+id/recite_word_manage_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:paddingTop="@dimen/default_margin_size"
+        android:paddingBottom="@dimen/default_margin_size"
+        android:background="@drawable/btn_word_manage_start_un"
+        android:gravity="center"
+        android:text="@string/recite_word_manage_start_text"
+        android:layout_margin="@dimen/default_margin_size"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size"/>
+</RelativeLayout>
+
+
+
+
+
+

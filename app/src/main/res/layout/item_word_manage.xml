@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/toolbar"
+    android:padding="@dimen/default_margin_size">
+    <ImageView
+        android:id="@+id/recite_word_manage_img_one"
+        android:layout_width="@dimen/recite_word_manage_img"
+        android:layout_height="@dimen/recite_word_manage_img"
+        android:src="@drawable/icon_word_book_unselect"
+        android:layout_centerInParent="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/recite_word_manage_img_two"
+        android:layout_width="@dimen/recite_word_manage_img"
+        android:layout_height="@dimen/recite_word_manage_img"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/icon_word_book_selected"
+        android:visibility="gone" />
+    <TextView
+        android:id="@+id/recite_word_manage_text"
+        android:layout_marginStart="@dimen/default_margin_size_4"
+        android:layout_centerInParent="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recite_word_manage_select"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size"/>
+</RelativeLayout>

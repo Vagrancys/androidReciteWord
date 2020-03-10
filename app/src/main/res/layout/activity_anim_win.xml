@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/anim_win_recycler"
+        android:layout_above="@+id/recite_anim_win"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
+    </android.support.v7.widget.RecyclerView>
+    <ImageView
+        android:id="@+id/recite_anim_win_out"
+        android:layout_width="@dimen/default_margin_size_2"
+        android:layout_height="@dimen/default_margin_size_2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/default_margin_size_2"
+        android:layout_marginStart="@dimen/default_margin_size_2"
+        android:src="@drawable/group_medal_detail_back_icon" />
+
+    <TextView
+        android:id="@+id/recite_anim_win"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/default_margin_size_2"
+        android:background="@drawable/btn_recite_anim_error"
+        android:gravity="center"
+        android:paddingBottom="@dimen/default_margin_size_2"
+        android:paddingEnd="@dimen/default_margin_size_6"
+        android:paddingStart="@dimen/default_margin_size_6"
+        android:paddingTop="@dimen/default_margin_size_2"
+        android:text="@string/recite_anim_win_text"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size" />
+
+    <TextView
+        android:id="@+id/recite_anim_win_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/default_margin_size_2"
+        android:background="@drawable/btn_recite_anim_black"
+        android:gravity="center"
+        android:paddingBottom="@dimen/default_margin_size_2"
+        android:paddingEnd="@dimen/default_margin_size_3"
+        android:paddingStart="@dimen/default_margin_size_3"
+        android:paddingTop="@dimen/default_margin_size_2"
+        android:text="@string/recite_anim_win_text_one"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size"
+        android:visibility="gone" />
+    <TextView
+        android:id="@+id/recite_anim_win_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/default_margin_size_2"
+        android:background="@drawable/btn_recite_anim_black"
+        android:gravity="center"
+        android:paddingBottom="@dimen/default_margin_size_2"
+        android:paddingEnd="@dimen/default_margin_size_3"
+        android:paddingStart="@dimen/default_margin_size_3"
+        android:paddingTop="@dimen/default_margin_size_2"
+        android:text="@string/recite_anim_win_text_two"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size" />
+</RelativeLayout>

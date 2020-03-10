@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/me_share_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            app:contentInsetStart="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/default_margin_size"
+                android:layout_marginStart="@dimen/default_margin_size">
+
+                <ImageView
+                    android:id="@+id/me_share_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/icon_close" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/me_share_title"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size" />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <ScrollView
+        android:id="@+id/me_share_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/me_share_relative"
+        android:layout_below="@id/me_share_appbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/me_share_relative_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blue"
+                android:padding="@dimen/default_margin_size">
+                <ImageView
+                    android:id="@+id/me_share_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/pic_clock"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentTop="true"/>
+
+                <TextView
+                    android:id="@+id/me_share_number"
+                    android:layout_below="@+id/me_share_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/me_share_number"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/me_share_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_size_2"
+                android:layout_marginBottom="@dimen/default_margin_size_2"
+                android:layout_below="@+id/me_share_relative_one"
+                android:layout_centerInParent="true"
+                android:text="@string/me_share_time"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size"/>
+
+            <com.tramp.word.widget.dataview.WeekDayView
+                android:id="@+id/me_share_week"
+                android:layout_below="@+id/me_share_time"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_margin_size_3"
+                android:layout_marginStart="@dimen/default_margin_size_3"
+                android:layout_marginEnd="@dimen/default_margin_size_3"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/me_share_recycler"
+                android:layout_below="@+id/me_share_week"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:scrollbars="none"
+                android:layout_marginStart="@dimen/default_margin_size_3"
+                android:layout_marginEnd="@dimen/default_margin_size_3" >
+
+            </android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/me_share_relative"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:paddingEnd="@dimen/default_margin_size_2"
+        android:paddingTop="@dimen/default_margin_size"
+        android:paddingStart="@dimen/default_margin_size_2"
+        android:paddingBottom="@dimen/default_margin_size">
+
+        <TextView
+            android:id="@+id/me_share_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/me_share_weixin"
+            android:layout_marginBottom="@dimen/default_margin_size_2"
+            android:layout_marginTop="@dimen/default_margin_size"
+            android:text="@string/me_share_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size" />
+
+        <ImageView
+            android:id="@+id/me_share_weixin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/me_share_weixin_text"
+            android:src="@drawable/icon_wechat"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:layout_marginEnd="@dimen/default_margin_size_3"/>
+
+        <TextView
+            android:id="@+id/me_share_weixin_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="@dimen/default_margin_size"
+            android:layout_marginTop="@dimen/default_margin_size"
+            android:layout_marginEnd="@dimen/default_margin_size_2"
+            android:text="@string/me_share_weixin_text"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4" />
+        <ImageView
+            android:id="@+id/me_share_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/me_share_weixin_text"
+            android:layout_toEndOf="@+id/me_share_weixin"
+            android:src="@drawable/icon_wx_timeline"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:layout_marginEnd="@dimen/default_margin_size"/>
+
+        <TextView
+            android:id="@+id/me_share_friend_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/default_margin_size"
+            android:layout_marginTop="@dimen/default_margin_size"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:text="@string/me_share_friend_text"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4"
+            android:layout_toEndOf="@+id/me_share_weixin_text"/>
+        <ImageView
+            android:id="@+id/me_share_weibo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/me_share_weixin_text"
+            android:src="@drawable/icon_weibo"
+            android:layout_toStartOf="@+id/me_share_kong"/>
+
+        <TextView
+            android:id="@+id/me_share_weibo_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/default_margin_size"
+            android:layout_marginTop="@dimen/default_margin_size"
+            android:text="@string/me_share_weibo_text"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4"
+            android:layout_toStartOf="@+id/me_share_kong_text"/>
+
+        <ImageView
+            android:id="@+id/me_share_kong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/me_share_weixin_text"
+            android:src="@drawable/icon_qqzone"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:layout_marginStart="@dimen/default_margin_size_4"/>
+
+        <TextView
+            android:id="@+id/me_share_kong_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/default_margin_size_2"
+            android:layout_marginBottom="@dimen/default_margin_size"
+            android:layout_marginTop="@dimen/default_margin_size"
+            android:layout_marginEnd="@dimen/default_margin_size_1"
+            android:text="@string/me_share_kong_text"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4" />
+    </RelativeLayout>
+</RelativeLayout>
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/float_window_small_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_float_window_small"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/default_margin_size_3"
+            android:layout_height="@dimen/default_margin_size_3"
+            android:src="@drawable/icon_wechat_moments_clocking_in"
+            android:layout_marginEnd="@dimen/default_margin_size_1"/>
+
+        <TextView
+            android:id="@+id/float_window_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/float_window_text"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size" />
+
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/float_window_rocket_img"
+        android:layout_width="@dimen/default_margin_size_5"
+        android:layout_height="@dimen/default_margin_size_5"
+        android:layout_centerInParent="true"
+        android:src="@drawable/main_review_icon_finished"/>
+</RelativeLayout>
+
+
+
+
+

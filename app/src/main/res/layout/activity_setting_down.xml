@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/common_toolbar"/>
+
+    <RelativeLayout
+        android:id="@+id/down_one_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_margin_size"
+        android:layout_below="@+id/toolbar">
+
+        <TextView
+            android:id="@+id/down_one_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="@string/down_one_title"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size" />
+        <TextView
+            android:id="@+id/down_one_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/down_one_left_number"
+            android:layout_centerInParent="true"
+            android:text="@string/down_left"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4"
+            android:layout_marginEnd="@dimen/default_margin_size_1"/>
+        <TextView
+            android:id="@+id/down_one_left_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/down_one_left_number"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4" />
+        <TextView
+            android:id="@+id/down_one_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/down_one_left_number"
+            android:layout_centerInParent="true"
+            android:text="@string/down_right"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4"
+            android:layout_marginEnd="@dimen/default_margin_size_1"
+            android:layout_marginStart="@dimen/default_margin_size_1"/>
+        <TextView
+            android:id="@+id/down_one_right_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/down_one_right"
+            android:layout_centerInParent="true"
+            android:text="@string/down_one_right_number"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4" />
+        <ImageView
+            android:id="@+id/down_one_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:src="@drawable/pic_select" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/down_two_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_margin_size"
+        android:layout_below="@+id/down_one_relative">
+
+        <TextView
+            android:id="@+id/down_two_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="@string/down_two_title"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size" />
+        <TextView
+            android:id="@+id/down_two_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/down_two_left_number"
+            android:layout_centerInParent="true"
+            android:text="@string/down_left"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4"
+            android:layout_marginEnd="@dimen/default_margin_size_1"/>
+        <TextView
+            android:id="@+id/down_two_left_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/down_two_left_number"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4" />
+        <TextView
+            android:id="@+id/down_two_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/down_two_left_number"
+            android:layout_centerInParent="true"
+            android:text="@string/down_right"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4"
+            android:layout_marginEnd="@dimen/default_margin_size_1"
+            android:layout_marginStart="@dimen/default_margin_size_1"/>
+        <TextView
+            android:id="@+id/down_two_right_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/down_two_right"
+            android:layout_centerInParent="true"
+            android:text="@string/down_two_right_number"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_4" />
+
+        <ImageView
+            android:id="@+id/down_two_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:src="@drawable/pic_select"
+            android:visibility="gone" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/down_three_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:layout_marginStart="@dimen/default_margin_size"
+        android:layout_below="@+id/down_two_relative"
+        android:text="@string/down_three_text"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/default_text_size_4" />
+    <TextView
+        android:id="@+id/down_three_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/down_three_text"
+        android:layout_below="@+id/down_two_relative"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:layout_marginStart="@dimen/default_margin_size"
+        android:text="@string/down_three_title"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/default_text_size_4"/>
+</RelativeLayout>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/forget_out"
+        android:layout_width="@dimen/default_margin_size_2"
+        android:layout_height="@dimen/default_margin_size_3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/default_margin_size"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:src="@drawable/common_back_normal" />
+
+    <TextView
+        android:id="@+id/forget_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:text="@string/forget_title_text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size" />
+
+    <View
+        android:id="@+id/forget_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/forget_title"
+        android:layout_marginBottom="@dimen/default_margin_size_3"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:background="@color/register_view" />
+
+        <LinearLayout
+            android:id="@+id/forget_short_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/forget_view"
+            android:layout_marginEnd="@dimen/default_margin_size_2"
+            android:layout_marginStart="@dimen/default_margin_size_2"
+            android:layout_marginTop="@dimen/default_margin_size"
+            android:background="@drawable/register_edit_selector_window"
+            android:gravity="center"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/forget_short_phone_hint_text"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/default_margin_size_5"
+                android:layout_weight="6"
+                android:background="@drawable/register_hint_back"
+                android:drawablePadding="@dimen/default_margin_size_1"
+                android:drawableStart="@drawable/icon_report_mail"
+                android:hint="@string/login_phone_hint_text"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:padding="@dimen/default_margin_size_1"
+                android:textColor="@color/black"
+                android:textCursorDrawable="@color/black"
+                android:textSize="@dimen/default_text_size" />
+
+            <ImageView
+                android:id="@+id/forget_short_img"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/default_margin_size_3"
+                android:layout_weight="1"
+                android:src="@drawable/icon_login_delate_normal"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/forget_short_error_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/forget_short_linear"
+            android:layout_below="@+id/forget_short_linear"
+            android:padding="@dimen/default_margin_size_1"
+            android:text="@string/register_number_error_text"
+            android:textColor="@color/red"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/forget_code_hint_text"
+            android:layout_width="@dimen/login_code_hint_text_width"
+            android:layout_height="@dimen/default_margin_size_5"
+            android:layout_below="@+id/forget_short_linear"
+            android:layout_marginEnd="@dimen/default_margin_size_2"
+            android:layout_marginStart="@dimen/default_margin_size_2"
+            android:layout_marginTop="@dimen/default_margin_size_3"
+            android:background="@drawable/register_edit_selector"
+            android:drawablePadding="@dimen/default_margin_size_1"
+            android:drawableStart="@drawable/icon_report_mail"
+            android:hint="@string/login_code_hint_text"
+            android:inputType="number"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:padding="@dimen/default_margin_size_1"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@color/black"
+            android:textSize="@dimen/default_text_size" />
+
+        <TextView
+            android:id="@+id/forget_code_error_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/forget_code_hint_text"
+            android:layout_below="@+id/forget_code_hint_text"
+            android:padding="@dimen/default_margin_size_1"
+            android:text="@string/login_code_error_text"
+            android:textColor="@color/red"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/forget_code_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/forget_short_linear"
+            android:layout_marginTop="@dimen/default_margin_size_3"
+            android:layout_toEndOf="@+id/forget_code_hint_text"
+            android:background="@drawable/btn_login_code_text"
+            android:gravity="center"
+            android:padding="@dimen/default_margin_size_2_1"
+            android:text="@string/login_code_text"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size" />
+
+        <TextView
+            android:id="@+id/forget_short_button_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/forget_code_hint_text"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/default_margin_size_2"
+            android:layout_marginEnd="@dimen/default_margin_size_2"
+            android:layout_marginStart="@dimen/default_margin_size_2"
+            android:layout_marginTop="@dimen/default_margin_size_4"
+            android:background="@drawable/btn_register_button_start"
+            android:gravity="center"
+            android:paddingBottom="@dimen/default_margin_size"
+            android:paddingTop="@dimen/default_margin_size"
+            android:text="@string/forget_button_start_text"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size" />
+
+        <TextView
+            android:id="@+id/forget_bottom_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/forget_short_button_start"
+            android:layout_below="@+id/forget_short_button_start"
+            android:layout_marginEnd="@dimen/default_margin_size_1"
+            android:text="@string/forget_bottom_left_text"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/forget_bottom_text_size" />
+
+        <TextView
+            android:id="@+id/forget_bottom_right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/forget_short_button_start"
+            android:layout_toEndOf="@+id/forget_bottom_left_text"
+            android:text="@string/forget_bottom_right_text"
+            android:textColor="@color/green_1"
+            android:textSize="@dimen/forget_bottom_text_size" />
+</RelativeLayout>

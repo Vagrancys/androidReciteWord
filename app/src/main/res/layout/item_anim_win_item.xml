@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/default_margin_size">
+
+    <TextView
+        android:id="@+id/item_anim_error_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_margin_size"
+        android:text="@string/item_anim_error_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_anim_error_linear"
+        android:padding="@dimen/default_margin_size_1">
+
+        <ImageView
+            android:layout_width="@dimen/default_margin_size"
+            android:layout_height="@dimen/default_margin_size"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:src="@drawable/btn_id_delete" />
+
+        <TextView
+            android:id="@+id/item_anim_error_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/item_anim_error_text"
+            android:textColor="#555"
+            android:textSize="@dimen/item_anim_error_text_size" />
+    </LinearLayout>
+</LinearLayout>

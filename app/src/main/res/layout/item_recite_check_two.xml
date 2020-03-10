@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/recite_check_relative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/recite_check_gradient_two_back">
+
+                <ImageView
+                    android:id="@+id/recite_check_img_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:background="@drawable/user_avater" />
+
+                <ImageView
+                    android:id="@+id/recite_check_img_1"
+                    android:layout_width="130dp"
+                    android:layout_height="110dp"
+                    android:layout_below="@id/recite_check_img_one"
+                    android:background="@drawable/icon_template2_01" />
+
+                <TextView
+                    android:id="@+id/recite_check_day_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/recite_check_img_one"
+                    android:layout_marginBottom="@dimen/default_margin_size"
+                    android:layout_marginStart="@dimen/default_margin_size_3"
+                    android:layout_marginTop="@dimen/default_margin_size_2"
+                    android:text="@string/recite_check_day_one_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_4" />
+
+                <TextView
+                    android:id="@+id/recite_check_day_one_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/recite_check_day_one"
+                    android:layout_below="@id/recite_check_day_one"
+                    android:layout_marginBottom="@dimen/default_margin_size"
+                    android:layout_marginStart="@dimen/default_margin_size_2"
+                    android:text="@string/recite_check_day_one_num_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_3" />
+
+                <ImageView
+                    android:id="@+id/recite_check_img_2"
+                    android:layout_width="100dp"
+                    android:layout_height="110dp"
+                    android:layout_below="@id/recite_check_img_one"
+                    android:layout_toEndOf="@+id/recite_check_img_1"
+                    android:background="@drawable/icon_template2_02" />
+
+                <TextView
+                    android:id="@+id/recite_check_one_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/recite_check_img_one"
+                    android:layout_marginStart="@dimen/default_margin_size_4"
+                    android:layout_marginTop="@dimen/default_margin_size_2"
+                    android:layout_toEndOf="@+id/recite_check_day_one"
+                    android:text="@string/recite_check_one_left_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_4" />
+
+                <TextView
+                    android:id="@+id/recite_check_one_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/recite_check_one_left"
+                    android:layout_below="@id/recite_check_one_left"
+                    android:layout_marginStart="@dimen/default_margin_size_3"
+                    android:layout_marginTop="@dimen/default_margin_size"
+                    android:layout_toEndOf="@+id/recite_check_day_one"
+                    android:text="@string/recite_check_one_right_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_3" />
+
+                <TextView
+                    android:id="@+id/recite_check_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/recite_check_img_one"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="@dimen/default_margin_size_2"
+                    android:gravity="center"
+                    android:text="@string/recite_check_1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size" />
+
+                <TextView
+                    android:id="@+id/recite_check_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/recite_check_1"
+                    android:layout_below="@+id/recite_check_1"
+                    android:layout_marginBottom="@dimen/default_margin_size_1"
+                    android:layout_marginTop="@dimen/default_margin_size_1"
+                    android:gravity="center"
+                    android:text="@string/recite_check_2"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_4" />
+
+                <View
+                    android:id="@+id/recite_check_day_view"
+                    android:layout_width="25dp"
+                    android:layout_height="2dp"
+                    android:layout_alignStart="@id/recite_check_2"
+                    android:layout_below="@id/recite_check_2"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/recite_check_3"
+                    android:layout_width="@dimen/default_margin_size_2_1"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/recite_check_day_view"
+                    android:layout_below="@id/recite_check_day_view"
+                    android:layout_marginStart="@dimen/default_margin_size_1"
+                    android:layout_marginTop="@dimen/default_margin_size_1"
+                    android:gravity="left"
+                    android:text="@string/recite_check_3"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_4" />
+
+                <ImageView
+                    android:id="@+id/recite_check_img_3"
+                    android:layout_width="130dp"
+                    android:layout_height="110dp"
+                    android:layout_below="@id/recite_check_img_1"
+                    android:background="@drawable/icon_template2_03" />
+
+                <TextView
+                    android:id="@+id/recite_check_day_three"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/recite_check_img_1"
+                    android:layout_marginBottom="@dimen/default_margin_size"
+                    android:layout_marginStart="@dimen/default_margin_size_3"
+                    android:layout_marginTop="@dimen/default_margin_size_3"
+                    android:text="@string/recite_check_three_left_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_4" />
+
+                <TextView
+                    android:id="@+id/recite_check_day_three_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/recite_check_day_one"
+                    android:layout_below="@id/recite_check_day_three"
+                    android:layout_marginBottom="@dimen/default_margin_size"
+                    android:layout_marginStart="25dp"
+                    android:text="@string/recite_check_three_right_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_3" />
+
+                <ImageView
+                    android:id="@+id/recite_check_img_4"
+                    android:layout_width="100dp"
+                    android:layout_height="110dp"
+                    android:layout_below="@id/recite_check_img_1"
+                    android:layout_toEndOf="@+id/recite_check_img_3"
+                    android:background="@drawable/icon_template2_04" />
+
+                <TextView
+                    android:id="@+id/recite_check_two_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/recite_check_img_2"
+                    android:layout_marginStart="@dimen/default_margin_size_4"
+                    android:layout_marginTop="@dimen/default_margin_size_3"
+                    android:layout_toEndOf="@+id/recite_check_day_one"
+                    android:text="@string/recite_check_two_left_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_4" />
+
+                <TextView
+                    android:id="@+id/recite_check_two_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/recite_check_two_left"
+                    android:layout_below="@id/recite_check_two_left"
+                    android:layout_marginStart="@dimen/default_margin_size_3"
+                    android:layout_marginTop="@dimen/default_margin_size"
+                    android:text="@string/recite_check_two_right_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_3" />
+
+                <TextView
+                    android:id="@+id/recite_check_rank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/recite_check_img_3"
+                    android:layout_marginBottom="@dimen/default_margin_size"
+                    android:layout_marginStart="@dimen/default_margin_size_3"
+                    android:layout_marginTop="@dimen/default_margin_size"
+                    android:gravity="left"
+                    android:text="@string/recite_check_rank_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_4" />
+
+                <ImageView
+                    android:id="@+id/recite_check_img"
+                    android:layout_width="@dimen/default_margin_size_4"
+                    android:layout_height="@dimen/default_margin_size_4"
+                    android:layout_below="@+id/recite_check_img_4"
+                    android:layout_marginBottom="@dimen/default_margin_size"
+                    android:layout_marginStart="@dimen/default_margin_size"
+                    android:layout_marginTop="-20dp"
+                    android:layout_toEndOf="@+id/recite_check_rank"
+                    android:background="@drawable/user_circle"
+                    android:src="@drawable/user_avater" />
+        </RelativeLayout>
+</LinearLayout>

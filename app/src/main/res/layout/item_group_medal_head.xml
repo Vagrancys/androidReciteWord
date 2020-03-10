@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/default_margin_size"
+    android:gravity="center|left">
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="@dimen/default_margin_size"
+        android:layout_marginEnd="@dimen/default_margin_size"
+        android:background="@color/blue" />
+    <TextView
+        android:id="@+id/item_group_medal_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_group_medal_title"
+        android:textSize="@dimen/default_text_size"
+        android:textColor="@color/black"
+        android:layout_marginEnd="@dimen/default_margin_size"/>
+    <TextView
+        android:id="@+id/item_group_medal_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_group_medal_number"
+        android:textSize="@dimen/default_text_size_4"
+        android:textColor="@color/black_1"/>
+</LinearLayout>

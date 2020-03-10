@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/word_details_back">
+    <RelativeLayout
+        android:id="@+id/word_details_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/default_margin_size_2"
+        android:paddingTop="@dimen/default_margin_size_2"
+        android:paddingStart="@dimen/default_margin_size"
+        android:paddingEnd="@dimen/default_margin_size">
+        <ImageView
+            android:id="@+id/word_details_out"
+            android:layout_width="@dimen/word_details_out"
+            android:layout_height="@dimen/word_details_out"
+            android:src="@drawable/group_medal_detail_back_icon"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:id="@+id/word_details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/word_details_title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:id="@+id/word_details_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/word_details_unselect"
+            android:textSize="@dimen/default_text_size"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/word_details_relative"
+        android:layout_marginEnd="@dimen/default_margin_size_1"
+        android:layout_marginStart="@dimen/default_margin_size_1"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_margin_size">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/word_details_num_left"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size" />
+
+            <TextView
+                android:id="@+id/word_details_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/default_margin_size"
+                android:layout_marginStart="@dimen/default_margin_size"
+                android:text="@string/word_details_num"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/default_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/word_details_num_right"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/word_details_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never">
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/word_details_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_start"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/default_margin_size_3"/>
+</RelativeLayout>

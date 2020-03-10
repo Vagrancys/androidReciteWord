@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/item_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/word_item_layout_height"
+    android:background="@color/word_book_layout_color"
+    android:padding="@dimen/default_margin_size_1">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/btn_word_book_item">
+        <ImageView
+            android:id="@+id/item_word_item_img"
+            android:layout_width="@dimen/item_word_item_img_width"
+            android:layout_height="@dimen/item_word_item_img_height"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/pic_bookcover_default"/>
+
+        <ImageView
+            android:id="@+id/item_word_book_now_img"
+            android:layout_width="@dimen/item_word_book_now_img_width"
+            android:layout_height="@dimen/item_word_book_now_img_height"
+            android:layout_below="@+id/item_word_item_img"
+            android:layout_marginTop="-145dp"
+            android:src="@drawable/img_mybook_tag"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/item_word_book_train_img"
+            android:layout_width="@dimen/item_word_book_train_img_width"
+            android:layout_height="@dimen/item_word_book_train_img_height"
+            android:layout_below="@+id/item_word_item_img"
+            android:layout_marginStart="@dimen/default_margin_size_1"
+            android:layout_marginTop="-20dp"
+            android:src="@drawable/pic_select"
+            android:visibility="gone" />
+        <TextView
+            android:id="@+id/item_word_book_head_text"
+            android:layout_width="@dimen/item_word_book_item_text_width"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/item_word_item_img"
+            android:layout_marginTop="@dimen/default_margin_size_2"
+            android:layout_marginBottom="@dimen/default_margin_size_2_1"
+            android:text="@string/item_word_head_text"
+            android:textSize="@dimen/item_word_book_head_text_size"
+            android:textColor="@color/item_word_book_head_text_color"/>
+        <TextView
+            android:id="@+id/item_word_book_item_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/item_word_item_img"
+            android:layout_below="@+id/item_word_book_head_text"
+            android:layout_marginBottom="@dimen/default_margin_size_2_1"
+            android:text="@string/item_word_book_item_text"
+            android:textSize="@dimen/item_word_book_item_text_size"
+            android:textColor="@color/item_word_book_item_text_color"/>
+        <TextView
+            android:id="@+id/item_word_book_num_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/item_word_item_img"
+            android:layout_below="@+id/item_word_book_item_text"
+            android:text="@string/item_word_book_num_text"
+            android:textSize="@dimen/item_word_book_num_text_size"
+            android:textColor="@color/item_word_book_num_text_color"/>
+        <ImageView
+            android:id="@+id/item_word_book_perfect"
+            android:layout_width="@dimen/item_word_book_item_perfect_width"
+            android:layout_height="@dimen/item_word_book_item_perfect_height"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/default_margin_size_2_1"
+            android:src="@drawable/icon_boutique"/>
+    </RelativeLayout>
+</LinearLayout>

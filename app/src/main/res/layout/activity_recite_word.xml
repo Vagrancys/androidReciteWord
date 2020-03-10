@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recite_book_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/recite_book_bottom"
+        android:overScrollMode="never">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <ImageView
+        android:id="@+id/recite_book_out"
+        android:layout_width="@dimen/recite_book_out_width"
+        android:layout_height="@dimen/recite_book_out_height"
+        android:layout_marginTop="@dimen/default_margin_size_2"
+        android:layout_marginStart="@dimen/default_margin_size_2"/>
+    <ImageView
+        android:id="@+id/recite_book_img"
+        android:layout_width="@dimen/recite_book_img"
+        android:layout_height="@dimen/recite_book_img"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/default_margin_size"
+        android:layout_marginBottom="@dimen/default_margin_size_3"/>
+    <RelativeLayout
+        android:id="@+id/recite_book_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/recite_word_tab_bottom"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/recite_book_left_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="95dp"
+            android:text="@string/recite_book_left_number_text"
+            android:textColor="@color/recite_book_left_text_color"
+            android:textSize="@dimen/recite_book_left_text_size" />
+
+        <TextView
+            android:id="@+id/recite_book_right_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:layout_toEndOf="@+id/recite_book_left_number"
+            android:text="@string/recite_book_right_number_text"
+            android:textColor="@color/recite_book_right_text_color"
+            android:textSize="@dimen/recite_book_right_text_size" />
+
+        <ImageView
+            android:id="@+id/recite_star_img"
+            android:layout_width="@dimen/recite_star_img"
+            android:layout_height="@dimen/recite_star_img"
+            android:layout_centerInParent="true"
+            android:layout_toStartOf="@+id/recite_book_left_star"/>
+
+        <TextView
+            android:id="@+id/recite_book_left_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:text="@string/recite_book_left_star_text"
+            android:textColor="@color/recite_book_left_text_color"
+            android:textSize="@dimen/recite_book_left_text_size"
+            android:layout_toStartOf="@+id/recite_book_right_star"/>
+        <TextView
+            android:id="@+id/recite_book_right_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recite_book_right_star_text"
+            android:textColor="@color/recite_book_right_text_color"
+            android:textSize="@dimen/recite_book_right_text_size"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/default_margin_size_2"
+            android:layout_centerInParent="true"/>
+        </RelativeLayout>
+</RelativeLayout>
+
+
+
+

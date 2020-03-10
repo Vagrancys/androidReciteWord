@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/anim_error_recycler"
+        android:layout_above="@+id/recite_anim_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
+    </android.support.v7.widget.RecyclerView>
+    <ImageView
+        android:id="@+id/recite_anim_error_out"
+        android:layout_width="@dimen/default_margin_size_2"
+        android:layout_height="@dimen/default_margin_size_2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/default_margin_size_2"
+        android:layout_marginStart="@dimen/default_margin_size_2"
+        android:src="@drawable/group_medal_detail_back_icon" />
+
+    <TextView
+        android:id="@+id/recite_anim_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/default_margin_size_2"
+        android:layout_marginBottom="@dimen/default_margin_size_2"
+        android:text="@string/recite_anim_error_text"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size"
+        android:paddingTop="@dimen/default_margin_size"
+        android:paddingBottom="@dimen/default_margin_size"
+        android:layout_marginStart="@dimen/default_margin_size_4"
+        android:layout_marginEnd="@dimen/default_margin_size_4"
+        android:gravity="center"
+        android:background="@drawable/btn_recite_anim_error"/>
+</RelativeLayout>

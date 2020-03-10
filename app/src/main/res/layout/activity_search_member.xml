@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/search_member_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:padding="@dimen/default_margin_size">
+        <ImageView
+            android:id="@+id/search_member_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_acionbar_back_white"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
+
+        <EditText
+            android:id="@+id/search_member_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin_size_2"
+            android:layout_marginEnd="@dimen/default_margin_size_2"
+            android:layout_toEndOf="@+id/search_member_out"
+            android:layout_toStartOf="@+id/search_member_img"
+            android:background="@drawable/btn_search_member_edit"
+            android:hint="@string/search_member_edit"
+            android:textSize="@dimen/default_text_size_5"
+            android:textColor="@color/black_1"
+            android:textColorHint="@color/black_1"/>
+        <ImageView
+            android:id="@+id/search_member_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_search"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_member_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>
+
+
+
+

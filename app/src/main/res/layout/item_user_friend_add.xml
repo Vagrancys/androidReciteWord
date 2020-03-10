@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/default_margin_size">
+
+    <ImageView
+        android:id="@+id/friend_add_img"
+        android:layout_width="@dimen/default_margin_size_5"
+        android:layout_height="@dimen/default_margin_size_5"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/user_avater"
+        android:layout_marginEnd="@dimen/default_margin_size"/>
+
+    <TextView
+        android:id="@+id/friend_add_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/friend_add_img"
+        android:text="@string/friend_add_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size"
+        android:layout_marginBottom="@dimen/default_margin_size"/>
+
+    <TextView
+        android:id="@+id/friend_add_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/friend_add_img"
+        android:layout_below="@+id/friend_add_name"
+        android:text="@string/friend_add_text"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/default_text_size_4" />
+
+    <TextView
+        android:id="@+id/friend_add_neglect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/friend_add_neglect"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/default_text_size"
+        android:background="@drawable/friend_add_neglect_back"
+        android:padding="@dimen/default_margin_size"
+        android:layout_centerInParent="true"
+        android:layout_toStartOf="@+id/friend_add_accept"
+        android:layout_marginEnd="@dimen/default_margin_size"/>
+
+    <TextView
+        android:id="@+id/friend_add_accept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/friend_add_accept"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size"
+        android:background="@drawable/friend_add_accept_back"
+        android:padding="@dimen/default_margin_size"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>
+
+
+
+
+
+

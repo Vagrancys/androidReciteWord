@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/common_toolbar"/>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/return_swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/default_margin_size_4"
+            android:paddingStart="@dimen/default_margin_size"
+            android:paddingEnd="@dimen/default_margin_size">
+            <TextView
+                android:id="@+id/return_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/return_title_text"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size_4"
+                android:layout_marginBottom="@dimen/default_margin_size_2"
+                android:layout_centerInParent="true"
+                android:layout_alignParentTop="true"/>
+            <TextView
+                android:id="@+id/return_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/return_money_text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size"
+                android:layout_below="@+id/return_title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/default_margin_size_2"/>
+            <TextView
+                android:id="@+id/return_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_bottom_enabled_true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/return_money"
+                android:text="@string/return_bottom_text"
+                android:textSize="@dimen/default_text_size"
+                android:textColor="@color/white"
+                android:layout_marginBottom="@dimen/default_margin_size"/>
+            <TextView
+                android:id="@+id/return_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/return_bottom"
+                android:layout_centerHorizontal="true"
+                android:text="@string/return_help_text"
+                android:textSize="@dimen/default_text_size"
+                android:textColor="@color/blue"
+                android:layout_marginBottom="@dimen/default_margin_size_2"/>
+            <TextView
+                android:id="@+id/return_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/return_help"
+                android:text="@string/return_text"
+                android:textSize="@dimen/default_text_size"
+                android:textColor="@color/black"
+                android:layout_marginBottom="@dimen/default_margin_size"/>
+            <TextView
+                android:id="@+id/return_default"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/return_default_text"
+                android:textSize="@dimen/default_text_size"
+                android:textColor="@color/black_1"
+                android:layout_below="@+id/return_text"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/default_margin_size_5"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/return_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/return_text"
+                android:overScrollMode="never"
+                android:scrollbars="none"
+                android:visibility="gone"></android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>
+
+
+
+
+
+

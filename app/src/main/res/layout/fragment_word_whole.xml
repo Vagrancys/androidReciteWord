@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/word_book_menu_height"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/word_whole_left_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:background="@drawable/btn_word_book_menu">
+                <TextView
+                    android:id="@+id/word_book_menu_left_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/default_margin_size_1"
+                    android:text="@string/word_book_menu_left_text"
+                    android:textSize="@dimen/word_book_menu_text_size"
+                    android:textColor="@color/word_book_menu_text_color"/>
+                <ImageView
+                    android:id="@+id/word_book_menu_left_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_submenu"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/word_whole_right_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginStart="-2dp"
+                android:background="@drawable/btn_word_book_menu">
+                <TextView
+                    android:id="@+id/word_book_menu_right_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/default_margin_size_1"
+                    android:text="@string/word_book_menu_right_text"
+                    android:textSize="@dimen/word_book_menu_text_size"
+                    android:textColor="@color/word_book_menu_text_color"/>
+                <ImageView
+                    android:id="@+id/word_book_menu_right_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_submenu"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/view_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never">
+            </android.support.v7.widget.RecyclerView>
+
+            <LinearLayout
+                android:id="@+id/word_book_right_head"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.5"
+                android:background="@color/black"
+                android:visibility="gone"
+                android:orientation="vertical">
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/word_book_right_common"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/word_book_right_height"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/book_left_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:overScrollMode="never"></android.support.v7.widget.RecyclerView>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/book_right_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:overScrollMode="never"></android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/word_language_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:overScrollMode="never"
+                android:visibility="gone">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+

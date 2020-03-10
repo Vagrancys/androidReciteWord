@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/default_margin_size">
+
+    <ImageView
+        android:id="@+id/item_sign_img"
+        android:layout_width="@dimen/default_margin_size_3"
+        android:layout_height="@dimen/default_margin_size_3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/default_margin_size"
+        android:src="@drawable/checkin_icon_coin" />
+
+    <ImageView
+        android:id="@+id/item_sign_num"
+        android:layout_width="@dimen/default_margin_size_2_1"
+        android:layout_height="@dimen/default_margin_size_2_1"
+        android:layout_below="@+id/item_sign_img"
+        android:layout_marginStart="-10dp"
+        android:layout_marginTop="-20dp"
+        android:layout_toEndOf="@+id/item_sign_img"
+        android:src="@drawable/checkin_img_x_10" />
+
+    <TextView
+        android:id="@+id/item_sign_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_sign_img"
+        android:layout_centerHorizontal="true"
+        android:text="@string/item_sign_title"
+        android:textColor="@color/black"
+        android:textSize="10sp" />
+</RelativeLayout>

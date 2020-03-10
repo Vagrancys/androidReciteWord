@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/default_margin_size_1"
+    android:paddingTop="@dimen/default_margin_size_1">
+    <LinearLayout
+        android:id="@+id/popup_recite_gate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_list_g_disable" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:gravity="center"
+            android:text="@string/recite_item_list"
+            android:textColor="@color/black"
+            android:textSize="@dimen/recite_item_list_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/popup_recite_letter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_list_a_disable" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:gravity="center"
+            android:text="@string/recite_item_letter"
+            android:textColor="@color/black"
+            android:textSize="@dimen/recite_item_list_size" />
+    </LinearLayout>
+</LinearLayout>

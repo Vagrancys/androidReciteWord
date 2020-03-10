@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/float_window_big_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/btn_float_window_big"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/float_window_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/float_window_clock"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size" />
+
+    <TextView
+        android:id="@+id/float_window_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/float_window_back"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size" />
+</LinearLayout>
+
+
+
+
+
+
+
+

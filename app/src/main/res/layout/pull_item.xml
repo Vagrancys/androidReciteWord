@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_pull_word_background"
+        android:paddingBottom="@dimen/default_margin_size_1"
+        android:paddingTop="@dimen/default_margin_size_1">
+
+        <ImageView
+            android:id="@+id/pull_word_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/default_margin_size_2"
+            android:src="@drawable/icon_smile" />
+
+        <TextView
+            android:id="@+id/pull_word_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="@dimen/default_margin_size_2"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:layout_toEndOf="@+id/pull_word_img"
+            android:text="@string/pull_word_text"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+</LinearLayout>
+
+
+

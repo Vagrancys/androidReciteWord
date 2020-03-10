@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/forget_out"
+        android:layout_width="@dimen/default_margin_size_2"
+        android:layout_height="@dimen/default_margin_size_3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/default_margin_size"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:src="@drawable/common_back_normal" />
+
+    <TextView
+        android:id="@+id/forget_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:text="@string/forget_reset_title_text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size" />
+
+    <View
+        android:id="@+id/forget_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/forget_title"
+        android:layout_marginBottom="@dimen/default_margin_size_3"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:background="@color/register_view" />
+
+    <EditText
+        android:id="@+id/forget_pass_hint_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_margin_size_5"
+        android:layout_below="@+id/forget_view"
+        android:layout_marginBottom="@dimen/default_margin_size_2"
+        android:layout_marginEnd="@dimen/default_margin_size_2"
+        android:layout_marginStart="@dimen/default_margin_size_2"
+        android:layout_marginTop="@dimen/default_margin_size_3"
+        android:background="@drawable/register_edit_selector"
+        android:drawablePadding="@dimen/default_margin_size_1"
+        android:drawableStart="@drawable/icon_report_mail"
+        android:hint="@string/forget_pass_hint_text"
+        android:inputType="textPassword"
+        android:maxLength="11"
+        android:maxLines="1"
+        android:padding="@dimen/default_margin_size_1"
+        android:textColor="@color/black"
+        android:textCursorDrawable="@color/black"
+        android:textSize="@dimen/default_text_size" />
+
+    <TextView
+        android:id="@+id/forget_powerful_one"
+        android:layout_width="@dimen/register_powerful_width"
+        android:layout_height="@dimen/register_powerful_height"
+        android:layout_alignStart="@+id/forget_pass_hint_text"
+        android:layout_below="@+id/forget_pass_hint_text"
+        android:layout_marginEnd="@dimen/default_margin_size_2"
+        android:background="@color/register_powerful_color" />
+
+    <TextView
+        android:id="@+id/forget_powerful_two"
+        android:layout_width="@dimen/register_powerful_width"
+        android:layout_height="@dimen/register_powerful_height"
+        android:layout_below="@+id/forget_pass_hint_text"
+        android:layout_marginEnd="@dimen/default_margin_size_2"
+        android:layout_toEndOf="@+id/forget_powerful_one"
+        android:background="@color/register_powerful_color" />
+
+    <TextView
+        android:id="@+id/forget_powerful_three"
+        android:layout_width="@dimen/register_powerful_width"
+        android:layout_height="@dimen/register_powerful_height"
+        android:layout_below="@+id/forget_pass_hint_text"
+        android:layout_marginEnd="@dimen/default_margin_size_2"
+        android:layout_toEndOf="@id/forget_powerful_two"
+        android:background="@color/register_powerful_color" />
+
+    <EditText
+        android:id="@+id/forget_passed_hint_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_margin_size_5"
+        android:layout_below="@+id/forget_powerful_one"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/default_margin_size"
+        android:layout_marginEnd="@dimen/default_margin_size_2"
+        android:layout_marginStart="@dimen/default_margin_size_2"
+        android:layout_marginTop="@dimen/default_margin_size_3"
+        android:background="@drawable/register_edit_selector"
+        android:drawablePadding="@dimen/default_margin_size_1"
+        android:drawableStart="@drawable/icon_report_mail"
+        android:hint="@string/forget_passed_hint_text"
+        android:inputType="textPassword"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:padding="@dimen/default_margin_size_1"
+        android:textColor="@color/black"
+        android:textCursorDrawable="@color/black"
+        android:textSize="@dimen/default_text_size" />
+
+
+    <TextView
+        android:id="@+id/forget_button_pass_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/forget_passed_hint_text"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/default_margin_size"
+        android:layout_marginEnd="@dimen/default_margin_size_2"
+        android:layout_marginStart="@dimen/default_margin_size_2"
+        android:layout_marginTop="@dimen/default_margin_size_2"
+        android:background="@drawable/btn_register_button_start"
+        android:gravity="center"
+        android:paddingBottom="@dimen/default_margin_size"
+        android:paddingTop="@dimen/default_margin_size"
+        android:text="@string/forget_button_pass_start_text"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size" />
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/default_margin_size_6"
+    android:layout_height="@dimen/default_margin_size_6"
+    android:orientation="vertical"
+    android:layout_marginEnd="@dimen/default_margin_size_1"
+    android:layout_marginTop="@dimen/default_margin_size_1"
+    android:layout_marginBottom="@dimen/default_margin_size_1"
+    android:background="@drawable/btn_word_recite_letter"
+    android:gravity="center">
+    <TextView
+        android:id="@+id/item_word_recite_anim_letter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_recite_anim_letter"
+        android:textColor="@color/black"
+        android:textSize="@dimen/item_word_recite_anim_letter_size"/>
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/recite_footer_push_height"
+    android:layout_marginTop="@dimen/default_margin_size_2">
+    <ImageView
+            android:id="@+id/recite_footer_push_img"
+            android:layout_width="@dimen/recite_footer_push_img_width"
+            android:layout_height="@dimen/recite_footer_push_img_height"
+            android:layout_marginStart="@dimen/default_margin_size_2"
+            android:layout_marginTop="@dimen/default_margin_size_1"
+            android:layout_marginBottom="@dimen/default_margin_size_1"
+            android:layout_marginEnd="@dimen/default_margin_size_2_1"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+        android:src="@drawable/award_icon_common"/>
+
+    <TextView
+            android:layout_toEndOf="@+id/recite_footer_push_img"
+            android:id="@+id/recite_footer_push_head_text"
+            android:layout_marginTop="@dimen/default_margin_size_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recite_footer_push_head_text"
+            android:textColor="@color/recite_footer_push_head_text"
+            android:textSize="@dimen/recite_footer_push_head_text_size"/>
+
+    <TextView
+            android:id="@+id/recite_footer_push_footer_text"
+            android:layout_below="@+id/recite_footer_push_head_text"
+            android:layout_toEndOf="@+id/recite_footer_push_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_size_1"
+            android:text="@string/recite_footer_push_footer_text"
+            android:textColor="@color/recite_footer_push_footer_text"
+            android:textSize="@dimen/recite_footer_push_footer_text_size"/>
+
+    <ImageView
+        android:layout_width="@dimen/recite_footer_push_skip_width"
+        android:layout_height="@dimen/recite_footer_push_skip_height"
+        android:layout_marginEnd="@dimen/default_margin_size_2"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/group_share_invite_back"
+        />
+</RelativeLayout>
+
+
+
+
+
+
+
+
+

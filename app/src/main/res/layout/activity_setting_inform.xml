@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white_1">
+
+    <include layout="@layout/common_toolbar"/>
+    <RelativeLayout
+        android:id="@+id/inform_weixin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/default_margin_size_2">
+
+        <TextView
+            android:id="@+id/inform_weixin_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/inform_weixin_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size" />
+
+        <CheckBox
+            android:id="@+id/inform_weixin_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:button="@drawable/default_check_bg" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/black_2" />
+
+    <RelativeLayout
+        android:id="@+id/inform_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/default_margin_size_2"
+        android:clickable="false">
+        <TextView
+            android:id="@+id/inform_time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inform_time_text"
+            android:textColor="@color/black_2"
+            android:textSize="@dimen/default_text_size"
+            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true"/>
+        <TextView
+            android:id="@+id/inform_time_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inform_time_title"
+            android:textColor="@color/black_2"
+            android:textSize="@dimen/default_text_size"
+            android:layout_centerInParent="true"
+            android:layout_toStartOf="@+id/inform_time_out"/>
+        <ImageView
+            android:id="@+id/inform_time_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_right_arrow_gray"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/default_margin_size" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/black_2" />
+
+    <RelativeLayout
+        android:id="@+id/inform_system"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/default_margin_size_2">
+        <TextView
+            android:id="@+id/inform_system_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inform_system_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size"
+            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true"/>
+        <CheckBox
+            android:id="@+id/inform_system_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:button="@drawable/default_check_bg"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <View
+    android:layout_width="match_parent"
+    android:layout_height="1px"
+    android:background="@color/black_2" />
+
+    <RelativeLayout
+        android:id="@+id/inform_system_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/default_margin_size_2">
+        <TextView
+            android:id="@+id/inform_system_time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inform_system_time_text"
+            android:textColor="@color/black_2"
+            android:textSize="@dimen/default_text_size"
+            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:id="@+id/inform_system_time_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inform_system_time_title"
+            android:textColor="@color/black_2"
+            android:textSize="@dimen/default_text_size"
+            android:layout_centerInParent="true"
+            android:layout_toStartOf="@+id/inform_system_time_out"/>
+        <ImageView
+            android:id="@+id/inform_system_time_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_right_arrow_gray"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/default_margin_size" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/black_2"/>
+
+    <RelativeLayout
+        android:id="@+id/inform_pk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/default_margin_size_2">
+        <TextView
+            android:id="@+id/inform_pk_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inform_pk_text"
+            android:textColor="@color/black_2"
+            android:textSize="@dimen/default_text_size"
+            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true" />
+        <CheckBox
+            android:id="@+id/inform_pk_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:button="@drawable/default_check_bg"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/black_2" />
+
+    <RelativeLayout
+        android:id="@+id/inform_friend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/default_margin_size_2">
+        <TextView
+            android:id="@+id/inform_friend_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inform_friend_text"
+            android:textColor="@color/black_2"
+            android:textSize="@dimen/default_text_size"
+            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true"/>
+        <CheckBox
+            android:id="@+id/inform_friend_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:button="@drawable/default_check_bg"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/black_2" />
+
+    <RelativeLayout
+        android:id="@+id/inform_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/default_margin_size_2">
+        <TextView
+            android:id="@+id/inform_group_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inform_group_text"
+            android:textColor="@color/black_2"
+            android:textSize="@dimen/default_text_size"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="@dimen/default_margin_size_1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+
+            android:layout_below="@id/inform_group_text"
+            android:text="@string/inform_group_bottom"
+            android:textSize="@dimen/default_text_size_4"
+            android:textColor="@color/black_2"/>
+        <CheckBox
+            android:id="@+id/inform_group_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:button="@drawable/default_check_bg"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/black_2" />
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
