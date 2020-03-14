@@ -159,6 +159,7 @@
 
         <activity android:name=".module.home.me.MeGiftActivity"/>
 
+        <activity android:name=".module.pk.WordPkActivity"/>
     </application>
 
 </manifest>

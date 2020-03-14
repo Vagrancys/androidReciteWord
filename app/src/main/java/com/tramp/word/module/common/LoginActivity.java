@@ -245,6 +245,8 @@ public class LoginActivity extends RxBaseActivity {
                 }
             }
         });
+        mLoginUserHintText.setText("123");
+        mLoginPassHintText.setText("123");
     }
 
     private void PhoneLogin(){
@@ -270,11 +272,11 @@ public class LoginActivity extends RxBaseActivity {
             Utils.ShowToast(getBaseContext(),"请填写好帐号和密码!");
             return;
         }
-        if(!mLoginUserHintText.getText().toString().equals("w937895433")){
+        if(!mLoginUserHintText.getText().toString().equals("123")){
             Utils.ShowToast(getBaseContext(),"该帐号未注册!");
             return;
         }
-        if(!mLoginPassHintText.getText().toString().equals("wangzhihua519.")){
+        if(!mLoginPassHintText.getText().toString().equals("123")){
             Utils.ShowToast(getBaseContext(),"密码错误!");
             return;
         }

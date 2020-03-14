@@ -2,6 +2,7 @@ package com.tramp.word.module.home.me;
 
 import android.os.Bundle;
 
+import com.tramp.word.R;
 import com.tramp.word.base.RxBaseActivity;
 
 /**
@@ -11,7 +12,7 @@ import com.tramp.word.base.RxBaseActivity;
 public class MeGiftActivity extends RxBaseActivity{
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.activity_me_share;
     }
 
     @Override

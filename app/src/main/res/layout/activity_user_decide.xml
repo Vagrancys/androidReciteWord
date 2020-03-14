@@ -20,28 +20,30 @@
         android:layout_marginTop="@dimen/default_margin_size_2"
         android:layout_centerInParent="true"
         android:src="@drawable/login_center_img"/>
-    <TextView
-        android:id="@+id/user_decide_register"
-        android:layout_below="@+id/user_decide_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="@dimen/default_margin_size_2"
-        android:layout_marginStart="@dimen/default_margin_size_2"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_user_decide_register"
-        android:text="@string/user_decide_register_text"
-        android:textColor="@color/white"
-        android:textSize="@dimen/default_text_size"/>
-    <TextView
-        android:id="@+id/user_decide_login"
-        android:layout_below="@+id/user_decide_content"
-        android:layout_marginTop="@dimen/default_margin_size_2"
-        android:layout_marginEnd="@dimen/default_margin_size_2"
-        android:background="@drawable/btn_user_decide_login"
-        android:layout_alignParentEnd="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/user_decide_login_text"
-        android:textColor="@color/blue"
-        android:textSize="@dimen/default_text_size"/>
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/default_margin_size_4"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/user_decide_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_user_decide_register"
+            android:text="@string/user_decide_register_text"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size"
+            android:layout_marginEnd="@dimen/default_margin_size_5"/>
+        <TextView
+            android:id="@+id/user_decide_login"
+            android:background="@drawable/btn_user_decide_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_decide_login_text"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/default_text_size"/>
+    </LinearLayout>
+
 </RelativeLayout>

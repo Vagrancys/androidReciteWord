@@ -24,7 +24,7 @@ public class WordWholeItemViewSection extends StatelessSection {
     private WordBookPopInterFace mPop;
 
     public WordWholeItemViewSection(Context context){
-        super(R.layout.item_empty,R.layout.item_word_whole_item,R.layout.item_word_whole_item_footer);
+        super(R.layout.item_empty,R.layout.item_word_whole_item_footer,R.layout.item_word_whole_item);
         this.context=context;
         mPop=(WordBookPopInterFace) context;
     }
