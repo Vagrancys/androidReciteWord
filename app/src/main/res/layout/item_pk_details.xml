@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/default_margin_size_2">
+
+    <TextView
+        android:id="@+id/details_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_week"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size_18sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"/>
+
+    <LinearLayout
+        android:id="@+id/details_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/details_one_img"
+            android:layout_width="@dimen/default_margin_size_3"
+            android:layout_height="@dimen/default_margin_size_3"
+            android:layout_marginEnd="@dimen/default_margin_size_5"
+            android:src="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/details_two_img"
+            android:layout_width="@dimen/default_margin_size_3"
+            android:layout_height="@dimen/default_margin_size_3"
+            android:src="@drawable/back" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/details_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="@dimen/default_margin_size_5"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_toStartOf="@+id/details_two">
+        <TextView
+            android:id="@+id/details_one_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_18sp"
+            android:text="@string/check_month"/>
+        <TextView
+            android:id="@+id/details_one_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/default_text_size_16sp"
+            android:textColor="@color/black_1"
+            android:text="@string/check_day"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/details_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true">
+        <TextView
+            android:id="@+id/details_two_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_18sp"
+            android:text="@string/user_name_text"/>
+        <TextView
+            android:id="@+id/details_two_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/default_text_size_16sp"
+            android:textColor="@color/black_1"
+            android:text="@string/win_meaning"/>
+    </LinearLayout>
+</RelativeLayout>

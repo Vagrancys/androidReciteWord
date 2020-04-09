@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/btn_background_radius"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/u_dialog_upgrade_top" />
+
+    <TextView
+        android:id="@+id/default_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin_size_3"
+        android:layout_marginBottom="@dimen/default_margin_size"
+        android:text="@string/about_update_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size_18sp" />
+
+    <TextView
+        android:id="@+id/default_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_margin_size_3"
+        android:text="@string/about_update_message"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/default_text_size_14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_margin_size_2">
+
+        <TextView
+            android:id="@+id/default_cancel"
+            android:layout_width="@dimen/default_margin_size_0"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:layout_weight="1"
+            android:background="@drawable/btn_about_update_cancel"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_16sp" />
+
+        <TextView
+            android:id="@+id/default_ok"
+            android:layout_width="@dimen/default_margin_size_0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_about_update_ok"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size_16sp" />
+    </LinearLayout>
+</LinearLayout>

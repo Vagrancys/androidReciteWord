@@ -31,5 +31,5 @@
         android:layout_centerHorizontal="true"
         android:text="@string/item_sign_title"
         android:textColor="@color/black"
-        android:textSize="10sp" />
+        android:textSize="@dimen/default_text_size_10sp" />
 </RelativeLayout>

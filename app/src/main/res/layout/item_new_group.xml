@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/default_margin_size">
+
+    <ImageView
+        android:id="@+id/item_new_group_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_margin_size"
+        android:src="@drawable/icon_wordbook_select" />
+
+    <TextView
+        android:id="@+id/item_new_group_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin_size"
+        android:text="@string/item_new_group_text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size_18sp" />
+</LinearLayout>

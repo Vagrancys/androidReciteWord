@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.tramp.word.R;
 import com.tramp.word.base.RxBaseActivity;
+import com.tramp.word.utils.ConstantUtils;
+import com.tramp.word.utils.PreferencesUtils;
 import com.tramp.word.utils.Utils;
 
 import java.io.File;
@@ -48,6 +50,7 @@ public class SettingDownActivity  extends RxBaseActivity {
     private String path="/storage/";
     private File mPath;
     private int status;
+    private int DOWN_RESULT=23;
     @Override
     public int getLayoutId() {
         return R.layout.activity_setting_down;
@@ -69,39 +72,42 @@ public class SettingDownActivity  extends RxBaseActivity {
         initData();
         DownOneImg.setVisibility(View.GONE);
         DownTwoImg.setVisibility(View.GONE);
-        if(status==1){
+        if(PreferencesUtils.getInt(ConstantUtils.SETTING_DOWN_CODE,0)==0){
             DownOneImg.setVisibility(View.VISIBLE);
-        }else if(status==2) {
+        }else{
             DownTwoImg.setVisibility(View.VISIBLE);
         }
         DownOneRelative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DownOneImg.setVisibility(View.VISIBLE);
-                status=1;
+                status=0;
                 DownTwoImg.setVisibility(View.GONE);
                 mPath=Environment.getExternalStorageDirectory();
                 DownThreeTitle.setText(path+mPath.getPath());
-                Intent intent=new Intent();
-                intent.putExtra("down",status);
-                setResult(16,intent);
-                finish();
+                PreferencesUtils.putInt(ConstantUtils.SETTING_DOWN_CODE,0);
+                initResult();
             }
         });
+
         DownTwoRelative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DownTwoImg.setVisibility(View.VISIBLE);
-                status=2;
+                status=1;
                 DownOneImg.setVisibility(View.GONE);
                 mPath=Environment.getDataDirectory();
                 DownThreeTitle.setText(path+mPath.getPath());
-                Intent intent=new Intent();
-                intent.putExtra("down",status);
-                setResult(16,intent);
-                finish();
+                PreferencesUtils.putInt(ConstantUtils.SETTING_DOWN_CODE,1);
+                initResult();
             }
         });
+    }
+    private void initResult(){
+        Intent intent=new Intent();
+        intent.putExtra(ConstantUtils.SETTING_DOWN_CODE,status);
+        setResult(DOWN_RESULT,intent);
+        finish();
     }
 
     private void initData(){

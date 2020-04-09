@@ -10,21 +10,22 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tramp.word.R;
+import com.tramp.word.entity.book.BookListInfo;
+import com.tramp.word.utils.ConstantUtils;
+import com.tramp.word.utils.PreferencesUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2019/1/14.
  */
 
 public class BookLeftViewAdapter extends AbsRecyclerViewAdapter{
-    private String[] title={
-            "推荐","大学","高中",
-            "初中","小学","兴趣",
-            "留学","职场","网校"
-    };
-
-    private int TitleSeclet=5;
-    public BookLeftViewAdapter(RecyclerView recyclerView){
+    private List<BookListInfo.One> mLeftList;
+    public BookLeftViewAdapter(RecyclerView recyclerView, List<BookListInfo.One> leftList){
         super(recyclerView);
+        mLeftList=leftList;
     }
 
     @NonNull
@@ -40,16 +41,17 @@ public class BookLeftViewAdapter extends AbsRecyclerViewAdapter{
     public void onBindViewHolder(ClickableViewHolder holder, int position) {
         if(holder instanceof ItemViewHolder){
             ItemViewHolder mHolder=(ItemViewHolder) holder;
-            mHolder.mTextView.setText(title[position]);
-            if(TitleSeclet==position){
+            mHolder.mTextView.setText(mLeftList.get(position).getOne_name());
+            if(mLeftList.get(position).getStatus()==1){
                 mHolder.mLinear.setBackgroundColor(Color.WHITE);
             }
         }
+        super.onBindViewHolder(holder, position);
     }
 
     @Override
     public int getItemCount() {
-        return title.length;
+        return mLeftList.size();
     }
 
     public class ItemViewHolder extends ClickableViewHolder{

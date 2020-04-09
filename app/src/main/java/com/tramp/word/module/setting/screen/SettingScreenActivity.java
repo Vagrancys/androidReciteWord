@@ -63,10 +63,46 @@ public class SettingScreenActivity extends RxBaseActivity{
 
     @Override
     public void initView(Bundle save) {
+        initData();
+        initClick();
+
+    }
+
+    private void initData(){
+        if(PreferencesUtils.getInt(ConstantUtils.SETTING_SCREEN_CODE,0)==1){
+            ScreenLockCheck.setChecked(true);
+            ScreenBack.setClickable(true);
+            ScreenBackText.setTextColor(getResources().getColor(R.color.black));
+            ScreenRecover.setClickable(true);
+            ScreenRecoverTitle.setTextColor(getResources().getColor(R.color.black));
+            ScreenLife.setClickable(true);
+            ScreenLifeTitle.setTextColor(getResources().getColor(R.color.black));
+        }else{
+            ScreenLockCheck.setChecked(false);
+            PreferencesUtils.putInt(ConstantUtils.SETTING_SCREEN_CODE,0);
+            ScreenBack.setClickable(false);
+            ScreenBackText.setTextColor(getResources().getColor(R.color.black_1));
+            ScreenRecover.setClickable(false);
+            ScreenRecoverTitle.setTextColor(getResources().getColor(R.color.black));
+            ScreenLife.setClickable(false);
+            ScreenLifeTitle.setTextColor(getResources().getColor(R.color.black));
+        }
+
+        if(PreferencesUtils.getInt(ConstantUtils.SETTING_WORD_CODE,0)==1){
+            ScreenLifeImg.setVisibility(View.VISIBLE);
+            ScreenRecoverImg.setVisibility(View.GONE);
+        }else{
+            ScreenRecoverImg.setVisibility(View.VISIBLE);
+            ScreenLifeImg.setVisibility(View.GONE);
+        }
+    }
+
+    private void initClick(){
         ScreenLockCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
+                    PreferencesUtils.putInt(ConstantUtils.SETTING_SCREEN_CODE,1);
                     ScreenBack.setClickable(true);
                     ScreenBackText.setTextColor(getResources().getColor(R.color.black));
                     ScreenRecover.setClickable(true);
@@ -74,6 +110,7 @@ public class SettingScreenActivity extends RxBaseActivity{
                     ScreenLife.setClickable(true);
                     ScreenLifeTitle.setTextColor(getResources().getColor(R.color.black));
                 }else{
+                    PreferencesUtils.putInt(ConstantUtils.SETTING_SCREEN_CODE,0);
                     ScreenBack.setClickable(false);
                     ScreenBackText.setTextColor(getResources().getColor(R.color.black_1));
                     ScreenRecover.setClickable(false);
@@ -89,7 +126,7 @@ public class SettingScreenActivity extends RxBaseActivity{
             public void onClick(View v) {
                 ScreenLifeImg.setVisibility(View.VISIBLE);
                 ScreenRecoverImg.setVisibility(View.GONE);
-                PreferencesUtils.putInt(ConstantUtils.SCREEN_STATIC,2);
+                PreferencesUtils.putInt(ConstantUtils.SCREEN_STATIC,1);
             }
         });
 
@@ -98,7 +135,7 @@ public class SettingScreenActivity extends RxBaseActivity{
             public void onClick(View v) {
                 ScreenRecoverImg.setVisibility(View.VISIBLE);
                 ScreenLifeImg.setVisibility(View.GONE);
-                PreferencesUtils.putInt(ConstantUtils.SCREEN_STATIC,1);
+                PreferencesUtils.putInt(ConstantUtils.SCREEN_STATIC,0);
             }
         });
 

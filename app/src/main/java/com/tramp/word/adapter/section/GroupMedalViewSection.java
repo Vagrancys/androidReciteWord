@@ -2,20 +2,19 @@ package com.tramp.word.adapter.section;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.tramp.word.R;
+import com.tramp.word.entity.group.GroupMedalInfo;
 import com.tramp.word.module.group.GroupMedalDetailsActivity;
-import com.tramp.word.module.home.recite.ReciteWordContextActivity;
 import com.tramp.word.widget.section.StatelessSection;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,11 +26,16 @@ import butterknife.ButterKnife;
 public class GroupMedalViewSection extends StatelessSection {
     private Context mContext;
     private Activity mActivity;
-
-    public GroupMedalViewSection(Context context, Activity activity){
+    private ArrayList<GroupMedalInfo.Medal.Item> Lists;
+    private int Number;
+    private int Group_id;
+    public GroupMedalViewSection(Context context, Activity activity,ArrayList<GroupMedalInfo.Medal.Item> ones,int number,int group_id){
         super(R.layout.item_group_medal_head,R.layout.item_group_medal);
         this.mContext=context;
         this.mActivity=activity;
+        Lists=ones;
+        Number=number;
+        Group_id=group_id;
     }
 
     @Override
@@ -40,10 +44,14 @@ public class GroupMedalViewSection extends StatelessSection {
         mHolder.mItemGroupMedalLinear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mActivity.startActivity(new Intent(mActivity, GroupMedalDetailsActivity.class));
-                mActivity.overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_stay);
+                GroupMedalDetailsActivity.launch(mActivity,Group_id,Lists.get(position).getMedal_id());
             }
         });
+        Glide.with(mContext)
+                .load(Lists.get(position).getMedal_img())
+                .placeholder(R.drawable.user_avater)
+                .into(mHolder.MedalImg);
+        mHolder.MedalText.setText(Lists.get(position).getMedal_name());
         super.onBindItemViewHolder(holder, position);
     }
 
@@ -54,7 +62,7 @@ public class GroupMedalViewSection extends StatelessSection {
 
     @Override
     public int getContentItemsTotal() {
-        return 3;
+        return Lists.size();
     }
 
     @Override
@@ -64,11 +72,27 @@ public class GroupMedalViewSection extends StatelessSection {
 
     @Override
     public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder) {
-
+        HeaderViewHolder mHeader=(HeaderViewHolder) holder;
+        switch (Number){
+            case 1:
+                mHeader.MedalTitle.setText(R.string.item_group_medal_1);
+                break;
+            case 2:
+                mHeader.MedalTitle.setText(R.string.item_group_medal_2);
+                break;
+            case 3:
+                mHeader.MedalTitle.setText(R.string.item_group_medal_3);
+                break;
+        }
+        mHeader.MedalNumber.setText("共"+Lists.size()+"枚");
     }
 
 
     public class HeaderViewHolder extends RecyclerView.ViewHolder{
+        @BindView(R.id.item_group_medal_title)
+        TextView MedalTitle;
+        @BindView(R.id.item_group_medal_number)
+        TextView MedalNumber;
         public HeaderViewHolder(View itemView){
             super(itemView);
             ButterKnife.bind(this,itemView);
@@ -78,6 +102,10 @@ public class GroupMedalViewSection extends StatelessSection {
     public class ItemViewHolder extends RecyclerView.ViewHolder{
         @BindView(R.id.item_group_medal_linear)
         LinearLayout mItemGroupMedalLinear;
+        @BindView(R.id.item_group_medal_img)
+        ImageView MedalImg;
+        @BindView(R.id.item_group_medal_text)
+        TextView MedalText;
         public ItemViewHolder(View itemView){
             super(itemView);
             ButterKnife.bind(this,itemView);

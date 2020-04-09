@@ -1,5 +1,6 @@
 package com.tramp.word.module.setting.account;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
@@ -10,10 +11,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tramp.word.R;
+import com.tramp.word.api.Retrofits;
 import com.tramp.word.base.RxBaseActivity;
+import com.tramp.word.db.UserSqlHelper;
+import com.tramp.word.entity.DefaultInfo;
+import com.tramp.word.utils.ConstantUtils;
 import com.tramp.word.utils.Utils;
 
 import butterknife.BindView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Administrator on 2019/2/28.
@@ -46,11 +54,11 @@ public class AccountNewPassActivity extends RxBaseActivity{
         DefaultOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                initResult(0);
             }
         });
 
-        DefaultTitle.setText(getResources().getString(R.string.account_new_pass_edit_text));
+        DefaultTitle.setText(getResources().getString(R.string.account_new_pass_title));
     }
 
     @Override
@@ -131,13 +139,36 @@ public class AccountNewPassActivity extends RxBaseActivity{
                         &&AccountNewPassEdit1.getText().length()>0
                         &&AccountNewPassEdit.getText().toString()
                         .equals(AccountNewPassEdit1.getText().toString())){
-                    Utils.ShowToast(AccountNewPassActivity.this,"修改密码成功！");
-                    finish();
+                    Retrofits.getUserAPI().getUpdatePassInfo(new UserSqlHelper(getBaseContext()).UserId(),AccountNewPassEdit1.getText().toString())
+                            .enqueue(new Callback<DefaultInfo>() {
+                                @Override
+                                public void onResponse(Call<DefaultInfo> call, Response<DefaultInfo> response) {
+                                    if(response.body()!=null&&response.body().getCode()==200){
+                                        Utils.ShowToast(getBaseContext(),"修改密码成功！");
+                                        initResult(1);
+                                    }else{
+                                        Utils.ShowToast(getBaseContext(),"修改密码失败,请重试！");
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<DefaultInfo> call, Throwable t) {
+                                    Utils.ShowToast(getBaseContext(),"网络错误了！");
+                                }
+                            });
                 }else{
-                    Utils.ShowToast(AccountNewPassActivity.this,"修改密码失败！");
+                    Utils.ShowToast(getBaseContext(),"输入错误！");
                 }
             }
         });
+    }
+
+    private void initResult(int number){
+        int NEW_PASS_CODE=33;
+        Intent intent=new Intent();
+        intent.putExtra(ConstantUtils.ACCOUNT_SAFETY,number);
+        setResult(NEW_PASS_CODE,intent);
+        finish();
     }
 
     @Override

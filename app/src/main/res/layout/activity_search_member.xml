@@ -14,8 +14,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/icon_acionbar_back_white"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true" />
-
+            android:layout_centerVertical="true" />
         <EditText
             android:id="@+id/search_member_edit"
             android:layout_width="match_parent"
@@ -26,25 +25,91 @@
             android:layout_toStartOf="@+id/search_member_img"
             android:background="@drawable/btn_search_member_edit"
             android:hint="@string/search_member_edit"
-            android:textSize="@dimen/default_text_size_5"
+            android:textSize="@dimen/default_text_size_18sp"
             android:textColor="@color/black_1"
-            android:textColorHint="@color/black_1"/>
+            android:textColorHint="@color/black_1"
+            android:inputType="text"/>
+        <ImageView
+            android:id="@+id/search_member_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/search_member_edit"
+            android:src="@drawable/icon_search_delete"
+            android:layout_marginStart="-45dp"/>
         <ImageView
             android:id="@+id/search_member_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_search"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true" />
+            android:layout_centerVertical="true"/>
     </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/search_member_recycler"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/search_member_swipe"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:overScrollMode="never"
-        android:scrollbars="none">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/search_member_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:scrollbars="none" />
+
+            <include
+                layout="@layout/common_net"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/search_member_empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin_size"
+                    android:src="@drawable/img_nonet" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin_size"
+                    android:text="@string/default_new_work_text"
+                    android:textColor="@color/black_3"
+                    android:textSize="@dimen/default_text_size_18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin_size_2"
+                    android:text="@string/default_new_text"
+                    android:textColor="@color/black_2"
+                    android:textSize="@dimen/default_text_size_14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_word_manage_start"
+                    android:paddingBottom="@dimen/default_margin_size_1"
+                    android:paddingEnd="@dimen/default_margin_size_2"
+                    android:paddingStart="@dimen/default_margin_size_2"
+                    android:paddingTop="@dimen/default_margin_size_1"
+                    android:text="@string/word_whole_button"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size_16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 </LinearLayout>
 
 

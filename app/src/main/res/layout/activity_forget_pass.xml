@@ -1,166 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <include layout="@layout/common_toolbar" />
 
-    <ImageView
-        android:id="@+id/forget_out"
-        android:layout_width="@dimen/default_margin_size_2"
-        android:layout_height="@dimen/default_margin_size_3"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="@dimen/default_margin_size"
-        android:layout_marginTop="@dimen/default_margin_size"
-        android:src="@drawable/common_back_normal" />
-
-    <TextView
-        android:id="@+id/forget_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/default_margin_size"
-        android:text="@string/forget_title_text"
-        android:textColor="@color/black"
-        android:textSize="@dimen/default_text_size" />
-
-    <View
-        android:id="@+id/forget_view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/forget_title"
-        android:layout_marginBottom="@dimen/default_margin_size_7"
-        android:layout_marginTop="@dimen/default_margin_size"
-        android:background="@color/register_view" />
-
-    <LinearLayout
-        android:id="@+id/forget_short"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:orientation="horizontal"
         android:gravity="center"
-        android:orientation="vertical"
-        android:layout_below="@+id/forget_view"
-        android:layout_marginStart="@dimen/default_margin_size_7" >
-
-        <ImageView
-            android:layout_width="@dimen/forget_img"
-            android:layout_height="@dimen/forget_img"
-            android:padding="@dimen/default_margin_size"
-            android:src="@drawable/icon_wechat_list" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/default_margin_size_8"
+        android:layout_marginBottom="@dimen/default_margin_size_8"
+        android:baselineAligned="false">
+        <LinearLayout
+            android:id="@+id/forget_short"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/forget_short_text"
-            android:textColor="@color/register_extra_color"
-            android:textSize="@dimen/default_text_size" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/forget_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_below="@+id/forget_view"
-        android:layout_marginEnd="@dimen/default_margin_size_7" >
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="@dimen/forget_img"
-            android:layout_height="@dimen/forget_img"
-            android:padding="@dimen/default_margin_size"
-            android:src="@drawable/icon_wechat_list" />
+            <ImageView
+                android:layout_width="@dimen/default_margin_size_8"
+                android:layout_height="@dimen/default_margin_size_8"
+                android:background="@drawable/forget_item_select"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forget_short_text"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size_18sp"
+                android:layout_marginTop="@dimen/default_margin_size"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/forget_email"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/forget_email_text"
-            android:textColor="@color/register_extra_color"
-            android:textSize="@dimen/default_text_size" />
-    </LinearLayout>
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
+            <ImageView
+                android:layout_width="@dimen/default_margin_size_8"
+                android:layout_height="@dimen/default_margin_size_8"
+                android:padding="@dimen/default_margin_size"
+                android:background="@drawable/forget_item_select"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forget_email_text"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size_18sp"
+                android:layout_marginTop="@dimen/default_margin_size"/>
+        </LinearLayout>
+    </LinearLayout>
     <View
-        android:id="@+id/forget_view_2"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/forget_short"
-        android:layout_marginBottom="@dimen/default_margin_size_2"
-        android:layout_marginTop="@dimen/default_margin_size_7"
-        android:background="@color/register_view" />
-
+        android:layout_height="1px"
+        android:layout_marginBottom="@dimen/default_margin_size_4"
+        android:background="@color/black_1"
+        android:layout_marginStart="@dimen/default_margin_size_2"
+        android:layout_marginEnd="@dimen/default_margin_size_2"/>
     <LinearLayout
-        android:id="@+id/forget_weixin"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:orientation="horizontal"
         android:gravity="center"
-        android:orientation="vertical"
-        android:layout_marginStart="@dimen/default_margin_size_4"
-        android:layout_below="@+id/forget_view_2">
-
-        <ImageView
-            android:layout_width="@dimen/default_margin_size_8"
-            android:layout_height="@dimen/default_margin_size_8"
-            android:background="@drawable/btn_register_relative"
-            android:padding="@dimen/default_margin_size"
-            android:src="@drawable/icon_qq_list" />
-        <TextView
-            android:layout_width="wrap_content"
+        android:baselineAligned="false">
+        <LinearLayout
+            android:id="@+id/forget_weixin"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/forget_weixin_text"
-            android:textColor="@color/register_extra_color"
-            android:textSize="@dimen/default_text_size" />
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/default_margin_size_6"
+                android:layout_height="@dimen/default_margin_size_6"
+                android:background="@drawable/btn_register_relative"
+                android:padding="@dimen/default_margin_size"
+                android:src="@drawable/icon_qq_list"
+                android:layout_marginBottom="@dimen/default_margin_size_1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forget_weixin_text"
+                android:textColor="@color/black_3"
+                android:textSize="@dimen/default_text_size_18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/forget_qq"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/default_margin_size_6"
+                android:layout_height="@dimen/default_margin_size_6"
+                android:background="@drawable/btn_register_relative"
+                android:padding="@dimen/default_margin_size"
+                android:src="@drawable/icon_qq_list"
+                android:layout_marginBottom="@dimen/default_margin_size_1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forget_qq_text"
+                android:textColor="@color/black_3"
+                android:textSize="@dimen/default_text_size_18sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/forget_weibo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/default_margin_size_6"
+                android:layout_height="@dimen/default_margin_size_6"
+                android:background="@drawable/btn_register_relative"
+                android:padding="@dimen/default_margin_size"
+                android:src="@drawable/icon_qq_list"
+                android:layout_marginBottom="@dimen/default_margin_size_1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forget_weibo_text"
+                android:textColor="@color/black_3"
+                android:textSize="@dimen/default_text_size_18sp" />
+        </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/forget_qq"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/forget_view_2">
-
-        <ImageView
-            android:layout_width="@dimen/default_margin_size_8"
-            android:layout_height="@dimen/default_margin_size_8"
-            android:background="@drawable/btn_register_relative"
-            android:padding="@dimen/default_margin_size"
-            android:src="@drawable/icon_qq_list" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/forget_qq_text"
-            android:textColor="@color/register_extra_color"
-            android:textSize="@dimen/default_text_size" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/forget_weibo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_below="@id/forget_view_2"
-        android:layout_marginEnd="@dimen/default_margin_size_3">
-
-        <ImageView
-            android:layout_width="@dimen/default_margin_size_8"
-            android:layout_height="@dimen/default_margin_size_8"
-            android:background="@drawable/btn_register_relative"
-            android:padding="@dimen/default_margin_size"
-            android:src="@drawable/icon_qq_list" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/forget_weibo_text"
-            android:textColor="@color/register_extra_color"
-            android:textSize="@dimen/default_text_size" />
-    </LinearLayout>
-</RelativeLayout>
+</LinearLayout>
 
 
 

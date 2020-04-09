@@ -13,7 +13,7 @@ public class CommonSqlHelper extends SQLiteOpenHelper {
             +"id integer primary key autoincrement,"
             +"author text,"
             +"price real,"
-            +"pages integer"
+            +"pages integer,"
             +"name text)";
     private Context mContext;
     public CommonSqlHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){

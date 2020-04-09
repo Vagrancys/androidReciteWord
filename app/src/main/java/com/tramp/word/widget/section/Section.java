@@ -1,6 +1,5 @@
 package com.tramp.word.widget.section;
 
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -24,7 +23,7 @@ public abstract class Section {
     private Integer failedResourceId;
 
 
-    Section(){};
+    Section(){}
 
     public Section(int itemResourceId,int loadingResourceId,int failedResourceId){
         this.itemResourceId=itemResourceId;

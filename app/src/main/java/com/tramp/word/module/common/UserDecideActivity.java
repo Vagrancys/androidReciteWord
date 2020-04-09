@@ -17,11 +17,11 @@ import butterknife.BindView;
  */
 
 public class UserDecideActivity extends RxBaseActivity {
-    @BindView(R.id.user_decide_register)
-    TextView mUserDecideRegister;
-    @BindView(R.id.user_decide_login)
-    TextView mUserDecideLogin;
-    private Animation mBtnAnim;
+    @BindView(R.id.decide_register)
+    TextView DecideRegister;
+    @BindView(R.id.decide_login)
+    TextView DecideLogin;
+    private Animation mScaleAnim;
 
     @Override
     public int getLayoutId() {
@@ -35,19 +35,19 @@ public class UserDecideActivity extends RxBaseActivity {
 
     @Override
     public void initView(Bundle save) {
-        mBtnAnim= AnimationUtils.loadAnimation(getBaseContext(),R.anim.task_list_exit_anim);
-        mUserDecideRegister.setOnClickListener(new View.OnClickListener() {
+        mScaleAnim= AnimationUtils.loadAnimation(getBaseContext(),R.anim.default_button_scale_anim);
+        DecideRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mUserDecideRegister.startAnimation(mBtnAnim);
+                DecideRegister.startAnimation(mScaleAnim);
                 startActivity(new Intent(UserDecideActivity.this,RegisterActivity.class));
             }
         });
 
-        mUserDecideLogin.setOnClickListener(new View.OnClickListener() {
+        DecideLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mUserDecideLogin.startAnimation(mBtnAnim);
+                DecideLogin.startAnimation(mScaleAnim);
                 startActivity(new Intent(UserDecideActivity.this,LoginActivity.class));
             }
         });
@@ -56,6 +56,19 @@ public class UserDecideActivity extends RxBaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mBtnAnim.cancel();
+        mScaleAnim.cancel();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

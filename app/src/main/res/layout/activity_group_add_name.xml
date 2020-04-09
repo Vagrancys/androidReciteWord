@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_2">
+        <include layout="@layout/common_toolbar"/>
+        <RelativeLayout
+            android:id="@+id/group_add_avatar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:paddingTop="@dimen/default_margin_size_5"
+            android:paddingBottom="@dimen/default_margin_size_6">
+            <com.tramp.word.widget.AvatarCircleView
+                android:id="@+id/group_add_img"
+                android:layout_width="@dimen/default_margin_size_10"
+                android:layout_height="@dimen/default_margin_size_10"
+                android:src="@drawable/user_avater"
+                android:layout_centerInParent="true"
+                app:border_color="@color/white_1"
+                app:border_width="@dimen/default_margin_size_1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/group_add_img_text"
+                android:textColor="@color/white"
+                android:textSize="@dimen/default_text_size_16sp"
+                android:background="@drawable/btn_group_add_avatar"
+                android:alpha="0.5"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/group_add_img"
+                android:layout_marginTop="@dimen/default_margin_no_size_1"/>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="@dimen/default_margin_size_2"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/group_add_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_group_add_edit"
+                android:drawableStart="@drawable/icon_red_star"
+                android:drawablePadding="@dimen/default_margin_size_1"
+                android:textColorHint="@color/black_2"
+                android:hint="@string/group_add_edit_hint"
+                android:inputType="text"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/group_add_hint_text"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size_18sp"
+                android:layout_margin="@dimen/default_margin_size_2_1" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/default_margin_size_10"
+            android:layout_marginBottom="@dimen/default_margin_size_3">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_group_create_status_1"/>
+            <View
+                android:layout_width="@dimen/default_margin_size_7"
+                android:layout_height="1px"
+                android:background="@color/black_3"/>
+            <ImageView
+                android:layout_width="@dimen/default_margin_size"
+                android:layout_height="@dimen/default_margin_size"
+                android:background="@drawable/btn_group_add_paint"/>
+            <View
+                android:layout_width="@dimen/default_margin_size_7"
+                android:layout_height="1px"
+                android:background="@color/black_3"/>
+            <ImageView
+                android:layout_width="@dimen/default_margin_size"
+                android:layout_height="@dimen/default_margin_size"
+                android:background="@drawable/btn_group_add_paint"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/group_add_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/group_add_next"
+            android:background="@drawable/btn_group_add_false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size_18sp"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/group_common_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.4"
+            android:background="@color/black"
+            android:orientation="vertical" />
+
+        <RelativeLayout
+            android:id="@+id/group_pop_avatar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/group_avatar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="@dimen/default_margin_size_4"
+                android:paddingTop="@dimen/default_margin_size"
+                android:text="@string/group_avatar_title"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size_18sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/group_avatar_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/group_avatar_title"
+                android:overScrollMode="never"
+                android:padding="@dimen/default_margin_size"
+                android:saveEnabled="true" />
+
+            <TextView
+                android:id="@+id/group_avatar_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/group_avatar_recycler"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/default_margin_size_2_1"
+                android:layout_marginTop="@dimen/default_margin_size_2_1"
+                android:clickable="false"
+                android:text="@string/main_skip_delete"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/default_text_size_18sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</FrameLayout>

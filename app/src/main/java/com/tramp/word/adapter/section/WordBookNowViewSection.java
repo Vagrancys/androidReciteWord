@@ -3,9 +3,13 @@ package com.tramp.word.adapter.section;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.tramp.word.R;
+import com.tramp.word.entity.DefaultBookInfo;
 import com.tramp.word.port.WordBookPopInterFace;
 import com.tramp.word.widget.section.StatelessSection;
 
@@ -17,12 +21,14 @@ import butterknife.ButterKnife;
  */
 
 public class WordBookNowViewSection extends StatelessSection {
-    private Context context;
+    private Context mContext;
     private WordBookPopInterFace mPop;
+    private DefaultBookInfo NewBook;
 
-    public WordBookNowViewSection(Context context){
+    public WordBookNowViewSection(Context context,DefaultBookInfo myInfo){
         super(R.layout.item_word_book_now_head,R.layout.item_word_book_now);
-        this.context=context;
+        mContext=context;
+        NewBook=myInfo;
         mPop=(WordBookPopInterFace) context;
     }
 
@@ -43,15 +49,26 @@ public class WordBookNowViewSection extends StatelessSection {
 
     @Override
     public void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if(holder instanceof ItemViewHolder){
             ItemViewHolder mHolder=(ItemViewHolder) holder;
-            mHolder.mItemLayout.setOnClickListener(new View.OnClickListener() {
+
+            mHolder.ItemRelative.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mPop.ShowWordBookPop();
+                    mPop.ShowWordBookItemPop(NewBook,1);
                 }
             });
-        }
+            Glide.with(mContext)
+                    .load(NewBook.getBook_img())
+                    .placeholder(R.drawable.pic_bookcover_default)
+                    .into(mHolder.ItemBookImg);
+            mHolder.ItemBookTitle.setText(NewBook.getBook_name());
+            mHolder.ItemBookNumber.setText((NewBook.getNew_num()/NewBook.getTotal_num()*100)+"%");
+            mHolder.ItemBookTotal.setText("共"+NewBook.getTotal_num()+"词");
+            if(NewBook.getGood()==0){
+                mHolder.ItemBookGood.setVisibility(View.VISIBLE);
+            }else{
+                mHolder.ItemBookGood.setVisibility(View.GONE);
+            }
     }
 
     @Override
@@ -67,8 +84,18 @@ public class WordBookNowViewSection extends StatelessSection {
     }
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder{
-        @BindView(R.id.item_layout)
-        LinearLayout mItemLayout;
+        @BindView(R.id.item_relative)
+        RelativeLayout ItemRelative;
+        @BindView(R.id.item_book_img)
+        ImageView ItemBookImg;
+        @BindView(R.id.item_book_title)
+        TextView ItemBookTitle;
+        @BindView(R.id.item_book_number)
+        TextView ItemBookNumber;
+        @BindView(R.id.item_book_total)
+        TextView ItemBookTotal;
+        @BindView(R.id.item_book_good)
+        ImageView ItemBookGood;
         ItemViewHolder(View itemView){
             super(itemView);
             ButterKnife.bind(this,itemView);

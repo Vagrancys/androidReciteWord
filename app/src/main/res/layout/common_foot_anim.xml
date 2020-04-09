@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingEnd="@dimen/default_margin_size"
+    android:paddingStart="@dimen/default_margin_size">
+    <LinearLayout
+        android:id="@+id/default_life"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:padding="@dimen/default_margin_size"
+        android:background="@drawable/btn_anim_bottom_back"
+        android:gravity="center"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/review_u_icon"
+            android:layout_marginEnd="@dimen/default_margin_size" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_anim_mark_text"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size_16sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/default_up"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:layout_marginStart="@dimen/default_margin_size"
+        android:background="@drawable/btn_anim_bottom_back"
+        android:padding="@dimen/default_margin_size"
+        android:visibility="visible"
+        android:gravity="center|start">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_anim_on_text"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size_16sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="@dimen/default_margin_size_2"
+            android:layout_marginStart="@dimen/default_margin_size_1"
+            android:layout_marginEnd="@dimen/default_margin_size_1"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/default_up_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_anim_on_title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size_16sp" />
+    </LinearLayout>
+
+</LinearLayout>

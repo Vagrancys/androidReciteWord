@@ -45,11 +45,6 @@ public abstract class RxLazyFragment extends RxFragment {
     public abstract void finishCreateView(Bundle state);
 
     @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
     public void onDestroyView() {
         super.onDestroyView();
         bind.unbind();

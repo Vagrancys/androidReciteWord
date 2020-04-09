@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/friend_relative"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/default_margin_size">
+
+    <ImageView
+        android:id="@+id/friend_img"
+        android:layout_width="@dimen/default_margin_size_5"
+        android:layout_height="@dimen/default_margin_size_5"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/user_avater" />
+
+    <TextView
+        android:id="@+id/friend_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/friend_img"
+        android:text="@string/friend_add_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size_18sp"
+        android:paddingStart="@dimen/default_margin_size"
+        android:paddingBottom="@dimen/default_margin_size_1"/>
+
+    <TextView
+        android:id="@+id/friend_team"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/friend_img"
+        android:layout_below="@+id/friend_name"
+        android:text="@string/friend_team"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/default_text_size_16sp"
+        android:paddingStart="@dimen/default_margin_size" />
+    <TextView
+        android:id="@+id/friend_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/friend_number"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size_18sp"
+        android:padding="@dimen/default_margin_size"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>
+
+
+
+
+
+

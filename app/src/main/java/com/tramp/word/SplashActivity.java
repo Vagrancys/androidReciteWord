@@ -1,11 +1,8 @@
 package com.tramp.word;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 
@@ -17,10 +14,10 @@ import android.widget.TextView;
 
 import com.tramp.word.base.RxBaseActivity;
 import com.tramp.word.module.common.AdvertiseActivity;
-import com.tramp.word.module.common.LoginActivity;
 import com.tramp.word.module.common.MainActivity;
 import com.tramp.word.module.common.UserDecideActivity;
 import com.tramp.word.utils.BitmapUtils;
+import com.tramp.word.utils.ConstantUtils;
 import com.tramp.word.utils.PreferencesUtils;
 
 import butterknife.BindView;
@@ -37,7 +34,6 @@ public class SplashActivity extends RxBaseActivity {
     @BindView(R.id.view_splash)
     RelativeLayout mRelative;
     public CountDownTimer mTimer;
-    private static final String LOGIN_STATIC="Login_static";
     private static Boolean Login;
     private Bitmap mSplashImage;
 
@@ -48,10 +44,9 @@ public class SplashActivity extends RxBaseActivity {
 
     @Override
     public void initView(Bundle save) {
-        mSplashImage= BitmapUtils.decodeSampledBitmapFromResource(getResources(),R.drawable.splash_img,
-                mSplashAdvertise.getWidth(),mSplashAdvertise.getHeight());
+        mSplashImage= BitmapUtils.decodeSampledBitmapFromResource(getResources(),R.drawable.splash_img);
         mSplashAdvertise.setImageBitmap(mSplashImage);
-        Login=PreferencesUtils.getBoolean(LOGIN_STATIC,false);
+        Login=PreferencesUtils.getBoolean(ConstantUtils.LOGIN_STATIC,false);
         mTimer=new CountDownTimer(3000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {

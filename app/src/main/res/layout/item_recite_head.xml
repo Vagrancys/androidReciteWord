@@ -171,15 +171,17 @@
                 android:textColor="@color/blue"
                 android:textSize="@dimen/recite_start_rush_text_size" />
         </LinearLayout>
-
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recite_start_rush"
+        android:gravity="center">
+        <LinearLayout
             android:id="@+id/recite_revise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="vertical"
-            android:layout_below="@+id/recite_start_rush"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="@dimen/default_margin_size_2"
             android:gravity="center">
             <ImageView
                 android:layout_width="@dimen/recite_footer_tab_width"
@@ -194,15 +196,12 @@
                 android:textSize="@dimen/recite_footer_tab_text_size"/>
         </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
             android:id="@+id/recite_pk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="vertical"
-            android:layout_below="@+id/recite_start_rush"
-            android:layout_toEndOf="@+id/recite_revise"
-            android:layout_marginStart="@dimen/default_margin_size_2"
-            android:layout_marginEnd="@dimen/default_margin_size_2"
             android:gravity="center"
             android:paddingStart="@dimen/default_margin_size_1"
             android:paddingEnd="@dimen/default_margin_size_1">
@@ -220,15 +219,12 @@
                 android:textSize="@dimen/recite_footer_tab_text_size"/>
         </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
             android:id="@+id/recite_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_below="@+id/recite_start_rush"
-            android:layout_toStartOf="@+id/recite_dynamic"
-            android:layout_marginEnd="@dimen/default_margin_size_2"
-            android:layout_marginStart="@dimen/default_margin_size_2"
+            android:layout_weight="1"
             android:gravity="center">
             <ImageView
                 android:layout_width="@dimen/recite_footer_tab_width"
@@ -243,14 +239,12 @@
                 android:textSize="@dimen/recite_footer_tab_text_size"/>
         </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
             android:id="@+id/recite_dynamic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/default_margin_size_2"
             android:orientation="vertical"
-            android:layout_below="@+id/recite_start_rush"
-            android:layout_alignParentEnd="true"
+            android:layout_weight="1"
             android:gravity="center">
             <ImageView
                 android:layout_width="@dimen/recite_footer_tab_width"
@@ -264,6 +258,9 @@
                 android:textColor="@color/recite_footer_tab"
                 android:textSize="@dimen/recite_footer_tab_text_size"/>
         </LinearLayout>
+    </LinearLayout>
+
+
 
     <TextView
         android:id="@+id/recite_star_hint"

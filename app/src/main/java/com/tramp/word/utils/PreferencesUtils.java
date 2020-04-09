@@ -1,8 +1,6 @@
 package com.tramp.word.utils;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.icu.lang.UCharacter;
 import android.preference.PreferenceManager;
 
 import com.tramp.word.WordAPP;
@@ -31,4 +29,5 @@ public class PreferencesUtils {
     public static int getInt(String key,int defValue){
         return PreferenceManager.getDefaultSharedPreferences(WordAPP.getInstance()).getInt(key,defValue);
     }
+
 }

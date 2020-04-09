@@ -18,7 +18,13 @@ import com.tramp.word.adapter.BookRightViewAdapter;
 import com.tramp.word.adapter.WholeLanguageLeftAdapter;
 import com.tramp.word.adapter.section.WordWholeItemViewSection;
 import com.tramp.word.base.RxLazyFragment;
+import com.tramp.word.entity.book.BookItemInfo;
+import com.tramp.word.entity.book.BookListInfo;
+import com.tramp.word.entity.task.TaskListInfo;
 import com.tramp.word.widget.section.SectionedRecyclerViewAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -67,7 +73,11 @@ public class WordWholeFragment extends RxLazyFragment {
     private Animation mWordLanguageLayoutBottomAnim;
     private Animation mWordBookRightLayoutTopAnim;
     private Animation mWordBookRightLayoutBottomAnim;
+    private List<BookListInfo.One> mOne = new ArrayList<>();
+    private List<BookListInfo.Two> mTwo = new ArrayList<>();
 
+    private String[] mTitle = {"汉语","英语","韩语","日语","西班牙语","法语","德语"};
+    private List<BookItemInfo.Book> mBooks = new ArrayList<>();
     public static WordWholeFragment newInstance(){
         return new WordWholeFragment();
     }
@@ -121,7 +131,7 @@ public class WordWholeFragment extends RxLazyFragment {
     protected void finishTask() {
         mSwipeRefreshLayout.setRefreshing(false);
         mIsRefreshing=false;
-        mSectionViewAdapter.addSection(new WordWholeItemViewSection(getActivity()));
+        mSectionViewAdapter.addSection(new WordWholeItemViewSection(getContext(),mBooks));
         mSectionViewAdapter.notifyDataSetChanged();
     }
 
@@ -141,7 +151,7 @@ public class WordWholeFragment extends RxLazyFragment {
 
     public void initWordLanguage(){
         mWordLanguageRecycler.setLayoutManager(new GridLayoutManager(getActivity(),3));
-        mWholeLanguageAdapter=new WholeLanguageLeftAdapter(mWordLanguageRecycler);
+        mWholeLanguageAdapter=new WholeLanguageLeftAdapter(mWordLanguageRecycler,mTitle);
         mWordLanguageRecycler.setAdapter(mWholeLanguageAdapter);
 
         mWordWholeLeftLayout.setOnClickListener(new View.OnClickListener() {
@@ -170,11 +180,11 @@ public class WordWholeFragment extends RxLazyFragment {
 
     public void initWordBookNumber(){
         mBookLeftRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mBookLeftViewAdapter=new BookLeftViewAdapter(mBookLeftRecycler);
+        mBookLeftViewAdapter=new BookLeftViewAdapter(mBookLeftRecycler,mOne);
         mBookLeftRecycler.setAdapter(mBookLeftViewAdapter);
 
         mBookRightRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mBookRightViewAdapter=new BookRightViewAdapter(mBookRightRecycler);
+        mBookRightViewAdapter=new BookRightViewAdapter(mBookRightRecycler,mTwo);
         mBookRightRecycler.setAdapter(mBookRightViewAdapter);
 
         mWordWholeRightLayout.setOnClickListener(new View.OnClickListener() {

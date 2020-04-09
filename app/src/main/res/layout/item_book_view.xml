@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/view_relative"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingEnd="@dimen/default_margin_size"
+    android:paddingStart="@dimen/default_margin_size_1"
+    android:background="@drawable/btn_background_radius"
+    android:layout_margin="@dimen/default_margin_size_1">
+
+    <ImageView
+        android:id="@+id/view_img"
+        android:layout_width="@dimen/default_margin_size_9"
+        android:layout_height="@dimen/default_margin_size_10"
+        android:src="@drawable/pic_bookcover_default"
+        android:layout_marginBottom="@dimen/default_margin_size"
+        android:layout_marginTop="@dimen/default_margin_size"/>
+    <ImageView
+        android:id="@+id/view_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/pic_select"
+        android:layout_below="@+id/view_img"
+        android:layout_toStartOf="@+id/view_img"
+        android:layout_marginEnd="@dimen/default_margin_no_size_3_1"
+        android:layout_marginTop="@dimen/default_margin_no_size_3_1"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/view_img"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/default_margin_size"
+        android:paddingTop="@dimen/default_margin_size">
+
+        <TextView
+            android:id="@+id/view_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/default_margin_size_1"
+            android:text="@string/view_title"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_18sp" />
+
+        <TextView
+            android:id="@+id/view_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/default_margin_size_1"
+            android:text="@string/view_word"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/default_text_size_16sp" />
+
+        <TextView
+            android:id="@+id/view_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_number"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_14sp" />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/view_good"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_boutique"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/default_margin_size_1"/>
+</RelativeLayout>

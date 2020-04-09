@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
@@ -149,11 +148,11 @@ public class InformTimeDialog extends Dialog {
 
 
     public interface OkOnClickListener{
-        public void onOkClick();
+        void onOkClick();
     }
 
     public interface CancelOnClickListener{
-        public void onCancelClick();
+        void onCancelClick();
     }
 
 }

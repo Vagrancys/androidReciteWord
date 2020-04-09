@@ -20,8 +20,8 @@
     </style>
 
     <style name="dialogWindowAnim" mce_bogus="1" parent="android:Animation">
-        <item name="android:windowEnterAnimation">@anim/alert_word_manage_top_anim</item>
-        <item name="android:windowExitAnimation">@anim/alert_word_manage_bottom_anim</item>
+        <item name="android:windowEnterAnimation">@anim/default_window_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/default_window_exit_anim</item>
     </style>
 
     <style name="WordManageDialog" parent="android:style/Theme.Dialog">
@@ -41,6 +41,31 @@
     <style name="search_member" parent="AppTheme">
         <item name="android:windowBackground">@android:color/transparent</item>
 
+    </style>
+
+    <style name="btn_pk_select_bottom" parent="AppTheme">
+        <item name="android:layout_marginEnd">@dimen/default_margin_size_2</item>
+        <item name="android:layout_marginStart">@dimen/default_margin_size_2</item>
+        <item name="android:layout_marginTop">@dimen/default_margin_size</item>
+        <item name="android:layout_marginBottom">@dimen/default_margin_size</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/default_text_size_18sp</item>
+        <item name="android:paddingBottom">@dimen/default_margin_size</item>
+        <item name="android:paddingTop">@dimen/default_margin_size</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="btn_new_word_button" parent="AppTheme">
+        <item name="android:background">@drawable/btn_new_button_un_bg</item>
+        <item name="android:textColor">@color/black_1</item>
+        <item name="android:textSize">@dimen/default_text_size_16sp</item>
+    </style>
+
+    <style name="MeSettingCheck" parent="Base.Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/default_check_bg</item>
+        <item name="android:background">@drawable/btn_background_radius</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 </resources>
 

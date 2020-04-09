@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetStart="0dp"
+            android:background="@color/orange">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_size">
+                <ImageView
+                    android:id="@+id/rank_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ico_back"/>
+                <com.flyco.tablayout.SlidingTabLayout
+                    android:id="@+id/rank_sliding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/default_margin_size_8"
+                    android:layout_marginStart="@dimen/default_margin_size_3"
+                    android:layout_toEndOf="@+id/rank_out"
+                    app:tl_textsize="@dimen/default_text_size_18sp"
+                    app:tl_indicator_width="@dimen/default_margin_size_3"
+                    app:tl_tab_space_equal="true"
+                    app:tl_textSelectColor="@color/white"
+                    app:tl_textUnselectColor="@color/white_1"
+                    app:tl_tab_padding="@dimen/default_margin_size_2" />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/rank_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none"/>
+</LinearLayout>

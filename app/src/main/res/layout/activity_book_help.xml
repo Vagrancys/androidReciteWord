@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/common_toolbar"
+        android:id="@+id/common_toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/common_toolbar"
+        android:background="@color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:focusableInTouchMode="true"
+            android:focusable="true">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/book_help_text"
+                android:textSize="@dimen/default_text_size_18sp"
+                android:textColor="@color/black_1"
+                android:layout_margin="@dimen/default_margin_size_2"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_size_2">
+                <TextView
+                    android:id="@+id/help_language_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_language_title"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_18sp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:paddingEnd="@dimen/default_margin_size_4"/>
+                <RelativeLayout
+                    android:id="@+id/help_language_relative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/help_language_title"
+                    android:paddingBottom="@dimen/default_margin_size_1"
+                    android:paddingEnd="@dimen/default_margin_size">
+                    <ImageView
+                        android:id="@+id/language_img"
+                        android:layout_width="@dimen/default_margin_size_4"
+                        android:layout_height="@dimen/default_margin_size_4"
+                        android:src="@drawable/pic_lang_en"/>
+                    <TextView
+                        android:id="@+id/language_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/default_text_size_18sp"
+                        android:textColor="@color/black_1"
+                        android:text="@string/language_title"
+                        android:layout_centerVertical="true"
+                        android:paddingStart="@dimen/default_margin_size"
+                        android:layout_toEndOf="@+id/language_img"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/group_share_invite_back"/>
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/black_2"
+                    android:layout_toEndOf="@+id/help_language_title"
+                    android:layout_below="@+id/help_language_relative" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_size_2"
+                >
+
+                <TextView
+                    android:id="@+id/help_name_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:paddingEnd="@dimen/default_margin_size_3"
+                    android:text="@string/help_name_title"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_18sp"
+                    android:gravity="center"/>
+                <EditText
+                    android:id="@+id/help_name_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/help_name_title"
+                    android:background="@drawable/btn_me_sign_edit"
+                    android:hint="@string/help_name_hint"
+                    android:textColorHint="@color/black"
+                    android:inputType="text"
+                    android:minLines="1"
+                    android:gravity="start|center"
+                    android:padding="@dimen/default_margin_size_1"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_below="@+id/help_name_edit"
+                    android:layout_toEndOf="@+id/help_name_title"
+                    android:background="@color/black_2" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_size_2">
+
+                <TextView
+                    android:id="@+id/help_group_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:paddingEnd="@dimen/default_margin_size_2"
+                    android:text="@string/help_group_title"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_18sp"
+                    android:gravity="center"/>
+                <EditText
+                    android:id="@+id/help_group_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/help_group_title"
+                    android:background="@drawable/btn_me_sign_edit"
+                    android:hint="@string/help_group_hint"
+                    android:textColorHint="@color/black"
+                    android:inputType="text"
+                    android:minLines="1"
+                    android:gravity="start|center"
+                    android:padding="@dimen/default_margin_size_1"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_below="@+id/help_group_edit"
+                    android:layout_toEndOf="@+id/help_group_title"
+                    android:background="@color/black_2" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_size_2">
+
+                <TextView
+                    android:id="@+id/help_note_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:paddingEnd="@dimen/default_margin_size_4"
+                    android:text="@string/help_note_title"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_18sp"
+                    android:gravity="center"/>
+                <EditText
+                    android:id="@+id/help_note_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/help_note_title"
+                    android:background="@drawable/btn_me_sign_edit"
+                    android:hint="@string/help_name_hint"
+                    android:textColorHint="@color/black"
+                    android:inputType="text"
+                    android:minLines="1"
+                    android:gravity="start|center"
+                    android:padding="@dimen/default_margin_size_1"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_below="@+id/help_note_edit"
+                    android:layout_toEndOf="@+id/help_note_title"
+                    android:background="@color/black_2" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_size_2">
+
+                <TextView
+                    android:id="@+id/help_link_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:paddingEnd="@dimen/default_margin_size_3"
+                    android:text="@string/help_link_title"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_18sp"
+                    android:gravity="center"/>
+                <EditText
+                    android:id="@+id/help_link_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/help_link_title"
+                    android:background="@drawable/btn_me_sign_edit"
+                    android:hint="@string/help_link_hint"
+                    android:textColorHint="@color/black"
+                    android:inputType="text"
+                    android:minLines="1"
+                    android:gravity="start|center"
+                    android:padding="@dimen/default_margin_size_1"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_below="@+id/help_link_edit"
+                    android:layout_toEndOf="@+id/help_link_title"
+                    android:background="@color/black_2" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/help_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_word_manage_start"
+                android:text="@string/help_start"
+                android:textColor="@color/white"
+                android:textSize="@dimen/default_text_size_18sp"
+                android:paddingTop="@dimen/default_margin_size"
+                android:paddingBottom="@dimen/default_margin_size"
+                android:layout_margin="@dimen/default_margin_size_2"
+                android:gravity="center"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/language_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/common_toolbar"
+        android:alpha="0.8"
+        android:background="@color/black"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/language_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/common_toolbar"
+        android:background="@color/white"
+        android:overScrollMode="never"
+        android:visibility="gone" />
+
+</RelativeLayout>

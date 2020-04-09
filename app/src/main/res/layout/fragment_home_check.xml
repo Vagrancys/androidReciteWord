@@ -1,13 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:gravity="center"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="备考"
-        android:textColor="#000"
-        android:textSize="20sp"/>
+    android:layout_height="match_parent"
+    android:gravity="center">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:contentInsetStart="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/default_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:text="@string/check_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_18sp" />
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_check_height">
+
+                    <TextView
+                        android:id="@+id/home_check_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/default_margin_size_2"
+                        android:layout_marginTop="@dimen/default_margin_size_8"
+                        android:text="@string/home_check_title"
+                        android:textColor="@color/black_2"
+                        android:textSize="@dimen/default_text_size_14sp" />
+
+                    <TextView
+                        android:id="@+id/home_check"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/home_check_title"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/btn_home_check"
+                        android:text="@string/home_check"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/default_text_size_18sp" />
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/home_check_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"/>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <include
+        layout="@layout/common_net"
+        android:visibility="gone" />
 </LinearLayout>

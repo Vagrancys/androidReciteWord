@@ -1,219 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@color/white"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:background="@drawable/recite_check_gradient_two_back">
 
-        <RelativeLayout
-            android:id="@+id/recite_check_relative"
+        <ImageView
+            android:id="@+id/linear_head"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/default_margin_size_12"
+            android:background="@drawable/user_avater" />
+
+        <LinearLayout
+            android:id="@+id/linear_day"
+            android:layout_width="@dimen/default_margin_size_14"
+            android:layout_height="@dimen/default_margin_size_12"
+            android:layout_below="@+id/linear_head"
+            android:background="@drawable/icon_template2_01"
+            android:gravity="center"
+            android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin_size"
+                    android:text="@string/check_day_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_18sp" />
+
+                <TextView
+                    android:id="@+id/check_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_day_num_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_gate"
+            android:layout_width="@dimen/default_margin_size_11"
+            android:layout_height="@dimen/default_margin_size_12"
+            android:layout_below="@+id/linear_head"
+            android:layout_toEndOf="@+id/linear_day"
+            android:background="@drawable/icon_template2_02"
+            android:gravity="center"
+            android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_one_left_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_18sp" />
+
+                <TextView
+                    android:id="@+id/check_gate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin_size"
+                    android:text="@string/check_one_right_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_24sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/recite_check_gradient_two_back">
-
-                <ImageView
-                    android:id="@+id/recite_check_img_one"
-                    android:layout_width="match_parent"
-                    android:layout_height="110dp"
-                    android:background="@drawable/user_avater" />
-
-                <ImageView
-                    android:id="@+id/recite_check_img_1"
-                    android:layout_width="130dp"
-                    android:layout_height="110dp"
-                    android:layout_below="@id/recite_check_img_one"
-                    android:background="@drawable/icon_template2_01" />
+            android:layout_below="@+id/linear_head"
+            android:layout_toEndOf="@+id/linear_gate"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/default_margin_size_2">
 
                 <TextView
-                    android:id="@+id/recite_check_day_one"
+                    android:id="@+id/check_day"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/recite_check_img_one"
-                    android:layout_marginBottom="@dimen/default_margin_size"
-                    android:layout_marginStart="@dimen/default_margin_size_3"
-                    android:layout_marginTop="@dimen/default_margin_size_2"
-                    android:text="@string/recite_check_day_one_text"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size_4" />
-
-                <TextView
-                    android:id="@+id/recite_check_day_one_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/recite_check_day_one"
-                    android:layout_below="@id/recite_check_day_one"
-                    android:layout_marginBottom="@dimen/default_margin_size"
-                    android:layout_marginStart="@dimen/default_margin_size_2"
-                    android:text="@string/recite_check_day_one_num_text"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size_3" />
-
-                <ImageView
-                    android:id="@+id/recite_check_img_2"
-                    android:layout_width="100dp"
-                    android:layout_height="110dp"
-                    android:layout_below="@id/recite_check_img_one"
-                    android:layout_toEndOf="@+id/recite_check_img_1"
-                    android:background="@drawable/icon_template2_02" />
-
-                <TextView
-                    android:id="@+id/recite_check_one_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/recite_check_img_one"
-                    android:layout_marginStart="@dimen/default_margin_size_4"
-                    android:layout_marginTop="@dimen/default_margin_size_2"
-                    android:layout_toEndOf="@+id/recite_check_day_one"
-                    android:text="@string/recite_check_one_left_text"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size_4" />
-
-                <TextView
-                    android:id="@+id/recite_check_one_right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/recite_check_one_left"
-                    android:layout_below="@id/recite_check_one_left"
-                    android:layout_marginStart="@dimen/default_margin_size_3"
-                    android:layout_marginTop="@dimen/default_margin_size"
-                    android:layout_toEndOf="@+id/recite_check_day_one"
-                    android:text="@string/recite_check_one_right_text"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size_3" />
-
-                <TextView
-                    android:id="@+id/recite_check_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_below="@id/recite_check_img_one"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginTop="@dimen/default_margin_size_2"
                     android:gravity="center"
-                    android:text="@string/recite_check_1"
+                    android:text="@string/check_day"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size" />
+                    android:textSize="@dimen/default_text_size_20sp" />
 
                 <TextView
-                    android:id="@+id/recite_check_2"
+                    android:id="@+id/check_month"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/recite_check_1"
-                    android:layout_below="@+id/recite_check_1"
-                    android:layout_marginBottom="@dimen/default_margin_size_1"
                     android:layout_marginTop="@dimen/default_margin_size_1"
                     android:gravity="center"
-                    android:text="@string/recite_check_2"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size_4" />
+                    android:text="@string/check_month"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_18sp" />
 
                 <View
-                    android:id="@+id/recite_check_day_view"
-                    android:layout_width="25dp"
+                    android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_alignStart="@id/recite_check_2"
-                    android:layout_below="@id/recite_check_2"
-                    android:background="@color/black" />
+                    android:layout_marginTop="@dimen/default_margin_size"
+                    android:layout_marginBottom="@dimen/default_margin_size"
+                    android:background="@color/black_1" />
 
                 <TextView
-                    android:id="@+id/recite_check_3"
+                    android:id="@+id/check_week"
                     android:layout_width="@dimen/default_margin_size_2_1"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@id/recite_check_day_view"
-                    android:layout_below="@id/recite_check_day_view"
-                    android:layout_marginStart="@dimen/default_margin_size_1"
-                    android:layout_marginTop="@dimen/default_margin_size_1"
-                    android:gravity="left"
-                    android:text="@string/recite_check_3"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size_4" />
+                    android:text="@string/check_week"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_18sp" />
+        </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/recite_check_img_3"
-                    android:layout_width="130dp"
-                    android:layout_height="110dp"
-                    android:layout_below="@id/recite_check_img_1"
-                    android:background="@drawable/icon_template2_03" />
+        <LinearLayout
+            android:id="@+id/linear_star"
+            android:layout_width="@dimen/default_margin_size_14"
+            android:layout_height="@dimen/default_margin_size_12"
+            android:layout_below="@+id/linear_day"
+            android:background="@drawable/icon_template2_03"
+            android:gravity="center"
+            android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/recite_check_day_three"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/recite_check_img_1"
                     android:layout_marginBottom="@dimen/default_margin_size"
-                    android:layout_marginStart="@dimen/default_margin_size_3"
-                    android:layout_marginTop="@dimen/default_margin_size_3"
-                    android:text="@string/recite_check_three_left_text"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size_4" />
+                    android:text="@string/check_three_left_text"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_18sp" />
 
                 <TextView
-                    android:id="@+id/recite_check_day_three_num"
+                    android:id="@+id/check_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/recite_check_day_one"
-                    android:layout_below="@id/recite_check_day_three"
-                    android:layout_marginBottom="@dimen/default_margin_size"
-                    android:layout_marginStart="25dp"
-                    android:text="@string/recite_check_three_right_text"
+                    android:text="@string/check_three_right_text"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size_3" />
+                    android:textSize="@dimen/default_text_size_24sp" />
+        </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/recite_check_img_4"
-                    android:layout_width="100dp"
-                    android:layout_height="110dp"
-                    android:layout_below="@id/recite_check_img_1"
-                    android:layout_toEndOf="@+id/recite_check_img_3"
-                    android:background="@drawable/icon_template2_04" />
+        <LinearLayout
+            android:id="@+id/linear_book"
+            android:layout_width="@dimen/default_margin_size_11"
+            android:layout_height="@dimen/default_margin_size_12"
+            android:layout_below="@+id/linear_gate"
+            android:layout_toEndOf="@+id/linear_star"
+            android:background="@drawable/icon_template2_04"
+            android:gravity="center"
+            android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/recite_check_two_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/recite_check_img_2"
-                    android:layout_marginStart="@dimen/default_margin_size_4"
-                    android:layout_marginTop="@dimen/default_margin_size_3"
-                    android:layout_toEndOf="@+id/recite_check_day_one"
-                    android:text="@string/recite_check_two_left_text"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size_4" />
+                    android:text="@string/check_two_left_text"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_18sp" />
 
                 <TextView
-                    android:id="@+id/recite_check_two_right"
+                    android:id="@+id/check_book"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/recite_check_two_left"
-                    android:layout_below="@id/recite_check_two_left"
-                    android:layout_marginStart="@dimen/default_margin_size_3"
                     android:layout_marginTop="@dimen/default_margin_size"
-                    android:text="@string/recite_check_two_right_text"
+                    android:text="@string/check_two_right_text"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size_3" />
+                    android:textSize="@dimen/default_text_size_24sp" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/recite_check_rank"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/recite_check_img_3"
-                    android:layout_marginBottom="@dimen/default_margin_size"
-                    android:layout_marginStart="@dimen/default_margin_size_3"
-                    android:layout_marginTop="@dimen/default_margin_size"
-                    android:gravity="left"
-                    android:text="@string/recite_check_rank_text"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size_4" />
+        <TextView
+            android:id="@+id/check_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear_star"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/default_margin_size_3"
+            android:layout_marginTop="@dimen/default_margin_size_4"
+            android:layout_marginBottom="@dimen/default_margin_size"
+            android:text="@string/check_rank_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_16sp" />
 
-                <ImageView
-                    android:id="@+id/recite_check_img"
-                    android:layout_width="@dimen/default_margin_size_4"
-                    android:layout_height="@dimen/default_margin_size_4"
-                    android:layout_below="@+id/recite_check_img_4"
-                    android:layout_marginBottom="@dimen/default_margin_size"
-                    android:layout_marginStart="@dimen/default_margin_size"
-                    android:layout_marginTop="-20dp"
-                    android:layout_toEndOf="@+id/recite_check_rank"
-                    android:background="@drawable/user_circle"
-                    android:src="@drawable/user_avater" />
-        </RelativeLayout>
-</LinearLayout>
+        <ImageView
+            android:id="@+id/check_avatar"
+            android:layout_width="@dimen/default_margin_size_5"
+            android:layout_height="@dimen/default_margin_size_5"
+            android:layout_below="@id/linear_book"
+            android:layout_marginStart="@dimen/default_margin_no_size_2"
+            android:layout_marginTop="@dimen/default_margin_no_size_3"
+            android:layout_marginBottom="@dimen/default_margin_size"
+            android:layout_toEndOf="@+id/linear_book"
+            android:background="@drawable/user_circle"
+            android:src="@drawable/user_avater" />
+</RelativeLayout>

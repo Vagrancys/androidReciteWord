@@ -1,41 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/select_anim_out"
-        android:layout_margin="@dimen/default_margin_size"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/group_medal_detail_back_icon"/>
-
-    <TextView
-        android:id="@+id/select_anim_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="@dimen/default_margin_size"
-        android:layout_marginEnd="@dimen/default_margin_size_3"
-        android:layout_alignParentEnd="true"
-        android:text="@string/select_anim_title_text"
-        android:textColor="@color/white"
-        android:textSize="@dimen/default_text_size"/>
-
-    <TextView
-        android:id="@+id/select_anim_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/default_anim_text"
-        android:textColor="@color/white"
-        android:textSize="@dimen/default_text_size_5"
-        android:layout_below="@+id/select_anim_title"
-        android:layout_alignStart="@+id/select_anim_title"
-        android:layout_marginStart="-20dp"/>
+    <include  android:id="@+id/app_bar"
+        layout="@layout/common_revise_anim"/>
 
     <ImageView
         android:layout_width="match_parent"
@@ -44,45 +14,43 @@
         android:background="@drawable/deer_in_mountains"/>
 
     <RelativeLayout
-        android:id="@+id/select_anim_relative"
+        android:id="@+id/select_relative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/select_anim_out"
+        android:layout_below="@+id/app_bar"
         android:layout_marginTop="@dimen/default_margin_size_2">
 
         <TextView
-            android:id="@+id/select_anim_head"
+            android:id="@+id/select_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/select_anim_head_text"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size_3"
-            android:layout_centerInParent="true"
+            android:textSize="@dimen/default_text_size_18sp"
+            android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"/>
 
         <LinearLayout
-            android:id="@+id/select_anim_music"
+            android:id="@+id/select_music"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/select_anim_head"
-            android:layout_alignStart="@+id/select_anim_head"
+            android:layout_below="@+id/select_title"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/default_margin_size_6"
             android:layout_marginTop="@dimen/default_margin_size"
             android:gravity="center"
-            android:paddingBottom="@dimen/default_margin_size_1"
-            android:paddingEnd="@dimen/default_margin_size"
-            android:paddingStart="@dimen/default_margin_size"
-            android:paddingTop="@dimen/default_margin_size_1">
+            android:padding="@dimen/default_margin_size_1">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/recite_anim_music_text"
                 android:textColor="@color/white"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/default_text_size_18sp"
+                android:paddingEnd="@dimen/default_margin_size_1"/>
 
             <ImageView
-                android:id="@+id/select_anim_music_img"
+                android:id="@+id/select_music_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon_horn_white" />
@@ -90,34 +58,33 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/select_anim_win_img"
+            android:id="@+id/select_win_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/select_anim_head"
-            android:layout_toEndOf="@+id/select_anim_music"
+            android:layout_below="@+id/select_title"
+            android:layout_toEndOf="@+id/select_title"
             android:src="@drawable/icon_search_white"
             android:layout_marginTop="@dimen/default_margin_size_5"
             android:layout_marginStart="@dimen/default_margin_size_5"/>
         <TextView
-            android:id="@+id/select_anim_text_one"
+            android:id="@+id/select_button_one"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/select_anim_music"
+            android:layout_below="@+id/select_music"
             android:background="@drawable/btn_anim_button_back_nu"
             android:text="@string/select_anim_text_one"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size"
+            android:textSize="@dimen/default_text_size_16sp"
             android:gravity="center"
             android:layout_marginStart="@dimen/default_margin_size_2"
             android:layout_marginEnd="@dimen/default_margin_size_2"
-            android:layout_marginBottom="@dimen/default_margin_size_2"
-            />
+            android:layout_marginBottom="@dimen/default_margin_size_2"/>
 
         <TextView
-            android:id="@+id/select_anim_text_two"
+            android:id="@+id/select_button_two"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/select_anim_text_one"
+            android:layout_below="@+id/select_button_one"
             android:background="@drawable/btn_anim_button_back_nu"
             android:layout_marginBottom="@dimen/default_margin_size_2"
             android:layout_marginEnd="@dimen/default_margin_size_2"
@@ -125,13 +92,13 @@
             android:gravity="center"
             android:text="@string/select_anim_text_two"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size" />
+            android:textSize="@dimen/default_text_size_16sp" />
 
         <TextView
-            android:id="@+id/select_anim_text_three"
+            android:id="@+id/select_button_three"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/select_anim_text_two"
+            android:layout_below="@+id/select_button_two"
             android:layout_marginBottom="@dimen/default_margin_size_2"
             android:layout_marginEnd="@dimen/default_margin_size_2"
             android:layout_marginStart="@dimen/default_margin_size_2"
@@ -139,230 +106,39 @@
             android:gravity="center"
             android:text="@string/select_anim_text_three"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size" />
+            android:textSize="@dimen/default_text_size_16sp" />
 
         <TextView
-            android:id="@+id/select_anim_text_four"
+            android:id="@+id/select_button_four"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/select_anim_text_three"
+            android:layout_below="@+id/select_button_three"
             android:background="@drawable/btn_anim_button_back_nu"
             android:text="@string/select_anim_text_four"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size"
+            android:textSize="@dimen/default_text_size_16sp"
             android:gravity="center"
             android:layout_marginStart="@dimen/default_margin_size_2"
             android:layout_marginEnd="@dimen/default_margin_size_2"
             android:layout_marginBottom="@dimen/default_margin_size_2" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/select_anim_mark"
-        android:layout_width="wrap_content"
+    <include layout="@layout/common_foot_anim"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:padding="@dimen/default_margin_size"
-        android:layout_marginStart="@dimen/default_margin_size"
-        android:background="@drawable/btn_anim_bottom_back">
-        <ImageView
-            android:id="@+id/select_anim_mark_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/review_u_icon"
-            android:layout_marginEnd="@dimen/default_margin_size"
-            android:layout_marginTop="2dp"/>
-        <TextView
-            android:id="@+id/select_anim_mark_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/select_anim_mark_img"
-            android:text="@string/default_anim_mark_text"
-            android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size_6"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/select_anim_on"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/select_anim_mark"
-        android:padding="@dimen/default_margin_size"
-        android:layout_marginStart="@dimen/default_margin_size"
-        android:layout_marginEnd="@dimen/default_margin_size"
-        android:background="@drawable/btn_anim_bottom_back">
-        <TextView
-            android:id="@+id/select_anim_on_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/default_anim_on_text"
-            android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size_6"/>
-        <View
-            android:id="@+id/select_anim_on_view"
-            android:layout_width="1dp"
-            android:layout_height="@dimen/default_margin_size_2"
-            android:layout_toEndOf="@+id/select_anim_on_text"
-            android:background="@color/white"
-            android:layout_marginStart="@dimen/default_margin_size_1"
-            android:layout_marginEnd="@dimen/default_margin_size_1"/>
-        <TextView
-            android:id="@+id/select_anim_on_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/select_anim_on_view"
-            android:text="@string/select_anim_on_title"
-            android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size_6"/>
-    </RelativeLayout>
+        android:layout_alignParentBottom="true"/>
 
-    <RelativeLayout
-        android:id="@+id/select_anim_on_back"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
+    <include layout="@layout/common_details_anim"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alpha="0.4"
-            android:background="@color/black"
-            android:orientation="vertical"></LinearLayout>
-
-        <RelativeLayout
-            android:id="@+id/select_anim_on_relative"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@color/white">
-
-            <LinearLayout
-                android:id="@+id/select_anim_on_linear"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/default_anim_on_linear_height"
-                android:background="@color/blue"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/select_anim_on_text_head"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/default_margin_size_2"
-                    android:layout_marginTop="@dimen/default_margin_size_4"
-                    android:text="@string/word_content_text_head"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/word_content_text_head_size" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/default_margin_size_2"
-                    android:layout_marginTop="@dimen/default_margin_size"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/select_anim_on_text_symbol"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/word_content_text_symbol"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/default_text_size" />
-
-                    <ImageView
-                        android:id="@+id/select_anim_on_text_music"
-                        android:layout_width="@dimen/word_content_text_noise"
-                        android:layout_height="@dimen/word_content_text_noise"
-                        android:layout_marginStart="@dimen/default_margin_size"
-                        android:src="@drawable/icon_horn_white" />
-                </LinearLayout>
-
-
-                <TextView
-                    android:id="@+id/select_anim_on_text_meaning"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/default_margin_size_2"
-                    android:layout_marginTop="@dimen/default_margin_size_6"
-                    android:text="@string/word_content_text_meaning"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/default_text_size" />
-
-                <RelativeLayout
-                    android:id="@+id/select_anim_on_relative_one"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/default_margin_size"
-                    android:layout_marginEnd="@dimen/default_margin_size_2"
-                    android:layout_marginStart="@dimen/default_margin_size_2"
-                    android:layout_marginTop="@dimen/default_margin_size"
-                    android:background="@drawable/btn_word_content_background"
-                    android:paddingBottom="@dimen/default_margin_size_2"
-                    android:paddingEnd="@dimen/default_margin_size_2"
-                    android:paddingStart="@dimen/default_margin_size"
-                    android:paddingTop="@dimen/default_margin_size"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:id="@+id/select_anim_on_text_root"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginBottom="@dimen/default_margin_size_2"
-                        android:layout_marginStart="@dimen/default_margin_size"
-                        android:layout_marginTop="@dimen/default_margin_size"
-                        android:text="@string/word_content_text_root"
-                        android:textColor="@color/word_content_text_root_color"
-                        android:textSize="@dimen/default_text_size" />
-
-                    <TextView
-                        android:id="@+id/select_anim_on_root_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_below="@+id/select_anim_on_text_root"
-                        android:layout_marginEnd="@dimen/default_margin_size_2"
-                        android:layout_marginStart="@dimen/default_margin_size"
-                        android:text="@string/word_content_root_text"
-                        android:textColor="@color/word_content_text_etyma_color"
-                        android:textSize="@dimen/default_text_size" />
-                </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/select_anim_on_text_error"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/default_margin_size"
-                    android:layout_marginStart="@dimen/default_margin_size_2"
-                    android:layout_marginTop="@dimen/default_margin_size_2"
-                    android:background="@drawable/btn_word_content_error"
-                    android:text="@string/word_content_text_error"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/default_text_size" />
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/select_content_text_book"
-                android:layout_width="@dimen/word_content_text_book"
-                android:layout_height="@dimen/word_content_text_book"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/select_anim_on_linear"
-                android:layout_marginBottom="@dimen/default_margin_size"
-                android:layout_marginStart="@dimen/default_margin_size_9"
-                android:layout_marginTop="@dimen/default_margin_size"
-                android:src="@drawable/icon_newwords" />
-
-            <ImageView
-                android:id="@+id/select_content_text_down"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@+id/select_anim_on_linear"
-                android:layout_centerInParent="true"
-                android:layout_marginBottom="@dimen/default_margin_size"
-                android:layout_marginEnd="@dimen/default_margin_size_9"
-                android:layout_marginTop="@dimen/default_margin_size"
-                android:src="@drawable/icon_pagedown" />
-        </RelativeLayout>
-    </RelativeLayout>
+    <include layout="@layout/common_cloud_anim"/>
 </RelativeLayout>
+
+
+
+
+
+
+
+
+
+

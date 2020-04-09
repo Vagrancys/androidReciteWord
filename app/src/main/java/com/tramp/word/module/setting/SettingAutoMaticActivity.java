@@ -1,5 +1,6 @@
 package com.tramp.word.module.setting;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,7 @@ import com.tramp.word.adapter.AbsRecyclerViewAdapter;
 import com.tramp.word.adapter.AutoMaticAdapter;
 import com.tramp.word.base.RxBaseActivity;
 import com.tramp.word.utils.ConstantUtils;
+import com.tramp.word.utils.PreferencesUtils;
 
 import butterknife.BindView;
 
@@ -29,8 +31,9 @@ public class SettingAutoMaticActivity extends RxBaseActivity{
     private String[] title={
             "关闭","一次","两次","三次"
     };
+    private int AUTOMATIC_RESULT=20;
     private AutoMaticAdapter mAutoMaticAdapter;
-    private int status=ConstantUtils.AUTOMATIC_STATIC;
+    private int status;
     @Override
     public int getLayoutId() {
         return R.layout.activity_setting_automatic;
@@ -38,6 +41,7 @@ public class SettingAutoMaticActivity extends RxBaseActivity{
 
     @Override
     public void initView(Bundle save) {
+        status=PreferencesUtils.getInt(ConstantUtils.SETTING_AUTO_CODE,0);
         mAutoMaticAdapter=new AutoMaticAdapter(AutoMaticRecycler,title,status);
         AutoMaticRecycler.setLayoutManager(new LinearLayoutManager(getBaseContext()));
         AutoMaticRecycler.setAdapter(mAutoMaticAdapter);
@@ -45,10 +49,18 @@ public class SettingAutoMaticActivity extends RxBaseActivity{
             @Override
             public void onItemClick(int position, AbsRecyclerViewAdapter.ClickableViewHolder holder) {
                 status=position;
-                AutoMaticRecycler.notifyAll();
-                finish();
+                mAutoMaticAdapter.notifyDataSetChanged();
+                PreferencesUtils.putInt(ConstantUtils.SETTING_AUTO_CODE,position);
+                initResult();
             }
         });
+    }
+
+    private void initResult(){
+        Intent intent=new Intent();
+        intent.putExtra(ConstantUtils.SETTING_AUTO_CODE,status);
+        setResult(AUTOMATIC_RESULT,intent);
+        finish();
     }
 
     @Override
@@ -56,7 +68,7 @@ public class SettingAutoMaticActivity extends RxBaseActivity{
         DefaultOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                initResult();
             }
         });
         DefaultTitle.setText(getResources().getString(R.string.automatic_text));

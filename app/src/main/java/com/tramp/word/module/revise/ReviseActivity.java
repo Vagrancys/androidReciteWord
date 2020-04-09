@@ -1,8 +1,9 @@
 package com.tramp.word.module.revise;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -13,16 +14,16 @@ import android.widget.TextView;
 
 import com.tramp.word.R;
 import com.tramp.word.base.RxBaseActivity;
+import com.tramp.word.db.UserSqlHelper;
 import com.tramp.word.module.anim.AudioAnimActivity;
 import com.tramp.word.module.anim.FillAnimActivity;
 import com.tramp.word.module.anim.PinYinAnimActivity;
 import com.tramp.word.module.anim.SelectAnimActivity;
-import com.tramp.word.module.common.WordBookActivity;
-import com.tramp.word.module.help.HelpActivity;
-import com.tramp.word.module.home.recite.ReciteWordManageActivity;
+import com.tramp.word.module.home.recite.ReciteWordActivity;
+import com.tramp.word.module.word.WordListActivity;
 import com.tramp.word.utils.Utils;
 
-import org.w3c.dom.Text;
+import java.util.Calendar;
 
 import butterknife.BindView;
 
@@ -31,112 +32,134 @@ import butterknife.BindView;
  */
 
 public class ReviseActivity extends RxBaseActivity {
-    @BindView(R.id.revise_out)
-    ImageView mReviseOut;
+    private static final String LOG="reviseActivity";
+    @BindView(R.id.default_out)
+    ImageView DefaultOut;
+    @BindView(R.id.default_list)
+    TextView DefaultList;
+
     @BindView(R.id.revise_help)
-    ImageView mReviseHelp;
-    @BindView(R.id.recite)
-    TextView mRecite;
-    @BindView(R.id.revise_help_one)
-    ImageView mReviseHelpOne;
-    @BindView(R.id.revise_start)
-    TextView mReviseStart;
+    ImageView ReviseHelp;
 
-    @BindView(R.id.revise_word_linear)
-    LinearLayout mReviseWordLinear;
-    @BindView(R.id.revise_word_left)
-    TextView mReviseWordLeft;
-    @BindView(R.id.revise_word_img_left)
-    ImageView mReviseWordImgLeft;
+    @BindView(R.id.revise_title)
+    TextView ReviseTitle;
 
-    @BindView(R.id.revise_class_linear)
-    LinearLayout mReviseClassLinear;
-    @BindView(R.id.revise_class_left)
-    TextView mReviseClassLeft;
-    @BindView(R.id.revise_class_img_left)
-    ImageView mReviseClassImgLeft;
+    @BindView(R.id.no_word)
+    LinearLayout NoWord;
+    @BindView(R.id.no_return)
+    TextView NoReturn;
+    @BindView(R.id.now_word)
+    LinearLayout NowWord;
+    @BindView(R.id.now_count)
+    TextView NowCount;
+    @BindView(R.id.now_number)
+    TextView NowNumber;
+    @BindView(R.id.now_return)
+    TextView NowReturn;
+    @BindView(R.id.done_word)
+    LinearLayout DoneWord;
+    @BindView(R.id.done_count)
+    TextView DoneCount;
+    @BindView(R.id.done_select)
+    TextView DoneSelect;
+    @BindView(R.id.done_recite)
+    TextView DoneRecite;
+    @BindView(R.id.relative_layout)
+    RelativeLayout RelativeLayout;
 
-    @BindView(R.id.revise_relative_three)
-    RelativeLayout mReviseRelativeThree;
 
-    @BindView(R.id.revise_class_relative)
-    RelativeLayout mReviseClassRelative;
-    @BindView(R.id.class_linear_1)
-    RelativeLayout mClassLinear1;
-    @BindView(R.id.class_linear_1_img)
-    ImageView mClassLinear1Img;
-    @BindView(R.id.class_linear_2)
-    RelativeLayout mClassLinear2;
-    @BindView(R.id.class_linear_2_img)
-    ImageView mClassLinear2Img;
-    @BindView(R.id.class_linear_3)
-    RelativeLayout mClassLinear3;
-    @BindView(R.id.class_linear_3_img)
-    ImageView mClassLinear3Img;
-    @BindView(R.id.class_linear_4)
-    RelativeLayout mClassLinear4;
-    @BindView(R.id.class_linear_4_img)
-    ImageView mClassLinear4Img;
+    @BindView(R.id.now_class_layout)
+    LinearLayout NowClassLayout;
+    @BindView(R.id.now_class_title)
+    TextView NowClassTitle;
+    @BindView(R.id.now_class_img)
+    ImageView NowClassImg;
+    @BindView(R.id.class_layout)
+    LinearLayout ClassLayout;
+    @BindView(R.id.class_one)
+    RelativeLayout ClassOne;
+    @BindView(R.id.class_one_img)
+    ImageView ClassOneImg;
+    @BindView(R.id.class_two)
+    RelativeLayout ClassTwo;
+    @BindView(R.id.class_two_img)
+    ImageView ClassTwoImg;
+    @BindView(R.id.class_three)
+    RelativeLayout ClassThree;
+    @BindView(R.id.class_three_img)
+    ImageView ClassThreeImg;
+    @BindView(R.id.class_four)
+    RelativeLayout ClassFour;
+    @BindView(R.id.class_four_img)
+    ImageView ClassFourImg;
     @BindView(R.id.class_out)
-    TextView mClassOut;
+    TextView ClassOut;
 
-    @BindView(R.id.revise_number_relative)
-    RelativeLayout mReviseNumberRelative;
-    @BindView(R.id.number_linear_1)
-    RelativeLayout mNumberLinear1;
-    @BindView(R.id.number_linear_1_img)
-    ImageView mNumberLinear1Img;
-    @BindView(R.id.number_linear_2)
-    RelativeLayout mNumberLinear2;
-    @BindView(R.id.number_linear_2_img)
-    ImageView mNumberLinear2Img;
-    @BindView(R.id.number_linear_3)
-    RelativeLayout mNumberLinear3;
-    @BindView(R.id.number_linear_3_img)
-    ImageView mNumberLinear3Img;
-    @BindView(R.id.number_linear_4)
-    RelativeLayout mNumberLinear4;
-    @BindView(R.id.number_linear_4_img)
-    ImageView mNumberLinear4Img;
-    @BindView(R.id.number_out)
-    TextView mNumberOut;
+    @BindView(R.id.now_count_layout)
+    LinearLayout NowCountLayout;
+    @BindView(R.id.now_count_title)
+    TextView NowCountTitle;
+    @BindView(R.id.now_count_img)
+    ImageView NowCountImg;
+    @BindView(R.id.count_layout)
+    LinearLayout CountLayout;
+    @BindView(R.id.count_one)
+    RelativeLayout CountOne;
+    @BindView(R.id.count_one_img)
+    ImageView CountOneImg;
+    @BindView(R.id.count_two)
+    RelativeLayout CountTwo;
+    @BindView(R.id.count_two_img)
+    ImageView CountTwoImg;
+    @BindView(R.id.count_three)
+    RelativeLayout CountThree;
+    @BindView(R.id.count_three_img)
+    ImageView CountThreeImg;
+    @BindView(R.id.count_four)
+    RelativeLayout CountFour;
+    @BindView(R.id.count_four_img)
+    ImageView CountFourImg;
+    @BindView(R.id.count_out)
+    TextView CountOut;
 
-    @BindView(R.id.revise_number)
-    TextView mReviseNumber;
-
-    @BindView(R.id.revise_select)
-    TextView mReviseSelect;
-    @BindView(R.id.revise_list)
-    TextView mReviseList;
-
-    @BindView(R.id.revise_select_relative)
-    RelativeLayout mReviseSelectRelative;
-    @BindView(R.id.select_linear_1)
-    RelativeLayout mSelectLinear1;
-    @BindView(R.id.select_linear_2)
-    RelativeLayout mSelectLinear2;
-    @BindView(R.id.select_linear_3)
-    RelativeLayout mSelectLinear3;
-    @BindView(R.id.select_linear_4)
-    RelativeLayout mSelectLinear4;
+    @BindView(R.id.now_select_layout)
+    LinearLayout NowSelectLayout;
+    @BindView(R.id.now_select_count)
+    TextView NowSelectCount;
+    @BindView(R.id.select_layout)
+    LinearLayout SelectLayout;
+    @BindView(R.id.select_one)
+    RelativeLayout SelectOne;
+    @BindView(R.id.select_two)
+    RelativeLayout SelectTwo;
+    @BindView(R.id.select_three)
+    RelativeLayout SelectThree;
+    @BindView(R.id.select_four)
+    RelativeLayout SelectFour;
     @BindView(R.id.select_out)
-    TextView mSelectOut;
-    @BindView(R.id.revise_done_numbers)
-    TextView mReviseDoneNumbers;
+    TextView SelectOut;
 
-    @BindView(R.id.revise_relative_one)
-    RelativeLayout mReviseRelativeOne;
-    @BindView(R.id.revise_relative_two)
-    RelativeLayout mReviseRelativeTwo;
-    @BindView(R.id.revise_start_linear)
-    LinearLayout mReviseStartLinear;
-    private Animation mTopAnim;
+
+    private Animation mBottomEnterAnim;
     private Animation mRotateAnim;
     private Animation mScaleAnim;
 
     public int Status;
     private int Number;
     private int Class=1;
+    private Calendar calendar=Calendar.getInstance();
+    private int Word_count;
+    private int Study_no_count;
+    private int Study_count;
+    private int Word_id;
+    private UserSqlHelper mUser;
+    private String[] mText={
+            "看词选释义","拼写题","音频题","选词填空"
+    };
+    private String[] mNumber={
+            "10词","30词","50词","全部"
+    };
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_revise;
@@ -145,46 +168,101 @@ public class ReviseActivity extends RxBaseActivity {
     @Override
     public void initView(Bundle save) {
         initAnim();
-        initHelp();
-        initWordNumber();
+        mUser=new UserSqlHelper(getBaseContext());
+        initData();
+        initCount();
         initClass();
         initSelect();
-        mReviseRelativeThree.setOnClickListener(new View.OnClickListener() {
+        RelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mReviseNumberRelative.getVisibility()==View.VISIBLE){
-                    mReviseNumberRelative.setVisibility(View.GONE);
-                }
-
-                mReviseRelativeThree.setVisibility(View.GONE);
+                ClassLayout.setVisibility(View.GONE);
+                SelectLayout.setVisibility(View.GONE);
+                CountLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
             }
         });
 
-        mReviseStart.setOnClickListener(new View.OnClickListener() {
+        NowReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mReviseStart.startAnimation(mScaleAnim);
+                NowReturn.startAnimation(mScaleAnim);
                 initIntent();
             }
         });
 
-        mReviseStartLinear.setOnClickListener(new View.OnClickListener() {
+        DoneSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mReviseClassImgLeft.startAnimation(mRotateAnim);
-                mReviseRelativeThree.setVisibility(View.VISIBLE);
-                mReviseClassRelative.startAnimation(mTopAnim);
-                mReviseClassRelative.setVisibility(View.VISIBLE);
+                RelativeLayout.setVisibility(View.VISIBLE);
+                SelectLayout.startAnimation(mBottomEnterAnim);
+                SelectLayout.setVisibility(View.VISIBLE);
             }
         });
 
-        mRecite.setOnClickListener(new View.OnClickListener() {
+        NoReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ReviseActivity.this,WordBookActivity.class));
-                ActivityAnim(ReviseActivity.this);
+                startActivity(new Intent(ReviseActivity.this, ReciteWordActivity.class));
+                finish();
             }
         });
+
+        DoneRecite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ReviseActivity.this, ReciteWordActivity.class));
+                finish();
+            }
+        });
+
+        ReviseHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+    public void initData(){
+        Word_id=mUser.WordId();
+        Word_count=mUser.WordAllCount(Word_id,calendar.getTime().getTime());
+        Study_count=mUser.WordStudyCount(Word_id,calendar.getTime().getTime(),1);
+        Study_no_count=mUser.WordStudyCount(Word_id,calendar.getTime().getTime(),0);
+        Log.e(LOG,"Time="+calendar.getTime().getTime()+"word_count="+Word_count
+                +"Study_count="+Study_count
+                +"Study_no_count="+Study_no_count);
+        if(Word_count>0){
+            if(Study_no_count==Word_count){
+                NowWord.setVisibility(View.VISIBLE);
+                NoWord.setVisibility(View.GONE);
+                DoneWord.setVisibility(View.GONE);
+                NowCount.setText(Word_count);
+            }else if(Study_no_count<Word_count){
+                NowWord.setVisibility(View.VISIBLE);
+                NoWord.setVisibility(View.GONE);
+                DoneWord.setVisibility(View.GONE);
+                NowCount.setText(String.valueOf(Study_no_count));
+                NowNumber.setText("共"+Word_count+"词");
+                NowNumber.setVisibility(View.VISIBLE);
+                NowSelectLayout.setVisibility(View.VISIBLE);
+                NowSelectCount.setText(String.valueOf(Study_count));
+                NowReturn.setText(getResources().getString(R.string.revise_start_text1));
+            }else if(Word_count==Study_count){
+                NowWord.setVisibility(View.GONE);
+                DoneWord.setVisibility(View.VISIBLE);
+                NoWord.setVisibility(View.GONE);
+                DoneCount.setText(Word_count+"/"+Word_count);
+            }
+        }else{
+            NowWord.setVisibility(View.GONE);
+            DoneWord.setVisibility(View.GONE);
+            NoWord.setVisibility(View.VISIBLE);
+        }
+        Cursor cursor2=mUser.BookQuery(Word_id);
+        if(cursor2!=null&&cursor2.getCount()>0){
+            ReviseTitle.setText(cursor2.getString(cursor2.getColumnIndex("book_name")));
+        }
     }
 
     @Override
@@ -192,247 +270,253 @@ public class ReviseActivity extends RxBaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         Utils.ShowToast(getBaseContext(),"request="+requestCode+"result="+resultCode);
         if(resultCode==10){
-            if(data !=null){
+            if(data.getExtras() !=null){
                 Bundle b=data.getExtras();
                 Status=b.getInt("data");
-                Utils.ShowToast(getBaseContext(),"Status="+Status);
             }else{
                 Status=0;
-                Utils.ShowToast(getBaseContext(),"Status1="+Status);
             }
-            if(Status==40){
-                mReviseRelativeOne.setVisibility(View.GONE);
-                mReviseRelativeTwo.setVisibility(View.VISIBLE);
-                mReviseStartLinear.setVisibility(View.VISIBLE);
+            if(Status==Word_count){
+                NowWord.setVisibility(View.GONE);
+                NoWord.setVisibility(View.GONE);
+                DoneWord.setVisibility(View.VISIBLE);
+                NowSelectLayout.setVisibility(View.VISIBLE);
             }else if(Status==0){
-                mReviseRelativeOne.setVisibility(View.VISIBLE);
-                mReviseRelativeTwo.setVisibility(View.GONE);
-                mReviseStartLinear.setVisibility(View.VISIBLE);
-                mReviseNumber.setText(Status+"");
+                NowWord.setVisibility(View.VISIBLE);
+                NoWord.setVisibility(View.GONE);
+                DoneWord.setVisibility(View.GONE);
+                NowSelectLayout.setVisibility(View.VISIBLE);
+                NowCount.setText(String.valueOf(Status));
             }else{
-                mReviseRelativeOne.setVisibility(View.VISIBLE);
-                mReviseRelativeTwo.setVisibility(View.GONE);
-                mReviseDoneNumbers.setText(Number+"");
-                mReviseNumber.setText(Status+"");
-                mReviseStartLinear.setVisibility(View.VISIBLE);
+                NowWord.setVisibility(View.VISIBLE);
+                NoWord.setVisibility(View.GONE);
+                DoneWord.setVisibility(View.GONE);
+                NowNumber.setText(String.valueOf(Number));
+                NowCount.setText(String.valueOf(Status));
+                NowSelectLayout.setVisibility(View.VISIBLE);
             }
         }
     }
 
     public void initAnim(){
-        mTopAnim= AnimationUtils.loadAnimation(getBaseContext(),R.anim.alert_word_manage_top_anim);
-        mRotateAnim=AnimationUtils.loadAnimation(getBaseContext(),R.anim.recite_know_anim);
-        mScaleAnim=AnimationUtils.loadAnimation(getBaseContext(),R.anim.task_list_exit_anim);
+        mBottomEnterAnim= AnimationUtils.loadAnimation(getBaseContext(),R.anim.default_bottom_enter_anim);
+        mRotateAnim=AnimationUtils.loadAnimation(getBaseContext(),R.anim.default_rotate_anim);
+        mScaleAnim=AnimationUtils.loadAnimation(getBaseContext(),R.anim.default_button_scale_anim);
     }
 
-    public void initWordNumber(){
-        mReviseWordLinear.setOnClickListener(new View.OnClickListener() {
+    public void initCount(){
+        NowCountLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mReviseWordImgLeft.startAnimation(mRotateAnim);
-                mReviseRelativeThree.setVisibility(View.VISIBLE);
-                mReviseNumberRelative.startAnimation(mTopAnim);
-                mReviseNumberRelative.setVisibility(View.VISIBLE);
+                NowCountImg.startAnimation(mRotateAnim);
+                NowCountImg.setRotation(180);
+                RelativeLayout.setVisibility(View.VISIBLE);
+                CountLayout.setVisibility(View.VISIBLE);
+                CountLayout.startAnimation(mBottomEnterAnim);
             }
         });
 
-        mNumberLinear1.setOnClickListener(new View.OnClickListener() {
+        CountOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mNumberLinear1Img.setVisibility(View.VISIBLE);
-                mNumberLinear2Img.setVisibility(View.GONE);
-                mNumberLinear3Img.setVisibility(View.GONE);
-                mNumberLinear4Img.setVisibility(View.GONE);
-                mReviseNumberRelative.setVisibility(View.GONE);
-                mReviseRelativeThree.setVisibility(View.GONE);
+                CountOneImg.setVisibility(View.VISIBLE);
+                CountTwoImg.setVisibility(View.GONE);
+                CountThreeImg.setVisibility(View.GONE);
+                CountFourImg.setVisibility(View.GONE);
+                CountLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
                 Number=1;
-                mReviseWordLeft.setText("10");
+                NowCountTitle.setText(mNumber[0]);
             }
         });
 
-        mNumberLinear2.setOnClickListener(new View.OnClickListener() {
+        CountTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mNumberLinear2Img.setVisibility(View.VISIBLE);
-                mNumberLinear1Img.setVisibility(View.GONE);
-                mNumberLinear3Img.setVisibility(View.GONE);
-                mNumberLinear4Img.setVisibility(View.GONE);
-                mReviseNumberRelative.setVisibility(View.GONE);
-                mReviseRelativeThree.setVisibility(View.GONE);
+                CountOneImg.setVisibility(View.GONE);
+                CountTwoImg.setVisibility(View.VISIBLE);
+                CountThreeImg.setVisibility(View.GONE);
+                CountFourImg.setVisibility(View.GONE);
+                CountLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
                 Number=2;
-                mReviseWordLeft.setText("30");
+                NowCountTitle.setText(mNumber[1]);
             }
         });
 
-        mNumberLinear3.setOnClickListener(new View.OnClickListener() {
+        CountThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mNumberLinear3Img.setVisibility(View.VISIBLE);
-                mNumberLinear2Img.setVisibility(View.GONE);
-                mNumberLinear1Img.setVisibility(View.GONE);
-                mNumberLinear4Img.setVisibility(View.GONE);
-                mReviseNumberRelative.setVisibility(View.GONE);
-                mReviseRelativeThree.setVisibility(View.GONE);
+                CountOneImg.setVisibility(View.GONE);
+                CountTwoImg.setVisibility(View.GONE);
+                CountThreeImg.setVisibility(View.VISIBLE);
+                CountFourImg.setVisibility(View.GONE);
+                CountLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
                 Number=3;
-                mReviseWordLeft.setText("50");
+                NowCountTitle.setText(mNumber[2]);
             }
         });
 
-        mNumberLinear4.setOnClickListener(new View.OnClickListener() {
+        CountFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mNumberLinear4Img.setVisibility(View.VISIBLE);
-                mNumberLinear2Img.setVisibility(View.GONE);
-                mNumberLinear3Img.setVisibility(View.GONE);
-                mNumberLinear1Img.setVisibility(View.GONE);
-                mReviseNumberRelative.setVisibility(View.GONE);
-                mReviseRelativeThree.setVisibility(View.GONE);
+                CountOneImg.setVisibility(View.GONE);
+                CountTwoImg.setVisibility(View.GONE);
+                CountThreeImg.setVisibility(View.GONE);
+                CountFourImg.setVisibility(View.VISIBLE);
+                CountLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
                 Number=4;
-                mReviseWordLeft.setText("92");
+                NowCountTitle.setText(mNumber[3]);
             }
         });
 
-        mNumberOut.setOnClickListener(new View.OnClickListener() {
+        CountOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mReviseNumberRelative.setVisibility(View.GONE);
-                mReviseRelativeThree.setVisibility(View.GONE);
+                CountLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
+                NowCountImg.startAnimation(mRotateAnim);
+                NowCountImg.setRotation(-180);
             }
         });
     }
 
     public void initClass(){
-        mReviseClassLinear.setOnClickListener(new View.OnClickListener() {
+        NowClassLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mReviseClassImgLeft.startAnimation(mRotateAnim);
-                mReviseRelativeThree.setVisibility(View.VISIBLE);
-                mReviseClassRelative.startAnimation(mTopAnim);
-                mReviseClassRelative.setVisibility(View.VISIBLE);
+                NowClassImg.startAnimation(mRotateAnim);
+                NowClassImg.setRotation(180);
+                RelativeLayout.setVisibility(View.VISIBLE);
+                ClassLayout.setVisibility(View.VISIBLE);
+                ClassLayout.startAnimation(mBottomEnterAnim);
             }
         });
 
-        mClassLinear1.setOnClickListener(new View.OnClickListener() {
+        ClassOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mClassLinear1Img.setVisibility(View.VISIBLE);
-                mClassLinear2Img.setVisibility(View.GONE);
-                mClassLinear3Img.setVisibility(View.GONE);
-                mClassLinear4Img.setVisibility(View.GONE);
-                mReviseClassRelative.setVisibility(View.GONE);
-                mReviseRelativeThree.setVisibility(View.GONE);
+                ClassOneImg.setVisibility(View.VISIBLE);
+                ClassTwoImg.setVisibility(View.GONE);
+                ClassThreeImg.setVisibility(View.GONE);
+                ClassFourImg.setVisibility(View.GONE);
+                ClassLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
                 Class=1;
-                mReviseClassLeft.setText("看词选释义");
+                NowClassTitle.setText(mText[0]);
             }
         });
 
-        mClassLinear2.setOnClickListener(new View.OnClickListener() {
+        ClassTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mClassLinear2Img.setVisibility(View.VISIBLE);
-                mClassLinear1Img.setVisibility(View.GONE);
-                mClassLinear3Img.setVisibility(View.GONE);
-                mClassLinear4Img.setVisibility(View.GONE);
-                mReviseClassRelative.setVisibility(View.GONE);
-                mReviseRelativeThree.setVisibility(View.GONE);
+                ClassOneImg.setVisibility(View.GONE);
+                ClassTwoImg.setVisibility(View.VISIBLE);
+                ClassThreeImg.setVisibility(View.GONE);
+                ClassFourImg.setVisibility(View.GONE);
+                ClassLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
                 Class=2;
-                mReviseClassLeft.setText("拼写题");
+                NowClassTitle.setText(mText[1]);
             }
         });
 
-        mClassLinear3.setOnClickListener(new View.OnClickListener() {
+        ClassThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mClassLinear3Img.setVisibility(View.VISIBLE);
-                mClassLinear2Img.setVisibility(View.GONE);
-                mClassLinear1Img.setVisibility(View.GONE);
-                mClassLinear4Img.setVisibility(View.GONE);
-                mReviseClassRelative.setVisibility(View.GONE);
-                mReviseRelativeThree.setVisibility(View.GONE);
+                ClassOneImg.setVisibility(View.GONE);
+                ClassTwoImg.setVisibility(View.GONE);
+                ClassThreeImg.setVisibility(View.VISIBLE);
+                ClassFourImg.setVisibility(View.GONE);
+                ClassLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
                 Class=3;
-                mReviseClassLeft.setText("音频题");
+                NowClassTitle.setText(mText[2]);
             }
         });
 
-        mClassLinear4.setOnClickListener(new View.OnClickListener() {
+        ClassFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mClassLinear4Img.setVisibility(View.VISIBLE);
-                mClassLinear2Img.setVisibility(View.GONE);
-                mClassLinear3Img.setVisibility(View.GONE);
-                mClassLinear1Img.setVisibility(View.GONE);
-                mReviseClassRelative.setVisibility(View.GONE);
-                mReviseRelativeThree.setVisibility(View.GONE);
+                ClassOneImg.setVisibility(View.GONE);
+                ClassTwoImg.setVisibility(View.GONE);
+                ClassThreeImg.setVisibility(View.GONE);
+                ClassFourImg.setVisibility(View.VISIBLE);
+                ClassLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
                 Class=4;
-                mReviseClassLeft.setText("选词填空");
+                NowClassTitle.setText(mText[3]);
             }
         });
 
-        mClassOut.setOnClickListener(new View.OnClickListener() {
+        ClassOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mReviseClassRelative.setVisibility(View.GONE);
-                mReviseRelativeThree.setVisibility(View.GONE);
+                ClassLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
+                NowClassImg.startAnimation(mRotateAnim);
+                NowClassImg.setRotation(-180);
             }
         });
     }
 
     public void initSelect(){
-        mReviseSelect.setOnClickListener(new View.OnClickListener() {
+        NowSelectLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mReviseSelect.startAnimation(mScaleAnim);
-                mReviseRelativeThree.setVisibility(View.VISIBLE);
-                mReviseSelectRelative.startAnimation(mTopAnim);
-                mReviseSelectRelative.setVisibility(View.VISIBLE);
+                RelativeLayout.setVisibility(View.VISIBLE);
+                SelectLayout.setVisibility(View.VISIBLE);
+                SelectLayout.startAnimation(mBottomEnterAnim);
             }
         });
 
-        mSelectLinear1.setOnClickListener(new View.OnClickListener() {
+        SelectOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mReviseSelectRelative.setVisibility(View.GONE);
-                mReviseRelativeThree.setVisibility(View.GONE);
+                SelectLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
                 Class=1;
                 initIntent();
             }
         });
 
-        mSelectLinear2.setOnClickListener(new View.OnClickListener() {
+        SelectTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mReviseSelectRelative.setVisibility(View.GONE);
-                mReviseRelativeThree.setVisibility(View.GONE);
+                SelectLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
                 Class=2;
                 initIntent();
             }
         });
 
-        mSelectLinear3.setOnClickListener(new View.OnClickListener() {
+        SelectThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mReviseSelectRelative.setVisibility(View.GONE);
-                mReviseRelativeThree.setVisibility(View.GONE);
+                SelectLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
                 Class=3;
                 initIntent();
             }
         });
 
-        mSelectLinear4.setOnClickListener(new View.OnClickListener() {
+        SelectFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mReviseSelectRelative.setVisibility(View.GONE);
-                mReviseRelativeThree.setVisibility(View.GONE);
+                SelectLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
                 Class=4;
                 initIntent();
             }
         });
 
-        mSelectOut.setOnClickListener(new View.OnClickListener() {
+        SelectOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mReviseSelectRelative.setVisibility(View.GONE);
-                mReviseRelativeThree.setVisibility(View.GONE);
+                SelectLayout.setVisibility(View.GONE);
+                RelativeLayout.setVisibility(View.GONE);
             }
         });
     }
@@ -458,42 +542,20 @@ public class ReviseActivity extends RxBaseActivity {
         startActivityForResult(intent,5);
     }
 
-    public void initHelp(){
-        mReviseHelp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ReviseActivity.this, HelpActivity.class));
-                ActivityAnim(ReviseActivity.this);
-            }
-        });
-
-        mReviseHelpOne.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ReviseActivity.this,HelpActivity.class));
-                ActivityAnim(ReviseActivity.this);
-            }
-        });
-    }
-
-    public void ActivityAnim(Activity activity){
-        activity.overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_stay);
-    }
-
     @Override
     protected void initToolBar() {
-        mReviseOut.setOnClickListener(new View.OnClickListener() {
+        DefaultOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
 
-        mReviseList.setOnClickListener(new View.OnClickListener() {
+        DefaultList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ReviseActivity.this, WordBookActivity.class));
-                overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_stay);
+                startActivity(new Intent(ReviseActivity.this, WordListActivity.class));
+                Utils.StarActivityInAnim(ReviseActivity.this);
             }
         });
     }

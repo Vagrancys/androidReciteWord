@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/item_manage_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/default_margin_size"
+        android:paddingBottom="@dimen/default_margin_size">
+        <TextView
+            android:id="@+id/item_manage_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/item_manage_title"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_18sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/default_margin_size_2"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/item_manage_number"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_16sp"
+            android:layout_toEndOf="@+id/item_manage_title"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:layout_centerVertical="true"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rwb_wg_icon_manage_tag"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/default_margin_size"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_manage_relative1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/default_margin_size"
+        android:paddingTop="@dimen/default_margin_size"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/item_manage_default_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:layout_marginStart="@dimen/default_margin_size_2"
+            android:src="@drawable/rwb_wg_icon_manage_default" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/item_manage_default_img"
+            android:text="@string/item_manage_default"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/default_text_size_18sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/item_manage_update"
+            android:src="@drawable/rwb_wg_icon_manage_rename" />
+
+        <TextView
+            android:id="@+id/item_manage_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:text="@string/item_manage_update"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/default_text_size_18sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/item_manage_delete"
+            android:src="@drawable/rwb_wg_icon_manage_delete" />
+
+        <TextView
+            android:id="@+id/item_manage_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/default_margin_size_2"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:text="@string/item_manage_delete"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/default_text_size_18sp" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/item_day_list_img"
+        android:layout_width="@dimen/default_margin_size_5"
+        android:layout_height="@dimen/default_margin_size_5"
+        android:src="@drawable/user_avater"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+    <ImageView
+        android:id="@+id/item_day_list_top"
+        android:layout_width="@dimen/default_margin_size_2"
+        android:layout_height="@dimen/default_margin_size_2"
+        android:layout_toEndOf="@+id/item_day_list_img"
+        android:layout_below="@+id/item_day_list_img"
+        android:src="@drawable/crown_1"
+        android:layout_marginStart="@dimen/default_margin_size"
+        android:layout_marginTop="-15dp"/>
+    <TextView
+        android:id="@+id/item_day_list_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/account_name_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size_18sp"
+        android:layout_below="@+id/item_day_list_img"
+        android:layout_marginTop="@dimen/default_margin_size"/>
+</RelativeLayout>

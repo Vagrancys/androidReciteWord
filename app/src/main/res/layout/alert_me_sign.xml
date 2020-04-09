@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/default_margin_size_2"
-    android:layout_marginEnd="@dimen/default_margin_size_2">
-
-    <LinearLayout
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:background="@drawable/btn_background_radius"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/default_margin_size_2"
+        android:layout_marginEnd="@dimen/default_margin_size_2">
 
         <TextView
             android:id="@+id/alert_word_manage_title"
@@ -22,7 +19,7 @@
             android:padding="@dimen/default_margin_size"
             android:text="@string/me_sign_title"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size" />
+            android:textSize="@dimen/default_text_size_18sp" />
 
         <TextView
             android:id="@+id/alert_word_manage_message"
@@ -32,7 +29,7 @@
             android:padding="@dimen/default_margin_size_2"
             android:text="@string/me_sign_message"
             android:textColor="@color/black"
-            android:textSize="@dimen/default_text_size" />
+            android:textSize="@dimen/default_text_size_18sp" />
 
         <EditText
             android:id="@+id/alert_me_edit"
@@ -44,7 +41,8 @@
             android:paddingTop="@dimen/default_margin_size"
             android:paddingBottom="@dimen/default_margin_size"
             android:layout_marginStart="@dimen/default_margin_size"
-            android:layout_marginEnd="@dimen/default_margin_size"/>
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:inputType="text"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -65,7 +63,7 @@
                 android:paddingBottom="@dimen/default_margin_size"
                 android:paddingTop="@dimen/default_margin_size"
                 android:textColor="@color/black"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/default_text_size_18sp" />
 
             <TextView
                 android:id="@+id/alert_word_manage_ok"
@@ -76,11 +74,10 @@
                 android:paddingBottom="@dimen/default_margin_size"
                 android:paddingTop="@dimen/default_margin_size"
                 android:textColor="@color/blue"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/default_text_size_18sp" />
         </LinearLayout>
     </LinearLayout>
 
-</RelativeLayout>
 
 
 

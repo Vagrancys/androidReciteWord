@@ -3,6 +3,8 @@ package com.tramp.word.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Environment;
 import android.os.StatFs;
 import android.text.format.Formatter;
@@ -19,6 +21,12 @@ import java.io.File;
 public class Utils {
     private static Toast mToast;
     private Utils() {
+    }
+
+    public static Boolean getNetWork(Activity activity){
+        ConnectivityManager cm=(ConnectivityManager) activity.getSystemService(Activity.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo=cm.getActiveNetworkInfo();
+        return networkInfo !=null;
     }
 
     public static float dp2px(Resources resources, float dp) {
@@ -55,8 +63,7 @@ public class Utils {
 
         long totalSize=blockSize*totalBlock;
 
-        String total= Formatter.formatFileSize(context,totalSize);
-        return total;
+        return Formatter.formatFileSize(context,totalSize);
     }
 
     public static String getAvailableSize(Context context){
@@ -69,8 +76,7 @@ public class Utils {
 
         long availableSize=blockSize*availableBlock;
 
-        String available=Formatter.formatFileSize(context,availableSize);
-        return available;
+        return Formatter.formatFileSize(context,availableSize);
     }
 
     public static String getRowTotalSize(Context context){
@@ -83,8 +89,7 @@ public class Utils {
 
         long totalSize=blockSize*totalBlock;
 
-        String total= Formatter.formatFileSize(context,totalSize);
-        return total;
+        return Formatter.formatFileSize(context,totalSize);
     }
 
     public static String getRowAvailableSize(Context context){
@@ -97,9 +102,51 @@ public class Utils {
 
         long availableSize=blockSize*availableBlock;
 
-        String available=Formatter.formatFileSize(context,availableSize);
-        return available;
+        return Formatter.formatFileSize(context,availableSize);
     }
+
+    public static int getGroupLevelImg(int level){
+        switch (level){
+            case 1:
+                return R.drawable.group_level_small_1;
+            case 2:
+                return R.drawable.group_level_small_2;
+            case 3:
+                return R.drawable.group_level_small_3;
+            case 4:
+                return R.drawable.group_level_small_4;
+            case 5:
+                return R.drawable.group_level_small_5;
+            case 6:
+                return R.drawable.group_level_small_6;
+            case 7:
+                return R.drawable.group_level_small_7;
+            case 8:
+                return R.drawable.group_level_small_8;
+            case 9:
+                return R.drawable.group_level_small_9;
+            case 10:
+                return R.drawable.group_level_small_10;
+            case 11:
+                return R.drawable.group_level_small_11;
+            case 12:
+                return R.drawable.group_level_small_12;
+            case 13:
+                return R.drawable.group_level_small_13;
+            case 14:
+                return R.drawable.group_level_small_14;
+            case 15:
+                return R.drawable.group_level_small_15;
+            case 16:
+                return R.drawable.group_level_small_16;
+            case 17:
+                return R.drawable.group_level_small_17;
+            case 18:
+                return R.drawable.group_level_small_18;
+        }
+        return R.drawable.group_level_small_1;
+    }
+
 }
 
 

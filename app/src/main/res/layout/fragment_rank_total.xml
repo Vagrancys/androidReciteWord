@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rank_week_bg"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/default_margin_size">
+
+        <TextView
+            android:id="@+id/rank_total_friend"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/rank_friend"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size_18sp"
+            android:paddingBottom="@dimen/default_margin_size"
+            android:paddingTop="@dimen/default_margin_size"
+            android:background="@drawable/rank_left_bg"/>
+        <TextView
+            android:id="@+id/rank_total_total"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/rank_total"
+            android:textSize="@dimen/default_text_size_18sp"
+            android:textColor="@color/orange"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:paddingBottom="@dimen/default_margin_size"
+            android:paddingTop="@dimen/default_margin_size"/>
+    </LinearLayout>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/rank_total_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/rank_total_friend_relative"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rank_total_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/default_margin_size"
+                android:layout_marginStart="@dimen/default_margin_size"
+                android:scrollbars="none"
+                android:layout_above="@+id/rank_total_one"/>
+            <LinearLayout
+                android:id="@+id/rank_total_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentBottom="true">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/black_1"/>
+                <RelativeLayout
+                    android:id="@+id/rank_total_relative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_margin_size"
+                    android:padding="@dimen/default_margin_size_1">
+                    <ImageView
+                        android:id="@+id/rank_total_avatar"
+                        android:layout_width="@dimen/default_margin_size_5"
+                        android:layout_height="@dimen/default_margin_size_5"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/default_margin_size_2"
+                        android:layout_marginStart="@dimen/default_margin_size"
+                        android:src="@drawable/icon_avatar" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/rank_total_avatar"
+                        android:text="@string/rank_number"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/default_text_size_18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/default_margin_size"
+                        android:background="@drawable/btn_rank_share_bg"
+                        android:gravity="center"
+                        android:text="@string/rank_share"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/default_text_size_20sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rank_total_up_relative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_margin_size"
+                    android:padding="@dimen/default_margin_size_1"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/rank_total_up_avatar"
+                        android:layout_width="@dimen/default_margin_size_5"
+                        android:layout_height="@dimen/default_margin_size_5"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/default_margin_size_2"
+                        android:layout_marginStart="@dimen/default_margin_size"
+                        android:src="@drawable/icon_avatar" />
+
+                    <TextView
+                        android:id="@+id/rank_total_up_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/default_margin_size_1"
+                        android:layout_toEndOf="@+id/rank_total_up_avatar"
+                        android:text="@string/rank_number"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/default_text_size_18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rank_total_up_number"
+                        android:layout_toEndOf="@+id/rank_total_up_avatar"
+                        android:text="@string/rank_number"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/default_text_size_16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/default_margin_size"
+                        android:background="@drawable/btn_rank_share_bg"
+                        android:gravity="center"
+                        android:text="@string/rank_share"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/default_text_size_20sp" />
+                </RelativeLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

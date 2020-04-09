@@ -15,7 +15,7 @@ public class AssetsUtils {
         try {
             resources=context.getAssets().open(value);
         }catch (IOException e){
-
+            e.printStackTrace();
         }
         return resources;
     }

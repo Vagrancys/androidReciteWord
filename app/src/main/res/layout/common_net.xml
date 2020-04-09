@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/common_empty"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:visibility="gone">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_margin_size"
+        android:src="@drawable/img_nonet" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_margin_size"
+        android:text="@string/default_new_work_text"
+        android:textColor="@color/black_3"
+        android:textSize="@dimen/default_text_size_18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_margin_size_2"
+        android:text="@string/default_new_text"
+        android:textColor="@color/black_2"
+        android:textSize="@dimen/default_text_size_14sp" />
+
+    <TextView
+        android:id="@+id/net_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_net_button"
+        android:text="@string/word_whole_button"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size_18sp" />
+</LinearLayout>

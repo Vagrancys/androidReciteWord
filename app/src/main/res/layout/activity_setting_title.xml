@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            app:contentInsetStart="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size">
+
+                <ImageView
+                    android:id="@+id/default_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:paddingStart="@dimen/default_margin_size"
+                    android:src="@drawable/back" />
+
+                <TextView
+                    android:id="@+id/default_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/about_user_title"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size_18sp" />
+                <ImageView
+                    android:id="@+id/default_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/rwb_wg_icon_more"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"/>
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

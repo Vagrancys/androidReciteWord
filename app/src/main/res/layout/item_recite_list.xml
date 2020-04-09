@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/list_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_margin_size">
+
+        <TextView
+            android:id="@+id/list_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recite_list_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_18sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/list_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:padding="@dimen/default_margin_size"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/list_next_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recite_list_text_next"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size_18sp" />
+
+        <ImageView
+            android:id="@+id/list_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_search_white" />
+    </RelativeLayout>
+</LinearLayout>

@@ -12,7 +12,8 @@
     <uses-feature android:name="android.hardware.camera.autofocus"/>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:name=".WordAPP"
@@ -48,17 +49,18 @@
 
         <activity android:name=".module.home.recite.ReciteWordActivity"/>
 
-        <activity android:name=".module.home.recite.ReciteWordListActivity"/>
+        <activity android:name=".module.home.recite.ReciteDetailsActivity"/>
 
-        <activity android:name=".module.home.recite.ReciteWordDetailsActivity"/>
+        <activity android:name=".module.search.WordSearchDetailsActivity"/>
 
-        <activity android:name=".module.home.recite.ReciteWordManageActivity"/>
+        <activity android:name=".module.word.WordManageActivity"/>
 
         <activity android:name=".module.home.recite.ReciteWordContextActivity"/>
 
         <activity android:name=".module.home.recite.ReciteAnimActivity"/>
 
         <activity android:name=".module.common.UserDecideActivity"/>
+        <activity android:name=".module.book.BookActivity"/>
 
         <activity android:name=".module.common.RegisterActivity"/>
 
@@ -94,9 +96,9 @@
 
         <activity android:name=".module.anim.PinYinAnimActivity"/>
 
-        <activity android:name=".module.home.me.FriendDetailsActivity"/>
+        <activity android:name=".module.user.FriendDetailsActivity"/>
 
-        <activity android:name=".module.home.me.FriendSearchActivity"/>
+        <activity android:name=".module.user.FriendSearchActivity"/>
 
         <activity android:name=".module.group.GroupMedalActivity"/>
 
@@ -106,12 +108,12 @@
 
         <activity android:name=".module.group.GroupContentActivity"/>
 
-        <activity android:name=".module.home.me.PhoneContactActivity"/>
+        <activity android:name=".module.user.PhoneContactActivity"/>
 
-        <activity android:name=".module.home.me.SearchMemberActivity"
+        <activity android:name=".module.user.SearchMemberActivity"
             android:theme="@style/search_member"/>
 
-        <activity android:name=".module.home.me.MeShareActivity"/>
+        <activity android:name=".module.user.MeShareActivity"/>
 
         <activity android:name=".module.setting.MeSettingActivity"/>
 
@@ -160,6 +162,22 @@
         <activity android:name=".module.home.me.MeGiftActivity"/>
 
         <activity android:name=".module.pk.WordPkActivity"/>
+
+        <activity android:name=".module.word.WordListActivity"/>
+
+        <activity android:name=".module.group.GroupSearchActivity"/>
+
+        <activity android:name=".module.book.BookSearchActivity"/>
+
+        <activity android:name=".module.rank.RankActivity"/>
+
+        <activity android:name=".module.life.NewWordActivity"/>
+
+        <activity android:name=".module.life.NewGroupDetailsActivity"/>
+        <activity android:name=".module.life.NewRandomAnimActivity"/>
+        <activity android:name=".module.life.NewManageActivity"/>
+        <activity android:name=".module.life.NewRandomWinActivity"/>
+
     </application>
 
 </manifest>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blue"
+                app:contentInsetStart="0dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/default_out"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:paddingStart="@dimen/default_margin_size"
+                        android:src="@drawable/back" />
+
+                    <TextView
+                        android:id="@+id/default_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/group_member_title"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/default_text_size_18sp" />
+                    <TextView
+                        android:id="@+id/default_exit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:paddingEnd="@dimen/default_margin_size"
+                        android:text="@string/group_member_exit"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/default_text_size_18sp" />
+
+                    <TextView
+                        android:id="@+id/default_manage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:paddingEnd="@dimen/default_margin_size"
+                        android:text="@string/group_member_manage"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/default_text_size_18sp"
+                        android:visibility="gone" />
+                    <TextView
+                        android:id="@+id/default_done"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:paddingEnd="@dimen/default_margin_size"
+                        android:text="@string/group_member_done"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/default_text_size_18sp"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout
+            android:id="@+id/group_member_out"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/default_margin_size">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/group_member_out_recycler"
+                android:layout_width="@dimen/default_margin_size_16"
+                android:layout_height="@dimen/default_margin_size_3"
+                android:scrollbars="none"
+                android:overScrollMode="never"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/group_member_out_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/group_member_out_number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size_20sp"
+                android:layout_toStartOf="@+id/group_member_out_text"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/group_member_out_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/group_member_out_text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size_20sp"
+                android:paddingEnd="@dimen/default_margin_size"
+                android:layout_toStartOf="@+id/group_member_out_img"
+                android:layout_centerVertical="true"/>
+            <ImageView
+                android:id="@+id/group_member_out_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/group_share_invite_back"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/group_member_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/default_margin_size">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/group_member_in_recycler"
+                android:layout_width="@dimen/default_margin_size_16"
+                android:layout_height="@dimen/default_margin_size_3"
+                android:scrollbars="none"
+                android:overScrollMode="never"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/group_member_in_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/group_member_in_number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size_20sp"
+                android:layout_toStartOf="@+id/group_member_in_text"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/group_member_in_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/group_member_in_text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size_20sp"
+                android:paddingEnd="@dimen/default_margin_size"
+                android:layout_toStartOf="@+id/group_member_in_img"
+                android:layout_centerVertical="true"/>
+            <ImageView
+                android:id="@+id/group_member_in_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/group_share_invite_back"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/default_margin_size">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_list_left"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size_18sp" />
+
+            <TextView
+                android:id="@+id/item_list_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_list_size"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size_18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_list_right"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size_18sp" />
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/group_member_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="none"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.4"
+            android:background="@color/black"
+            android:clickable="false"
+            android:orientation="vertical" />
+
+        <RelativeLayout
+            android:id="@+id/group_member_exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/member_exit_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/default_margin_size_7">
+
+                <TextView
+                    android:id="@+id/member_exit_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin_size"
+                    android:text="@string/member_exit_titles"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_18sp" />
+
+                <TextView
+                    android:id="@+id/member_exit_warning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin_size_2"
+                    android:gravity="center"
+                    android:padding="@dimen/default_margin_size"
+                    android:text="@string/member_exit_warning"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_14sp" />
+
+                <TextView
+                    android:id="@+id/member_exit_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin_size_2"
+                    android:text="@string/member_exit_delete"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/default_text_size_18sp" />
+
+                <TextView
+                    android:id="@+id/member_exit_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin_size_2"
+                    android:text="@string/member_exit_cancel"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/default_text_size_18sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/member_exit_avatar"
+                android:layout_width="@dimen/default_margin_size_8"
+                android:layout_height="@dimen/default_margin_size_8"
+                android:layout_above="@+id/member_exit_linear"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="-40dp"
+                android:src="@drawable/pic_bookcover_default" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</FrameLayout>

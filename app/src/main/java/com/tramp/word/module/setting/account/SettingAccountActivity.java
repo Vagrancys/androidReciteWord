@@ -1,6 +1,7 @@
 package com.tramp.word.module.setting.account;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,13 +10,18 @@ import android.provider.MediaStore;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.tramp.word.R;
+import com.tramp.word.api.Retrofits;
 import com.tramp.word.base.RxBaseActivity;
+import com.tramp.word.db.UserSqlHelper;
+import com.tramp.word.entity.user.SettingAccountInfo;
 import com.tramp.word.module.common.LoginActivity;
 import com.tramp.word.utils.ConstantUtils;
 import com.tramp.word.utils.PreferencesUtils;
@@ -27,6 +33,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import butterknife.BindView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Administrator on 2019/2/28.
@@ -42,19 +51,28 @@ public class SettingAccountActivity extends RxBaseActivity implements View.OnCli
     RelativeLayout AccountAvatar;
     @BindView(R.id.account_avatar_img)
     ImageView AccountAvatarImg;
-
     @BindView(R.id.account_name)
     RelativeLayout AccountName;
+    @BindView(R.id.account_name_title)
+    TextView AccountNameTitle;
     @BindView(R.id.account_nickname)
     RelativeLayout AccountNickName;
+    @BindView(R.id.account_nickname_title)
+    TextView AccountNickNameTitle;
     @BindView(R.id.account_safety)
     RelativeLayout AccountSafety;
     @BindView(R.id.account_phone)
     RelativeLayout AccountPhone;
+    @BindView(R.id.account_phone_title)
+    TextView AccountPhoneTitle;
     @BindView(R.id.account_qq)
     RelativeLayout AccountQq;
+    @BindView(R.id.account_qq_title)
+    TextView AccountQqTitle;
     @BindView(R.id.account_weibo)
     RelativeLayout AccountWeiBo;
+    @BindView(R.id.account_weibo_title)
+    TextView AccountWeiBoTitle;
     @BindView(R.id.setting_account_cancel)
     TextView SettingAccountCancel;
     private PopupWindow mPopupWindow;
@@ -65,6 +83,11 @@ public class SettingAccountActivity extends RxBaseActivity implements View.OnCli
     private final int RESULT_OK=10;
     private Bitmap head;
     private Intent mIntent=new Intent();
+    private UserSqlHelper mUserHelper;
+    private SettingAccountInfo.Account account;
+    private final int NAME_CODE=10;
+    private final int NICKNAME_CODE=11;
+    private final int PHONE_CODE=12;
     @Override
     public int getLayoutId() {
         return R.layout.activity_setting_account;
@@ -72,9 +95,64 @@ public class SettingAccountActivity extends RxBaseActivity implements View.OnCli
 
     @Override
     public void initView(Bundle save) {
+        mUserHelper=new UserSqlHelper(getBaseContext());
+        loadData();
+        initData();
         initClick();
         initAvatar();
     }
+    private void initData(){
+        Cursor cursor=mUserHelper.UserQuery();
+        Glide.with(getBaseContext())
+                .load(cursor.getString(cursor.getColumnIndex("avatar")))
+                .placeholder(R.drawable.user_avater)
+                .into(AccountAvatarImg);
+        AccountNameTitle.setText(cursor.getString(cursor.getColumnIndex("user_name")));
+    }
+
+    private void loadData(){
+        Retrofits.getUserAPI().getSettingAccountInfo(mUserHelper.UserId())
+                .enqueue(new Callback<SettingAccountInfo>() {
+                    @Override
+                    public void onResponse(Call<SettingAccountInfo> call, Response<SettingAccountInfo> response) {
+                        if(response.body()!=null&&response.body().getCode()==200){
+                            account=response.body().getAccount();
+                            finishTask();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<SettingAccountInfo> call, Throwable t) {
+                        Utils.ShowToast(getBaseContext(),getResources().getString(R.string.forget_net_error));
+                    }
+                });
+    }
+
+    private void finishTask(){
+        Glide.with(getBaseContext())
+                .load(account.getUser_avatar())
+                .placeholder(R.drawable.user_avater)
+                .into(AccountAvatarImg);
+        if(!account.getUser_name().equals("")){
+            AccountNameTitle.setText(account.getUser_name());
+        }
+        AccountNickNameTitle.setText(account.getUser_title());
+        if(!account.getUser_phone().equals("")){
+            AccountPhoneTitle.setText(account.getUser_phone());
+            AccountPhoneTitle.setTextColor(getResources().getColor(R.color.blue));
+        }
+
+        if(!account.getUser_qq().equals("")){
+            AccountQqTitle.setText(account.getUser_qq());
+            AccountQqTitle.setTextColor(getResources().getColor(R.color.blue));
+        }
+
+        if(!account.getUser_weibo().equals("")){
+            AccountWeiBoTitle.setText(account.getUser_weibo());
+            AccountWeiBoTitle.setTextColor(getResources().getColor(R.color.blue));
+        }
+    }
+
     private void initClick(){
         AccountAvatar.setOnClickListener(this);
         AccountName.setOnClickListener(this);
@@ -90,19 +168,15 @@ public class SettingAccountActivity extends RxBaseActivity implements View.OnCli
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.account_avatar:
-                mPopupWindow.showAtLocation(AccountAvatar, Gravity.CENTER,0,0);
+                mPopupWindow.showAsDropDown(AccountAvatar,0,0,Gravity.CENTER);
                 break;
             case R.id.account_name:
-                mIntent.setClass(SettingAccountActivity.this,AccountNameActivity.class);
-                mIntent.putExtra(ConstantUtils.ACCOUNT_NAME,getResources().getString(R.string.account_name_title));
-                startActivityForResult(mIntent,ConstantUtils.NAME_CODE);
-                StartActivityAnim();
+                AccountNameActivity.launch(SettingAccountActivity.this,
+                        AccountNameTitle.getText().toString(),NAME_CODE);
                 break;
             case R.id.account_nickname:
-                mIntent.setClass(SettingAccountActivity.this,AccountNickNameActivity.class);
-                mIntent.putExtra(ConstantUtils.ACCOUNT_NICKNAME,getResources().getString(R.string.account_name_title));
-                startActivityForResult(mIntent,ConstantUtils.NICKNAME_CODE);
-                StartActivityAnim();
+                AccountNickNameActivity.launch(SettingAccountActivity.this,
+                        AccountNickNameTitle.getText().toString(),NICKNAME_CODE);
                 break;
             case R.id.account_safety:
                 mIntent.setClass(SettingAccountActivity.this,AccountSafetyActivity.class);
@@ -110,9 +184,7 @@ public class SettingAccountActivity extends RxBaseActivity implements View.OnCli
                 StartActivityAnim();
                 break;
             case R.id.account_phone:
-                mIntent.setClass(SettingAccountActivity.this,AccountPhoneActivity.class);
-                mIntent.putExtra(ConstantUtils.ACCOUNT_PHONE,getResources().getString(R.string.account_phone_title));
-                startActivityForResult(mIntent,ConstantUtils.PHONE_CODE);
+                AccountPhoneActivity.launch(SettingAccountActivity.this,AccountPhoneTitle.getText().toString(),PHONE_CODE);
                 break;
             case R.id.account_qq:
                 Utils.ShowToast(getBaseContext(),"开始绑定qq");
@@ -122,17 +194,22 @@ public class SettingAccountActivity extends RxBaseActivity implements View.OnCli
                 break;
             case R.id.setting_account_cancel:
                 PreferencesUtils.putBoolean(ConstantUtils.LOGIN_STATIC,false);
+                mUserHelper.DeleteUser();
+                ExitActivity();
                 startActivity(new Intent(SettingAccountActivity.this, LoginActivity.class));
-                finish();
                 break;
         }
     }
 
     private void initAvatar(){
-        mPopupWindow=new PopupWindow();
+        mPopupWindow=new PopupWindow(getBaseContext());
         View view= LayoutInflater.from(getBaseContext()).inflate(R.layout.item_me_avatar_pop,null);
         mPopupWindow.setContentView(view);
-
+        mPopupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        mPopupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        mPopupWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.btn_background_radius));
+        mPopupWindow.setAnimationStyle(R.style.popup_recite_style_anim);
+        mPopupWindow.setFocusable(true);
         TextView photo=(TextView) view.findViewById(R.id.item_me_avatar_photo);
         TextView pic=(TextView) view.findViewById(R.id.item_me_avatar_pic);
 
@@ -203,7 +280,27 @@ public class SettingAccountActivity extends RxBaseActivity implements View.OnCli
                         AccountAvatarImg.setImageBitmap(head);
                     }
                 }
-
+                break;
+            case NAME_CODE:
+                if(resultCode==31&&data!=null){
+                    AccountNameTitle.setText(data.getStringExtra(ConstantUtils.ACCOUNT_NAME));
+                    AccountNameTitle.setTextColor(getResources().getColor(R.color.blue));
+                }
+                break;
+            case NICKNAME_CODE:
+                if(resultCode==32&&data!=null){
+                    AccountNickNameTitle.setText(data.getStringExtra(ConstantUtils.ACCOUNT_NICKNAME));
+                    AccountNickNameTitle.setTextColor(getResources().getColor(R.color.blue));
+                }
+                break;
+            case PHONE_CODE:
+                if(resultCode==34&&data!=null){
+                    AccountPhoneTitle.setText(data.getStringExtra(ConstantUtils.ACCOUNT_PHONE));
+                    AccountPhoneTitle.setTextColor(getResources().getColor(R.color.blue));
+                }
+                break;
+                default:
+                    break;
         }
     }
 

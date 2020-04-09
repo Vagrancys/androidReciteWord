@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/group_summary_bar"
+        layout="@layout/common_toolbar"/>
+    <TextView
+        android:id="@+id/group_summary_medal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/details_scroll_three"
+        android:textSize="@dimen/default_text_size_18sp"
+        android:textColor="@color/black"
+        android:layout_below="@+id/group_summary_bar"
+        android:layout_alignParentStart="true"
+        android:padding="@dimen/default_margin_size"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/group_summary_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_margin_size_4"
+        android:layout_below="@+id/group_summary_bar"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:layout_toEndOf="@+id/group_summary_medal"
+        android:paddingStart="@dimen/default_margin_size_3"
+        android:paddingTop="@dimen/default_margin_size">
+    </android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/details_scroll_four_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/group_summary_medal"
+        android:paddingEnd="@dimen/default_margin_size"
+        android:paddingStart="@dimen/default_margin_size"
+        android:paddingTop="@dimen/default_margin_size_4"
+        android:text="@string/details_scroll_four_text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size_18sp" />
+</RelativeLayout>

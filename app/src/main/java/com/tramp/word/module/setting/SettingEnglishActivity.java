@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.tramp.word.R;
 import com.tramp.word.base.RxBaseActivity;
+import com.tramp.word.utils.ConstantUtils;
+import com.tramp.word.utils.PreferencesUtils;
 
 import butterknife.BindView;
 
@@ -33,7 +35,8 @@ public class SettingEnglishActivity extends RxBaseActivity{
     RelativeLayout EnglishThreeRelative;
     @BindView(R.id.english_three_img)
     ImageView EnglishThreeImg;
-    private int status=1;
+    private int status=0;
+    private int ENGLISH_RESULT=21;
     @Override
     public int getLayoutId() {
         return R.layout.activity_setting_english;
@@ -55,52 +58,54 @@ public class SettingEnglishActivity extends RxBaseActivity{
         EnglishOneImg.setVisibility(View.GONE);
         EnglishTwoImg.setVisibility(View.GONE);
         EnglishThreeImg.setVisibility(View.GONE);
-        if(status==1){
+        status= PreferencesUtils.getInt(ConstantUtils.SETTING_ENGLISH_CODE,0);
+        if(status==0){
             EnglishOneImg.setVisibility(View.VISIBLE);
-        }else if(status==2){
+        }else if(status==1){
             EnglishTwoImg.setVisibility(View.VISIBLE);
-        }else if(status==3){
+        }else if(status==2){
             EnglishThreeImg.setVisibility(View.VISIBLE);
         }
         EnglishOneRelative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EnglishOneImg.setVisibility(View.VISIBLE);
-                status=1;
+                status=0;
                 EnglishTwoImg.setVisibility(View.GONE);
                 EnglishThreeImg.setVisibility(View.GONE);
-                Intent intent=new Intent();
-                intent.putExtra("english",status);
-                setResult(15,intent);
-                finish();
+                PreferencesUtils.putInt(ConstantUtils.SETTING_ENGLISH_CODE,0);
+                initResult();
             }
         });
         EnglishTwoRelative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EnglishTwoImg.setVisibility(View.VISIBLE);
-                status=2;
+                status=1;
                 EnglishOneImg.setVisibility(View.GONE);
                 EnglishThreeImg.setVisibility(View.GONE);
-                Intent intent=new Intent();
-                intent.putExtra("english",status);
-                setResult(15,intent);
-                finish();
+                PreferencesUtils.putInt(ConstantUtils.SETTING_ENGLISH_CODE,1);
+                initResult();
             }
         });
         EnglishThreeRelative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EnglishThreeImg.setVisibility(View.VISIBLE);
-                status=3;
+                status=2;
                 EnglishOneImg.setVisibility(View.GONE);
                 EnglishTwoImg.setVisibility(View.GONE);
-                Intent intent=new Intent();
-                intent.putExtra("english",status);
-                setResult(15,intent);
-                finish();
+                PreferencesUtils.putInt(ConstantUtils.SETTING_ENGLISH_CODE,2);
+                initResult();
             }
         });
+    }
+
+    private void initResult(){
+        Intent intent=new Intent();
+        intent.putExtra(ConstantUtils.SETTING_ENGLISH_CODE,status);
+        setResult(ENGLISH_RESULT,intent);
+        finish();
     }
 
     @Override

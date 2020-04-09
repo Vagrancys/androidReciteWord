@@ -15,32 +15,33 @@
             android:layout_height="wrap_content"
             android:overScrollMode="never">
         </com.tramp.word.widget.NoScrollViewPager>
+
         <com.flyco.tablayout.CommonTabLayout
             android:id="@+id/common_tab"
-            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/main_sliding_tab"
-            app:tl_tab_space_equal="true"
-            app:tl_indicator_anim_enable="true"
-            app:tl_indicator_anim_duration="250"
-            app:tl_iconWidth="@dimen/main_tab_icon_width"
-            app:tl_iconHeight="@dimen/main_tab_icon_height"
+            android:layout_height="@dimen/default_margin_size_7"
+            android:layout_alignParentBottom="true"
+            app:tl_iconHeight="@dimen/default_margin_size_2"
             app:tl_iconMargin="@dimen/default_margin_size_1"
-            app:tl_textSelectColor="#2C97DE"
-            app:tl_textUnselectColor="#66000000"
-            app:tl_textsize="10sp"
-            app:tl_underline_color="#DDDDDD"
+            app:tl_iconWidth="@dimen/default_margin_size_2"
+            app:tl_indicator_anim_duration="250"
+            app:tl_indicator_anim_enable="true"
+            app:tl_tab_space_equal="true"
+            app:tl_textSelectColor="@color/blue"
+            app:tl_textUnselectColor="@color/black"
+            app:tl_textsize="@dimen/default_text_size_12sp"
+            app:tl_underline_color="@color/white"
             app:tl_underline_gravity="TOP"
-            app:tl_underline_height="1dp">
-        </com.flyco.tablayout.CommonTabLayout>
+            app:tl_underline_height="1dp"/>
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/view_anim"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.8"
-        android:background="@color/main_anim"
+        android:alpha="0.6"
+        android:background="@color/black"
+        android:clickable="true"
         android:gravity="center"
         android:visibility="gone">
 
@@ -62,112 +63,110 @@
             android:layout_height="match_parent"
             android:alpha="0.4"
             android:background="@color/black"
-            android:orientation="vertical"/>
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/insert_book"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_1"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/insert_book_all"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size_18sp" />
+        </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/main_task_pop"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/main_task_pop_height"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:paddingEnd="@dimen/default_margin_size_2"
-            android:paddingStart="@dimen/default_margin_size_3"
+            android:paddingStart="@dimen/default_margin_size_5"
+            android:paddingEnd="@dimen/default_margin_size_4"
             android:visibility="gone">
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/main_task_pop_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/main_task_pop_layout"
                 android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/default_margin_size_2"
                 android:layout_marginEnd="13dp"
-                android:background="@drawable/btn_pop_layout">
+                android:background="@drawable/btn_pop_layout"
+                android:gravity="center|top"
+                android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/main_task_pop_img"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/img_studp_plan_dialog_top" />
+                    android:background="@drawable/img_studp_plan_dialog_top" />
 
                 <TextView
-                    android:id="@+id/main_task_pop_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_below="@+id/main_task_pop_img"
-                    android:layout_centerInParent="true"
-                    android:layout_marginTop="@dimen/main_task_pop_title_top"
+                    android:layout_marginTop="@dimen/default_margin_size"
                     android:text="@string/main_task_pop_title_text"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/main_task_pop_title_size" />
+                    android:textSize="@dimen/default_text_size_20sp" />
 
                 <TextView
-                    android:id="@+id/main_task_pop_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/main_task_pop_title"
-                    android:layout_centerInParent="true"
                     android:layout_marginTop="@dimen/default_margin_size_2_1"
                     android:text="@string/main_task_pop_num_text"
-                    android:textColor="@color/main_task_pop_num_color"
-                    android:textSize="@dimen/main_task_pop_num_size" />
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_16sp" />
 
                 <TextView
-                    android:id="@+id/main_task_pop_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/main_task_pop_num"
-                    android:layout_centerInParent="true"
                     android:layout_marginStart="@dimen/default_margin_size_2"
                     android:layout_marginTop="@dimen/default_margin_size_2_1"
                     android:text="@string/main_task_pop_time_text"
-                    android:textColor="@color/main_task_pop_time_color"
-                    android:textSize="@dimen/main_task_pop_time_size" />
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_14sp" />
 
                 <com.tramp.word.widget.BookSeekBar
-                    android:id="@+id/main_task_seekBar"
-                    android:layout_width="260dp"
-                    android:layout_height="45dp"
-                    android:layout_below="@+id/main_task_pop_time"
-                    android:layout_centerInParent="true"
+                    android:layout_width="@dimen/default_margin_size_25"
+                    android:layout_height="@dimen/default_margin_size_4"
                     android:layout_marginTop="@dimen/default_margin_size_2"
                     android:background="@color/white" />
 
                 <TextView
-                    android:id="@+id/main_task_pop_hint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_above="@+id/main_task_pop_button"
-                    android:layout_centerInParent="true"
-                    android:layout_marginBottom="@dimen/default_margin_size_2_1"
-                    android:layout_marginEnd="@dimen/default_margin_size_4"
                     android:layout_marginTop="@dimen/default_margin_size_4"
+                    android:layout_marginEnd="@dimen/default_margin_size_4"
+                    android:layout_marginBottom="@dimen/default_margin_size_2_1"
                     android:text="@string/main_task_pop_hint_text"
-                    android:textColor="@color/main_task_pop_hint_text_color"
-                    android:textSize="@dimen/main_task_pop_hint_text_size" />
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_12sp" />
 
                 <TextView
-                    android:id="@+id/main_task_pop_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerInParent="true"
                     android:layout_marginBottom="@dimen/default_margin_size_2"
                     android:background="@drawable/btn_pop_start"
                     android:gravity="center"
                     android:text="@string/main_task_pop_button"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/main_task_pop_button_size" />
+                    android:textSize="@dimen/default_text_size_18sp" />
 
-            </RelativeLayout>
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/main_task_pop_exit"
-                android:layout_width="@dimen/main_task_pop_exit_width"
-                android:layout_height="@dimen/main_task_pop_exit_height"
+                android:layout_width="@dimen/default_margin_size_3"
+                android:layout_height="@dimen/default_margin_size_3"
                 android:layout_above="@+id/main_task_pop_layout"
                 android:layout_alignParentEnd="true"
-                android:layout_marginBottom="-20dp"
+                android:layout_marginTop="@dimen/default_margin_no_size_2"
+                android:layout_marginBottom="@dimen/default_margin_no_size_3"
                 android:src="@drawable/u_dialog_close" />
         </RelativeLayout>
 
@@ -188,27 +187,27 @@
                 android:layout_alignParentTop="true"
                 android:text="@string/main_music_title_text"
                 android:textColor="@color/black"
-                android:textSize="@dimen/default_text_size_3" />
+                android:textSize="@dimen/default_text_size_18sp" />
 
             <TextView
                 android:id="@+id/main_music_explanation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/main_music_title"
-                android:layout_marginEnd="@dimen/default_margin_size_2"
                 android:layout_marginTop="@dimen/default_margin_size"
+                android:layout_marginEnd="@dimen/default_margin_size_2"
                 android:gravity="left"
                 android:text="@string/main_music_explanation_text"
                 android:textColor="@color/black_1"
-                android:textSize="@dimen/main_music_explanation_text_size" />
+                android:textSize="@dimen/default_text_size_14sp" />
 
             <View
                 android:id="@+id/main_music_view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_below="@id/main_music_explanation"
-                android:layout_marginBottom="@dimen/default_margin_size_2"
                 android:layout_marginTop="@dimen/default_margin_size"
+                android:layout_marginBottom="@dimen/default_margin_size_2"
                 android:background="@color/white_1" />
 
             <TextView
@@ -218,10 +217,9 @@
                 android:layout_below="@+id/main_music_view"
                 android:text="@string/main_music_word_text"
                 android:textColor="@color/black"
-                android:textSize="@dimen/default_text_size_3" />
+                android:textSize="@dimen/default_text_size_14sp" />
 
             <TextView
-                android:id="@+id/main_music_word_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/main_music_view"
@@ -230,28 +228,27 @@
                 android:layout_toEndOf="@+id/main_music_word"
                 android:text="@string/main_music_word_num_text"
                 android:textColor="@color/black_1"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/default_text_size_18sp" />
 
             <TextView
-                android:id="@+id/main_music_word_down"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
                 android:layout_below="@+id/main_music_view"
-                android:layout_marginEnd="@dimen/default_margin_size_2"
+                android:layout_alignParentEnd="true"
                 android:layout_marginStart="@dimen/default_margin_size"
                 android:layout_marginTop="@dimen/default_margin_size"
+                android:layout_marginEnd="@dimen/default_margin_size_2"
                 android:text="@string/main_music_word_down_text"
                 android:textColor="@color/black_1"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/default_text_size_18sp" />
 
             <View
                 android:id="@+id/main_music_view_one"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_below="@id/main_music_word"
-                android:layout_marginBottom="@dimen/default_margin_size_2"
                 android:layout_marginTop="@dimen/default_margin_size_2"
+                android:layout_marginBottom="@dimen/default_margin_size_2"
                 android:background="@color/white_1" />
 
             <TextView
@@ -262,12 +259,12 @@
                 android:layout_marginBottom="@dimen/default_margin_size"
                 android:text="@string/main_music_text"
                 android:textColor="@color/black"
-                android:textSize="@dimen/default_text_size_3" />
+                android:textSize="@dimen/default_text_size_14sp" />
 
             <ProgressBar
                 android:id="@+id/main_music_progress"
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="@dimen/main_music_progress_width"
+                android:layout_width="@dimen/default_margin_size_25"
                 android:layout_height="@dimen/default_margin_size_1"
                 android:layout_below="@+id/main_music"
                 android:layout_marginBottom="@dimen/default_margin_size"
@@ -287,117 +284,102 @@
                 android:layout_toEndOf="@+id/main_music_word"
                 android:text="@string/main_music_num_text"
                 android:textColor="@color/black_1"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/default_text_size_18sp" />
 
             <TextView
                 android:id="@+id/main_music_down"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
                 android:layout_below="@+id/main_music_view_one"
-                android:layout_marginEnd="@dimen/default_margin_size"
+                android:layout_alignParentEnd="true"
                 android:layout_marginStart="@dimen/default_margin_size"
                 android:layout_marginTop="@dimen/default_margin_size"
+                android:layout_marginEnd="@dimen/default_margin_size"
                 android:background="@drawable/btn_main_music_back"
                 android:text="@string/main_music_down_text"
                 android:textColor="@color/white"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/default_text_size_18sp" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/main_sign_pop"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/word_book_pop_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginEnd="@dimen/default_margin_size"
-            android:layout_marginStart="@dimen/default_margin_size"
-            android:paddingEnd="@dimen/default_margin_size_1"
             android:paddingStart="@dimen/default_margin_size_2"
-            android:paddingTop="@dimen/default_margin_size_2"
+            android:paddingEnd="@dimen/default_margin_size_1"
             android:visibility="gone">
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/main_sign_pop_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/main_sign_pop_linear"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="13dp"
                 android:background="@drawable/btn_pop_layout"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/main_sign_pop_img"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/default_margin_size_2"
                     android:background="@drawable/bg_top_check_in_with_txt" />
 
-                <TextView
-                    android:id="@+id/main_sign_pop_title"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/main_sign_pop_img"
-                    android:layout_marginBottom="@dimen/default_margin_size_2"
-                    android:layout_marginEnd="@dimen/default_margin_size"
-                    android:layout_marginStart="@dimen/default_margin_size_5"
-                    android:text="@string/main_sign_pop_title"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size_4" />
+                    android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/main_sign_pop_img_1"
-                    android:layout_width="@dimen/default_margin_size_2"
-                    android:layout_height="@dimen/default_margin_size_2"
-                    android:layout_below="@id/main_sign_pop_img"
-                    android:layout_marginEnd="@dimen/default_margin_size"
-                    android:layout_toEndOf="@+id/main_sign_pop_title"
-                    android:src="@drawable/checkin_icon_coin" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/default_margin_size"
+                        android:text="@string/main_sign_pop_title"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/default_text_size_16sp" />
 
-                <ImageView
-                    android:id="@+id/main_sign_pop_img_2"
-                    android:layout_width="@dimen/default_margin_size_2"
-                    android:layout_height="@dimen/default_margin_size_2"
-                    android:layout_below="@id/main_sign_pop_img"
-                    android:layout_marginEnd="@dimen/default_margin_size"
-                    android:layout_toEndOf="@+id/main_sign_pop_img_1"
-                    android:src="@drawable/checkin_img_x_10" />
+                    <ImageView
+                        android:layout_width="@dimen/default_margin_size_2"
+                        android:layout_height="@dimen/default_margin_size_2"
+                        android:layout_marginEnd="@dimen/default_margin_size"
+                        android:src="@drawable/checkin_icon_coin" />
 
-                <TextView
-                    android:id="@+id/main_sign_pop_right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/main_sign_pop_img"
-                    android:layout_toEndOf="@+id/main_sign_pop_img_2"
-                    android:text="@string/main_sign_pop_right"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/default_text_size_4" />
+                    <ImageView
+                        android:layout_width="@dimen/default_margin_size_2"
+                        android:layout_height="@dimen/default_margin_size_2"
+                        android:layout_marginEnd="@dimen/default_margin_size"
+                        android:src="@drawable/checkin_img_x_10" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/main_sign_pop_right"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/default_text_size_14sp" />
+                </LinearLayout>
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/main_sign_pop_recycler"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/main_sign_pop_title"
-                    android:layout_marginEnd="@dimen/default_margin_size_2"
-                    android:layout_marginStart="@dimen/default_margin_size_2"
+                    android:layout_margin="@dimen/default_margin_size_2"
                     android:overScrollMode="never"
-                    android:scrollbars="none"></android.support.v7.widget.RecyclerView>
+                    android:scrollbars="none" />
 
                 <TextView
                     android:id="@+id/main_sign_pop_start"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerInParent="true"
                     android:layout_marginBottom="@dimen/default_margin_size_2"
                     android:background="@drawable/btn_pop_start"
                     android:gravity="center"
-                    android:paddingBottom="@dimen/default_margin_size"
                     android:paddingTop="@dimen/default_margin_size"
+                    android:paddingBottom="@dimen/default_margin_size"
                     android:text="@string/main_sign_pop_start"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/default_text_size" />
-            </RelativeLayout>
+                    android:textSize="@dimen/default_text_size_18sp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/main_sign_pop_linear"
@@ -412,21 +394,18 @@
                 android:padding="@dimen/default_margin_size">
 
                 <ImageView
-                    android:id="@+id/main_sign_pop_bai"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/default_margin_size"
                     android:src="@drawable/review_number_4" />
 
                 <ImageView
-                    android:id="@+id/main_sign_pop_shi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/default_margin_size"
                     android:src="@drawable/review_number_7" />
 
                 <ImageView
-                    android:id="@+id/main_sign_pop_yi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/review_number_3" />
@@ -434,11 +413,11 @@
 
             <ImageView
                 android:id="@+id/main_sign_pop_exit"
-                android:layout_width="@dimen/word_book_pop_exit_width"
-                android:layout_height="@dimen/word_book_pop_exit_height"
+                android:layout_width="@dimen/default_margin_size_4"
+                android:layout_height="@dimen/default_margin_size_4"
                 android:layout_above="@+id/main_sign_pop_layout"
                 android:layout_alignParentEnd="true"
-                android:layout_marginBottom="-20dp"
+                android:layout_marginBottom="@dimen/default_margin_no_size_2"
                 android:src="@drawable/u_dialog_close" />
         </RelativeLayout>
     </RelativeLayout>

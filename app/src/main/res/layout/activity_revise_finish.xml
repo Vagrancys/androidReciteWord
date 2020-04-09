@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/finish_start">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/img_success">
+                <TextView
+                    android:id="@+id/finish_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="@string/finish_number"
+                    android:textSize="@dimen/default_text_size_30sp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:paddingTop="@dimen/default_margin_size_2"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/finish_number_text"
+                    android:textSize="@dimen/default_text_size_14sp"
+                    android:textColor="@color/white"
+                    android:layout_toEndOf="@+id/finish_number"
+                    android:paddingStart="@dimen/default_margin_size"
+                    android:paddingTop="@dimen/default_margin_size_4"/>
+                <TextView
+                    android:id="@+id/finish_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/finish_number"
+                    android:paddingTop="@dimen/default_margin_size_3"
+                    android:paddingBottom="@dimen/default_margin_size_4"
+                    android:text="@string/finish_title"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size_18sp"/>
+                <TextView
+                    android:id="@+id/finish_select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/finish_select"
+                    android:textSize="@dimen/default_text_size_18sp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/btn_finish_button"
+                    android:paddingTop="@dimen/default_margin_size_1"
+                    android:paddingBottom="@dimen/default_margin_size_1"
+                    android:paddingStart="@dimen/default_margin_size_2"
+                    android:paddingEnd="@dimen/default_margin_size_2"
+                    android:layout_below="@+id/finish_title"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/default_margin_size_1">
+                <ImageView
+                    android:id="@+id/finish_book"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_word_review"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"/>
+                <TextView
+                    android:id="@+id/finish_book_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/finish_book_text"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_14sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/finish_book"
+                    android:paddingStart="@dimen/default_margin_size"/>
+                <ImageView
+                    android:id="@+id/finish_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_warning"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/finish_time_text"/>
+                <TextView
+                    android:id="@+id/finish_time_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/finish_time_text"
+                    android:textSize="@dimen/default_text_size_14sp"
+                    android:textColor="@color/black_1"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:paddingStart="@dimen/default_margin_size"/>
+            </RelativeLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/finish_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none"
+                android:overScrollMode="never"/>
+        </LinearLayout>
+    </ScrollView>
+    <TextView
+        android:id="@+id/finish_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_recite_anim_error"
+        android:text="@string/finish_start"
+        android:textSize="@dimen/default_text_size_18sp"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/default_margin_size"
+        android:paddingTop="@dimen/default_margin_size"
+        android:paddingBottom="@dimen/default_margin_size"
+        android:gravity="center"/>
+
+    <RelativeLayout
+        android:id="@+id/finish_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.4"
+            android:background="@color/black"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/class_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/default_margin_size"
+                android:paddingBottom="@dimen/default_margin_size"
+                android:text="@string/select_title_text"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size_18sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/class_linear_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingBottom="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/class_linear_1_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:paddingBottom="@dimen/default_margin_size_1"
+                    android:text="@string/select_linear_1_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/class_linear_1_title"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/select_linear_1_bottom"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/next_normal" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/class_linear_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingBottom="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/class_linear_2_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:paddingBottom="@dimen/default_margin_size_1"
+                    android:text="@string/select_linear_2_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/class_linear_2_title"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/select_linear_2_bottom"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/next_normal" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/class_linear_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingBottom="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/class_linear_3_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:paddingBottom="@dimen/default_margin_size_1"
+                    android:text="@string/select_linear_3_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/class_linear_3_title"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/select_linear_3_bottom"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/next_normal" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black_2" />
+
+            <RelativeLayout
+                android:id="@+id/class_linear_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/default_margin_size_2"
+                android:paddingTop="@dimen/default_margin_size"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:paddingBottom="@dimen/default_margin_size">
+
+                <TextView
+                    android:id="@+id/class_linear_4_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:paddingBottom="@dimen/default_margin_size_1"
+                    android:text="@string/select_linear_4_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/class_linear_4_title"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/select_linear_4_bottom"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/next_normal" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black_2" />
+
+            <TextView
+                android:id="@+id/class_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_size"
+                android:layout_marginBottom="@dimen/default_margin_size"
+                android:text="@string/select_out"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/default_text_size_18sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

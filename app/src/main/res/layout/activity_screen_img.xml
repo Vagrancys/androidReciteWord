@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/pic_bookcover_default">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/photo_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/pic_bookcover_default" />
     <RelativeLayout
         android:id="@+id/screen_relative"
         android:layout_width="match_parent"
@@ -16,7 +22,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:text="@string/screen_title_text"
-            android:textSize="@dimen/default_text_size_7"
+            android:textSize="@dimen/default_text_size_24sp"
             android:layout_above="@+id/screen_content"
             android:layout_marginBottom="@dimen/default_margin_size"
             android:layout_centerHorizontal="true"/>
@@ -26,7 +32,7 @@
             android:layout_height="wrap_content"
             android:text="@string/screen_content_text"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size"
+            android:textSize="@dimen/default_text_size_18sp"
             android:layout_centerInParent="true"/>
 
         <ImageView
@@ -41,12 +47,11 @@
             android:layout_height="wrap_content"
             android:text="@string/screen_img_text"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size"
+            android:textSize="@dimen/default_text_size_18sp"
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true" />
 
         <TextView
-            android:id="@+id/screen_week"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/screen_week_text"
@@ -56,12 +61,11 @@
             android:layout_toStartOf="@+id/screen_month"
             android:layout_marginEnd="@dimen/default_margin_size"/>
         <TextView
-            android:id="@+id/screen_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/screen_time_text"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size"
+            android:textSize="@dimen/default_text_size_18sp"
             android:layout_above="@+id/screen_month"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="@dimen/default_margin_size_1"
@@ -83,38 +87,41 @@
         android:layout_height="wrap_content"
         android:text="@string/screen_click_text"
         android:textColor="@color/blue"
-        android:textSize="@dimen/default_text_size"
+        android:textSize="@dimen/default_text_size_18sp"
         android:layout_above="@+id/screen_bottom_linear"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/default_margin_size_2"/>
+
     <LinearLayout
         android:id="@+id/screen_bottom_linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/default_margin_size_2_1"
-        android:paddingBottom="@dimen/default_margin_size_2_1"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:background="@color/white"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="@dimen/default_margin_size_8">
+        android:layout_marginTop="@dimen/default_margin_size_8"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/default_margin_size_2_1"
+        android:paddingBottom="@dimen/default_margin_size_2_1">
+
         <TextView
             android:id="@+id/screen_close"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/default_text_size"
-            android:textColor="@color/blue"
+            android:gravity="center"
             android:text="@string/screen_close_text"
-            android:gravity="center"/>
+            android:textColor="@color/blue"
+            android:textSize="@dimen/default_text_size_18sp" />
+
         <TextView
             android:id="@+id/screen_setting"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="@string/screen_setting_text"
-            android:textSize="@dimen/default_text_size"
             android:textColor="@color/blue"
-            android:gravity="center"/>
+            android:textSize="@dimen/default_text_size_18sp" />
     </LinearLayout>
 </RelativeLayout>

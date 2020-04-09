@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -16,10 +17,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.tramp.word.R;
+import com.tramp.word.module.pk.WordPkActivity;
 import com.tramp.word.module.home.recite.ReciteCheckActivity;
 import com.tramp.word.module.home.recite.ReciteOpenActivity;
 import com.tramp.word.module.home.recite.ReciteWordActivity;
-import com.tramp.word.module.pk.WordPkActivity;
 import com.tramp.word.module.revise.ReviseActivity;
 import com.tramp.word.module.task.TaskListActivity;
 import com.tramp.word.port.MainAnimInterFace;
@@ -99,7 +100,7 @@ public class HomeReciteViewSection extends StatelessSection{
             @Override
             public void onClick(View v) {
                 AnimStatic=2;
-                mTaskIconAnimSet.pause();
+                mTaskIconAnimSet.cancel();
                 mContext.startActivity(new Intent(mContext, TaskListActivity.class));
                 ((Activity) mContext).overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_stay);
             }
@@ -109,7 +110,7 @@ public class HomeReciteViewSection extends StatelessSection{
             @Override
             public void onClick(View v) {
                 mHeader.mReciteStartRush.startAnimation(mReciteStartRush);
-                mContext.startActivity(new Intent(mContext,ReciteWordActivity.class));
+                mContext.startActivity(new Intent(mContext, ReciteWordActivity.class));
                 ((Activity) mContext).overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_stay);
             }
         });
@@ -145,6 +146,7 @@ public class HomeReciteViewSection extends StatelessSection{
         mHeader.RecitePk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.e("pk模块","不会吧");
                 mContext.startActivity(new Intent(mContext,WordPkActivity.class));
                 ((Activity) mContext).overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_stay);
             }

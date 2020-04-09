@@ -5,20 +5,27 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.tramp.word.R;
+import com.tramp.word.entity.task.TaskListInfo;
 
-import butterknife.BindView;
+import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2019/1/21.
  */
 
 public class TaskDoneViewAdapter extends AbsRecyclerViewAdapter {
-
-    public TaskDoneViewAdapter(RecyclerView recyclerView){
+    private int[] TaskImg;
+    private int[] TaskName;
+    private ArrayList<TaskListInfo.List> Lists;
+    public TaskDoneViewAdapter(RecyclerView recyclerView,ArrayList<TaskListInfo.List> lists,int[] taskImg,int[] taskName){
         super(recyclerView);
+        Lists=lists;
+        TaskImg=taskImg;
+        TaskName=taskName;
     }
 
     @NonNull
@@ -32,24 +39,46 @@ public class TaskDoneViewAdapter extends AbsRecyclerViewAdapter {
     public void onBindViewHolder(ClickableViewHolder holder, int position) {
         if(holder instanceof ItemViewHolder){
             ItemViewHolder mHolder=(ItemViewHolder) holder;
-            if(position==0){
-                mHolder.mTaskDoneHead.setVisibility(View.VISIBLE);
-            }else{
-                mHolder.mTaskDoneHead.setVisibility(View.GONE);
+            mHolder.TaskDoneImg.setImageResource(TaskImg[Lists.get(position).getTask_class()-1]);
+            mHolder.TaskDoneTitle.setText(TaskName[Lists.get(position).getTask_class()-1]);
+            mHolder.TaskDoneDay.setText("第"+Lists.get(position).getTask_day()+"天");
+            switch (Lists.get(position).getTask_status()){
+                case 2:
+                   mHolder.TaskDoneStatus.setImageResource(R.drawable.icon_task_complete);
+                    break;
+                case 3:
+                    mHolder.TaskDoneStatus.setImageResource(R.drawable.img_task_fail);
+                    break;
             }
+            mHolder.TaskDoneStar.setText(Lists.get(position).getTask_star());
+            mHolder.TaskDoneMoney.setText(Lists.get(position).getTask_money());
+            mHolder.TaskDoneTime.setText(Lists.get(position).getTask_time());
         }
+        super.onBindViewHolder(holder, position);
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        return Lists.size();
     }
 
     public class ItemViewHolder extends ClickableViewHolder{
-        RelativeLayout mTaskDoneHead;
+        ImageView TaskDoneImg;
+        TextView TaskDoneTitle;
+        TextView TaskDoneDay;
+        ImageView TaskDoneStatus;
+        TextView TaskDoneStar;
+        TextView TaskDoneMoney;
+        TextView TaskDoneTime;
         public ItemViewHolder(View itemView){
             super(itemView);
-            mTaskDoneHead=$(R.id.task_done_head);
+            TaskDoneImg=$(R.id.task_done_img);
+            TaskDoneTitle=$(R.id.task_done_title);
+            TaskDoneDay=$(R.id.task_done_summary);
+            TaskDoneStatus=$(R.id.task_done_status);
+            TaskDoneStar=$(R.id.task_done_neck_star);
+            TaskDoneMoney=$(R.id.task_done_neck_money);
+            TaskDoneTime=$(R.id.task_done_neck_time);
         }
     }
 }

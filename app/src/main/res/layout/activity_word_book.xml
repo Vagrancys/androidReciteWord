@@ -6,21 +6,22 @@
     android:layout_height="match_parent"
     android:gravity="center">
     <LinearLayout
-        android:id="@+id/one_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:elevation="0dp">
+            android:layout_height="wrap_content">
             <android.support.v7.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue">
+                android:background="@color/blue"
+                app:contentInsetStart="@dimen/default_margin_size_0">
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/default_margin_size"
+                    android:paddingStart="@dimen/default_margin_size">
                     <ImageView
                         android:id="@+id/word_book_out"
                         android:layout_width="@dimen/default_out_width"
@@ -48,7 +49,6 @@
                         android:layout_height="@dimen/default_menu_height"
                         android:layout_alignParentEnd="true"
                         android:layout_centerInParent="true"
-                        android:layout_marginEnd="@dimen/default_margin_size"
                         android:src="@drawable/icon_search"/>
                 </RelativeLayout>
 
@@ -59,13 +59,11 @@
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:overScrollMode="never">
-
-        </com.tramp.word.widget.NoScrollViewPager>
+            android:overScrollMode="never"/>
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/word_book_background"
+        android:id="@+id/book_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clickable="true"
@@ -76,148 +74,148 @@
             android:layout_height="match_parent"
             android:alpha="0.5"
             android:background="@color/black"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical" />
 
         <RelativeLayout
             android:id="@+id/word_book_pop"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/word_book_pop_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:paddingEnd="@dimen/default_margin_size_1"
             android:paddingStart="@dimen/default_margin_size_2"
-            android:paddingTop="@dimen/default_margin_size_2">
+            android:paddingTop="@dimen/default_margin_size_2"
+            android:paddingEnd="@dimen/default_margin_size_1"
+            android:visibility="gone">
 
-            <RelativeLayout
-                android:id="@+id/word_book_pop_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/word_book_pop_img"
+            <LinearLayout
+                android:id="@+id/pop_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pop_img"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="13dp"
+                android:layout_marginEnd="@dimen/default_margin_size"
                 android:background="@drawable/btn_pop_layout"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/word_book_pop_title"
+                    android:id="@+id/pop_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerInParent="true"
-                    android:layout_marginTop="@dimen/word_book_pop_title_top"
-                    android:text="@string/word_book_pop_title_text"
+                    android:paddingTop="@dimen/default_margin_size_8"
+                    android:text="@string/pop_title_text"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/word_book_pop_title_size" />
+                    android:textSize="@dimen/default_text_size_22sp" />
 
-                <TextView
-                    android:id="@+id/word_book_pop_num_left"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/word_book_pop_title"
-                    android:layout_below="@+id/word_book_pop_title"
-                    android:layout_marginTop="@dimen/default_margin_size_2_1"
-                    android:text="@string/word_book_pop_num_left_text"
-                    android:textColor="@color/word_book_pop_num_left_color"
-                    android:textSize="@dimen/word_book_pop_num_size" />
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/default_margin_size_2">
+
+                    <TextView
+                        android:id="@+id/pop_num_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pop_num_left_text"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/default_text_size_16sp" />
+
+                    <TextView
+                        android:id="@+id/pop_num_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/default_margin_size_2"
+                        android:text="@string/pop_num_right_text"
+                        android:textColor="@color/black_1"
+                        android:textSize="@dimen/default_text_size_16sp" />
+                </LinearLayout>
+
 
                 <TextView
-                    android:id="@+id/word_book_pop_num_right"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/pop_summary"
+                    android:layout_width="@dimen/default_margin_size_24"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/word_book_pop_title"
-                    android:layout_marginStart="@dimen/default_margin_size_2"
-                    android:layout_marginTop="@dimen/default_margin_size_2_1"
-                    android:layout_toEndOf="@+id/word_book_pop_num_left"
-                    android:text="@string/word_book_pop_num_right_text"
-                    android:textColor="@color/word_book_pop_num_right_color"
-                    android:textSize="@dimen/word_book_pop_num_size" />
-
-                <TextView
-                    android:id="@+id/word_book_pop_summary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/word_book_pop_num_left"
-                    android:layout_centerInParent="true"
-                    android:layout_marginEnd="@dimen/default_margin_size_4"
-                    android:layout_marginTop="@dimen/default_margin_size_4"
-                    android:text="@string/word_book_pop_summary_text"
-                    android:textColor="@color/word_book_pop_summary_text_color"
-                    android:textSize="@dimen/word_book_pop_summary_text_size" />
+                    android:layout_margin="@dimen/default_margin_size_4"
+                    android:gravity="center"
+                    android:text="@string/pop_summary_text"
+                    android:textColor="@color/black_3"
+                    android:textSize="@dimen/default_text_size_16sp" />
 
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerInParent="true"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/word_book_pop_button"
+                        android:id="@+id/pop_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/default_margin_size_2"
                         android:background="@drawable/btn_pop_start"
                         android:gravity="center"
-                        android:text="@string/word_book_pop_button"
+                        android:padding="@dimen/default_margin_size"
+                        android:text="@string/pop_button"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/word_book_pop_button_size" />
+                        android:textSize="@dimen/default_text_size_18sp" />
 
                     <TextView
-                        android:id="@+id/word_book_pop_share"
+                        android:id="@+id/pop_share"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/default_margin_size"
-                        android:text="@string/word_book_pop_share"
+                        android:layout_marginBottom="@dimen/default_margin_size_2"
+                        android:text="@string/pop_share"
                         android:textColor="@color/blue"
-                        android:textSize="@dimen/word_book_pop_share_size"
-                        android:visibility="gone" />
+                        android:textSize="@dimen/default_text_size_14sp"
+                        android:visibility="gone"/>
                 </LinearLayout>
 
-            </RelativeLayout>
+            </LinearLayout>
 
             <ImageView
-                android:id="@+id/word_book_pop_img"
-                android:layout_width="@dimen/word_book_pop_img_width"
-                android:layout_height="@dimen/word_book_pop_img_height"
+                android:id="@+id/pop_img"
+                android:layout_width="@dimen/default_margin_size_9"
+                android:layout_height="@dimen/default_margin_size_12"
                 android:layout_alignParentTop="true"
                 android:layout_centerInParent="true"
-                android:layout_marginBottom="-70dp"
+                android:layout_marginBottom="@dimen/default_margin_no_size_6"
                 android:background="@drawable/btn_word_book_pop_img"
                 android:src="@drawable/pic_bookcover_default" />
 
             <ImageView
-                android:id="@+id/word_book_pop_delete"
-                android:layout_width="@dimen/word_book_pop_delete_width"
-                android:layout_height="@dimen/word_book_pop_delete_height"
-                android:layout_above="@+id/word_book_pop_layout"
+                android:id="@+id/pop_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/pop_layout"
                 android:layout_alignParentStart="true"
-                android:layout_marginBottom="-50dp"
-                android:layout_marginStart="@dimen/default_margin_size_2_1"
+                android:layout_marginStart="@dimen/default_margin_size"
+                android:layout_marginBottom="@dimen/default_margin_no_size_4"
                 android:src="@drawable/btn_bookinfo_delete"
                 android:visibility="gone" />
 
             <ImageView
-                android:id="@+id/word_book_pop_exit"
-                android:layout_width="@dimen/word_book_pop_exit_width"
-                android:layout_height="@dimen/word_book_pop_exit_height"
-                android:layout_above="@+id/word_book_pop_layout"
-                android:layout_alignParentEnd="true"
-                android:layout_marginBottom="-20dp"
+                android:id="@+id/pop_exit"
+                android:layout_width="@dimen/default_margin_size_3"
+                android:layout_height="@dimen/default_margin_size_3"
+                android:layout_above="@+id/pop_layout"
+                android:layout_marginStart="@dimen/default_margin_no_size_3"
+                android:layout_marginBottom="@dimen/default_margin_no_size_2"
+                android:layout_toEndOf="@id/pop_layout"
                 android:src="@drawable/u_dialog_close" />
 
             <ImageView
-                android:id="@+id/word_book_pop_perfect"
-                android:layout_width="@dimen/word_book_pop_perfect_width"
-                android:layout_height="@dimen/word_book_pop_perfect_height"
-                android:layout_above="@+id/word_book_pop_layout"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginBottom="-90dp"
-                android:layout_marginEnd="@dimen/word_book_pop_perfect_margin"
+                android:id="@+id/pop_perfect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/pop_layout"
+                android:layout_marginStart="@dimen/default_margin_no_size_8"
+                android:layout_marginBottom="@dimen/default_margin_no_size_3"
+                android:layout_toEndOf="@id/pop_layout"
                 android:src="@drawable/icon_bookinfo_selected"
-                android:visibility="gone" />
+                android:visibility="visible" />
         </RelativeLayout>
+
     </RelativeLayout>
 
 </FrameLayout>

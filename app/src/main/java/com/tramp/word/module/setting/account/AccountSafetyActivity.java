@@ -2,6 +2,7 @@ package com.tramp.word.module.setting.account;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 
 import com.tramp.word.R;
 import com.tramp.word.base.RxBaseActivity;
+import com.tramp.word.utils.ConstantUtils;
+import com.tramp.word.utils.Utils;
 
 import butterknife.BindView;
 
@@ -23,6 +26,9 @@ public class AccountSafetyActivity extends RxBaseActivity{
     TextView DefaultTitle;
     @BindView(R.id.account_safety_relative)
     RelativeLayout AccountSafetyRelative;
+    @BindView(R.id.account_safety_title)
+    TextView AccountSafetyTitle;
+    private final int SAFETY_CODE=12;
     @Override
     public int getLayoutId() {
         return R.layout.activity_account_safety;
@@ -33,8 +39,9 @@ public class AccountSafetyActivity extends RxBaseActivity{
         AccountSafetyRelative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AccountSafetyActivity.this,AccountNewPassActivity.class));
-                overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_stay);
+                Intent intent=new Intent(AccountSafetyActivity.this,AccountNewPassActivity.class);
+                startActivityForResult(intent,SAFETY_CODE);
+                Utils.StarActivityInAnim(AccountSafetyActivity.this);
             }
         });
     }
@@ -49,6 +56,20 @@ public class AccountSafetyActivity extends RxBaseActivity{
         });
 
         DefaultTitle.setText(getResources().getString(R.string.account_safety_text));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==SAFETY_CODE
+                &&resultCode==33&&data !=null){
+            int number=data.getIntExtra(ConstantUtils.ACCOUNT_SAFETY,0);
+            if(number==1){
+                AccountSafetyTitle.setText(getResources().getString(R.string.account_safety_title_yes));
+            }else{
+                AccountSafetyTitle.setText(getResources().getString(R.string.account_safety_title_no));
+            }
+        }
     }
 
     @Override

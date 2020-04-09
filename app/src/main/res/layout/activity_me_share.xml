@@ -1,78 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/me_share_appbar"
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/common_toolbar"/>
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/me_share_relative"
+        android:layout_below="@id/toolbar">
 
-        <android.support.v7.widget.Toolbar
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/blue"
-            app:contentInsetStart="0dp">
+            android:orientation="vertical"
+            android:gravity="center">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/default_margin_size"
-                android:layout_marginStart="@dimen/default_margin_size">
-
-                <ImageView
-                    android:id="@+id/me_share_out"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/icon_close" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/me_share_title"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/default_text_size" />
-            </RelativeLayout>
-        </android.support.v7.widget.Toolbar>
-    </android.support.design.widget.AppBarLayout>
-
-    <ScrollView
-        android:id="@+id/me_share_scroll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RelativeLayout
-                android:id="@+id/me_share_relative_one"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/blue"
-                android:padding="@dimen/default_margin_size">
+                android:padding="@dimen/default_margin_size_2"
+                android:orientation="vertical"
+                android:gravity="center">
                 <ImageView
-                    android:id="@+id/me_share_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/pic_clock"
-                    android:layout_centerInParent="true"
-                    android:layout_alignParentTop="true"/>
-
-                <TextView
-                    android:id="@+id/me_share_number"
-                    android:layout_below="@+id/me_share_img"
+                    android:layout_marginBottom="@dimen/default_margin_size"/>
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/me_share_number"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/default_text_size"/>
-            </RelativeLayout>
+                    android:layout_marginBottom="@dimen/default_margin_size_2"
+                    android:layout_marginTop="@dimen/default_margin_size">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/number_left"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/default_text_size_18sp"/>
+                    <TextView
+                        android:id="@+id/me_share_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/me_share_number"
+                        android:textColor="@color/orange"
+                        android:textSize="@dimen/default_text_size_18sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/number_right"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/default_text_size_18sp" />
+                </LinearLayout>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/me_share_time"
@@ -80,15 +65,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_margin_size_2"
                 android:layout_marginBottom="@dimen/default_margin_size_2"
-                android:layout_below="@+id/me_share_relative_one"
-                android:layout_centerInParent="true"
                 android:text="@string/me_share_time"
                 android:textColor="@color/black_1"
-                android:textSize="@dimen/default_text_size"/>
+                android:textSize="@dimen/default_text_size_18sp"/>
 
             <com.tramp.word.widget.dataview.WeekDayView
-                android:id="@+id/me_share_week"
-                android:layout_below="@+id/me_share_time"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/default_margin_size_3"
                 android:layout_marginStart="@dimen/default_margin_size_3"
@@ -96,98 +77,90 @@
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/me_share_recycler"
-                android:layout_below="@+id/me_share_week"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:overScrollMode="never"
                 android:scrollbars="none"
                 android:layout_marginStart="@dimen/default_margin_size_3"
-                android:layout_marginEnd="@dimen/default_margin_size_3" >
-
-            </android.support.v7.widget.RecyclerView>
-        </RelativeLayout>
+                android:layout_marginEnd="@dimen/default_margin_size_3"
+                android:layout_marginTop="@dimen/default_margin_size"/>
+        </LinearLayout>
     </ScrollView>
     <TextView
-        android:id="@+id/me_share_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/default_margin_size_2"
+        android:layout_above="@+id/me_share_relative"
         android:text="@string/me_share_text"
         android:textColor="@color/black"
-        android:textSize="@dimen/default_text_size" />
+        android:textSize="@dimen/default_text_size_18sp"
+        android:paddingBottom="@dimen/default_margin_size"
+        android:paddingStart="@dimen/default_margin_size_3"/>
     <LinearLayout
         android:id="@+id/me_share_relative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:padding="@dimen/default_margin_size_2">
+        android:layout_alignParentBottom="true"
+        android:paddingTop="@dimen/default_margin_size"
+        android:paddingBottom="@dimen/default_margin_size_2"
+        android:layout_marginEnd="@dimen/default_margin_size_2"
+        android:layout_marginStart="@dimen/default_margin_size_2"
+        android:baselineAligned="false">
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:gravity="center">
             <ImageView
-                android:id="@+id/me_share_weixin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon_wechat"/>
             <TextView
-                android:id="@+id/me_share_weixin_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/default_margin_size"
                 android:layout_marginTop="@dimen/default_margin_size"
                 android:text="@string/me_share_weixin_text"
                 android:textColor="@color/black_1"
-                android:textSize="@dimen/default_text_size_4" />
-
+                android:textSize="@dimen/default_text_size_14sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
             <ImageView
-                android:id="@+id/me_share_friend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon_wx_timeline"/>
+
             <TextView
-                android:id="@+id/me_share_friend_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/default_margin_size"
                 android:layout_marginTop="@dimen/default_margin_size"
                 android:text="@string/me_share_friend_text"
                 android:textColor="@color/black_1"
-                android:textSize="@dimen/default_text_size_4" />
-
+                android:textSize="@dimen/default_text_size_14sp" />
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:orientation="vertical"
+            android:layout_weight="1"
             android:gravity="center">
             <ImageView
-                android:id="@+id/me_share_weibo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_weibo"/>
+                android:src="@drawable/icon_weibo" />
             <TextView
-                android:id="@+id/me_share_weibo_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/default_margin_size"
                 android:layout_marginTop="@dimen/default_margin_size"
                 android:text="@string/me_share_weibo_text"
                 android:textColor="@color/black_1"
-                android:textSize="@dimen/default_text_size_4"/>
+                android:textSize="@dimen/default_text_size_14sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -197,23 +170,20 @@
             android:layout_weight="1"
             android:gravity="center">
             <ImageView
-                android:id="@+id/me_share_kong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_qqzone"/>
-
+                android:src="@drawable/icon_qqzone" />
             <TextView
-                android:id="@+id/me_share_kong_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/default_margin_size"
                 android:layout_marginTop="@dimen/default_margin_size"
                 android:text="@string/me_share_kong_text"
                 android:textColor="@color/black_1"
-                android:textSize="@dimen/default_text_size_4" />
+                android:textSize="@dimen/default_text_size_14sp" />
         </LinearLayout>
+
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>
 
 
 

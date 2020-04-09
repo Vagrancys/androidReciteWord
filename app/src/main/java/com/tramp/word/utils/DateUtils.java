@@ -78,6 +78,11 @@ public class DateUtils {
                 &&date.month== DateUtils.getMonth()
                 &&date.day== DateUtils.getCurrentMonthDay());
     }
+
+    public static boolean isMonth(int year,int date){
+        return (year== DateUtils.getYear()
+                &&date== DateUtils.getMonth());
+    }
 }
 
 

@@ -1,24 +1,22 @@
 package com.tramp.word.module.common;
 
-import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.Formatter;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,22 +27,45 @@ import android.widget.TextView;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.google.gson.Gson;
 import com.tramp.word.R;
 import com.tramp.word.adapter.HomePagerAdapter;
 import com.tramp.word.adapter.MainSignAdapter;
+import com.tramp.word.api.Retrofits;
 import com.tramp.word.base.RxBaseActivity;
+import com.tramp.word.db.UserSqlHelper;
+import com.tramp.word.entity.DefaultBookInfo;
 import com.tramp.word.entity.MainTabEntity;
-import com.tramp.word.port.HomeMeSignInterFace;
+import com.tramp.word.entity.book.BookInfo;
+import com.tramp.word.entity.book.WordQueryInfo;
 import com.tramp.word.port.MainAnimInterFace;
+import com.tramp.word.utils.ConstantUtils;
+import com.tramp.word.utils.DownUtils;
 import com.tramp.word.utils.Utils;
 import com.tramp.word.widget.MainProgressDialog;
 import com.tramp.word.widget.NoScrollViewPager;
+import com.tramp.word.port.DownProgressListener;
+import com.tramp.word.widget.down.FileDownLoad;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class MainActivity extends RxBaseActivity implements MainAnimInterFace{
+    private static final String LOG="MainActivity";
     @BindView(R.id.common_tab)
     CommonTabLayout mCommon;
     @BindView(R.id.view_pager)
@@ -77,15 +98,15 @@ public class MainActivity extends RxBaseActivity implements MainAnimInterFace{
     @BindView(R.id.main_sign_pop_start)
     TextView mMainSignPopStart;
 
+    @BindView(R.id.insert_book)
+    LinearLayout InsertBook;
+
     private AnimationDrawable mAnimation;
     private Animation mAnimIcon;
     private ObjectAnimator mTaskTopOneAnim;
     private ObjectAnimator mTaskTopTwoAnim;
     private ObjectAnimator mSignPopUpAnim;
     private ObjectAnimator mSignPopDownAnim;
-    private int MusicProgress;
-    private int MusicTwoProgress;
-    private int status;
     private Handler mHandler=new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
@@ -93,58 +114,6 @@ public class MainActivity extends RxBaseActivity implements MainAnimInterFace{
                 case 0x1120:
                     mMainTaskPop.setVisibility(View.GONE);
                     mMainCommonBackground.setVisibility(View.GONE);
-                    break;
-                case 0x1121:
-                    mMainMusicProgress.setProgress(MusicProgress);
-                    mMainMusicNum.setText(MusicProgress+"KB/100KB");
-                    break;
-                case 0x1122:
-                    mMainMusicProgress.setSecondaryProgress(MusicTwoProgress);
-                    break;
-                case 0x1123:
-                    mMainMusicDown.setText("暂停");
-                    mMainMusicDown.setTextColor(getResources().getColor(R.color.blue));
-                    mMainMusicDown.setBackground(getResources().getDrawable(R.drawable.btn_main_music_down));
-                    mMainMusicDown.setEnabled(true);
-                    break;
-                case 0x1124:
-                    mMainMusicNum.setText("413KB");
-                    mMainMusicDown.setBackgroundColor(getResources().getColor(R.color.black_2));
-                    mMainMusicDown.setTextColor(getResources().getColor(R.color.black_1));
-                    mMainMusicDown.setText("待解压");
-                    MusicProgress=0;
-                    mMainMusicProgress.setProgressDrawable(getResources().getDrawable(R.drawable.main_anim_progress_one_back));
-                    mMainMusicDown.setEnabled(false);
-                    status=2;
-                    MainProgressStart();
-                    break;
-                case 0x1125:
-                    mMainMusicDown.setEnabled(false);
-                    mMainMusicDown.setText("解压中");
-                    break;
-                case 0x1126:
-                    mMainMusicDown.setText("下载");
-                    mMainMusicDown.setBackgroundColor(getResources().getColor(R.color.white));
-                    mMainMusicDown.setTextColor(getResources().getColor(R.color.black_1));
-                    mMainMusicProgress.setVisibility(View.GONE);
-                    isClose=false;
-                    break;
-                case 0x1127:
-                    mMainProgress.show();
-                    if(mMainProgress.isShowing()){
-                        MainDialogProgressStart();
-                    }else{
-                        isDialogStop=true;
-                    }
-                    break;
-                case 0x1128:
-                    mMainProgress.setDrawable(getResources().getDrawable(R.drawable.main_anim_progress_one_back));
-                    mMainProgress.setDown("解压中");
-                    mMainProgress.setNumber("413KB");
-                    break;
-                case 0x1129:
-                    mMainProgress.setDrawable(getResources().getDrawable(R.drawable.main_anim_progress_back));
-                    mMainProgress.setDown("数据写入");
                     break;
                 case 0x1130:
                     mMainSignPop.setVisibility(View.GONE);
@@ -167,15 +136,16 @@ public class MainActivity extends RxBaseActivity implements MainAnimInterFace{
     };
 
     private ArrayList<CustomTabEntity> mTabEntities=new ArrayList<>();
-    private Thread mProgressThread;
-    private boolean MusicStatus=true;
-    private boolean isStop=false;
-    private boolean isDialogStop=false;
-    private boolean isDialogClose=true;
-    private boolean isClose=true;
-    private int Level=1;
-    private MainProgressDialog mMainProgress;
+    private MainProgressDialog MainProgress;
     private MainSignAdapter mMainSignAdapter;
+    private UserSqlHelper mUserHelper;
+    private DownProgressListener progressListener;
+    private ArrayList<WordQueryInfo.Word> wordQuery=new ArrayList<>();
+    private ArrayList<DefaultBookInfo> books=new ArrayList<>();
+    public int MainProgressNumber;
+    public int MainProgressNow;
+    public long MainProgressTotal;
+    public int book_status=0;
     @Override
     public int getLayoutId() {
         return R.layout.activity_main;
@@ -188,6 +158,11 @@ public class MainActivity extends RxBaseActivity implements MainAnimInterFace{
 
     @Override
     public void initView(Bundle save) {
+        Intent intent=getIntent();
+        if(intent.getExtras()!=null){
+            book_status=intent.getIntExtra(ConstantUtils.BOOK_STATUS,0);
+        }
+        mUserHelper=new UserSqlHelper(getBaseContext());
         initAnim();
         initProgress();
         mHomeAdapter=new HomePagerAdapter(getSupportFragmentManager(),getApplicationContext());
@@ -197,6 +172,7 @@ public class MainActivity extends RxBaseActivity implements MainAnimInterFace{
         initFragment();
         mCommon.setTabData(mTabEntities);
         mCommon.setCurrentTab(0);
+
         mCommon.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position) {
@@ -245,14 +221,214 @@ public class MainActivity extends RxBaseActivity implements MainAnimInterFace{
             @Override
             public void onClick(View v) {
                 if(mMusicPop.getVisibility()==View.VISIBLE){
-                    MusicStatus=false;
                     mMusicPop.setVisibility(View.GONE);
                     mMainCommonBackground.setVisibility(View.GONE);
                 }
             }
         });
 
+        progressListener=new DownProgressListener() {
+
+            @Override
+            public void onStartProgress() {
+                MainProgress.setDown("下载....");
+                MainProgress.setMax(100);
+                MainProgress.show();
+                Log.e(LOG,"onStartProgress");
+            }
+
+            @Override
+            public void onEndProgress(int book_id,String path,long total) {
+                MainProgress.setDown("待解压");
+                MainProgress.setProgress(1);
+                MainProgress.setDrawable(getResources().getDrawable(R.drawable.main_anim_progress_one_back));
+                mMainMusicDown.setEnabled(false);
+                DownUtils.RarDp(book_id,path,
+                        Environment.getExternalStorageDirectory().getAbsolutePath()+File.separator,progressListener,mHandler);
+                Log.e(LOG,"onEndProgress");
+            }
+
+            @Override
+            public void onErrorProgress(String msg) {
+                MainProgress.dismiss();
+                Log.e(LOG,"onErrorProgress");
+            }
+
+            @Override
+            public void onProgress(int p,long now,long total) {
+                MainProgress.setProgress(p);
+                MainProgress.setNumber( Formatter.formatFileSize(getBaseContext(),now)+"/"+Formatter.formatFileSize(getBaseContext(),total));
+                Log.e(LOG,"onProgress");
+            }
+
+            @Override
+            public void onStartSolve() {
+                MainProgress.setDown("解压中");
+                Log.e(LOG,"onStartSolve");
+            }
+
+            @Override
+            public void onProgressSolve(int progress) {
+                MainProgress.setProgress(progress);
+                Log.e(LOG,"onProgressSolve");
+            }
+
+            @Override
+            public void onEndSolve(int book_id) {
+                MainProgress.setDown("数据写入....");
+                File mFile=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+File.separator+book_id+".rar");
+                if(mFile.isDirectory()){
+                    mFile.delete();
+                }
+                BookQuery(book_id);
+                Log.e(LOG,"onEndSolve");
+            }
+
+            @Override
+            public void onErrorSolve(String msg) {
+                Log.e(LOG,"onErrorSolve="+msg);
+                MainProgress.dismiss();
+            }
+
+            @Override
+            public void onStartRead(int total) {
+                MainProgress.setDown("数据写入中....");
+                MainProgress.setMax(total);
+                MainProgress.setProgress(1);
+                Log.e(LOG,"onStartRead");
+            }
+
+            @Override
+            public void onProgressRead(int now) {
+                MainProgress.setProgress(now);
+                Log.e(LOG,"onProgressRead");
+            }
+
+            @Override
+            public void onEndRead(int book_id) {
+                MainProgress.setDown("完成");
+                File mFile=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+File.separator+book_id+".json");
+                if(mFile.isDirectory()){
+                    mFile.delete();
+                }
+                MainProgress.dismiss();
+                Log.e(LOG,"onEndRead");
+            }
+        };
+
+        initBook(book_status);
+        initWord();
         initSign();
+    }
+
+    private void initWord(){
+        if(mUserHelper.isWordEmpty(mUserHelper.WordId())){
+            BookDown(mUserHelper.WordId());
+        }
+        mHomeAdapter.notifyDataSetChanged();
+    }
+
+    private void initBook(int book_status){
+        Log.e(LOG,"size="+mUserHelper.BookSize(mUserHelper.UserId()));
+        if(book_status==1&&mUserHelper.BookSize(mUserHelper.UserId())<=0){
+            mMainCommonBackground.setVisibility(View.VISIBLE);
+            InsertBook.setVisibility(View.VISIBLE);
+            Retrofits.getBookAPI().getBookInfo(mUserHelper.UserId())
+                    .enqueue(new Callback<BookInfo>() {
+                @Override
+                public void onResponse(Call<BookInfo> call, Response<BookInfo> response) {
+                    if(response.body()!=null&&response.body().getCode()==200){
+                        books=response.body().getBookList();
+                        finishBook();
+                    }else{
+                        mMainCommonBackground.setVisibility(View.GONE);
+                        InsertBook.setVisibility(View.GONE);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<BookInfo> call, Throwable t) {
+                    mMainCommonBackground.setVisibility(View.GONE);
+                    InsertBook.setVisibility(View.GONE);
+                }
+            });
+        }
+    }
+
+    private void finishBook(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (DefaultBookInfo Book:books){
+                    if(!mUserHelper.isBook(Book.getBook_id())){
+                        mUserHelper.insertBook(Book);
+                        Log.e(LOG,"for="+Book.getBook_id());
+                    }
+                }
+                mHandler.post(()->{
+                    mMainCommonBackground.setVisibility(View.GONE);
+                    InsertBook.setVisibility(View.GONE);
+                });
+            }
+        }).start();
+    }
+
+    private void BookQuery(int url){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Observable.just(readJson(url))
+                        .compose(bindToLifecycle())
+                        .map(s->new Gson().fromJson(s, WordQueryInfo.class))
+                        .map(WordQueryInfo::getWord)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(dataBeans->{
+                            Log.e(LOG,"dataBeans="+dataBeans.size());
+                            wordQuery.addAll(dataBeans);
+                            finishQuery(url);
+                        },throwable -> {
+                            Log.e(LOG,"msg="+throwable.getMessage());
+                        });
+            }
+        }).start();
+    }
+
+    public void finishQuery(int book_id){
+        mHandler.post(()->{
+            progressListener.onStartRead(wordQuery.size());
+        });
+        Log.e(LOG,"wordQuery="+wordQuery.size());
+        mUserHelper.DeleteWord(book_id);
+        for (int i=0;i<wordQuery.size();i++){
+            Log.e(LOG,"progress="+i);
+            mUserHelper.insertWord(wordQuery.get(i));
+            final int now=i;
+            mHandler.post(()->{
+                progressListener.onProgressRead(now);
+            });
+        }
+        mHandler.post(()->{
+            progressListener.onEndRead(book_id);
+        });
+    }
+
+    private String readJson(int url){
+        try {
+            File file=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+File.separator+url+".json");
+            Log.e(LOG,"path="+Environment.getExternalStorageDirectory().getAbsolutePath()+File.separator+url+".json");
+            InputStream is=new FileInputStream(file);
+            BufferedReader buffered=new BufferedReader(new InputStreamReader(is));
+            StringBuffer string=new StringBuffer();
+            String str;
+            while ((str =buffered.readLine())!=null){
+                string.append(str);
+            }
+            return string.toString();
+        }catch (IOException e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private void initSign(){
@@ -273,6 +449,7 @@ public class MainActivity extends RxBaseActivity implements MainAnimInterFace{
                 },550);
             }
         });
+
         mMainSignPopStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -282,8 +459,8 @@ public class MainActivity extends RxBaseActivity implements MainAnimInterFace{
     }
 
     private void initProgress(){
-        mMainProgress=new MainProgressDialog(this);
-        mMainProgress.setMax(500);
+        MainProgress=new MainProgressDialog(this);
+
         mMainMusicProgress.setProgress(0);
         mMainMusicProgress.setSecondaryProgress(0);
         mMainMusicProgress.setMax(400);
@@ -296,17 +473,11 @@ public class MainActivity extends RxBaseActivity implements MainAnimInterFace{
                     mMainMusicDown.setTextColor(getResources().getColor(R.color.black_1));
                     mMainMusicDown.setText("待下载");
                     mMainMusicDown.setEnabled(false);
-                    status=1;
-                    MainProgressStart();
                 }else if(mMainMusicDown.getText().toString().equals("暂停")){
                     mMainMusicDown.setEnabled(true);
                     mMainMusicDown.setText("继续");
-                    isStop=false;
-                    MusicStatus=false;
                 }else if(mMainMusicDown.getText().toString().equals("继续")){
                     mMainMusicDown.setText("暂停");
-                    isStop=true;
-                    MusicStatus=true;
                 }
             }
         });
@@ -315,129 +486,59 @@ public class MainActivity extends RxBaseActivity implements MainAnimInterFace{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(data.getIntExtra("status",1 )==2){
-            Message msg=new Message();
-            msg.what=0x1127;
-            mHandler.sendMessage(msg);
+        if(requestCode==105&&resultCode==10&&data.getExtras()!=null){
+            if(data.getIntExtra(ConstantUtils.BOOK_DOWN_RESPONSE,1)==2){
+                int book_id=data.getIntExtra(ConstantUtils.BOOK_DOWN_ID,1);
+                switch (data.getIntExtra(ConstantUtils.BOOK_DOWN_STATUS,1)){
+                    case 1:
+                        if(mUserHelper.isWordEmpty(book_id)){
+                            BookDown(book_id);
+                        }
+                        mHomeAdapter.notifyDataSetChanged();
+                        break;
+                    case 2:
+                        ContentValues values=new ContentValues();
+                        values.put("recited_book",book_id);
+                        mUserHelper.update(values);
+                        if(mUserHelper.isWordEmpty(book_id)){
+                            BookDown(book_id);
+                        }
+                        mHomeAdapter.notifyDataSetChanged();
+                        break;
+                    case 3:
+                        BookDown(book_id);
+                        break;
+                }
+            }
         }
 
     }
 
-    private void MainDialogProgressStart(){
-        new Thread(){
-            @Override
-            public void run() {
-                super.run();
-                int dataCount=0;
-                try {
-                    while (isDialogClose){
-                        if(Level==1){
-                            Log.d("Thread","dataCount="+dataCount);
-                            while (dataCount<=300&&!isDialogStop){
-                                Log.d("Progress","data="+dataCount);
-                                mMainProgress.setProgress(dataCount);
-                                dataCount+=5;
-                                Thread.sleep(500);
-                            }
-                            dataCount=0;
-                            Level=2;
-                            Message msg1=new Message();
-                            msg1.what=0x1128;
-                            mHandler.sendMessage(msg1);
-                            mHandler.sendEmptyMessage(0x1128);
-                        }else if(Level==2){
-                            Log.d("Thread1","dataCount="+dataCount);
-                            mMainProgress.setMax(200);
-                            while (dataCount<=200&&!isDialogStop){
-                                Log.d("Progress1","data="+dataCount);
-                                mMainProgress.setOneProgress(dataCount);
-                                dataCount+=5;
-                                Thread.sleep(500);
-                            }
-                            dataCount=0;
-                            Level=3;
-                            Message msg=new Message();
-                            msg.what=0x1129;
-                            mHandler.sendMessage(msg);
-                            mHandler.sendEmptyMessage(0x1129);
-                        }else if(Level==3){
-                            Log.d("Thread2","dataCount="+dataCount);
-                            mMainProgress.setMax(100);
-                            while (dataCount<=100&&!isDialogStop){
-                                Log.d("Progress2","data="+dataCount);
-                                mMainProgress.setTwoProgress(dataCount);
-                                dataCount+=5;
-                                Thread.sleep(500);
-                            }
-                            mMainProgress.cancel();
-                            isDialogClose=false;
-                        }
+    private void BookDown(int book_id){
+        String path=book_id+".rar";
+        Retrofits.getDownAPI().getDownLoad(path)
+                .enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
+                        new Thread(new FileDownLoad(response,book_id,path,
+                                progressListener,
+                                mHandler,MainProgressNumber,
+                                MainProgressNow,MainProgressTotal)).start();
+                        Log.e(LOG,"onResponse");
                     }
-                } catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        }.start();
-    }
 
-    private void MainProgressStart(){
-        mProgressThread=new Thread(new Runnable() {
-            @Override
-            public void run() {
-                int max=mMainMusicProgress.getMax();
-                try {
-                    while (isClose){
-                            if(status==1&&!isStop){
-                                if(MusicProgress==0){
-                                    Message msg1=new Message();
-                                    msg1.what=0x1123;
-                                    mHandler.sendMessage(msg1);
-                                }
-                                while (MusicProgress<max&&MusicStatus){
-                                    MusicProgress+=5;
-                                    Message msg2=new Message();
-                                    msg2.what=0x1121;
-                                    mHandler.sendMessage(msg2);
-                                    Thread.sleep(500);
-                                }
-                                if(MusicProgress>=max){
-                                    Message msg3=new Message();
-                                    msg3.what=0x1124;
-                                    mHandler.sendMessage(msg3);
-                                }
-                            }else if(status==2){
-                                if(MusicProgress==0){
-                                    Message msg4=new Message();
-                                    msg4.what=0x1125;
-                                    mHandler.sendMessage(msg4);
-                                }
-                                while (MusicProgress<max&&MusicStatus){
-                                    MusicProgress+=5;
-                                    Message msg5=new Message();
-                                    msg5.what=0x1122;
-                                    mHandler.sendMessage(msg5);
-                                    Thread.sleep(500);
-                                }
-                                if(MusicProgress>=max){
-                                    Message msg6=new Message();
-                                    msg6.what=0x1126;
-                                    mHandler.sendMessage(msg6);
-                                }
-                            }
-                        }
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        });
-        mProgressThread.start();
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Log.e(LOG,"onFailure");
+                    }
+                });
     }
 
     public void initAnim(){
-        mImgAnim.setImageResource(R.drawable.main_anim);
+        mImgAnim.setImageResource(R.drawable.default_main_anim);
         mAnimation=(AnimationDrawable) mImgAnim.getDrawable();
-        mAnimIcon= AnimationUtils.loadAnimation(getBaseContext(),R.anim.main_tab_icon_anim);
-        mMusicAnim=AnimationUtils.loadAnimation(getBaseContext(),R.anim.word_book_pop_in_anim);
+        mAnimIcon= AnimationUtils.loadAnimation(getBaseContext(),R.anim.default_button_scale_anim);
+        mMusicAnim=AnimationUtils.loadAnimation(getBaseContext(),R.anim.default_top_enter_anim);
         mAnimIcon.setRepeatCount(3);
 
         DisplayMetrics metric=new DisplayMetrics();
@@ -524,6 +625,13 @@ public class MainActivity extends RxBaseActivity implements MainAnimInterFace{
     protected void onDestroy() {
         super.onDestroy();
         mAnimation.stop();
+    }
+
+    public static void launch(Activity activity,int book_status){
+        Intent intent=new Intent(activity,MainActivity.class);
+        intent.putExtra(ConstantUtils.BOOK_STATUS,book_status);
+        activity.startActivity(intent);
+        Utils.StarActivityInAnim(activity);
     }
 }
 

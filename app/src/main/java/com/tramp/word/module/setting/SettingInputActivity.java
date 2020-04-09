@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.tramp.word.R;
 import com.tramp.word.base.RxBaseActivity;
+import com.tramp.word.utils.ConstantUtils;
+import com.tramp.word.utils.PreferencesUtils;
 
 import butterknife.BindView;
 
@@ -30,6 +32,7 @@ public class SettingInputActivity extends RxBaseActivity {
     @BindView(R.id.input_two_img)
     ImageView InputTwoImg;
 
+    private int INPUT_RESULT=22;
     private int status;
     @Override
     public int getLayoutId() {
@@ -51,35 +54,39 @@ public class SettingInputActivity extends RxBaseActivity {
     public void initView(Bundle save) {
         InputOneImg.setVisibility(View.GONE);
         InputTwoImg.setVisibility(View.GONE);
-        if(status==1){
+        status= PreferencesUtils.getInt(ConstantUtils.SETTING_INPUT_CODE,0);
+        if(status==0){
             InputOneImg.setVisibility(View.VISIBLE);
-        }else if(status==2) {
+        }else if(status==1) {
             InputTwoImg.setVisibility(View.VISIBLE);
         }
         InputOneRelative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 InputOneImg.setVisibility(View.VISIBLE);
-                status=1;
+                status=0;
                 InputTwoImg.setVisibility(View.GONE);
-                Intent intent=new Intent();
-                intent.putExtra("input",status);
-                setResult(17,intent);
-                finish();
+                PreferencesUtils.putInt(ConstantUtils.SETTING_INPUT_CODE,0);
+                initResult();
             }
         });
         InputTwoRelative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 InputTwoImg.setVisibility(View.VISIBLE);
-                status=2;
+                status=1;
                 InputOneImg.setVisibility(View.GONE);
-                Intent intent=new Intent();
-                intent.putExtra("input",status);
-                setResult(17,intent);
-                finish();
+                PreferencesUtils.putInt(ConstantUtils.SETTING_INPUT_CODE,1);
+                initResult();
             }
         });
+    }
+
+    private void initResult(){
+        Intent intent=new Intent();
+        intent.putExtra(ConstantUtils.SETTING_INPUT_CODE,status);
+        setResult(INPUT_RESULT,intent);
+        finish();
     }
 
     @Override

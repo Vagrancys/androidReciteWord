@@ -1,43 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/item_layout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_relative"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/word_book_item_layout_height"
-    android:background="@color/word_book_layout_color"
-    android:padding="@dimen/default_margin_size_1">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/btn_word_book_item">
-        <ImageView
-            android:id="@+id/item_word_book_img"
-            android:layout_width="@dimen/item_word_book_img_width"
-            android:layout_height="@dimen/item_word_book_img_height"
-            android:layout_marginStart="@dimen/default_margin_size"
-            android:layout_marginEnd="@dimen/default_margin_size_2"
-            android:layout_centerInParent="true"
-            android:layout_alignParentStart="true"
-            android:src="@drawable/pic_bookcover_default"/>
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin_size"
+    android:background="@drawable/btn_word_book_item"
+    android:paddingTop="@dimen/default_margin_size"
+    android:paddingBottom="@dimen/default_margin_size">
+
+    <ImageView
+        android:id="@+id/item_book_img"
+        android:layout_width="@dimen/default_margin_size_8"
+        android:layout_height="@dimen/default_margin_size_10"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/pic_bookcover_default" />
+
+    <TextView
+        android:id="@+id/item_book_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin_size_2"
+        android:layout_toEndOf="@+id/item_book_img"
+        android:text="@string/item_word_book_head_text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size_18sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/item_book_img"
+        android:layout_below="@+id/item_book_title"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/default_margin_size_2">
         <TextView
-            android:id="@+id/item_word_book_head_text"
+            android:id="@+id/item_book_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/item_word_book_img"
-            android:layout_marginTop="@dimen/default_margin_size_3"
-            android:layout_marginBottom="@dimen/default_margin_size_2_1"
-            android:text="@string/item_word_book_head_text"
-            android:textSize="@dimen/item_word_book_head_text_size"
-            android:textColor="@color/item_word_book_head_text_color"/>
+            android:text="@string/item_book_number"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/default_text_size_16sp"
+            android:layout_marginEnd="@dimen/default_margin_size_3"/>
         <TextView
-            android:id="@+id/item_word_book_foot_text"
+            android:id="@+id/item_book_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/item_word_book_img"
-            android:layout_below="@+id/item_word_book_head_text"
-            android:text="@string/item_word_book_foot_text"
-            android:textSize="@dimen/item_word_book_foot_text_size"
-            android:textColor="@color/item_word_book_foot_text_color"/>
-    </RelativeLayout>
-</LinearLayout>
+            android:text="@string/item_book_total"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/default_text_size_16sp" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/item_book_good"
+        android:layout_width="@dimen/default_margin_size_3"
+        android:layout_height="@dimen/default_margin_size_4"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/default_margin_size_2_1"
+        android:src="@drawable/icon_bookinfo_selected"
+        android:visibility="visible" />
+</RelativeLayout>

@@ -1,24 +1,20 @@
 package com.tramp.word.adapter;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.tramp.word.R;
-import com.tramp.word.entity.DefaultLetterEntity;
-import com.tramp.word.module.home.me.FriendDetailsActivity;
+import com.tramp.word.entity.user.FriendSearchInfo;
+import com.tramp.word.module.user.FriendDetailsActivity;
 
 import java.util.ArrayList;
-
-import butterknife.BindView;
 
 /**
  * Created by Administrator on 2019/2/1.
@@ -26,8 +22,10 @@ import butterknife.BindView;
 
 public class SearchMemberAdapter extends AbsRecyclerViewAdapter {
     private Activity mActivity;
-    public SearchMemberAdapter(RecyclerView recyclerView,Activity activity){
+    private ArrayList<FriendSearchInfo.search> Searches;
+    public SearchMemberAdapter(RecyclerView recyclerView,Activity activity,ArrayList<FriendSearchInfo.search> search){
         super(recyclerView);
+        Searches=search;
         mActivity=activity;
     }
 
@@ -41,16 +39,33 @@ public class SearchMemberAdapter extends AbsRecyclerViewAdapter {
     @Override
     public void onBindViewHolder(ClickableViewHolder holder, int position) {
         ItemViewHolder mHolder=(ItemViewHolder) holder;
-        mHolder.mItemSearchMemberImg.setOnClickListener(new View.OnClickListener() {
+        mHolder.ItemSearchMemberName.setText(Searches.get(position).getUser_name());
+        Glide.with(mActivity)
+                .load(Searches.get(position).getUser_avatar())
+                .placeholder(R.drawable.user_avater)
+                .into(mHolder.ItemSearchMemberImg);
+        switch (Searches.get(position).getUser_status()){
+            case 1:
+                mHolder.ItemSearchMemberAdd.setVisibility(View.VISIBLE);
+                mHolder.ItemSearchMemberTime.setVisibility(View.GONE);
+                break;
+            case 2:
+                mHolder.ItemSearchMemberAdd.setVisibility(View.GONE);
+                mHolder.ItemSearchMemberTime.setVisibility(View.VISIBLE);
+                mHolder.ItemSearchMemberTime.setText("已添加");
+                break;
+        }
+        mHolder.ItemSearchMemberImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mActivity.startActivity(new Intent(mActivity, FriendDetailsActivity.class));
+                FriendDetailsActivity.launch(mActivity,Searches.get(position).getUser_id());
             }
         });
-        mHolder.mItemSearchMemberAdd.setOnClickListener(new View.OnClickListener() {
+        mHolder.ItemSearchMemberAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mHolder.mItemSearchMemberAdd.setText(mActivity.getResources().getString(R.string.user_friend_exit));
+                mHolder.ItemSearchMemberAdd.setVisibility(View.GONE);
+                mHolder.ItemSearchMemberTime.setVisibility(View.VISIBLE);
             }
         });
         super.onBindViewHolder(holder, position);
@@ -58,16 +73,20 @@ public class SearchMemberAdapter extends AbsRecyclerViewAdapter {
 
     @Override
     public int getItemCount() {
-        return 10;
+        return Searches.size();
     }
 
     public class ItemViewHolder extends ClickableViewHolder{
-        ImageView mItemSearchMemberImg;
-        TextView mItemSearchMemberAdd;
+        ImageView ItemSearchMemberImg;
+        TextView ItemSearchMemberName;
+        TextView ItemSearchMemberAdd;
+        TextView ItemSearchMemberTime;
         public ItemViewHolder(View itemView){
             super(itemView);
-            mItemSearchMemberImg=$(R.id.item_search_member_img);
-            mItemSearchMemberAdd=$(R.id.item_search_member_add);
+            ItemSearchMemberName=$(R.id.item_search_member_text);
+            ItemSearchMemberTime=$(R.id.item_search_member_time);
+            ItemSearchMemberImg=$(R.id.item_search_member_img);
+            ItemSearchMemberAdd=$(R.id.item_search_member_add);
         }
     }
 }

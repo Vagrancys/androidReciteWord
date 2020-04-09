@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingBottom="@dimen/default_margin_size"
+    android:paddingEnd="@dimen/default_margin_size_2"
+    android:paddingStart="@dimen/default_margin_size"
+    android:paddingTop="@dimen/default_margin_size">
+
+    <ImageView
+        android:id="@+id/item_word_pk_img"
+        android:layout_width="@dimen/default_margin_size_4"
+        android:layout_height="@dimen/default_margin_size_4"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/default_margin_size"
+        android:src="@drawable/icon_wechat" />
+
+    <TextView
+        android:id="@+id/item_word_pk_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/item_word_pk_img"
+        android:text="@string/pop_share"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size_18sp"
+        android:layout_marginBottom="@dimen/default_margin_size_1"/>
+    <TextView
+        android:id="@+id/item_word_pk_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/item_word_pk_img"
+        android:layout_below="@+id/item_word_pk_title"
+        android:text="@string/pop_share"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/default_text_size_14sp" />
+    <ImageView
+        android:id="@+id/item_word_pk_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/default_margin_size"
+        android:src="@drawable/btn_pk" />
+</RelativeLayout>

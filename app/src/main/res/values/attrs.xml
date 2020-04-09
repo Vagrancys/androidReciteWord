@@ -20,8 +20,70 @@
     </declare-styleable>
 
     <declare-styleable name="MonthDateView">
-        <attr name="baseTextSize" format="dimension"/>
-        <attr name="baseTextColor" format="color"/>
-        <attr name="rowHeight" format="dimension"/>
+        <attr name="NowTextColor" format="color"/>
+        <attr name="NotTextColor" format="color"/>
+        <attr name="DayTextSize" format="dimension"/>
+        <attr name="WordTextColor" format="color"/>
+        <attr name="WordTextSize" format="dimension"/>
+        <attr name="CircleColor" format="color"/>
+        <attr name="CircleWidth" format="dimension"/>
+        <attr name="SelectTextColor" format="color"/>
+        <attr name="ItemHeight" format="dimension"/>
     </declare-styleable>
+    
+    <declare-styleable name="AvatarCircleView">
+        <attr name="border_width" format="dimension"/>
+        <attr name="border_color" format="color"/>
+        <attr name="border_overlay" format="boolean"/>
+    </declare-styleable>
+    
+    <declare-styleable name="DefaultSeekBar">
+        <attr name="circleButtonHeight" format="dimension"/>
+        <attr name="circleButtonWidth" format="dimension"/>
+        <attr name="tickBarHeight" format="dimension"/>
+        <attr name="tickBarColor" format="color"/>
+        <attr name="BarClass" format="integer"/>
+        <attr name="ButtonTextColor" format="color"/>
+        <attr name="ButtonTextSize" format="dimension"/>
+        <attr name="TickBarTextColor" format="color"/>
+        <attr name="TickBarTextSize" format="dimension"/>
+    </declare-styleable>
+
 </resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

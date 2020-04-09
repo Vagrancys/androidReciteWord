@@ -1,7 +1,6 @@
 package com.tramp.word.widget;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
 import android.view.View;

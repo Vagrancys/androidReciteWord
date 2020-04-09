@@ -9,7 +9,7 @@ import android.graphics.BitmapFactory;
  */
 
 public class BitmapUtils {
-    public static Bitmap decodeSampledBitmapFromResource(Resources resources,int resId,int reqWidth,int reqHeight){
+    public static Bitmap decodeSampledBitmapFromResource(Resources resources,int resId){
         final BitmapFactory.Options options=new BitmapFactory.Options();
         options.inJustDecodeBounds=true;
         BitmapFactory.decodeResource(resources,resId,options);

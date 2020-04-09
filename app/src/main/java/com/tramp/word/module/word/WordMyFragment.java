@@ -10,7 +10,12 @@ import com.tramp.word.R;
 import com.tramp.word.adapter.section.WordBookKeepViewSection;
 import com.tramp.word.adapter.section.WordBookNowViewSection;
 import com.tramp.word.base.RxLazyFragment;
+import com.tramp.word.entity.DefaultBookInfo;
+import com.tramp.word.entity.task.TaskListInfo;
 import com.tramp.word.widget.section.SectionedRecyclerViewAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -25,6 +30,8 @@ public class WordMyFragment extends RxLazyFragment {
     RecyclerView mRecycler;
     private boolean mIsRefresh=false;
     private SectionedRecyclerViewAdapter mSectionAdapter;
+    private DefaultBookInfo mInfo = new DefaultBookInfo();
+    private List<DefaultBookInfo> mInfos = new ArrayList<>();
 
     public static WordMyFragment newInstance(){
         return new WordMyFragment();
@@ -81,8 +88,8 @@ public class WordMyFragment extends RxLazyFragment {
     protected void finishTask() {
         mSwipeRefreshLayout.setRefreshing(false);
         mIsRefresh=false;
-        mSectionAdapter.addSection(new WordBookNowViewSection(getActivity()));
-        mSectionAdapter.addSection(new WordBookKeepViewSection(getActivity()));
+        mSectionAdapter.addSection(new WordBookNowViewSection(getActivity(),mInfo));
+        mSectionAdapter.addSection(new WordBookKeepViewSection(getActivity(),mInfos));
         mSectionAdapter.notifyDataSetChanged();
     }
     public void clearData(){

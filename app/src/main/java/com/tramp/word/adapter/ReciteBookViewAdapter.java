@@ -1,7 +1,6 @@
 package com.tramp.word.adapter;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -15,11 +14,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.tramp.word.R;
-import com.tramp.word.adapter.section.WordWholeLanguageViewSection;
-import com.tramp.word.module.home.recite.ReciteWordDetailsActivity;
+import com.tramp.word.entity.recite.DefaultGateInfo;
 import com.tramp.word.utils.AssetsUtils;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2019/1/24.
@@ -37,10 +36,16 @@ public class ReciteBookViewAdapter extends AbsRecyclerViewAdapter{
     private Bitmap mAvatarImg;
     private Matrix mMatrix=new Matrix();
     private Activity mActivity;
-
-    public ReciteBookViewAdapter(RecyclerView recyclerView, Activity activity){
+    private int ItemGate;
+    private int Gate;
+    private ArrayList<DefaultGateInfo> Gates;
+    public ReciteBookViewAdapter(RecyclerView recyclerView, Activity activity, int item_gate, ArrayList<DefaultGateInfo> gates,int gate){
         super(recyclerView);
         mActivity=activity;
+        ItemGate=item_gate;
+        Gates=gates;
+
+        Gate=gate;
         InputStream is= AssetsUtils.getAssetsOpen(mActivity,"mission_assets@2x.png");
         mMissionImg= BitmapFactory.decodeStream(is);
         InputStream avatar= AssetsUtils.getAssetsOpen(mActivity,"pic_default_avtar@2x.png");
@@ -67,43 +72,45 @@ public class ReciteBookViewAdapter extends AbsRecyclerViewAdapter{
 
     @Override
     public void onBindViewHolder(ClickableViewHolder holder, int position) {
-        if(holder instanceof ItemViewHolder){
-            ItemViewHolder mHolder=(ItemViewHolder) holder;
-                if(position==0){
-                    mHolder.mLineHead.setVisibility(View.GONE);
-                }else{
-                    mHolder.mLineHead.setVisibility(View.VISIBLE);
-                }
+        ItemViewHolder mHolder=(ItemViewHolder) holder;
+            if(position==0){
+                mHolder.mLineHead.setVisibility(View.GONE);
+            }else{
+                mHolder.mLineHead.setVisibility(View.VISIBLE);
+            }
+            if(Gate==position+ItemGate*position){
                 mHolder.mUserGoalImg.setImageBitmap(mUserGoalImg);
                 mHolder.mUserAvatarLinear.setBackground(new BitmapDrawable(mAvatarImg));
                 mHolder.mUserAvatarImg1.setImageBitmap(mDefaultAvatarImg);
-                if(position==8){
-                    mHolder.mUserGoalImg.setVisibility(View.VISIBLE);
-                    mHolder.mUserAvatarLinear.setVisibility(View.VISIBLE);
+            }else{
+                mHolder.mUserAvatarImg1.setVisibility(View.GONE);
+                mHolder.mUserAvatarLinear.setVisibility(View.GONE);
+                mHolder.mUserGoalImg.setVisibility(View.GONE);
+            }
+            switch (Gates.get(position).getGate_star()){
+                case 0:
+                    mHolder.mReciteBookItem.setImageBitmap(mTwoItemImg);
+                    break;
+                case 1:
                     mHolder.mReciteBookItem.setImageBitmap(mThereItemImg);
-                }else if(position==10){
+                    break;
+                case 2:
+                    mHolder.mReciteBookItem.setImageBitmap(mFourItemImg);
+                    break;
+                case 3:
                     mHolder.mReciteBookItem.setImageBitmap(mFiveItemImg);
-                    mHolder.mUserGoalImg.setVisibility(View.GONE);
-                    mHolder.mUserAvatarLinear.setVisibility(View.GONE);
-                }else{
-                    mHolder.mUserAvatarLinear.setVisibility(View.GONE);
-                    mHolder.mUserGoalImg.setVisibility(View.GONE);
+                    break;
+                default:
                     mHolder.mReciteBookItem.setImageBitmap(mOneItemImg);
-                }
-                mHolder.mReciteBookItem.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        mActivity.startActivity(new Intent(mActivity, ReciteWordDetailsActivity.class));
-                        mActivity.overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_stay);
-                    }
-                });
-        }
+                    break;
+            }
+
         super.onBindViewHolder(holder, position);
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        return Gates.size();
     }
 
     public static class ItemViewHolder extends ClickableViewHolder{
@@ -114,7 +121,7 @@ public class ReciteBookViewAdapter extends AbsRecyclerViewAdapter{
         View mLineHead;
         public ItemViewHolder(View itemView){
             super(itemView);
-            mReciteBookItem=$(R.id.recite_book_item);
+            mReciteBookItem=$(R.id.book_item);
             mUserGoalImg=$(R.id.user_goal_img);
             mUserAvatarLinear=$(R.id.user_avatar_img);
             mUserAvatarImg1=$(R.id.user_avatar_img_1);

@@ -14,5 +14,5 @@
         android:layout_height="wrap_content"
         android:text="@string/item_recite_anim_letter"
         android:textColor="@color/black"
-        android:textSize="@dimen/item_word_recite_anim_letter_size"/>
+        android:textSize="@dimen/default_text_size_18sp"/>
 </LinearLayout>

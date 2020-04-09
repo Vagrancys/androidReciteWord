@@ -9,9 +9,9 @@ import com.tramp.word.module.home.check.HomeCheckFragment;
 import com.tramp.word.module.home.find.HomeFindFragment;
 import com.tramp.word.module.home.me.HomeMeFragment;
 import com.tramp.word.module.home.recite.HomeReciteFragment;
-import com.tramp.word.module.word.ReciteKnowFragment;
-import com.tramp.word.module.word.ReciteRepeatFragment;
-import com.tramp.word.module.word.ReciteStudyFragment;
+import com.tramp.word.module.word.WordKnowFragment;
+import com.tramp.word.module.word.WordRepeatFragment;
+import com.tramp.word.module.word.WordStudyFragment;
 
 /**
  * Created by Administrator on 2019/1/24.
@@ -31,13 +31,13 @@ public class ReciteWordListAdapter  extends FragmentPagerAdapter {
         if(fragments[position]==null){
             switch (position){
                 case 0:
-                    fragments[position] = ReciteKnowFragment.newInstance();
+                    fragments[position] = WordKnowFragment.newInstance();
                     break;
                 case 1:
-                    fragments[position] = ReciteRepeatFragment.newInstance();
+                    fragments[position] = WordRepeatFragment.newInstance();
                     break;
                 case 2:
-                    fragments[position] = ReciteStudyFragment.newInstance();
+                    fragments[position] = WordStudyFragment.newInstance();
                     break;
                 default:
                     break;

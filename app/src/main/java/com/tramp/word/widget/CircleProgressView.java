@@ -9,8 +9,6 @@ import android.graphics.RectF;
 
 import android.os.Handler;
 import android.os.Message;
-import android.speech.tts.Voice;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -29,8 +27,11 @@ public class CircleProgressView extends View {
 
     private RectF mRectF=new RectF();
 
+    private boolean InitStatus=false;
+    private boolean Finished=false;
     private int HeadInt;
-    private int HeadNowInt=0;
+    private int NowNumber=0;
+    private String HeadNowInt="0";
     private String FooterText;
     private int finishedStrokeColor;
     private int unfinishedStrokeColor;
@@ -66,6 +67,11 @@ public class CircleProgressView extends View {
         initPaint();
     }
 
+    public void setFinished(boolean finished) {
+        Finished = finished;
+        invalidate();
+    }
+
     private void initArray(TypedArray array){
         strokeWidth=array.getDimension(R.styleable.CircleProgressView_circle_stroke_width,default_stroke_width);
         arcAngle=array.getFloat(R.styleable.CircleProgressView_circle_arc_angle,default_arc_angle);
@@ -96,21 +102,18 @@ public class CircleProgressView extends View {
     private Handler handler=new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
-            switch (msg.what){
-                case START:
-                    if(NowProgress>=progress){
-                        return false;
-                    }else {
-                        NowProgress=NowProgress+1;
-                        if(!(HeadNowInt==HeadInt)){
-                            Log.d("HeadNotInt",HeadNowInt+"");
-                            HeadNowInt=HeadNowInt+1;
-                        }
-                        invalidate();
-                        handler.sendEmptyMessageDelayed(START,speed);
+            if(msg.what==START){
+                if(NowProgress>=progress){
+                    return false;
+                }else {
+                    NowProgress=NowProgress+1;
+                    if(!(NowNumber==HeadInt)){
+                        Log.d("HeadNotInt",HeadNowInt+"");
+                        NowNumber=NowNumber+1;
                     }
-                    break;
-
+                    invalidate();
+                    handler.sendEmptyMessageDelayed(START,speed);
+                }
             }
             return false;
         }
@@ -155,6 +158,11 @@ public class CircleProgressView extends View {
         this.invalidate();
     }
 
+    public void setInitStatus(boolean initStatus) {
+        this.InitStatus = initStatus;
+        this.invalidate();
+    }
+
     @Override
     protected int getSuggestedMinimumHeight() {
         return min_size;
@@ -185,8 +193,23 @@ public class CircleProgressView extends View {
         int width=this.getWidth();
         int height=this.getHeight();
         String text;
+        String text1;
+        String content;
         int textHeight;
         int textWidth;
+        if(InitStatus){
+            content="--";
+        }else{
+            content=""+NowNumber;
+        }
+        if(!Finished){
+            text="第 "+content+" 关";
+            text1="共 "+content+" 关";
+        }else{
+            text=getResources().getString(R.string.circle_progress_head);
+            text1=getResources().getString(R.string.circle_progress_foot);
+            NowProgress=progress;
+        }
         float startAngle = 270 - arcAngle / 2f;
         float finishedSweepAngle = NowProgress / (float) getMax() * arcAngle;
         float finishedStartAngle = startAngle;
@@ -196,7 +219,6 @@ public class CircleProgressView extends View {
         mArcPaint.setColor(finishedStrokeColor);
         canvas.drawArc(mRectF,finishedStartAngle,finishedSweepAngle,false,mArcPaint);
         mTextPaint.setStrokeWidth(mTextStrokeWidth);
-        text="第 "+HeadNowInt+" 关";
         textHeight=height/8;
         mTextPaint.setTextSize(textHeight);
         mTextPaint.setColor(Color.WHITE);
@@ -204,13 +226,13 @@ public class CircleProgressView extends View {
         mTextPaint.setStyle(Paint.Style.FILL);
         canvas.drawText(text,width/2-textWidth/2,height/2+textHeight/3-40,mTextPaint);
         mTextPaint.setStrokeWidth(mTextNewStrokeWidth);
-        text="共 "+HeadNowInt+" 关";
+
         textHeight=height/16;
         mTextPaint.setTextSize(textHeight);
         mTextPaint.setColor(Color.rgb(136, 203, 230));
-        textWidth=(int) mTextPaint.measureText(text,0,text.length());
+        textWidth=(int) mTextPaint.measureText(text1,0,text1.length());
         mTextPaint.setStyle(Paint.Style.FILL);
-        canvas.drawText(text,width/2-textWidth/2,height/2+textHeight/3+40,mTextPaint);
+        canvas.drawText(text1,width/2-textWidth/2,height/2+textHeight/3+40,mTextPaint);
     }
 
 }

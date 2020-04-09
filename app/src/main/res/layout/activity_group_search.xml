@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:padding="@dimen/default_margin_size">
+        <ImageView
+            android:id="@+id/group_search_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_acionbar_back_white"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"/>
+        <EditText
+            android:id="@+id/group_search_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin_size_2"
+            android:layout_marginEnd="@dimen/default_margin_size_2"
+            android:layout_toEndOf="@+id/group_search_out"
+            android:layout_toStartOf="@+id/group_search_img"
+            android:background="@drawable/btn_search_member_edit"
+            android:hint="@string/group_search_edit"
+            android:lines="1"
+            android:inputType="text"
+            android:textSize="@dimen/default_text_size_20sp"
+            android:textColor="@color/black_1"
+            android:textColorHint="@color/black_1"
+            android:layout_centerInParent="true"/>
+
+        <ImageView
+            android:id="@+id/group_search_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="-45dp"
+            android:layout_toEndOf="@+id/group_search_edit"
+            android:src="@drawable/icon_search_delete"
+            android:visibility="gone" />
+        <ImageView
+            android:id="@+id/group_search_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_search"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/group_search_relative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/default_margin_size">
+        <TextView
+            android:id="@+id/group_search_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/group_search_text"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_16sp"
+            android:paddingBottom="@dimen/default_margin_size" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/group_search_recycler1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            android:layout_below="@+id/group_search_text"/>
+    </RelativeLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/group_search_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/group_search_recycler2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>
+
+
+
+
+
+
+

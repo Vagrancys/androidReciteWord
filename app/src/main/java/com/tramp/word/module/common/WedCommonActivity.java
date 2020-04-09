@@ -10,7 +10,10 @@ import com.tramp.word.base.RxBaseActivity;
 import butterknife.BindView;
 
 /**
- * Created by Administrator on 2019/2/26.
+ * author: Vagrancy
+ * e-mail: 18050829067@163.com
+ * time  : 2019/02/26
+ * version:1.0
  */
 
 public class WedCommonActivity extends RxBaseActivity{

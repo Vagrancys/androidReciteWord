@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal">
+    <RelativeLayout
+        android:id="@+id/item_list_relative"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="7"
+        android:padding="@dimen/default_margin_size">
+
+        <TextView
+            android:id="@+id/item_list_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/item_list_number"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_18sp" />
+
+        <ImageView
+            android:id="@+id/item_list_avatar"
+            android:layout_width="@dimen/default_margin_size_3"
+            android:layout_height="@dimen/default_margin_size_3"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/default_margin_size"
+            android:layout_toEndOf="@+id/item_list_number"
+            android:src="@drawable/user_avater" />
+
+        <TextView
+            android:id="@+id/item_list_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/item_list_avatar"
+            android:paddingBottom="@dimen/default_margin_size_1"
+            android:text="@string/item_list_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_18sp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_list_name"
+            android:layout_toEndOf="@+id/item_list_avatar"
+            android:gravity="center|left"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_group_member_heart" />
+
+            <TextView
+                android:id="@+id/item_list_praise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/default_margin_size"
+                android:paddingStart="@dimen/default_margin_size_1"
+                android:text="@string/item_list_praise"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size_18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_list_done_text"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size_18sp" />
+
+            <TextView
+                android:id="@+id/item_list_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/default_margin_size_1"
+                android:text="@string/item_list_done"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size_18sp" />
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:layout_width="@dimen/default_margin_size_2"
+            android:layout_height="@dimen/default_margin_size_2"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/item_list_star"
+            android:src="@drawable/icon_star_group_small" />
+
+        <TextView
+            android:id="@+id/item_list_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="@string/item_list_star"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_18sp"
+            android:paddingStart="@dimen/default_margin_size"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/item_delete"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/red"
+        android:gravity="center"
+        android:text="@string/member_item_delete"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size_16sp"
+        android:visibility="gone" />
+</LinearLayout>

@@ -1,47 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.design.widget.AppBarLayout
+    android:id="@+id/app_toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_toolbar"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        app:contentInsetStart="@dimen/default_margin_size_0">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/recite_background"
-            app:contentInsetStart="0dp">
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/default_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:paddingStart="@dimen/default_margin_size"
+                android:src="@drawable/back" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/default_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/default_title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/default_text_size_18sp" />
+        </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/default_out"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerInParent="true"
-                    android:layout_marginStart="@dimen/default_margin_size"
-                    android:src="@drawable/back" />
-
-                <TextView
-                    android:id="@+id/default_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerInParent="true"
-                    android:text="@string/default_title"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/default_text_size" />
-            </RelativeLayout>
-
-        </android.support.v7.widget.Toolbar>
-    </android.support.design.widget.AppBarLayout>
-</LinearLayout>
+    </android.support.v7.widget.Toolbar>
+</android.support.design.widget.AppBarLayout>

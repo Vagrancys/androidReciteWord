@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/book_footer"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin_size_1"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_background_radius"
+        android:paddingTop="@dimen/default_margin_size"
+        android:paddingBottom="@dimen/default_margin_size"
+        android:text="@string/book_footer"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size_18sp" />
+</LinearLayout>

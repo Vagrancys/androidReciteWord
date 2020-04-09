@@ -1,211 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/recite_check_gradient_back"
+    android:gravity="center|top"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/recite_check_relative"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/linear_day"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/recite_check_gradient_back">
+        android:layout_gravity="left"
+        android:layout_marginStart="@dimen/default_margin_size_2"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:layout_marginBottom="@dimen/default_margin_size_1"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/recite_check_day"
+            android:id="@+id/check_day_month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="@dimen/default_margin_size_1"
-            android:layout_marginStart="@dimen/default_margin_size_2"
-            android:layout_marginTop="@dimen/default_margin_size"
             android:gravity="center"
             android:text="@string/recite_check_day"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size_4" />
+            android:textSize="@dimen/default_text_size_18sp" />
 
         <View
-            android:id="@+id/recite_check_day_view"
-            android:layout_width="@dimen/default_margin_size_2"
-            android:layout_height="3dp"
-            android:layout_alignStart="@id/recite_check_day"
-            android:layout_below="@id/recite_check_day"
+            android:layout_width="@dimen/default_margin_size_3"
+            android:layout_height="@dimen/default_margin_size_1"
+            android:layout_marginTop="@dimen/default_margin_size"
+            android:layout_marginBottom="@dimen/default_margin_size"
             android:background="@color/white" />
 
         <TextView
-            android:id="@+id/recite_check_day_num"
+            android:id="@+id/check_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@id/recite_check_day"
-            android:layout_below="@id/recite_check_day_view"
-            android:layout_marginTop="@dimen/default_margin_size_1"
-            android:layout_marginStart="@dimen/default_margin_size_1"
             android:gravity="center"
             android:text="@string/recite_check_day_num"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size" />
+            android:textSize="@dimen/default_text_size_24sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_day_text"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size_18sp" />
+
+    <View
+        android:layout_width="@dimen/default_margin_size_14"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:layout_marginBottom="@dimen/default_margin_size"
+        android:background="@color/white" />
+
+    <TextView
+        android:id="@+id/check_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_day_num_text"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size_30sp" />
+
+    <View
+        android:layout_width="@dimen/default_margin_size_14"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin_size_2"
+        android:gravity="center">
 
         <TextView
-            android:id="@+id/recite_check_day_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/recite_check_day_num"
-            android:layout_centerInParent="true"
-            android:layout_marginBottom="@dimen/default_margin_size"
-            android:text="@string/recite_check_day_one_text"
+            android:text="@string/check_one_left_text"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size_4" />
-
-        <View
-            android:id="@+id/recite_check_day_view_one"
-            android:layout_width="130dp"
-            android:layout_height="2dp"
-            android:layout_below="@id/recite_check_day_one"
-            android:layout_centerInParent="true"
-            android:background="@color/white" />
+            android:textSize="@dimen/default_text_size_18sp" />
 
         <TextView
-            android:id="@+id/recite_check_day_one_num"
+            android:id="@+id/check_gate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/recite_check_day_view_one"
-            android:layout_centerInParent="true"
-            android:layout_marginBottom="@dimen/default_margin_size"
-            android:layout_marginTop="@dimen/default_margin_size"
-            android:text="@string/recite_check_day_one_num_text"
-            android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size_3" />
-
-        <View
-            android:id="@+id/recite_check_day_view_two"
-            android:layout_width="130dp"
-            android:layout_height="2dp"
-            android:layout_below="@id/recite_check_day_one_num"
-            android:layout_centerInParent="true"
-            android:background="@color/white" />
-
-        <TextView
-            android:id="@+id/recite_check_one_left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/recite_check_day_view_two"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="@dimen/default_margin_size_2"
-            android:text="@string/recite_check_one_left_text"
-            android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size_4" />
-
-        <TextView
-            android:id="@+id/recite_check_one_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/recite_check_day_view_two"
             android:layout_marginStart="@dimen/default_margin_size"
-            android:layout_marginTop="@dimen/default_margin_size"
-            android:layout_toEndOf="@+id/recite_check_one_left"
-            android:text="@string/recite_check_one_right_text"
+            android:text="@string/check_one_right_text"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size_3" />
+            android:textSize="@dimen/default_text_size_30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin_size_2"
+        android:gravity="center">
 
         <TextView
-            android:id="@+id/recite_check_two_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/recite_check_one_left"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="@dimen/default_margin_size_2"
-            android:text="@string/recite_check_two_left_text"
+            android:text="@string/check_two_left_text"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size_4" />
+            android:textSize="@dimen/default_text_size_18sp" />
 
         <TextView
-            android:id="@+id/recite_check_two_right"
+            android:id="@+id/check_book"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/recite_check_one_left"
             android:layout_marginStart="@dimen/default_margin_size"
-            android:layout_marginTop="@dimen/default_margin_size"
-            android:layout_toEndOf="@+id/recite_check_two_left"
-            android:text="@string/recite_check_two_right_text"
+            android:text="@string/check_two_right_text"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size_3" />
+            android:textSize="@dimen/default_text_size_30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin_no_size_2_1"
+        android:layout_marginTop="@dimen/default_margin_size_2"
+        android:gravity="center">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/recite_check_two_left"
-            android:layout_marginEnd="@dimen/default_margin_size_1"
-            android:layout_marginTop="23dp"
-            android:layout_toStartOf="@+id/recite_check_three_left"
             android:src="@drawable/ocs_summarystaron" />
 
         <TextView
-            android:id="@+id/recite_check_three_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/recite_check_two_left"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="@dimen/default_margin_size_2"
-            android:text="@string/recite_check_three_left_text"
-            android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size_4" />
-
-        <TextView
-            android:id="@+id/recite_check_three_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/recite_check_two_left"
             android:layout_marginStart="@dimen/default_margin_size"
-            android:layout_marginTop="@dimen/default_margin_size"
-            android:layout_toEndOf="@+id/recite_check_one_left"
-            android:text="@string/recite_check_three_right_text"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:text="@string/check_three_left_text"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size_3" />
-
-        <View
-            android:id="@+id/recite_check_day_view_three"
-            android:layout_width="170dp"
-            android:layout_height="2dp"
-            android:layout_below="@id/recite_check_three_left"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="@dimen/default_margin_size"
-            android:background="@color/white_1" />
+            android:textSize="@dimen/default_text_size_18sp" />
 
         <TextView
-            android:id="@+id/recite_check_rank"
+            android:id="@+id/check_star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/recite_check_day_view_three"
-            android:layout_marginEnd="@dimen/default_margin_size_6"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="@dimen/default_margin_size"
-            android:gravity="left"
-            android:text="@string/recite_check_rank_text"
+            android:text="@string/check_three_right_text"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size_4" />
+            android:textSize="@dimen/default_text_size_30sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="@dimen/default_margin_size_18"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:background="@color/white_1" />
+
+    <TextView
+        android:id="@+id/check_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin_size_2"
+        android:text="@string/check_rank_text"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size_16sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:gravity="center">
 
         <ImageView
-            android:id="@+id/recite_check_img"
-            android:layout_width="@dimen/default_margin_size_4"
-            android:layout_height="@dimen/default_margin_size_4"
-            android:layout_below="@+id/recite_check_rank"
-            android:layout_marginBottom="@dimen/default_margin_size"
-            android:layout_marginStart="@dimen/default_margin_size_8"
-            android:layout_marginTop="@dimen/default_margin_size"
+            android:id="@+id/check_avatar"
+            android:layout_width="@dimen/default_margin_size_5"
+            android:layout_height="@dimen/default_margin_size_5"
             android:background="@drawable/user_circle"
             android:src="@drawable/user_avater" />
 
         <TextView
-            android:id="@+id/recite_check_name"
+            android:id="@+id/check_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/recite_check_rank"
-            android:layout_marginTop="@dimen/default_margin_size"
-            android:layout_toEndOf="@+id/recite_check_img"
-            android:text="@string/recite_check_name_text"
+            android:text="@string/user_name_text"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size_4" />
-    </RelativeLayout>
+            android:textSize="@dimen/default_text_size_18sp"
+            android:paddingStart="@dimen/default_margin_size"/>
+    </LinearLayout>
+
 </LinearLayout>

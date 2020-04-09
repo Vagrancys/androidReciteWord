@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_word_news_relative"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/default_margin_size">
+
+    <ImageView
+        android:id="@+id/item_word_news_img"
+        android:layout_width="@dimen/default_margin_size_5"
+        android:layout_height="@dimen/default_margin_size_5"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/default_margin_size"
+        android:src="@drawable/icon_avatar" />
+
+    <TextView
+        android:id="@+id/item_word_news_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="@dimen/default_margin_size_1"
+        android:layout_toEndOf="@+id/item_word_news_img"
+        android:text="@string/item_word_news_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size_24sp" />
+
+    <LinearLayout
+        android:id="@+id/word_news_linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_word_news_name"
+        android:paddingBottom="@dimen/default_margin_size_1"
+        android:layout_toEndOf="@+id/item_word_news_img">
+        <TextView
+            android:id="@+id/item_word_news_num_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/default_margin_size_1"
+            android:text="@string/item_word_news_num_left"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_12sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/default_margin_size_1"
+            android:text="@string/item_word_news_num"
+            android:textColor="@color/black_2"
+            android:textSize="@dimen/default_text_size_14sp" />
+
+        <TextView
+            android:id="@+id/item_word_news_num_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/item_word_news_num_right"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_12sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/item_word_news_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/word_news_linear"
+        android:layout_toEndOf="@+id/item_word_news_img"
+        android:text="@string/item_word_news_text"
+        android:textColor="@color/black_3"
+        android:textSize="@dimen/default_text_size_14sp" />
+
+    <TextView
+        android:id="@+id/item_word_news_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="@dimen/default_margin_size_2"
+        android:text="@string/item_word_news_time"
+        android:textColor="@color/black_2"
+        android:textSize="@dimen/default_text_size_14sp" />
+
+    <ImageView
+        android:id="@+id/item_word_news_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/item_word_news_time"
+        android:src="@drawable/bg_card_win" />
+</RelativeLayout>

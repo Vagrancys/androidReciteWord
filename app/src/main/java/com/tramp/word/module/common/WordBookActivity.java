@@ -22,6 +22,8 @@ import android.widget.TextView;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.tramp.word.R;
 import com.tramp.word.base.RxBaseActivity;
+import com.tramp.word.entity.DefaultBookInfo;
+import com.tramp.word.entity.book.BookItemInfo;
 import com.tramp.word.module.search.WordSearchActivity;
 import com.tramp.word.module.word.WordMyFragment;
 import com.tramp.word.module.word.WordWholeFragment;
@@ -43,16 +45,14 @@ public class WordBookActivity extends RxBaseActivity implements WordBookPopInter
     ImageView mWordBookOut;
     @BindView(R.id.word_book_search)
     ImageView mWordSearch;
-    @BindView(R.id.word_book_background)
+    @BindView(R.id.book_background)
     RelativeLayout mWordBookBackground;
     @BindView(R.id.word_book_pop)
     RelativeLayout mWordBookPop;
-    @BindView(R.id.word_book_pop_exit)
+    @BindView(R.id.pop_exit)
     ImageView mWordBookPopExit;
-    @BindView(R.id.word_book_pop_button)
+    @BindView(R.id.pop_button)
     TextView mWordBookPopButton;
-    @BindView(R.id.one_layout)
-    LinearLayout mOneLayout;
 
     private WordPagerAdapter mWordAdapter;
     private Animation mWordBookPopInAnim;
@@ -145,7 +145,12 @@ public class WordBookActivity extends RxBaseActivity implements WordBookPopInter
     }
 
     @Override
-    public void ShowWordBookPop() {
+    public void ShowWordBookItemPop(DefaultBookInfo book, int delete) {
+
+    }
+
+    @Override
+    public void ShowWordBookPop(BookItemInfo.Book bool) {
         mViewPager.setFocusable(false);
         mWordBookBackground.setVisibility(View.VISIBLE);
         mWordBookPop.startAnimation(mWordBookPopInAnim);

@@ -17,13 +17,14 @@
                 android:layout_marginStart="@dimen/default_margin_size"
                 android:layout_marginEnd="@dimen/default_margin_size">
                 <ImageView
-                    android:id="@+id/phone_contact_img"
+                    android:id="@+id/default_out"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_centerInParent="true"
                     android:src="@drawable/icon_acionbar_back_white"/>
                 <TextView
+                    android:id="@+id/default_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"

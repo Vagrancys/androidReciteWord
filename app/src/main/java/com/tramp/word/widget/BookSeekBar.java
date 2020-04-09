@@ -9,7 +9,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Scroller;
@@ -31,6 +30,7 @@ public class BookSeekBar extends View{
     private RectF mRectF=new RectF();
     private Bitmap mBackgroundImg;
     private Boolean LastBoolean;
+
     private int x;
     private int LastX=5;
     private int TextLastX=40;

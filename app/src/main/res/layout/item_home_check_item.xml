@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/item_home_relative"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/default_margin_size_1">
+
+    <ImageView
+        android:id="@+id/item_home_pic"
+        android:layout_width="@dimen/item_home_check_pic_width"
+        android:layout_height="@dimen/default_margin_size_6"
+        android:layout_margin="@dimen/default_margin_size_1"
+        android:background="@drawable/btn_home_check_bg"
+        android:src="@drawable/splash_img"/>
+
+    <TextView
+        android:id="@+id/item_home_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_home_check_text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size_16sp"
+        android:layout_below="@+id/item_home_pic"
+        android:layout_marginBottom="@dimen/default_margin_size_1"
+        android:layout_marginStart="@dimen/default_margin_size"/>
+
+    <TextView
+        android:id="@+id/item_home_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_home_check_summary"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/default_text_size_14sp"
+        android:layout_below="@+id/item_home_text"
+        android:layout_marginStart="@dimen/default_margin_size_1"/>
+</RelativeLayout>

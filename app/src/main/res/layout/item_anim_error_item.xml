@@ -1,37 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="@dimen/default_margin_size">
-
-    <TextView
-        android:id="@+id/item_anim_error_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/default_margin_size"
-        android:text="@string/item_anim_error_title"
-        android:textColor="@color/black"
-        android:textSize="@dimen/default_text_size" />
-
+    android:layout_height="wrap_content">
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_anim_error_linear"
-        android:padding="@dimen/default_margin_size_1">
-
-        <ImageView
-            android:layout_width="@dimen/default_margin_size"
-            android:layout_height="@dimen/default_margin_size"
-            android:layout_marginEnd="@dimen/default_margin_size"
-            android:src="@drawable/btn_id_delete" />
+        android:id="@+id/name_linear"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_margin_size_9"
+        android:orientation="vertical"
+        android:padding="@dimen/default_margin_size">
 
         <TextView
-            android:id="@+id/item_anim_error_text"
+            android:id="@+id/error_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/item_anim_error_text"
-            android:textColor="#555"
-            android:textSize="@dimen/item_anim_error_text_size" />
+            android:layout_marginBottom="@dimen/default_margin_size"
+            android:text="@string/win_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_18sp" />
+
+        <LinearLayout
+            android:id="@+id/error_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_anim_error_linear"
+            android:padding="@dimen/default_margin_size_1"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/default_margin_size"
+                android:layout_height="@dimen/default_margin_size"
+                android:layout_marginEnd="@dimen/default_margin_size"
+                android:src="@drawable/btn_id_delete" />
+
+            <TextView
+                android:id="@+id/error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/error_text"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size_18sp" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/meaning_relative"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_margin_size_9"
+        android:background="@color/blue"
+        android:padding="@dimen/default_margin_size_2"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/error_meaning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="@string/win_meaning"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size_18sp" />
+
+        <ImageView
+            android:id="@+id/error_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_search" />
+    </RelativeLayout>
+</FrameLayout>

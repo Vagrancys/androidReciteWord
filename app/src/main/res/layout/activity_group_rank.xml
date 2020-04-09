@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/common_toolbar"
+            android:id="@+id/group_rank_tool"/>
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/group_rank_sliding"
+            android:layout_width="@dimen/group_content_sliding_width"
+            android:layout_height="@dimen/default_margin_size_3"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/group_rank_tool"
+            app:tl_tab_space_equal="true"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:layout_marginTop="@dimen/default_margin_size"/>
+        <LinearLayout
+            android:id="@+id/group_rank_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/default_margin_size_1"
+            android:layout_marginTop="@dimen/default_margin_size"
+            android:layout_below="@id/group_rank_tool">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/group_progress_new_star" />
+            <TextView
+                android:id="@+id/group_rank_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/group_content_number"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/default_text_size_18sp"
+                android:layout_marginEnd="@dimen/default_margin_size"
+                android:layout_marginStart="@dimen/default_margin_size_1"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_right_arrow_gray"
+                android:rotation="90"
+                android:layout_marginEnd="@dimen/default_margin_size"/>
+        </LinearLayout>
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/group_rank_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/group_rank_sliding"
+            android:scrollbars="none" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pop_rank_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:background="@color/black"
+            android:orientation="vertical" />
+
+        <RelativeLayout
+            android:id="@+id/pop_rank_pop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingEnd="@dimen/default_margin_size_1"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/pop_rank_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pop_rank_img"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="13dp"
+                android:background="@drawable/btn_pop_layout"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_group_rank_pop"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/default_margin_size_7"
+                    android:paddingBottom="@dimen/default_margin_size"
+                    android:text="@string/pop_title_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_18sp" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_margin_size_18"
+                    android:paddingStart="@dimen/default_margin_size"
+                    android:paddingEnd="@dimen/default_margin_size">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/default_margin_size"
+                            android:text="@string/rank_one_title"
+                            android:textColor="@color/blue"
+                            android:textSize="@dimen/default_text_size_18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/default_margin_size"
+                            android:paddingBottom="@dimen/default_margin_size"
+                            android:text="@string/rank_one_text"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/default_text_size_16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/default_margin_size"
+                            android:text="@string/rank_two_title"
+                            android:textColor="@color/blue"
+                            android:textSize="@dimen/default_text_size_18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/default_margin_size"
+                            android:paddingBottom="@dimen/default_margin_size"
+                            android:text="@string/rank_two_text"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/default_text_size_16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/default_margin_size"
+                            android:text="@string/rank_three_title"
+                            android:textColor="@color/blue"
+                            android:textSize="@dimen/default_text_size_18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/default_margin_size"
+                            android:paddingBottom="@dimen/default_margin_size_4"
+                            android:text="@string/rank_three_text"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/default_text_size_16sp" />
+                    </LinearLayout>
+                </ScrollView>
+
+                <TextView
+                    android:id="@+id/pop_rank_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin_size_3"
+                    android:layout_marginTop="@dimen/default_margin_size_2"
+                    android:layout_marginEnd="@dimen/default_margin_size_3"
+                    android:layout_marginBottom="@dimen/default_margin_size_2"
+                    android:background="@drawable/btn_pop_start"
+                    android:gravity="center"
+                    android:padding="@dimen/default_margin_size"
+                    android:text="@string/pop_rank_button"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size_16sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/pop_rank_img"
+                android:layout_width="@dimen/default_margin_size_8"
+                android:layout_height="@dimen/default_margin_size_8"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/default_margin_no_size_4"
+                android:src="@drawable/icon_task" />
+
+            <ImageView
+                android:id="@+id/pop_rank_exit"
+                android:layout_width="@dimen/default_margin_size_4"
+                android:layout_height="@dimen/default_margin_size_4"
+                android:layout_above="@+id/pop_rank_layout"
+                android:layout_marginStart="@dimen/default_margin_no_size_3"
+                android:layout_marginBottom="@dimen/default_margin_no_size_2"
+                android:layout_toEndOf="@+id/pop_rank_layout"
+                android:src="@drawable/u_dialog_close" />
+        </RelativeLayout>
+    </RelativeLayout>
+</FrameLayout>

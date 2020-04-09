@@ -26,7 +26,7 @@
             android:gravity="center"
             android:text="@string/recite_item_list"
             android:textColor="@color/black"
-            android:textSize="@dimen/recite_item_list_size" />
+            android:textSize="@dimen/default_text_size_18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -49,6 +49,6 @@
             android:gravity="center"
             android:text="@string/recite_item_letter"
             android:textColor="@color/black"
-            android:textSize="@dimen/recite_item_list_size" />
+            android:textSize="@dimen/default_text_size_18sp" />
     </LinearLayout>
 </LinearLayout>

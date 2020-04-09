@@ -9,7 +9,7 @@
         android:id="@+id/item_search_member_img"
         android:layout_width="@dimen/default_margin_size_5"
         android:layout_height="@dimen/default_margin_size_5"
-        android:layout_marginEnd="@dimen/default_margin_size"
+
         android:src="@drawable/icon_avatar" />
 
     <TextView
@@ -19,8 +19,9 @@
         android:layout_toEndOf="@+id/item_search_member_img"
         android:text="@string/item_search_member_text"
         android:textColor="@color/black"
-        android:textSize="@dimen/default_text_size"
-        android:layout_centerInParent="true"/>
+        android:textSize="@dimen/default_text_size_18sp"
+        android:layout_centerInParent="true"
+        android:paddingStart="@dimen/default_margin_size"/>
 
     <TextView
         android:id="@+id/item_search_member_add"
@@ -29,8 +30,19 @@
         android:background="@drawable/btn_word_manage_start"
         android:text="@string/item_search_member_add"
         android:textColor="@color/white"
-        android:textSize="@dimen/default_text_size"
+        android:textSize="@dimen/default_text_size_18sp"
         android:padding="@dimen/default_margin_size_1"
         android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:id="@+id/item_search_member_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:text="@string/item_search_member_time"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/default_text_size_14sp"
+        android:visibility="gone" />
 </RelativeLayout>

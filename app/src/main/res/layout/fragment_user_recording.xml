@@ -2,162 +2,182 @@
 <android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingTop="@dimen/default_margin_size">
+    android:layout_height="wrap_content">
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/user_recording_already"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/default_margin_size"
-            android:text="@string/user_recording_already_text"
-            android:textColor="@color/user_1"
-            android:textSize="@dimen/default_text_size_7" />
-
-        <TextView
-            android:id="@+id/user_recording_already_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/default_margin_size"
-            android:layout_toEndOf="@+id/user_recording_already"
-            android:text="@string/user_recording_already_right_text"
-            android:textColor="@color/user_2"
-            android:textSize="@dimen/default_text_size_5" />
-
-        <TextView
-            android:id="@+id/user_recording_already_bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/user_recording_already"
-            android:layout_below="@+id/user_recording_already"
-            android:layout_marginStart="@dimen/default_margin_size"
-            android:layout_marginTop="@dimen/default_margin_size_2"
-            android:text="@string/user_recording_already_bottom_text"
-            android:textColor="@color/black_1"
-            android:textSize="@dimen/default_text_size_4" />
-
-        <TextView
-            android:id="@+id/user_recording_last"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerInParent="true"
-            android:text="@string/user_recording_last_text"
-            android:textColor="@color/orange"
-            android:textSize="@dimen/default_text_size_7" />
-
-        <TextView
-            android:id="@+id/user_recording_last_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/default_margin_size"
-            android:layout_toEndOf="@+id/user_recording_last"
-            android:text="@string/user_recording_last_right_text"
-            android:textColor="@color/orange_1"
-            android:textSize="@dimen/default_text_size_5" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/user_recording_last"
-            android:layout_below="@+id/user_recording_last"
-            android:layout_marginStart="-10dp"
-            android:layout_marginTop="@dimen/default_margin_size_2"
-            android:text="@string/user_recording_last_bottom_text"
-            android:textColor="@color/black_1"
-            android:textSize="@dimen/default_text_size_4" />
-
-        <TextView
-            android:id="@+id/user_recording_win"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toStartOf="@+id/user_recording_win_right"
-            android:text="@string/user_recording_win_text"
-            android:textColor="@color/green_1"
-            android:textSize="@dimen/default_text_size_7" />
-
-        <TextView
-            android:id="@+id/user_recording_win_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-
-            android:layout_marginEnd="@dimen/default_margin_size_3"
-            android:layout_marginTop="@dimen/default_margin_size"
-            android:text="@string/user_recording_win_right_text"
-            android:textColor="@color/green_2"
-            android:textSize="@dimen/default_text_size_5" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/user_recording_win"
-            android:layout_below="@+id/user_recording_win"
-            android:layout_marginStart="-10dp"
-            android:layout_marginTop="@dimen/default_margin_size_2"
-            android:text="@string/user_recording_win_bottom_text"
-            android:textColor="@color/black_1"
-            android:textSize="@dimen/default_text_size_4" />
-
-        <View
-            android:id="@+id/user_recording_view"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <LinearLayout
+            android:id="@+id/recording_linear"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/user_recording_already_bottom"
-            android:layout_marginBottom="@dimen/default_margin_size"
-            android:layout_marginTop="@dimen/default_margin_size"
-            android:background="@color/white_1" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/default_margin_size">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_size"
+                android:layout_marginBottom="@dimen/default_margin_size_2">
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/recording_already"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentTop="true"
+                        android:text="@string/recording_already_text"
+                        android:textColor="@color/user_1"
+                        android:textSize="@dimen/default_text_size_20sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_margin_size"
+                        android:text="@string/recording_already_right_text"
+                        android:textColor="@color/user_2"
+                        android:textSize="@dimen/default_text_size_12sp"
+                        android:layout_toEndOf="@+id/recording_already"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/recording_already"
+                        android:layout_marginTop="@dimen/default_margin_size"
+                        android:text="@string/recording_already_bottom_text"
+                        android:textColor="@color/black_1"
+                        android:textSize="@dimen/default_text_size_14sp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/recording_last"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:text="@string/recording_last_text"
+                        android:textColor="@color/orange"
+                        android:textSize="@dimen/default_text_size_20sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_margin_size"
+                        android:layout_toEndOf="@+id/recording_last"
+                        android:text="@string/recording_last_right_text"
+                        android:textColor="@color/orange_1"
+                        android:textSize="@dimen/default_text_size_12sp" />
 
-        <ImageView
-            android:id="@+id/user_date_left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@id/user_recording_view"
-            android:layout_marginStart="@dimen/default_margin_size_2_1"
-            android:rotation="180"
-            android:src="@drawable/icon_next_blue" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/recording_last"
+                        android:layout_marginTop="@dimen/default_margin_size"
+                        android:text="@string/recording_last_bottom_text"
+                        android:textColor="@color/black_1"
+                        android:textSize="@dimen/default_text_size_14sp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center" >
+                    <TextView
+                        android:id="@+id/recording_win"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recording_win_text"
+                        android:textColor="@color/green_1"
+                        android:textSize="@dimen/default_text_size_20sp"
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentTop="true"/>
 
-        <TextView
-            android:id="@+id/user_date_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/user_recording_view"
-            android:layout_centerInParent="true"
-            android:layout_marginBottom="@dimen/default_margin_size"
-            android:text="@string/user_date_title"
-            android:textColor="@color/black_1"
-            android:textSize="@dimen/default_text_size" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/recording_win"
+                        android:layout_marginTop="@dimen/default_margin_size"
+                        android:text="@string/recording_win_right_text"
+                        android:textColor="@color/green_2"
+                        android:textSize="@dimen/default_text_size_12sp" />
 
-        <ImageView
-            android:id="@+id/user_date_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/user_recording_view"
-            android:layout_marginEnd="@dimen/default_margin_size"
-            android:src="@drawable/icon_next_blue" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/recording_win"
+                        android:layout_marginTop="@dimen/default_margin_size"
+                        android:text="@string/recording_win_bottom_text"
+                        android:textColor="@color/black_1"
+                        android:textSize="@dimen/default_text_size_14sp" />
+                </RelativeLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/white_1"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/default_margin_size">
+                <ImageView
+                    android:id="@+id/date_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:rotation="180"
+                    android:src="@drawable/icon_next_blue" />
+                <TextView
+                    android:id="@+id/date_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/user_date_title"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_18sp" />
+                <ImageView
+                    android:id="@+id/date_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_next_blue"
+                    android:visibility="gone"/>
+                <ImageView
+                    android:id="@+id/date_right_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_next_gray"/>
+            </RelativeLayout>
 
-        <com.tramp.word.widget.dataview.WeekDayView
-            android:id="@+id/user_date_week"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/default_margin_size_3"
-            android:layout_below="@+id/user_date_title"
-            android:layout_marginEnd="@dimen/default_margin_size"
-            android:layout_marginStart="@dimen/default_margin_size" />
+            <com.tramp.word.widget.dataview.WeekDayView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_margin_size_3"
+                android:layout_marginTop="@dimen/default_margin_size"
+                android:layout_marginBottom="@dimen/default_margin_size"/>
 
-        <com.tramp.word.widget.dataview.MonthDateView
-            android:id="@+id/user_date_month"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/user_date_month_height"
-            android:layout_below="@+id/user_date_week"
-            android:layout_marginEnd="@dimen/default_margin_size"
-            android:layout_marginStart="@dimen/default_margin_size"/>
-    </RelativeLayout>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/date_pager"
+                android:layout_width="match_parent"
+                android:layout_height="420dp"
+                android:overScrollMode="never"
+                android:scrollbars="none" />
+        </LinearLayout>
+
+        <include
+            layout="@layout/common_net"
+            android:visibility="gone" />
+    </FrameLayout>
 
 </android.support.v4.widget.NestedScrollView>
 

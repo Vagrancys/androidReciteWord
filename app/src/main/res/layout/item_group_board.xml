@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/default_margin_size">
+
+    <ImageView
+        android:id="@+id/group_board_img"
+        android:layout_width="@dimen/default_margin_size_4"
+        android:layout_height="@dimen/default_margin_size_4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/icon_avatar" />
+
+    <LinearLayout
+        android:id="@+id/group_board_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/group_board_img"
+        android:gravity="center|start"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/default_margin_size">
+
+        <TextView
+            android:id="@+id/group_board_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:text="@string/group_board_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_16sp" />
+
+        <TextView
+            android:id="@+id/group_board_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:text="@string/group_board_time"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_16sp" />
+
+        <ImageView
+            android:id="@+id/group_board_praise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin_size_1"
+            android:src="@drawable/ic_feedback_support_grey" />
+
+        <TextView
+            android:id="@+id/group_board_praise_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin_size"
+            android:text="@string/group_board_praise_num"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_16sp" />
+
+        <TextView
+            android:id="@+id/group_board_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/group_board_a"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/group_board_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/group_board_linear"
+        android:layout_toEndOf="@+id/group_board_img"
+        android:padding="@dimen/default_margin_size"
+        android:text="@string/group_board_text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size_18sp"
+        android:layout_marginStart="@dimen/default_margin_size"
+        android:background="@drawable/combined_shape"
+        android:layout_marginEnd="@dimen/default_margin_size_8"/>
+</RelativeLayout>

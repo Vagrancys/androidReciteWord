@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin_size"
+    android:orientation="vertical"
+    android:background="@drawable/btn_background_radius">
+
+    <ImageView
+        android:id="@+id/task_banner_img"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_margin_size_16"
+        android:src="@drawable/task_advertise_img_2"/>
+</LinearLayout>

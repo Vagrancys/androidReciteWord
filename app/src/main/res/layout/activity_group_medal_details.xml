@@ -2,60 +2,61 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/default_margin_size"
     android:background="@color/black_1">
     <ImageView
         android:id="@+id/group_medal_out"
         android:layout_width="@dimen/default_margin_size_2"
         android:layout_height="@dimen/default_margin_size_2"
         android:src="@drawable/group_medal_detail_back_icon"
-        android:layout_marginBottom="@dimen/default_margin_size_2"/>
-    <ImageView
-        android:id="@+id/group_medal_details_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/group_medal_big_default"
-        android:layout_below="@+id/group_medal_out"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/default_margin_size"
-        android:layout_marginBottom="@dimen/default_margin_size_2"/>
-    <TextView
-        android:id="@+id/group_medal_details_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/group_medal_details_title"
-        android:textColor="@color/white"
-        android:textSize="@dimen/default_text_size_3"
-        android:layout_below="@+id/group_medal_details_img"
-        android:layout_marginBottom="@dimen/default_margin_size"/>
-    <TextView
-        android:id="@+id/group_medal_details_task"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/group_medal_details_task"
-        android:textColor="@color/white"
-        android:textSize="@dimen/default_text_size"
-        android:layout_below="@+id/group_medal_details_title"
-        android:layout_marginBottom="@dimen/default_margin_size"/>
-    <TextView
-        android:id="@+id/group_medal_details_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/group_medal_details_time"
-        android:textColor="@color/white"
-        android:textSize="@dimen/default_text_size"
-        android:layout_below="@+id/group_medal_details_task"
-        android:layout_marginBottom="@dimen/default_margin_size_6"/>
-    <TextView
-        android:id="@+id/group_medal_details_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/group_medal_details_number"
-        android:textColor="@color/white"
-        android:textSize="@dimen/default_text_size"
-        android:layout_below="@+id/group_medal_details_time" />
+        android:layout_margin="@dimen/default_margin_size_2"/>
+    <LinearLayout
+        android:id="@+id/medal_linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/default_margin_size"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/group_medal_details_img"
+            android:layout_width="@dimen/default_margin_size_16"
+            android:layout_height="@dimen/default_margin_size_16"
+            android:src="@drawable/group_medal_big_default"
+            android:layout_marginTop="@dimen/default_margin_size"
+            android:layout_marginBottom="@dimen/default_margin_size_2"/>
+        <TextView
+            android:id="@+id/group_medal_details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/group_medal_details_title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size_24sp"
+            android:layout_marginBottom="@dimen/default_margin_size"/>
+        <TextView
+            android:id="@+id/group_medal_details_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/group_medal_details_task"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size_18sp"
+            android:layout_marginBottom="@dimen/default_margin_size"/>
+        <TextView
+            android:id="@+id/group_medal_details_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/group_medal_details_time"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size_18sp"
+            android:layout_marginBottom="@dimen/default_margin_size_6"/>
+        <TextView
+            android:id="@+id/group_medal_details_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/group_medal_details_number"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size_18sp" />
+    </LinearLayout>
+
+    <include layout="@layout/common_net"
+        android:visibility="gone"/>
 </RelativeLayout>

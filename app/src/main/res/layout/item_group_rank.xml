@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/default_margin_size_1">
+
+    <TextView
+        android:id="@+id/group_rank_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:text="1"
+        android:textColor="@color/green_1"
+        android:textSize="@dimen/default_text_size_24sp"
+        android:layout_marginEnd="@dimen/default_margin_size"/>
+
+    <ImageView
+        android:id="@+id/group_rank_avatar"
+        android:layout_width="@dimen/default_margin_size_4"
+        android:layout_height="@dimen/default_margin_size_4"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/group_rank_num"
+        android:src="@drawable/icon_avatar"
+        android:layout_marginEnd="@dimen/default_margin_size"/>
+    <ImageView
+        android:id="@+id/group_rank_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/group_level_small_1"
+        android:layout_below="@+id/group_rank_avatar"
+        android:layout_toEndOf="@+id/group_rank_num"
+        android:layout_marginStart="@dimen/default_margin_size_1"
+        android:layout_marginTop="-5dp"/>
+    <TextView
+        android:id="@+id/group_rank_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/group_main_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_text_size_14sp"
+        android:layout_toEndOf="@+id/group_rank_avatar"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/default_margin_size_1"
+        android:layout_marginBottom="@dimen/default_margin_size"/>
+    <LinearLayout
+        android:id="@+id/group_linear_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/group_rank_avatar"
+        android:layout_below="@+id/group_rank_name"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_star_group_small"
+            android:paddingEnd="@dimen/default_margin_size_1"
+            android:paddingTop="2dp"/>
+        <TextView
+            android:id="@+id/group_new_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/group_main_number"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_12sp"
+            android:paddingEnd="@dimen/default_margin_size"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/group_main_text"
+            android:textColor="@color/black_2"
+            android:textSize="@dimen/default_text_size_12sp" />
+        <TextView
+            android:id="@+id/group_new_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/group_main_done"
+            android:textColor="@color/black_2"
+            android:textSize="@dimen/default_text_size_12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/group_linear_on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/group_rank_name"
+        android:layout_toEndOf="@+id/group_rank_avatar"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="@dimen/default_margin_size_2_1"
+            android:layout_height="@dimen/default_margin_size_2_1"
+            android:paddingTop="2dp"
+            android:src="@drawable/group_chat_bar_gray" />
+
+        <TextView
+            android:id="@+id/group_on_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/default_margin_size"
+            android:paddingStart="@dimen/default_margin_size_1"
+            android:text="@string/group_main_number"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_12sp" />
+
+        <ImageView
+            android:layout_width="@dimen/default_margin_size_2_1"
+            android:layout_height="@dimen/default_margin_size_2_1"
+            android:src="@drawable/group_status_gray" />
+
+        <TextView
+            android:id="@+id/group_on_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/default_margin_size_1"
+            android:text="@string/group_main_done"
+            android:textColor="@color/black_2"
+            android:textSize="@dimen/default_text_size_12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/group_linear_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/group_rank_name"
+        android:layout_toEndOf="@+id/group_rank_avatar"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_star_group_small" />
+
+        <TextView
+            android:id="@+id/group_total_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/default_margin_size_1"
+            android:text="@string/group_main_number"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/default_text_size_12sp" />
+    </LinearLayout>
+</RelativeLayout>

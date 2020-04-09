@@ -1,51 +1,56 @@
 package com.tramp.word.module.forget;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.support.design.widget.AppBarLayout;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.tramp.word.R;
+import com.tramp.word.api.Retrofits;
 import com.tramp.word.base.RxBaseActivity;
-import com.tramp.word.module.common.LoginActivity;
+import com.tramp.word.entity.DefaultInfo;
 import com.tramp.word.utils.Utils;
 
-import org.w3c.dom.Text;
-
 import butterknife.BindView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Administrator on 2019/2/5.
  */
 
 public class ForgetShortActivity extends RxBaseActivity {
-    @BindView(R.id.forget_out)
-    ImageView mForgetOut;
+    @BindView(R.id.default_out)
+    ImageView DefaultOut;
+    @BindView(R.id.default_title)
+    TextView DefaultTitle;
+    @BindView(R.id.app_toolbar)
+    AppBarLayout AppToolbar;
     @BindView(R.id.forget_short_linear)
-    LinearLayout mForgetShortLinear;
-    @BindView(R.id.forget_short_phone_hint_text)
-    EditText mForgetShortPhoneHintText;
+    LinearLayout ForgetShortLinear;
+    @BindView(R.id.forget_short_phone)
+    EditText ForgetShortPhone;
     @BindView(R.id.forget_short_img)
-    ImageView mForgetShortImg;
-    @BindView(R.id.forget_short_error_text)
-    TextView mForgetShortErrorText;
+    ImageView ForgetShortImg;
+    @BindView(R.id.short_error_text)
+    TextView ShortErrorText;
     @BindView(R.id.forget_code_text)
-    TextView mForgetCodeText;
-    @BindView(R.id.forget_code_hint_text)
-    EditText mForgetCodeHintText;
-    @BindView(R.id.forget_code_error_text)
-    TextView mForgetCodeErrorText;
-    @BindView(R.id.forget_short_button_start)
-    TextView mForgetShortButtonStart;
-    @BindView(R.id.forget_bottom_right_text)
-    TextView mForgetBottomRightText;
+    TextView ForgetCodeText;
+    @BindView(R.id.forget_code_name)
+    EditText ForgetCodeName;
+    @BindView(R.id.code_error_text)
+    TextView CodeErrorText;
+    @BindView(R.id.forget_short_start)
+    TextView ForgetShortStart;
+    @BindView(R.id.forget_help)
+    TextView ForgetHelp;
 
     private CountDownTimer mCountTimer;
     @Override
@@ -55,34 +60,37 @@ public class ForgetShortActivity extends RxBaseActivity {
 
     @Override
     protected void initToolBar() {
-        mForgetOut.setOnClickListener(new View.OnClickListener() {
+        AppToolbar.setBackgroundColor(getResources().getColor(R.color.white));
+        DefaultOut.setImageResource(R.drawable.common_back_normal);
+        DefaultOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+        DefaultTitle.setText(getResources().getString(R.string.short_title_text));
     }
 
     @Override
     public void initView(Bundle save) {
-        mForgetShortPhoneHintText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        ForgetShortPhone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus){
-                    mForgetShortLinear.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_focused));
-                    mForgetShortImg.setImageResource(R.drawable.icon_login_delate_normal);
-                    mForgetShortImg.setVisibility(View.VISIBLE);
-                    mForgetShortErrorText.setVisibility(View.GONE);
+                    ForgetShortLinear.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_focused));
+                    ForgetShortImg.setImageResource(R.drawable.icon_login_delate_normal);
+                    ForgetShortImg.setVisibility(View.VISIBLE);
+                    ShortErrorText.setVisibility(View.GONE);
                 }else{
-                    if(mForgetShortPhoneHintText.getText().length()<11){
-                        mForgetShortLinear.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_error));
-                        mForgetShortImg.setImageResource(R.drawable.image_seletor_picdelete);
-                        mForgetShortImg.setVisibility(View.VISIBLE);
-                        mForgetShortErrorText.setVisibility(View.VISIBLE);
+                    if(ForgetShortPhone.getText().length()<11){
+                        ForgetShortLinear.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_error));
+                        ForgetShortImg.setImageResource(R.drawable.image_seletor_picdelete);
+                        ForgetShortImg.setVisibility(View.VISIBLE);
+                        ShortErrorText.setVisibility(View.VISIBLE);
                     }else{
-                        mForgetShortLinear.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_window));
-                        mForgetShortImg.setVisibility(View.GONE);
-                        mForgetShortErrorText.setVisibility(View.GONE);
+                        ForgetShortLinear.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_window));
+                        ForgetShortImg.setVisibility(View.GONE);
+                        ShortErrorText.setVisibility(View.GONE);
                     }
                 }
             }
@@ -91,66 +99,75 @@ public class ForgetShortActivity extends RxBaseActivity {
         mCountTimer=new CountDownTimer(60000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                mForgetCodeText.setText(millisUntilFinished/1000+"秒");
+                ForgetCodeText.setText(millisUntilFinished/1000+"秒");
             }
 
             @Override
             public void onFinish() {
-                mForgetCodeText.setText(getResources().getString(R.string.login_code_text));
+                ForgetCodeText.setText(getResources().getString(R.string.login_code_text));
             }
         };
 
-        mForgetCodeHintText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        ForgetCodeName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus){
-                    mForgetCodeHintText.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_focused));
-                    mForgetCodeErrorText.setVisibility(View.GONE);
+                    ForgetCodeName.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_focused));
+                    CodeErrorText.setVisibility(View.GONE);
                 }else{
-                    if(mForgetCodeHintText.getText().length()==0){
-                        mForgetCodeHintText.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_error));
-                        mForgetCodeErrorText.setVisibility(View.VISIBLE);
+                    if(ForgetCodeName.getText().length()==0){
+                        ForgetCodeName.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_error));
+                        CodeErrorText.setVisibility(View.VISIBLE);
                     }else{
-                        mForgetCodeHintText.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_window));
-                        mForgetCodeErrorText.setVisibility(View.GONE);
+                        ForgetCodeName.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_window));
+                        CodeErrorText.setVisibility(View.GONE);
                     }
                 }
             }
         });
 
-        mForgetCodeText.setOnClickListener(new View.OnClickListener() {
+        ForgetCodeText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mCountTimer.start();
             }
         });
 
-        mForgetShortButtonStart.setOnClickListener(new View.OnClickListener() {
+        ForgetShortStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Next();
             }
         });
 
-        mForgetBottomRightText.setOnClickListener(new View.OnClickListener() {
+        ForgetHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.ShowToast(getBaseContext(),"没有制作申诉哦!");
+                Utils.ShowToast(getBaseContext(),getResources().getString(R.string.forget_help_text));
             }
         });
     }
 
     private void Next(){
-        if(mForgetShortPhoneHintText.getText().length()==0&&mForgetCodeHintText.getText().length()==0){
+        if(ForgetShortPhone.getText().length()==0&&ForgetCodeName.getText().length()==0){
             return;
         }
-        if(!mForgetShortPhoneHintText.getText().equals("13489807056")){
-            return;
-        }
-        if(!mForgetCodeHintText.getText().equals("125891")){
-            return;
-        }
-        startActivity(new Intent(ForgetShortActivity.this,ForgetResetActivity.class));
+        Retrofits.getUserAPI().getForgetShortInfo(ForgetShortPhone.getText().toString(),
+                ForgetCodeName.getText().toString()).enqueue(new Callback<DefaultInfo>() {
+            @Override
+            public void onResponse(Call<DefaultInfo> call, Response<DefaultInfo> response) {
+                if(response.body()!=null &&response.body().getCode()==200){
+                    ForgetResetActivity.launch(ForgetShortActivity.this,ForgetShortPhone.getText().toString());
+                }else{
+                    Utils.ShowToast(getBaseContext(),getResources().getString(R.string.forget_short_error));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DefaultInfo> call, Throwable t) {
+                Utils.ShowToast(getBaseContext(),getResources().getString(R.string.forget_net_error));
+            }
+        });
     }
 
     @Override
@@ -163,5 +180,11 @@ public class ForgetShortActivity extends RxBaseActivity {
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.activity_stay,R.anim.activity_out_anim);
+    }
+
+    public static void launch(Activity activity){
+        Intent intent=new Intent(activity,ForgetShortActivity.class);
+        activity.startActivity(intent);
+        Utils.StarActivityInAnim(activity);
     }
 }

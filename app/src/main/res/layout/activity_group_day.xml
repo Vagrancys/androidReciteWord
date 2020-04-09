@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/group_day_start">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/group_day_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/group_daily_top_pic_fail"
+                android:layout_marginTop="@dimen/default_margin_size_8"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_size_2"
+                android:layout_marginBottom="@dimen/default_margin_size_4">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/group_day_statics"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_20sp"/>
+                <TextView
+                    android:id="@+id/group_day_static"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/group_day_static_fail"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/default_text_size_20sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/group_day_gainer"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_14sp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_star_group_small"
+                    android:layout_marginEnd="@dimen/default_margin_size_1"
+                    android:layout_marginStart="@dimen/default_margin_size_1"/>
+                <TextView
+                    android:id="@+id/group_day_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orange"
+                    android:text="@string/group_day_number"
+                    android:textSize="@dimen/default_text_size_14sp"/>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_size_2">
+
+                <ProgressBar
+                    android:id="@+id/group_day_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_margin_size_2_1"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:background="@drawable/main_anim_progress_back"
+                    android:progress="22"
+                    android:max="30"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/group_day_star"
+                    android:layout_marginStart="-5dp"/>
+                <ImageView
+                    android:id="@+id/group_day_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/progress_group_star"/>
+                <TextView
+                    android:id="@+id/group_day_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/group_day_value"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_10sp"
+                    android:layout_centerInParent="true"/>
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/group_day_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_margin_size_6"
+                android:scrollbars="none"
+                android:overScrollMode="never"
+                android:layout_marginStart="@dimen/default_margin_size_2"
+                android:layout_marginEnd="@dimen/default_margin_size_2"
+                android:layout_marginBottom="@dimen/default_margin_size_2"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin_size_7"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/group_day_done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/group_day_done"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/default_text_size_12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/group_day_dones"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_12sp" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="@dimen/default_margin_size"
+                    android:layout_marginEnd="@dimen/default_margin_size"
+                    android:layout_marginStart="@dimen/default_margin_size"
+                    android:background="@color/black_2" />
+
+                <TextView
+                    android:id="@+id/group_day_not"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/group_day_not"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/default_text_size_12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/group_day_nots"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin_size_2">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/group_day_targets"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_18sp"/>
+                <TextView
+                    android:id="@+id/group_day_target"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/group_day_target_fail"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/default_text_size_18sp"/>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin_size_2">
+
+                <TextView
+                    android:id="@+id/group_day_offer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toStartOf="@+id/group_day_view"
+                    android:text="@string/group_day_offer"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_16sp"
+                    android:paddingEnd="@dimen/default_margin_size_4"
+                    android:paddingBottom="@dimen/default_margin_size"/>
+                <ImageView
+                    android:layout_width="@dimen/default_margin_size_2_1"
+                    android:layout_height="@dimen/default_margin_size_2_1"
+                    android:src="@drawable/icon_star_group_small"
+                    android:layout_toStartOf="@+id/group_day_num"
+                    android:layout_below="@+id/group_day_offer" />
+                <TextView
+                    android:id="@+id/group_day_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/group_day_num"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_14sp"
+                    android:layout_toStartOf="@+id/group_day_view"
+                    android:layout_below="@+id/group_day_offer"
+                    android:paddingEnd="45dp"
+                    android:paddingStart="@dimen/default_margin_size_1"/>
+                <View
+                    android:id="@+id/group_day_view"
+                    android:layout_width="1px"
+                    android:layout_height="@dimen/default_margin_size_3"
+                    android:layout_centerInParent="true"
+                    android:background="@color/black_1"
+                    android:paddingStart="@dimen/default_margin_size_3" />
+                <ImageView
+                    android:id="@+id/group_day_n"
+                    android:layout_width="@dimen/default_margin_size_2_1"
+                    android:layout_height="@dimen/default_margin_size_2_1"
+                    android:src="@drawable/icon_group_member_heart"
+                    android:layout_toEndOf="@+id/group_day_view"
+                    android:layout_marginStart="@dimen/default_margin_size_5" />
+                <TextView
+                    android:id="@+id/group_day_nums"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/group_day_nums"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_14sp"
+                    android:layout_toEndOf="@+id/group_day_n"
+                    android:paddingBottom="@dimen/default_margin_size"/>
+                <TextView
+                    android:id="@+id/group_day_praise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/group_day_praise"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_10sp"
+                    android:layout_below="@+id/group_day_nums"
+                    android:paddingStart="@dimen/default_margin_size_6"
+                    android:layout_toEndOf="@+id/group_day_view"/>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/group_day_praise_recycler"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/group_day_view"
+                    android:layout_below="@+id/group_day_nums"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+    <TextView
+        android:id="@+id/group_day_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/group_day_start_fail"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size_18sp"
+        android:background="@drawable/btn_pop_start"
+        android:paddingBottom="@dimen/default_margin_size"
+        android:paddingTop="@dimen/default_margin_size"
+        android:layout_marginBottom="@dimen/default_margin_size"
+        android:layout_marginEnd="@dimen/default_margin_size_2"
+        android:layout_marginTop="@dimen/default_margin_size"
+        android:layout_marginStart="@dimen/default_margin_size_2"
+        android:gravity="center"/>
+
+    <RelativeLayout
+        android:id="@+id/group_level_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.8"
+            android:background="@color/black" />
+
+        <ImageView
+            android:id="@+id/group_level_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/group_level_title"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/icon_group_level_1_large" />
+
+        <TextView
+            android:id="@+id/group_level_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingTop="@dimen/default_margin_size_5"
+            android:paddingBottom="@dimen/default_margin_size_10"
+            android:text="@string/group_level_title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size_18sp" />
+
+        <TextView
+            android:id="@+id/group_level_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/group_level_title"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn_pop_start"
+            android:gravity="center"
+            android:paddingTop="@dimen/default_margin_size"
+            android:paddingBottom="@dimen/default_margin_size"
+            android:text="@string/group_level_exit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size_18sp" />
+    </RelativeLayout>
+</RelativeLayout>

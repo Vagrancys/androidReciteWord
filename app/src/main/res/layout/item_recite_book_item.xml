@@ -1,55 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <View
-        android:id="@+id/line_head"
-        android:layout_width="@dimen/default_margin_size"
-        android:layout_height="@dimen/default_margin_size_2_1"
-        android:background="@color/white"
-        android:layout_toStartOf="@+id/recite_book_item"
-        android:layout_marginEnd="-45dp"
-        android:layout_marginBottom="-5dp">
-    </View>
-    <ImageView
-        android:id="@+id/recite_book_item"
-        android:layout_below="@+id/line_head"
-        android:layout_width="@dimen/recite_book_item_width"
-        android:layout_height="@dimen/recite_book_item_height"
-        android:layout_centerInParent="true" />
-    <View
-        android:id="@+id/line_foot"
-        android:layout_below="@+id/recite_book_item"
-        android:layout_width="@dimen/default_margin_size"
-        android:layout_height="@dimen/default_margin_size_2_1"
-        android:background="@color/white"
-        android:layout_toStartOf="@+id/recite_book_item"
-        android:layout_marginEnd="-45dp"
-        android:layout_marginTop="-10dp"/>
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/user_goal_img"
-        android:layout_width="@dimen/user_goal_img_width"
-        android:layout_height="@dimen/user_goal_img_height"
-        android:layout_marginEnd="-40dp"
-        android:layout_toStartOf="@+id/recite_book_item" />
+        <LinearLayout
+            android:id="@+id/item_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
 
-    <LinearLayout
-        android:id="@+id/user_avatar_img"
-        android:layout_width="@dimen/default_avatar_img"
-        android:layout_height="@dimen/default_avatar_img"
-        android:layout_toEndOf="@+id/recite_book_item"
-        android:layout_centerInParent="true"
-        android:orientation="vertical"
-        android:layout_marginStart="@dimen/default_margin_size"
-        android:gravity="center">
+            <View
+                android:id="@+id/line_head"
+                android:layout_width="@dimen/default_margin_size_1"
+                android:layout_height="@dimen/default_margin_size"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/book_item"
+                android:layout_width="@dimen/default_margin_size_5"
+                android:layout_height="@dimen/default_margin_size_5" />
+
+            <View
+                android:layout_width="@dimen/default_margin_size_1"
+                android:layout_height="@dimen/default_margin_size"
+                android:background="@color/white" />
+        </LinearLayout>
+
+
         <ImageView
-            android:id="@+id/user_avatar_img_1"
-            android:layout_width="@dimen/default_avatar_img_1"
-            android:layout_height="@dimen/default_avatar_img_1"
-            android:layout_marginStart="@dimen/default_margin_size_1"/>
-    </LinearLayout>
+            android:id="@+id/user_goal_img"
+            android:layout_width="@dimen/default_margin_size_3"
+            android:layout_height="@dimen/default_margin_size_3"
+            android:layout_marginEnd="-40dp"
+            android:layout_toStartOf="@+id/item_linear" />
 
+        <LinearLayout
+            android:id="@+id/user_avatar_img"
+            android:layout_width="@dimen/default_margin_size_3"
+            android:layout_height="@dimen/default_margin_size_3"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/default_margin_size"
+            android:layout_toEndOf="@+id/item_linear"
+            android:gravity="center"
+            android:orientation="vertical">
 
-</RelativeLayout>
+            <ImageView
+                android:id="@+id/user_avatar_img_1"
+                android:layout_width="@dimen/default_margin_size_3"
+                android:layout_height="@dimen/default_margin_size_3"
+                android:layout_marginStart="@dimen/default_margin_size_1" />
+        </LinearLayout>
+    </RelativeLayout>
+

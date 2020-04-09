@@ -1,13 +1,12 @@
 package com.tramp.word.adapter.section;
 
 import android.content.Context;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.tramp.word.R;
+import com.tramp.word.utils.Utils;
 import com.tramp.word.widget.section.StatelessSection;
 
 import butterknife.BindView;
@@ -20,7 +19,7 @@ import butterknife.ButterKnife;
 public class TaskListAdvertiseSection extends StatelessSection {
     private Context mContext;
     public TaskListAdvertiseSection(Context context){
-        super(R.layout.item_task_list_advertise_item);
+        super(R.layout.item_task_banner_view);
         this.mContext=context;
     }
 
@@ -32,10 +31,10 @@ public class TaskListAdvertiseSection extends StatelessSection {
     @Override
     public void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
         ItemViewHolder mHolder=(ItemViewHolder) holder;
-        mHolder.mTaskAdvertiseImg.setOnClickListener(new View.OnClickListener() {
+        mHolder.TaskBannerImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext,"广告",Toast.LENGTH_SHORT).show();
+                Utils.ShowToast(mContext,"任务广告");
             }
         });
     }
@@ -46,8 +45,8 @@ public class TaskListAdvertiseSection extends StatelessSection {
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder{
-        @BindView(R.id.task_advertise_img)
-        ImageView mTaskAdvertiseImg;
+        @BindView(R.id.task_banner_img)
+        ImageView TaskBannerImg;
         public ItemViewHolder(View itemView){
             super(itemView);
             ButterKnife.bind(this,itemView);

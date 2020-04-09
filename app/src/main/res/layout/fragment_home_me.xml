@@ -1,242 +1,290 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <android.support.design.widget.CoordinatorLayout
+    android:layout_height="match_parent"
+    android:background="@color/blue">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/user_app_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/blue">
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/user_app_bar"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.design.widget.CollapsingToolbarLayout
-                android:id="@+id/collapsing"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            app:contentScrim="@color/blue"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue"
-                app:contentScrim="@color/blue"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
-                <RelativeLayout
+                android:layout_marginEnd="@dimen/default_margin_size"
+                android:layout_marginStart="@dimen/default_margin_size"
+                android:layout_marginTop="@dimen/default_margin_size_5">
+
+                <ImageView
+                    android:id="@+id/user_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin_size"
+                    android:layout_marginEnd="@dimen/default_margin_size_4"
+                    android:layout_marginTop="@dimen/default_margin_size_2"
+                    android:layout_toStartOf="@+id/user_avatar"
+                    android:src="@drawable/icon_gold_coin" />
+
+                <TextView
+                    android:id="@+id/user_money_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/user_money"
+                    android:layout_below="@+id/user_money"
+                    android:layout_marginStart="@dimen/default_margin_size_1"
+                    android:text="@string/user_money_number"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size_14sp" />
+
+                <ImageView
+                    android:id="@+id/user_avatar"
+                    android:layout_width="@dimen/default_margin_size_7"
+                    android:layout_height="@dimen/default_margin_size_7"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/user_avater" />
+
+                <ImageView
+                    android:id="@+id/user_gift"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin_size"
+                    android:layout_marginStart="@dimen/default_margin_size_4"
+                    android:layout_marginTop="@dimen/default_margin_size_2"
+                    android:layout_toEndOf="@+id/user_avatar"
+                    android:src="@drawable/icon_gift" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/user_gift"
+                    android:layout_below="@+id/user_money"
+                    android:text="@string/user_gift_text"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size_14sp" />
+
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_avatar"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="@dimen/default_margin_size"
+                    android:layout_marginTop="@dimen/default_margin_size"
+                    android:text="@string/user_name_text"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size_18sp" />
+
+                <TextView
+                    android:id="@+id/user_signature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/user_name"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="@dimen/default_margin_size"
+                    android:text="@string/user_signature"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/default_text_size_18sp" />
+
+                <ImageView
+                    android:id="@+id/user_signature_alter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_name"
+                    android:layout_marginBottom="@dimen/default_margin_size_2"
+                    android:layout_toEndOf="@+id/user_signature"
+                    android:src="@drawable/icon_edit" />
+
+                <LinearLayout
+                    android:id="@+id/user_part"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/default_margin_size"
-                    android:layout_marginStart="@dimen/default_margin_size"
-                    android:layout_marginTop="@dimen/default_margin_size_5">
+                    android:layout_below="@+id/user_signature_alter"
+                    android:layout_marginBottom="@dimen/default_margin_size_1"
+                    android:background="@drawable/btn_user_back"
+                    android:padding="@dimen/default_margin_size"
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/user_money"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/default_margin_size"
-                        android:layout_marginEnd="@dimen/default_margin_size_4"
-                        android:layout_marginTop="@dimen/default_margin_size_2"
-                        android:layout_toStartOf="@+id/user_avatar"
-                        android:src="@drawable/icon_gold_coin" />
-
-                    <TextView
-                        android:id="@+id/user_money_number"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/user_money"
-                        android:layout_below="@+id/user_money"
-                        android:layout_marginStart="@dimen/default_margin_size_1"
-                        android:text="@string/user_money_number"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/default_text_size_4" />
-
-                    <ImageView
-                        android:id="@+id/user_avatar"
-                        android:layout_width="@dimen/default_margin_size_7"
-                        android:layout_height="@dimen/default_margin_size_7"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/user_avater" />
-
-                    <ImageView
-                        android:id="@+id/user_gift"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/default_margin_size"
-                        android:layout_marginStart="@dimen/default_margin_size_4"
-                        android:layout_marginTop="@dimen/default_margin_size_2"
-                        android:layout_toEndOf="@+id/user_avatar"
-                        android:src="@drawable/icon_gift" />
-
-                    <TextView
-                        android:id="@+id/user_gift_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/user_gift"
-                        android:layout_below="@+id/user_money"
-                        android:text="@string/user_gift_text"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/default_text_size_4" />
-
-                    <TextView
-                        android:id="@+id/user_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/user_avatar"
-                        android:layout_centerInParent="true"
-                        android:layout_marginBottom="@dimen/default_margin_size"
-                        android:layout_marginTop="@dimen/default_margin_size"
-                        android:text="@string/user_name_text"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/default_text_size" />
-
-                    <TextView
-                        android:id="@+id/user_signature"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/user_name"
-                        android:layout_centerInParent="true"
-                        android:layout_marginEnd="@dimen/default_margin_size"
-                        android:text="@string/user_signature"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/default_text_size" />
-
-                    <ImageView
-                        android:id="@+id/user_signature_alter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/user_name"
-                        android:layout_marginBottom="@dimen/default_margin_size_2"
-                        android:layout_toEndOf="@+id/user_signature"
-                        android:src="@drawable/icon_edit" />
-
-                    <RelativeLayout
-                        android:id="@+id/user_part"
+                    <LinearLayout
+                        android:id="@+id/user_group_add"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/user_signature_alter"
-                        android:layout_marginBottom="@dimen/default_margin_size_1"
-                        android:background="@drawable/btn_user_back"
-                        android:padding="@dimen/default_margin_size">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/user_part_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerInParent="true"
                             android:text="@string/user_part_title_text"
                             android:textColor="@color/black_1"
-                            android:textSize="@dimen/default_text_size_4" />
+                            android:textSize="@dimen/default_text_size_18sp" />
 
                         <TextView
                             android:id="@+id/user_part_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/user_part_title"
-                            android:layout_centerInParent="true"
                             android:layout_marginTop="@dimen/default_margin_size_1"
                             android:background="@drawable/btn_user_button_back"
                             android:text="@string/user_part_text"
                             android:textColor="@color/blue"
-                            android:textSize="@dimen/default_text_size" />
-                    </RelativeLayout>
+                            android:textSize="@dimen/default_text_size_18sp" />
+                    </LinearLayout>
 
                     <RelativeLayout
+                        android:id="@+id/user_group"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/user_part"
-                        android:background="@drawable/btn_user_back_one"
-                        android:padding="@dimen/default_margin_size">
-
-                        <com.flyco.tablayout.SlidingTabLayout
-                            android:id="@+id/user_time_sliding"
-                            android:layout_width="@dimen/user_time_sliding_width"
-                            android:layout_height="@dimen/default_margin_size_3"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/btn_user_button_back"
-                            app:tl_indicator_color="@color/blue"
-                            app:tl_indicator_height="@dimen/default_margin_size_3"
-                            app:tl_tab_space_equal="true"
-                            app:tl_textSelectColor="@color/white"
-                            app:tl_textUnselectColor="@color/blue"
-                            app:tl_indicator_corner_radius="@dimen/default_margin_size"
-                            app:tl_indicator_width="@dimen/default_margin_size_8">
-                        </com.flyco.tablayout.SlidingTabLayout>
-
+                        android:layout_height="wrap_content">
                         <ImageView
-                            android:id="@+id/user_time_share"
+                            android:id="@+id/user_group_img"
+                            android:layout_width="@dimen/default_margin_size_4"
+                            android:layout_height="@dimen/default_margin_size_4"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginEnd="@dimen/default_margin_size"
+                            android:src="@drawable/icon_avatar" />
+
+                        <TextView
+                            android:id="@+id/user_group_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
                             android:layout_alignParentTop="true"
-                            android:src="@drawable/icon_share_blue" />
+                            android:layout_toEndOf="@+id/user_group_img"
+                            android:text="@string/user_group_title_text"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/default_text_size_18sp"
+                            android:layout_marginEnd="@dimen/default_margin_size"/>
+                        <ImageView
+                            android:id="@+id/user_group_level"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_toEndOf="@+id/user_group_title"
+                            android:layout_marginTop="2dp"
+                            android:src="@drawable/group_level_small_10"/>
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/user_group_recycler"
+                            android:layout_width="150dp"
+                            android:layout_height="@dimen/default_margin_size_3"
+                            android:layout_below="@+id/user_group_title"
+                            android:layout_toEndOf="@+id/user_group_img"
+                            android:layout_marginTop="@dimen/default_margin_size_1"/>
+                        <TextView
+                            android:id="@+id/user_group_badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/user_group_title"
+                            android:layout_toEndOf="@+id/user_group_recycler"
+                            android:layout_marginTop="@dimen/default_margin_size_2_1"
+                            android:text="@string/user_group_badge"
+                            android:textColor="@color/black_1"
+                            android:textSize="@dimen/default_text_size_12sp"/>
                     </RelativeLayout>
-                </RelativeLayout>
+                </LinearLayout>
 
-                <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fitsSystemWindows="true"
-                    android:background="@color/blue"
-                    app:contentInsetStart="0dp"
-                    app:layout_collapseMode="pin"
-                    app:layout_collapseParallaxMultiplier="0.2">
-                    <RelativeLayout
-                        android:id="@+id/me_head_relative"
-                        android:layout_width="match_parent"
+                    android:layout_below="@+id/user_part"
+                    android:background="@drawable/btn_user_back_one"
+                    android:padding="@dimen/default_margin_size">
+
+                    <com.flyco.tablayout.SlidingTabLayout
+                        android:id="@+id/user_time_sliding"
+                        android:layout_width="@dimen/user_time_sliding_width"
+                        android:layout_height="@dimen/default_margin_size_3"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/btn_user_button_back"
+                        app:tl_indicator_color="@color/blue"
+                        app:tl_indicator_height="@dimen/default_margin_size_3"
+                        app:tl_tab_space_equal="true"
+                        app:tl_textSelectColor="@color/white"
+                        app:tl_textUnselectColor="@color/blue"
+                        app:tl_indicator_corner_radius="@dimen/default_margin_size"
+                        app:tl_indicator_width="@dimen/default_margin_size_8">
+                    </com.flyco.tablayout.SlidingTabLayout>
+
+                    <ImageView
+                        android:id="@+id/user_time_share"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:alpha="0.8">
-                        <ImageView
-                            android:id="@+id/user_sign"
-                            android:layout_width="@dimen/default_margin_size_2"
-                            android:layout_height="@dimen/default_margin_size_2"
-                            android:src="@drawable/group_status_white"
-                            android:layout_marginStart="@dimen/default_margin_size"
-                            android:layout_marginTop="@dimen/default_margin_size"
-                            android:layout_marginBottom="@dimen/default_margin_size_1"/>
-                        <TextView
-                            android:id="@+id/user_sign_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/user_sign"
-                            android:text="@string/user_sign_text"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/default_text_size_5"
-                            android:layout_marginStart="@dimen/default_margin_size"/>
-                        <TextView
-                            android:id="@+id/user_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/user_title_text"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/default_text_size"
-                            android:layout_centerInParent="true"/>
-                        <ImageView
-                            android:id="@+id/user_setting"
-                            android:layout_width="@dimen/default_margin_size_3"
-                            android:layout_height="@dimen/default_margin_size_3"
-                            android:src="@drawable/icon_setting"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginEnd="@dimen/default_margin_size"
-                            android:layout_marginTop="@dimen/default_margin_size"/>
-                    </RelativeLayout>
-                </android.support.v7.widget.Toolbar>
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:src="@drawable/icon_share_blue" />
+                </RelativeLayout>
+            </RelativeLayout>
 
-            </android.support.design.widget.CollapsingToolbarLayout>
-        </android.support.design.widget.AppBarLayout>
-        <android.support.v4.view.ViewPager
-            android:id="@+id/user_time_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:layout_marginStart="@dimen/default_margin_size"
-            android:layout_marginEnd="@dimen/default_margin_size"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:background="@color/blue"
+                app:contentInsetStart="0dp"
+                app:layout_collapseMode="pin"
+                app:layout_collapseParallaxMultiplier="0.2">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.8">
+                    <ImageView
+                        android:id="@+id/user_sign"
+                        android:layout_width="@dimen/default_margin_size_2"
+                        android:layout_height="@dimen/default_margin_size_2"
+                        android:src="@drawable/group_status_white"
+                        android:layout_marginStart="@dimen/default_margin_size"
+                        android:layout_marginTop="@dimen/default_margin_size"
+                        android:layout_marginBottom="@dimen/default_margin_size_1"/>
+                    <TextView
+                        android:id="@+id/user_sign_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/user_sign"
+                        android:text="@string/user_sign_text"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/default_text_size_10sp"
+                        android:layout_marginStart="@dimen/default_margin_size"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/user_title_text"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/default_text_size_18sp"
+                        android:layout_centerInParent="true"/>
+                    <ImageView
+                        android:id="@+id/user_setting"
+                        android:layout_width="@dimen/default_margin_size_3"
+                        android:layout_height="@dimen/default_margin_size_3"
+                        android:src="@drawable/icon_setting"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginEnd="@dimen/default_margin_size"
+                        android:layout_marginTop="@dimen/default_margin_size"/>
+                </RelativeLayout>
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/user_time_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_marginStart="@dimen/default_margin_size"
+        android:layout_marginEnd="@dimen/default_margin_size"
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
     </android.support.v4.view.ViewPager>
-    </android.support.design.widget.CoordinatorLayout>
+</android.support.design.widget.CoordinatorLayout>
 
-</RelativeLayout>
+
 
 
 

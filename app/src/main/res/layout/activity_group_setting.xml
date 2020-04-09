@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/common_toolbar"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingTop="@dimen/default_margin_size">
+        <TextView
+            android:id="@+id/group_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="@string/group_setting_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_18sp"
+            android:paddingStart="@dimen/default_margin_size" />
+        <TextView
+            android:id="@+id/group_setting_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/group_setting_text"
+            android:paddingTop="@dimen/default_margin_size_1"
+            android:text="@string/group_setting_text1"
+            android:textColor="@color/black_2"
+            android:textSize="@dimen/default_text_size_16sp"
+            android:paddingBottom="@dimen/default_margin_size_2"
+            android:paddingStart="@dimen/default_margin_size"/>
+        <CheckBox
+            android:id="@+id/group_setting_check1"
+            style="@style/MeSettingCheck"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:paddingEnd="@dimen/default_margin_size" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/group_setting_text1"
+            android:background="@color/black_2" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingTop="@dimen/default_margin_size">
+        <TextView
+            android:id="@+id/group_setting_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="@string/group_setting_text2"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_18sp"
+            android:paddingStart="@dimen/default_margin_size"/>
+        <TextView
+            android:id="@+id/group_setting_text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/group_setting_text2"
+            android:paddingTop="@dimen/default_margin_size_1"
+            android:text="@string/group_setting_text3"
+            android:textColor="@color/black_2"
+            android:textSize="@dimen/default_text_size_16sp"
+            android:paddingBottom="@dimen/default_margin_size_2"
+            android:paddingStart="@dimen/default_margin_size"/>
+        <CheckBox
+            android:id="@+id/group_setting_check2"
+            style="@style/MeSettingCheck"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:paddingEnd="@dimen/default_margin_size"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/group_setting_text3"
+            android:background="@color/black_2" />
+    </RelativeLayout>
+</LinearLayout>

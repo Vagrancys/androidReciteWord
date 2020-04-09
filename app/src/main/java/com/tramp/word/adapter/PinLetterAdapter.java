@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.tramp.word.R;
-import com.tramp.word.entity.DefaultLetterEntity;
+import com.tramp.word.entity.revise.DefaultPinyinInfo;
 
 import java.util.ArrayList;
 
@@ -17,8 +17,8 @@ import java.util.ArrayList;
  */
 
 public class PinLetterAdapter extends AbsRecyclerViewAdapter {
-    private ArrayList<DefaultLetterEntity> mArray;
-    public PinLetterAdapter(RecyclerView recyclerView,ArrayList<DefaultLetterEntity> array){
+    private ArrayList<DefaultPinyinInfo> mArray;
+    public PinLetterAdapter(RecyclerView recyclerView,ArrayList<DefaultPinyinInfo> array){
         super(recyclerView);
         mArray=array;
     }
@@ -27,17 +27,17 @@ public class PinLetterAdapter extends AbsRecyclerViewAdapter {
     @Override
     public ClickableViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         bindContext(parent.getContext());
-        return new ItemViewHolder(LayoutInflater.from(getContext()).inflate(R.layout.item_pin_anim_letter,parent,false));
+        return new ItemViewHolder(LayoutInflater.from(getContext()).inflate(R.layout.item_pin_letter,parent,false));
     }
 
     @Override
     public void onBindViewHolder(ClickableViewHolder holder, int position) {
         ItemViewHolder mHolder=(ItemViewHolder) holder;
-        if(mArray.get(position).getSelect()==null){
+        if(mArray.get(position).getWord_select()==""){
             mHolder.mTextView.setVisibility(View.GONE);
             mHolder.mView.setVisibility(View.VISIBLE);
         }else{
-            mHolder.mTextView.setText(mArray.get(position).getSelect());
+            mHolder.mTextView.setText(mArray.get(position).getWord_select());
             mHolder.mTextView.setVisibility(View.VISIBLE);
             mHolder.mView.setVisibility(View.GONE);
         }
@@ -54,8 +54,8 @@ public class PinLetterAdapter extends AbsRecyclerViewAdapter {
         View mView;
         public ItemViewHolder(View itemView){
             super(itemView);
-            mTextView=$(R.id.item_pin_anim_letter);
-            mView=$(R.id.item_pin_anim_view);
+            mTextView=$(R.id.item_pin_letter);
+            mView=$(R.id.item_pin_view);
         }
     }
 }

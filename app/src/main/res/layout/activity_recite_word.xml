@@ -1,91 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recite_book_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/recite_book_bottom"
-        android:overScrollMode="never">
-
-    </android.support.v7.widget.RecyclerView>
-
-    <ImageView
-        android:id="@+id/recite_book_out"
-        android:layout_width="@dimen/recite_book_out_width"
-        android:layout_height="@dimen/recite_book_out_height"
-        android:layout_marginTop="@dimen/default_margin_size_2"
-        android:layout_marginStart="@dimen/default_margin_size_2"/>
-    <ImageView
-        android:id="@+id/recite_book_img"
-        android:layout_width="@dimen/recite_book_img"
-        android:layout_height="@dimen/recite_book_img"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="@dimen/default_margin_size"
-        android:layout_marginBottom="@dimen/default_margin_size_3"/>
     <RelativeLayout
-        android:id="@+id/recite_book_bottom"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/recite_word_tab_bottom"
-        android:layout_alignParentBottom="true">
-
-        <TextView
-            android:id="@+id/recite_book_left_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="95dp"
-            android:text="@string/recite_book_left_number_text"
-            android:textColor="@color/recite_book_left_text_color"
-            android:textSize="@dimen/recite_book_left_text_size" />
-
-        <TextView
-            android:id="@+id/recite_book_right_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="@dimen/default_margin_size"
-            android:layout_toEndOf="@+id/recite_book_left_number"
-            android:text="@string/recite_book_right_number_text"
-            android:textColor="@color/recite_book_right_text_color"
-            android:textSize="@dimen/recite_book_right_text_size" />
+        android:layout_height="match_parent">
+        <com.tramp.word.widget.PullGateRefreshLayout
+            android:id="@+id/refresh_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/book_bottom">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/book_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"/>
+            </ScrollView>
+        </com.tramp.word.widget.PullGateRefreshLayout>
 
         <ImageView
-            android:id="@+id/recite_star_img"
-            android:layout_width="@dimen/recite_star_img"
-            android:layout_height="@dimen/recite_star_img"
-            android:layout_centerInParent="true"
-            android:layout_toStartOf="@+id/recite_book_left_star"/>
+            android:id="@+id/book_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_size_2"
+            android:layout_marginStart="@dimen/default_margin_size_2"
+            android:src="@drawable/back"/>
 
-        <TextView
-            android:id="@+id/recite_book_left_star"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginEnd="@dimen/default_margin_size"
+        <ImageView
+            android:id="@+id/book_img"
+            android:layout_width="@dimen/default_margin_size_5"
+            android:layout_height="@dimen/default_margin_size_5"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginStart="@dimen/default_margin_size"
-            android:text="@string/recite_book_left_star_text"
-            android:textColor="@color/recite_book_left_text_color"
-            android:textSize="@dimen/recite_book_left_text_size"
-            android:layout_toStartOf="@+id/recite_book_right_star"/>
-        <TextView
-            android:id="@+id/recite_book_right_star"
+            android:layout_marginBottom="@dimen/default_margin_size"/>
+
+        <RelativeLayout
+            android:id="@+id/book_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_margin_size"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/default_margin_size_6"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/book_left_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recite_book_left_number_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_16sp" />
+
+                <TextView
+                    android:id="@+id/book_right_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin_size"
+                    android:text="@string/recite_book_right_number_text"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_14sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/default_margin_size_2"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/star_img"
+                    android:layout_width="@dimen/default_margin_size_3"
+                    android:layout_height="@dimen/default_margin_size_3" />
+                <TextView
+                    android:id="@+id/book_left_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/default_margin_size"
+                    android:layout_marginStart="@dimen/default_margin_size"
+                    android:text="@string/recite_book_left_star_text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_16sp" />
+                <TextView
+                    android:id="@+id/book_right_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recite_book_right_star_text"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_14sp"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/save_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.6"
+            android:background="@color/black"
+            android:orientation="vertical" />
+
+        <RelativeLayout
+            android:id="@+id/save_relative"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/recite_book_right_star_text"
-            android:textColor="@color/recite_book_right_text_color"
-            android:textSize="@dimen/recite_book_right_text_size"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/default_margin_size_2"
-            android:layout_centerInParent="true"/>
+            android:layout_gravity="center"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/save_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/default_margin_size_2"
+                android:layout_marginTop="@dimen/default_margin_size_2"
+                android:layout_marginEnd="@dimen/default_margin_size_4"
+                android:background="@drawable/btn_background_radius"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/img_studp_plan_dialog_top" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin_size"
+                    android:layout_marginBottom="@dimen/default_margin_size"
+                    android:text="@string/save_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/default_text_size_18sp" />
+
+                <TextView
+                    android:id="@+id/save_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_margin_size"
+                    android:text="@string/save_message"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/default_text_size_16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/default_margin_size_2">
+
+                    <TextView
+                        android:id="@+id/save_cancel"
+                        android:layout_width="@dimen/default_margin_size_0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/default_margin_size"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_about_update_cancel"
+                        android:gravity="center"
+                        android:text="@string/save_cancel"
+                        android:textColor="@color/black_1"
+                        android:textSize="@dimen/default_text_size_18sp" />
+
+                    <TextView
+                        android:id="@+id/save_ok"
+                        android:layout_width="@dimen/default_margin_size_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_about_update_ok"
+                        android:gravity="center"
+                        android:text="@string/save_ok"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/default_text_size_18sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/save_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/save_linear"
+                android:layout_marginStart="@dimen/default_margin_no_size_5"
+                android:layout_marginBottom="@dimen/default_margin_no_size_3"
+                android:layout_toEndOf="@+id/save_linear"
+                android:src="@drawable/u_dialog_close" />
         </RelativeLayout>
-</RelativeLayout>
+
+    </FrameLayout>
+</FrameLayout>
+
 
 
 

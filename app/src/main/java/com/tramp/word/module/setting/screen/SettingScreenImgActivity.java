@@ -1,13 +1,15 @@
 package com.tramp.word.module.setting.screen;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Scroller;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.tramp.word.R;
 import com.tramp.word.base.RxBaseActivity;
 
@@ -28,6 +30,10 @@ public class SettingScreenImgActivity extends RxBaseActivity{
     TextView ScreenClose;
     @BindView(R.id.screen_setting)
     TextView ScreenSetting;
+    @BindView(R.id.photo_img)
+    ImageView PhotoImg;
+    private String photo_url;
+    private int photo_id;
     @Override
     public int getLayoutId() {
         return R.layout.activity_screen_img;
@@ -40,6 +46,15 @@ public class SettingScreenImgActivity extends RxBaseActivity{
 
     @Override
     public void initView(Bundle save) {
+        Intent intent=getIntent();
+        if(intent!=null){
+            photo_url=intent.getStringExtra("photo_url");
+            photo_id=intent.getIntExtra("photo_id",0);
+        }
+        Glide.with(getBaseContext())
+                .load(photo_url)
+                .placeholder(R.drawable.user_avater)
+                .into(PhotoImg);
         ScreenRelative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,27 +71,36 @@ public class SettingScreenImgActivity extends RxBaseActivity{
         ScreenClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent();
-                intent.putExtra("boolean",false);
-                setResult(13,intent);
-                finish();
+                initResult(false);
             }
         });
 
         ScreenSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent();
-                intent.putExtra("boolean",true);
-                setResult(13,intent);
-                finish();
+               initResult(true);
             }
         });
+    }
+
+    private void initResult(boolean status){
+        Intent intent=new Intent();
+        intent.putExtra("img_status",status);
+        intent.putExtra("number",photo_id);
+        setResult(41,intent);
+        finish();
     }
 
     @Override
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.activity_stay,R.anim.activity_out_anim);
+    }
+
+    public static void launch(Activity activity,String photo_url,int request,int photo_id){
+        Intent intent=new Intent(activity,SettingScreenImgActivity.class);
+        intent.putExtra("photo_url",photo_url);
+        intent.putExtra("photo_id",photo_id);
+        activity.startActivityForResult(intent,request);
     }
 }

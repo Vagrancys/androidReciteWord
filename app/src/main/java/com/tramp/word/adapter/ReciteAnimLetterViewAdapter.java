@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import com.tramp.word.R;
 
-import java.util.TimerTask;
-
 /**
  * Created by Administrator on 2019/2/1.
  */

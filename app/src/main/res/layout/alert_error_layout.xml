@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/btn_background_radius"
+    android:layout_marginStart="@dimen/default_margin_size_2"
+    android:layout_marginEnd="@dimen/default_margin_size_2"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/alert_word_manage_text"
+        android:gravity="center"
+        android:padding="@dimen/default_margin_size"
+        android:text="@string/error_title"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size_18sp" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/error_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:id="@+id/error_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/default_text_size_18sp"
+            android:paddingTop="@dimen/default_margin_size"
+            android:paddingBottom="@dimen/default_margin_size"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/error_ok"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/default_text_size_18sp"
+            android:textColor="@color/blue"
+            android:paddingTop="@dimen/default_margin_size"
+            android:paddingBottom="@dimen/default_margin_size"
+            android:gravity="center"/>
+    </LinearLayout>
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

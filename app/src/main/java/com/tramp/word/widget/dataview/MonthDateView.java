@@ -1,75 +1,131 @@
 package com.tramp.word.widget.dataview;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.graphics.RectF;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewConfiguration;
 
 import com.tramp.word.R;
-import com.tramp.word.entity.DefaultReciteEntity;
-import com.tramp.word.module.home.me.UserRecordingFragment;
+import com.tramp.word.entity.user.Day;
+import com.tramp.word.entity.user.UserDataInfo;
 import com.tramp.word.utils.DateUtils;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Random;
+import java.util.List;
 
 /**
- * Created by Administrator on 2019/2/17.
+ * author: Vagrancy
+ * e-mail: 18050829067@163.com
+ * time  : 2019/02/17
+ * version:1.0
  */
 
 public class MonthDateView extends View{
-    private static final String LogTitle="MonthDateView";
+    private static final String LOG="MonthDateView";
     private static final int INVALID=-1;
     private static final int TOTAL_COL=7;
     public static final int TODAY=1;
     public static final int CURRENT_MONTH_DAY=2;
     public static final  int CLICK_DAY=3;
     public static final int OTHER_MONTH_DAY=4;
-    private int interval=5;
-    private int progress=100;
     private int TOTAL_ROW;
     private Paint mPaint;
-    private int mCellSpaceX;
-    private int mCellSpaceY;
-    private UserRecordingFragment.Cell cells[][];
-    private ArrayList<DefaultReciteEntity> recites;
-
-    private RectF mRectF;
-    private int touchSlop;
+    private int ItemWidth;
+    private int ItemHeight;
+    private Cell cells[][];
     private int defaultTextColor;
     private int defaultTextSize;
     private CustomDate mShowDate;
+    private Day day=new Day();
+    private ArrayList<UserDataInfo.Day> Days=new ArrayList<>();
+    private ArrayList<Day> ListDays=new ArrayList<>();
+    private Paint mArcPaint=new Paint();
 
     public MonthDateView(Context context, AttributeSet attrs){
-
-        this(context,attrs,0);
+        super(context,attrs);
+        initData(context);
     }
 
     public MonthDateView(Context context){
-
-        this(context,null);
+        super(context);
+        initData(context);
     }
 
     public MonthDateView(Context context, AttributeSet attrs, int defStyle){
         super(context,attrs,defStyle);
-        TOTAL_ROW=getTotalRow();
-        init(context,attrs);
+        initData(context);
     }
 
-    public void setRecites(ArrayList<DefaultReciteEntity> recites) {
-        this.recites = recites;
+    @Override
+    protected void onDraw(Canvas canvas) {
+        Rect rect;
+        Cell cell;
+        int num=0;
+        for (int i=0;i<TOTAL_ROW;i++){
+            if(cells[i]!=null){
+                for (int j=0;j<TOTAL_COL;j++){
+                    cell=cells[i][j];
+                    if(cell !=null&&cell.getDate()!=null){
+                        rect=cell.getRect(ItemWidth,ItemHeight);
+                        int type=getDateType(cell);
+                        if(num<Days.size()){
+                            ListDays.get(num).setDay_number(Days.get(num).getDay_number());
+                            ListDays.get(num).setDay_status(Days.get(num).getDay_status());
+                        }else{
+                            ListDays.get(num).setDay_number(0);
+                            ListDays.get(num).setDay_status(1);
+                        }
+                        onDrawBackground(canvas,type,rect,mPaint,ListDays.get(num));
+                        mPaint.setTextSize(defaultTextSize);
+                        onDrawBefore(type,mPaint);
+                        onDrawText(canvas,type,cell,rect,mPaint,ListDays.get(num));
+                        num++;
+                    }
+                }
+            }
+        }
+        super.onDraw(canvas);
     }
 
-    /*private void fillMonthDate(){
+    private void onDrawText(Canvas canvas, int type,
+                            Cell cell, Rect rect, Paint paint,Day days){
+        paint.setStyle(Paint.Style.FILL);
+        paint.setTextAlign(Paint.Align.CENTER);
+        if(days.getDay_status()==2&&type==CURRENT_MONTH_DAY){
+            paint.setColor(getContext().getResources().getColor(R.color.white));
+            canvas.drawText(cell.getDate().day+"",rect.centerX(),
+                    getTextCenterY(rect.centerY(),paint),paint);
+            if(days.getDay_number()>0){
+                paint.setColor(getContext().getResources().getColor(R.color.blue));
+                canvas.drawText(days.getDay_number()+"",rect.centerX(),
+                        getTextCenterY(rect.centerY()+35,paint),paint);
+            }
+
+        }else if(days.getDay_status()==2&&type==TODAY){
+            paint.setColor(getContext().getResources().getColor(R.color.white));
+            canvas.drawText(cell.getDate().day+"",rect.centerX(),
+                    getTextCenterY(rect.centerY(),paint),paint);
+            if(days.getDay_number()>0){
+                paint.setColor(getContext().getResources().getColor(R.color.blue));
+                canvas.drawText(days.getDay_number()+"",rect.centerX(),
+                        getTextCenterY(rect.centerY()+35,paint),paint);
+            }
+
+        }else{
+            canvas.drawText(cell.getDate().day+"",rect.centerX(),
+                    getTextCenterY(rect.centerY(),paint),paint);
+        }
+    }
+
+    public void setCells(Cell[][] cells) {
+        this.cells = cells;
+    }
+
+    private void fillMonthDate(){
         int lastMonthDays= DateUtils.getMonthDay(mShowDate.year,mShowDate.month-1);
         int currentMonthDays= DateUtils.getMonthDay(mShowDate.year,mShowDate.month);
         int firstDayWeek= DateUtils.getWeekDayFromDate(mShowDate.year,mShowDate.month);
@@ -78,7 +134,6 @@ public class MonthDateView extends View{
             if(cells[i]==null){
                 cells[i]=new Cell[TOTAL_COL];
             }
-            Log.d(LogTitle,"fillMonthDate||TOTAL_ROW||"+cells[i]);
             for (int j=0;j<TOTAL_COL;j++){
                 int position=j+i*TOTAL_COL;
                 int year=INVALID,month=INVALID,monthDay=INVALID;
@@ -108,149 +163,11 @@ public class MonthDateView extends View{
                         cells[i][j]=new Cell(date,i,j);
                     }
                 }
-                Log.d(LogTitle,"fillMonthDate||TOTAL_COL||"+cells[i][j]);
             }
         }
-    }*/
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        Log.d(LogTitle,"onDraw||Top");
-        mCellSpaceX=getWidth()/TOTAL_COL;
-        mPaint.setTextSize(mCellSpaceX/3);
-        Rect rect;
-        UserRecordingFragment.Cell cell;
-        for (int i=0;i<TOTAL_ROW;i++){
-            if(cells[i]!=null){
-                for (int j=0;j<TOTAL_COL;j++){
-                    cell=cells[i][j];
-                    if(cell !=null&&cell.getDate()!=null){
-                        rect=cell.getRect(mCellSpaceX,mCellSpaceY);
-                        int type=getDateType(cell);
-                        onDrawBackground(canvas,type,cell,rect,mPaint);
-                        mPaint.setTextSize(defaultTextSize);
-                        onDrawBefore(canvas,type,rect,mPaint);
-                        onDrawText(canvas,type,cell,rect,mPaint);
-                    }
-                }
-            }
-        }
-        super.onDraw(canvas);
     }
 
-    private void onDrawText(Canvas canvas, int type,
-                            UserRecordingFragment.Cell cell, Rect rect, Paint paint){
-        paint.setStyle(Paint.Style.FILL);
-        paint.setTextAlign(Paint.Align.CENTER);
-        Log.d(LogTitle,"drawText:text="+getContent(cell,getDateType(cell))+
-                "x="+rect.centerX()+
-                "y="+getTextCenterY(rect.centerY()-interval,paint));
-        int day=Integer.parseInt(getContent(cell,getDateType(cell)));
-
-
-        if(day<20&&day>15&&type==CURRENT_MONTH_DAY){
-            paint.setColor(getContext().getResources().getColor(R.color.white));
-            canvas.drawText(getContent(cell,getDateType(cell)),rect.centerX(),
-                    getTextCenterY(rect.centerY(),paint),paint);
-            paint.setColor(getContext().getResources().getColor(R.color.blue));
-            canvas.drawText(recites.get(day).getNumber()+"",rect.centerX(),
-                    getTextCenterY(rect.centerY()+30,paint),paint);
-        }else{
-            canvas.drawText(getContent(cell,getDateType(cell)),rect.centerX(),
-                    getTextCenterY(rect.centerY(),paint),paint);
-        }
-    }
-
-    public void setCells(UserRecordingFragment.Cell[][] cells) {
-        this.cells = cells;
-    }
-
-    public boolean getReciteType(int day){
-        if(recites.get(day).getNumber()==0){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-    public void onDrawBefore(Canvas canvas, int type, Rect rect, Paint paint) {
-        if(type==CLICK_DAY){
-            paint.setColor(getContext().getResources().getColor(R.color.black));
-        }else if(type==OTHER_MONTH_DAY){
-            paint.setColor(getContext().getResources().getColor(R.color.black_1));
-        }
-    }
-
-    public void onDrawBackground(Canvas canvas, int type,
-                                 UserRecordingFragment.Cell cell, Rect rect, Paint paint) {
-        int day=Integer.parseInt(getContent(cell,getDateType(cell)));
-        if(day<20&&day>15&&type==TODAY){
-            paint.setStyle(Paint.Style.FILL);
-            paint.setColor(ContextCompat.getColor(getContext(), R.color.blue));
-            int r=Math.min(rect.width(),rect.height())/2*progress/100;
-            canvas.drawCircle(rect.centerX(),rect.centerY(),r-15,paint);
-            canvas.drawArc(mRectF,rect.centerX(),rect.centerY(),false,paint);
-        }
-        if(day<20&&day>15&&type==CURRENT_MONTH_DAY){
-            paint.setStyle(Paint.Style.FILL);
-            paint.setColor(ContextCompat.getColor(getContext(), R.color.blue));
-            int r=Math.min(rect.width(),rect.height())/2*progress/100;
-            canvas.drawCircle(rect.centerX(),rect.centerY(),r-10,paint);
-        }
-    }
-
-    public int getDateType(UserRecordingFragment.Cell cell) {
-        CustomDate showDate=getShowDate();
-        CustomDate compareDate=cell.getDate();
-        if(showDate !=null&&compareDate.isSameDay(showDate)){
-            return CLICK_DAY;
-        }
-        if(showDate.isSameMonth(compareDate)){
-            return CURRENT_MONTH_DAY;
-        }
-        if(DateUtils.isToday(compareDate)){
-            return TODAY;
-        }
-        return OTHER_MONTH_DAY;
-    }
-
-    public String getContent(UserRecordingFragment.Cell cell, int type){
-        return cell.getDate().day+"";
-    }
-
-    private void init(Context context, AttributeSet attrs){
-        mPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
-        if(attrs !=null){
-            TypedArray a=getContext().obtainStyledAttributes(attrs, R.styleable.MonthDateView);
-            defaultTextSize=(int) a.getDimension(R.styleable.MonthDateView_baseTextSize,35);
-            defaultTextColor=a.getColor(R.styleable.MonthDateView_baseTextColor, Color.parseColor("#333333"));
-            mCellSpaceY=(int) a.getDimension(R.styleable.MonthDateView_rowHeight,getResources().getDimensionPixelOffset(R.dimen.default_margin_size_5));
-            a.recycle();
-        }else{
-            defaultTextColor=Color.parseColor("#333333");
-            defaultTextSize=35;
-        }
-        mPaint.setColor(defaultTextColor);
-        touchSlop= ViewConfiguration.get(context).getScaledTouchSlop();
-        //fillMonthDate();
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width=MeasureSpec.getSize(widthMeasureSpec);
-        int height=MeasureSpec.getSize(heightMeasureSpec);
-        setMeasuredDimension(width,height);
-    }
-
-    @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
-        int mViewWidth=w;
-        mCellSpaceX=mViewWidth/TOTAL_COL;
-        mPaint.setTextSize(mCellSpaceX/3);
-    }
-
-    /*public static class Cell{
+    public static class Cell{
         private CustomDate date;
         public int row;
         public int col;
@@ -280,7 +197,101 @@ public class MonthDateView extends View{
             rect.set(left,top,right,bottom);
             return rect;
         }
-    }*/
+    }
+
+    public void onDrawBefore( int type, Paint paint) {
+        if(type==CURRENT_MONTH_DAY){
+            paint.setColor(getContext().getResources().getColor(R.color.black));
+        }else if(type==OTHER_MONTH_DAY){
+            paint.setColor(getContext().getResources().getColor(R.color.black_1));
+        }
+    }
+
+    public void onDrawBackground(Canvas canvas, int type,
+                                 Rect rect, Paint paint,Day day) {
+        if(day.getDay_number()>0&&type==TODAY){
+            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(ContextCompat.getColor(getContext(), R.color.blue));
+            canvas.drawCircle(rect.centerX(),rect.centerY(),18,paint);
+            canvas.drawCircle(rect.centerX(),rect.centerY(),20,mArcPaint);
+        }else if(day.getDay_number()>0&&type==CURRENT_MONTH_DAY){
+            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(ContextCompat.getColor(getContext(), R.color.blue));
+            canvas.drawCircle(rect.centerX(),rect.centerY(),20,paint);
+        }
+    }
+
+    public int getDateType(Cell cell) {
+        CustomDate showDate=getShowDate();
+        CustomDate compareDate=cell.getDate();
+        if(DateUtils.isToday(compareDate)){
+            return TODAY;
+        }
+        if(showDate.isSameMonth(compareDate)){
+            return CURRENT_MONTH_DAY;
+        }
+        return OTHER_MONTH_DAY;
+    }
+
+    public String getContent(Cell cell, int type){
+        return cell.getDate().day+"";
+    }
+
+    private void initData(Context context){
+        ItemHeight=getResources().getDimensionPixelOffset(R.dimen.default_margin_size_7);
+        defaultTextColor=Color.parseColor("#333333");
+        defaultTextSize=35;
+        TOTAL_ROW=getTotalRow();
+        ItemWidth=getWidth()/TOTAL_COL;
+        cells=new Cell[TOTAL_ROW][TOTAL_COL];
+        mShowDate=new CustomDate();
+        for (int j=0;j<TOTAL_COL*TOTAL_ROW;j++){
+            day.setDay_status(1);
+            day.setDay_number(0);
+            ListDays.add(day);
+        }
+        initPaint();
+        fillMonthDate();
+    }
+
+    private void initPaint(){
+        mPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setTextSize(ItemWidth/3);
+        mPaint.setColor(defaultTextColor);
+        mArcPaint.setColor(Color.BLUE);
+        mArcPaint.setAntiAlias(true);
+        mArcPaint.setTextSize(2);
+        mArcPaint.setStyle(Paint.Style.STROKE);
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        ItemWidth=w/TOTAL_COL;
+        mPaint.setTextSize(ItemWidth/3);
+    }
+    public void fillDate(List<UserDataInfo.Day> data){
+        Days.clear();
+        Days.addAll(data);
+        fillMonthDate();
+    }
+
+    public void update(List<UserDataInfo.Day> data){
+        fillDate(data);
+        invalidate();
+    }
+
+    public void rightScroll(List<UserDataInfo.Day> data,CustomDate date){
+        setShowDate(date);
+        update(data);
+    }
+
+    //向左滑动
+    public void leftScroll(List<UserDataInfo.Day> data,CustomDate date){
+        setShowDate(date);
+        update(data);
+    }
+
 
     public void setShowDate(CustomDate showDate) {
         this.mShowDate = showDate;
@@ -290,20 +301,12 @@ public class MonthDateView extends View{
         return mShowDate;
     }
 
-    public interface OnCalendarPageChanged{
-        void onPageChanged(CustomDate showDate);
-    }
-
     public int getTotalRow(){
         return 7;
-    };
+    }
 
     public static float getTextCenterY(int centerY,Paint paint){
         return centerY-((paint.descent()+paint.ascent())/2);
-    }
-
-    public void NextMonthDate(){
-
     }
 }
 

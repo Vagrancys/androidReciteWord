@@ -1,5 +1,6 @@
 package com.tramp.word.module.setting.account;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -10,11 +11,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tramp.word.R;
+import com.tramp.word.api.Retrofits;
 import com.tramp.word.base.RxBaseActivity;
+import com.tramp.word.db.UserSqlHelper;
+import com.tramp.word.entity.DefaultInfo;
 import com.tramp.word.utils.ConstantUtils;
 import com.tramp.word.utils.Utils;
 
 import butterknife.BindView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Administrator on 2019/2/28.
@@ -43,17 +50,18 @@ public class AccountNickNameActivity extends RxBaseActivity{
         DefaultOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                initResult();
             }
         });
 
-        DefaultTitle.setText(getResources().getString(R.string.account_name_edit_text));
+        DefaultTitle.setText(getResources().getString(R.string.account_nickname_edit_text));
     }
 
     @Override
     public void initView(Bundle save) {
-        if(getIntent()==null){
-            title=getIntent().getStringExtra(ConstantUtils.ACCOUNT_NAME);
+        Intent intent=getIntent();
+        if(intent !=null){
+            title=intent.getStringExtra(ConstantUtils.ACCOUNT_NAME);
             AccountNickNameEdit.setText(title);
             AccountNickNameStart.setEnabled(false);
             AccountNickNameDelete.setVisibility(View.VISIBLE);
@@ -93,20 +101,45 @@ public class AccountNickNameActivity extends RxBaseActivity{
             @Override
             public void onClick(View v) {
                 if(!AccountNickNameEdit.getText().toString().equals(title)){
-                    Utils.ShowToast(AccountNickNameActivity.this,"修改昵称成功！");
-                    Intent intent=new Intent();
-                    intent.putExtra(ConstantUtils.ACCOUNT_NICKNAME,AccountNickNameEdit.getText().toString());
-                    setResult(ConstantUtils.NICKNAME_CODE,intent);
-                    finish();
+                    Retrofits.getUserAPI().getUpdateNickNameInfo(new UserSqlHelper(getBaseContext()).UserId(),AccountNickNameEdit.getText().toString())
+                            .enqueue(new Callback<DefaultInfo>() {
+                                @Override
+                                public void onResponse(Call<DefaultInfo> call, Response<DefaultInfo> response) {
+                                    if(response.body()!=null&&response.body().getCode()==200){
+                                        Utils.ShowToast(getBaseContext(),"修改昵称成功！");
+                                        initResult();
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<DefaultInfo> call, Throwable t) {
+                                    Utils.ShowToast(getBaseContext(),"网络失效了!");
+                                }
+                            });
                 }
             }
         });
+    }
+
+    private void initResult(){
+        int NICKNAME_CODE=32;
+        Intent intent=new Intent();
+        intent.putExtra(ConstantUtils.ACCOUNT_NICKNAME,AccountNickNameEdit.getText().toString());
+        setResult(NICKNAME_CODE,intent);
+        finish();
     }
 
     @Override
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.activity_stay,R.anim.activity_out_anim);
+    }
+
+    public static void launch(Activity activity, String user_nickname, int code){
+        Intent intent=new Intent(activity,AccountNameActivity.class);
+        intent.putExtra(ConstantUtils.ACCOUNT_NICKNAME,user_nickname);
+        activity.startActivityForResult(intent,code);
+        Utils.StarActivityInAnim(activity);
     }
 }
 

@@ -1,24 +1,23 @@
 package com.tramp.word.widget;
 
 import android.content.Context;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
-import android.widget.Scroller;
 import android.widget.TextView;
 
 import com.tramp.word.R;
-import com.tramp.word.widget.section.Section;
+import com.tramp.word.entity.book.DefaultWordInfo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2019/1/26.
@@ -37,11 +36,16 @@ public class PullWordRefreshLayout extends ViewGroup {
     private int mEffectiveFooterHeight;
     private int mlastMoveY;
     private int mLastYIntercept;
+    private List<DefaultWordInfo> words=new ArrayList<>();
+    private int list_number=1;
     private Status mStatus=Status.NORMAL;
     private enum  Status{
         NORMAL,TRY_REFRESH,REFRESHING,TRY_LOADMORE,LOADING
-    };
+    }
 
+    public void setWords(List<DefaultWordInfo> words){
+        this.words=words;
+    }
     private void updateStatus(Status status) {
         mStatus = status;
     }
@@ -298,10 +302,10 @@ public class PullWordRefreshLayout extends ViewGroup {
                     if(mRefreshListener !=null){
                         mRefreshListener.loadMoreFinished();
                     }
-                }else{
-                    releaseWidthStatusTryRefresh();
-                    releaseWidthStatusTryLoadMore();
                 }
+                releaseWidthStatusTryRefresh();
+                releaseWidthStatusTryLoadMore();
+
                 break;
         }
         mlastMoveY=y;
@@ -313,12 +317,18 @@ public class PullWordRefreshLayout extends ViewGroup {
         scrollY=scrollY>mEffectiveHeaderHeight?mEffectiveHeaderHeight:scrollY;
         float angle=(float) (scrollY*1.0/mEffectiveHeaderHeight*180);
         mHeaderImg.setRotation(angle);
-        mHeaderText.setText("geography");
-        if(getScrollY()<=-mEffectiveHeaderHeight){
-            mHeaderImg.setImageResource(R.drawable.icon_pullup);
-        }else{
-            mHeaderImg.setImageResource(R.drawable.icon_pulldown);
+        if(list_number==0){
+            mHeaderImg.setImageResource(R.drawable.icon_smile);
+            mHeaderText.setText(getResources().getString(R.string.word_pull_hint));
+        }else {
+            if(getScrollY()<=-mEffectiveHeaderHeight){
+                mHeaderImg.setImageResource(R.drawable.icon_pullup);
+            }else{
+                mHeaderImg.setImageResource(R.drawable.icon_pulldown);
+            }
+            mHeaderText.setText(words.get(list_number).getWord_name());
         }
+
     }
 
     public void beforeLoadMore(){
@@ -326,24 +336,32 @@ public class PullWordRefreshLayout extends ViewGroup {
         scrollY=scrollY>mEffectiveFooterHeight?mEffectiveFooterHeight:scrollY;
         float angle=(float) (scrollY*1.0/mEffectiveFooterHeight*180);
         mFooterImg.setRotation(angle);
-        mFooterText.setText("themselves");
-        if(getScrollY()>=mEffectiveHeaderHeight){
-            mFooterImg.setImageResource(R.drawable.icon_pullup);
-        }else{
-            mFooterImg.setImageResource(R.drawable.icon_pulldown);
+        if(list_number==words.size()-1){
+           mFooterImg.setImageResource(R.drawable.icon_smile);
+            mFooterText.setText(getResources().getString(R.string.word_pull_hint));
+        }else {
+            if(getScrollY()>=mEffectiveHeaderHeight){
+                mFooterImg.setImageResource(R.drawable.icon_pullup);
+            }else{
+                mFooterImg.setImageResource(R.drawable.icon_pulldown);
+            }
+            mFooterText.setText(words.get(list_number).getWord_name());
         }
+
     }
 
     private void releaseWidthStatusTryRefresh(){
         scrollBy(0,-getScrollY());
         mHeaderText.setText("geo");
         updateStatus(Status.NORMAL);
+        list_number--;
     }
 
     private void releaseWidthStatusTryLoadMore(){
         scrollBy(0,-getScrollY());
         mFooterText.setText("write");
         updateStatus(Status.NORMAL);
+        list_number++;
     }
 
     private void releaseWidthStatusLoadMore(){

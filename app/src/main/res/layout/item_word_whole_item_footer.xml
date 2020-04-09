@@ -3,7 +3,7 @@
     android:id="@+id/whole_item_footer_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/word_book_layout_color"
+    android:background="@color/white_2"
     android:gravity="center"
     android:orientation="horizontal"
     android:visibility="gone">

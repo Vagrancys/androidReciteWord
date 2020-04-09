@@ -1,81 +1,96 @@
 package com.tramp.word.module.common;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.design.widget.Snackbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.tramp.word.R;
+import com.tramp.word.api.Retrofits;
 import com.tramp.word.base.RxBaseActivity;
+import com.tramp.word.db.UserSqlHelper;
+import com.tramp.word.entity.user.LoginInfo;
 import com.tramp.word.module.forget.ForgetPassActivity;
 import com.tramp.word.utils.ConstantUtils;
 import com.tramp.word.utils.PreferencesUtils;
 import com.tramp.word.utils.Utils;
 
+
 import butterknife.BindView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Administrator on 2019/1/8.
  */
 
 public class LoginActivity extends RxBaseActivity {
-    @BindView(R.id.login_out)
-    ImageView mLoginOut;
+    @BindView(R.id.default_out)
+    ImageView DefaultOut;
     @BindView(R.id.login_register)
-    TextView mLoginRegister;
-    @BindView(R.id.login_select_ordinary)
-    TextView mLoginSelectOrdinary;
-    @BindView(R.id.login_select_ordinary_view)
-    View mLoginSelectOrdinaryView;
-    @BindView(R.id.login_select_phone)
-    TextView mLoginSelectPhone;
-    @BindView(R.id.login_select_phone_view)
-    View mLoginSelectPhoneView;
-    @BindView(R.id.login_ordinary)
-    RelativeLayout mLoginOrdinary;
+    TextView LoginRegister;
+    @BindView(R.id.login_user)
+    LinearLayout LoginUser;
+    @BindView(R.id.login_user_view)
+    View LoginUserView;
     @BindView(R.id.login_phone)
-    RelativeLayout mLoginPhone;
-    @BindView(R.id.login_user_hint_text)
-    EditText mLoginUserHintText;
+    LinearLayout LoginPhone;
+    @BindView(R.id.login_phone_view)
+    View LoginPhoneView;
+    @BindView(R.id.login_user_scroll)
+    ScrollView LoginUserScroll;
+    @BindView(R.id.login_phone_layout)
+    RelativeLayout LoginPhoneLayout;
+    @BindView(R.id.login_user_name)
+    EditText LoginUserName;
     @BindView(R.id.login_user_linear)
-    LinearLayout mLoginUserLinear;
+    LinearLayout LoginUserLinear;
     @BindView(R.id.login_user_img)
-    ImageView mLoginUserImg;
-    @BindView(R.id.login_button_start)
-    TextView mLoginButtonStart;
-    @BindView(R.id.login_pass_hint_text)
-    EditText mLoginPassHintText;
-    @BindView(R.id.login_ordinary_forget)
-    TextView mLoginOrdinaryForget;
+    ImageView LoginUserImg;
+    @BindView(R.id.login_start)
+    TextView LoginStart;
+    @BindView(R.id.login_user_pass)
+    EditText LoginUserPass;
+    @BindView(R.id.login_forget)
+    TextView LoginForget;
     @BindView(R.id.login_cc)
-    LinearLayout mLoginCc;
+    LinearLayout LoginCc;
     @BindView(R.id.login_qq)
-    LinearLayout mLoginQq;
-    @BindView(R.id.login_phone_hint_text)
-    EditText mLoginPhoneHintText;
+    LinearLayout LoginQq;
+    @BindView(R.id.login_phone_name)
+    EditText LoginPhoneName;
     @BindView(R.id.login_phone_img)
-    ImageView mLoginPhoneImg;
-    @BindView(R.id.login_code_hint_text)
-    EditText mLoginCodeHintText;
+    ImageView LoginPhoneImg;
+    @BindView(R.id.login_phone_code)
+    EditText LoginPhoneCode;
     @BindView(R.id.login_code_text)
-    TextView mLoginCodeText;
-    @BindView(R.id.login_phone_button_start)
-    TextView mLoginPhoneButtonStart;
-    @BindView(R.id.login_code_error_text)
-    TextView mLoginCodeErrorText;
-    @BindView(R.id.login_phone_error_text)
-    TextView mLoginPhoneErrorText;
+    TextView LoginCodeText;
+    @BindView(R.id.login_phone_start)
+    TextView LoginPhoneStart;
+    @BindView(R.id.code_error_text)
+    TextView CodeErrorText;
+    @BindView(R.id.hint_error_text)
+    TextView HintErrorText;
     private CountDownTimer mCountTimer;
     private Snackbar mSnackBar;
+    private UserSqlHelper mUserSql;
+    private LoginInfo mLoginInfo;
+    private Animation mScaleAnim;
     @Override
     public int getLayoutId() {
         return R.layout.activity_login;
@@ -83,52 +98,59 @@ public class LoginActivity extends RxBaseActivity {
 
     @Override
     public void initView(Bundle save) {
-        mSnackBar=Snackbar.make(mLoginCc,"第三方登录qq",Snackbar.LENGTH_LONG).setAction("关闭", new View.OnClickListener() {
+        mUserSql=new UserSqlHelper(getBaseContext());
+        mSnackBar=Snackbar.make(LoginCc,"第三方登录qq",Snackbar.LENGTH_LONG).setAction("关闭", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSnackBar.dismiss();
             }
         });
-        mLoginSelectOrdinary.setOnClickListener(new View.OnClickListener() {
+        mScaleAnim= AnimationUtils.loadAnimation(getBaseContext(),R.anim.default_button_scale_anim);
+        initClick();
+    }
+
+    private void initClick(){
+        LoginUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mLoginOrdinary.setVisibility(View.VISIBLE);
-                mLoginPhone.setVisibility(View.GONE);
-                mLoginSelectOrdinaryView.setBackgroundColor(getResources().getColor(R.color.green_1));
-                mLoginSelectPhoneView.setBackgroundColor(getResources().getColor(R.color.white));
+                LoginUserScroll.setVisibility(View.VISIBLE);
+                LoginPhoneLayout.setVisibility(View.GONE);
+                LoginUserView.setBackgroundColor(getResources().getColor(R.color.green_1));
+                LoginPhoneView.setBackgroundColor(getResources().getColor(R.color.white));
             }
         });
 
-        mLoginSelectPhone.setOnClickListener(new View.OnClickListener() {
+        LoginPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mLoginPhone.setVisibility(View.VISIBLE);
-                mLoginOrdinary.setVisibility(View.GONE);
-                mLoginSelectOrdinaryView.setBackgroundColor(getResources().getColor(R.color.white));
-                mLoginSelectPhoneView.setBackgroundColor(getResources().getColor(R.color.green_1));
+                LoginUserScroll.setVisibility(View.VISIBLE);
+                LoginPhoneLayout.setVisibility(View.GONE);
+                LoginUserView.setBackgroundColor(getResources().getColor(R.color.white));
+                LoginPhoneView.setBackgroundColor(getResources().getColor(R.color.green_1));
             }
         });
 
-        mLoginUserHintText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        LoginUserName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus){
-                    mLoginUserLinear.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_focused));
-                    mLoginUserImg.setImageResource(R.drawable.icon_login_delate_normal);
-                    if(mLoginUserHintText.getText().length()>0){
-                        mLoginUserImg.setVisibility(View.VISIBLE);
+                    LoginUserLinear.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_focused));
+                    LoginUserImg.setImageResource(R.drawable.icon_login_delate_normal);
+                    if(LoginUserName.getText().length()>0){
+                        LoginUserImg.setVisibility(View.VISIBLE);
                     }else{
-                        mLoginUserImg.setVisibility(View.GONE);
+                        LoginUserImg.setVisibility(View.GONE);
                     }
-                    mLoginPhoneErrorText.setVisibility(View.GONE);
+                    HintErrorText.setVisibility(View.GONE);
                 }else{
-                    mLoginUserLinear.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_window));
-                    mLoginUserImg.setVisibility(View.GONE);
-                    mLoginPhoneErrorText.setVisibility(View.GONE);
+                    LoginUserLinear.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_window));
+                    LoginUserImg.setVisibility(View.GONE);
+                    HintErrorText.setVisibility(View.GONE);
                 }
             }
         });
-        mLoginUserHintText.addTextChangedListener(new TextWatcher() {
+
+        LoginUserName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -141,124 +163,125 @@ public class LoginActivity extends RxBaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                mLoginUserImg.setImageResource(R.drawable.icon_login_delate_normal);
-                if(mLoginUserHintText.getText().length()>0){
-                    mLoginUserImg.setVisibility(View.VISIBLE);
+                LoginUserImg.setImageResource(R.drawable.icon_login_delate_normal);
+                if(LoginUserName.getText().length()>0){
+                    LoginUserImg.setVisibility(View.VISIBLE);
                 }else{
-                    mLoginUserImg.setVisibility(View.GONE);
+                    LoginUserImg.setVisibility(View.GONE);
                 }
             }
         });
 
-        mLoginUserImg.setOnClickListener(new View.OnClickListener() {
+        LoginUserImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mLoginUserHintText.setText("");
-                mLoginUserImg.setVisibility(View.GONE);
+                LoginUserName.setText("");
+                LoginUserImg.setVisibility(View.GONE);
             }
         });
-        mLoginButtonStart.setOnClickListener(new View.OnClickListener() {
+
+        LoginStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                LoginStart.startAnimation(mScaleAnim);
                 UserLogin();
             }
         });
 
-        mLoginOrdinaryForget.setOnClickListener(new View.OnClickListener() {
+        LoginForget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,ForgetPassActivity.class));
-                overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_stay);
+                ForgetPassActivity.launch(LoginActivity.this);
             }
         });
 
-        mLoginCc.setOnClickListener(new View.OnClickListener() {
+        LoginCc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSnackBar.show();
             }
         });
 
-        mLoginQq.setOnClickListener(new View.OnClickListener() {
+        LoginQq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Utils.ShowToast(getBaseContext(),"qq");
             }
         });
 
-        mLoginPhoneHintText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        LoginPhoneName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus){
-                    mLoginPhoneImg.setVisibility(View.GONE);
-                    mLoginPhoneHintText.setBackgroundResource(R.drawable.register_edit_selector_focused);
+                    LoginPhoneImg.setVisibility(View.GONE);
+                    LoginPhoneName.setBackgroundResource(R.drawable.register_edit_selector_focused);
                 }else{
-                    if(mLoginPhoneHintText.getText().toString().length()<11){
-                        mLoginPhoneHintText.setBackgroundResource(R.drawable.register_edit_selector_error);
-                        mLoginPhoneImg.setVisibility(View.VISIBLE);
+                    if(LoginPhoneName.getText().toString().length()<11){
+                        LoginPhoneName.setBackgroundResource(R.drawable.register_edit_selector_error);
+                        LoginPhoneImg.setVisibility(View.VISIBLE);
                     }else{
-                        mLoginPhoneHintText.setBackgroundResource(R.drawable.register_edit_selector_window);
+                        LoginPhoneName.setBackgroundResource(R.drawable.register_edit_selector_window);
                     }
                 }
             }
         });
+
         mCountTimer=new CountDownTimer(60000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                mLoginCodeText.setText(millisUntilFinished/1000+"秒");
+                LoginCodeText.setText(millisUntilFinished/1000+"秒");
             }
 
             @Override
             public void onFinish() {
-                mLoginCodeText.setText(getResources().getString(R.string.login_code_text));
+                LoginCodeText.setText(getResources().getString(R.string.login_code_text));
             }
         };
 
-        mLoginCodeText.setOnClickListener(new View.OnClickListener() {
+        LoginCodeText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mCountTimer.start();
             }
         });
 
-        mLoginPhoneButtonStart.setOnClickListener(new View.OnClickListener() {
+        LoginPhoneStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                LoginPhoneStart.startAnimation(mScaleAnim);
                 PhoneLogin();
             }
         });
 
-        mLoginCodeHintText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        LoginPhoneCode.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus){
-                    mLoginCodeHintText.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_focused));
-                    mLoginCodeErrorText.setVisibility(View.GONE);
+                    LoginPhoneCode.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_focused));
+                    CodeErrorText.setVisibility(View.GONE);
                 }else{
-                    if( mLoginCodeHintText.getText().length()==0){
-                        mLoginCodeHintText.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_error));
-                        mLoginCodeErrorText.setVisibility(View.VISIBLE);
+                    if( LoginPhoneCode.getText().length()==0){
+                        LoginPhoneCode.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_error));
+                        CodeErrorText.setVisibility(View.VISIBLE);
                     }else{
-                        mLoginCodeHintText.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_window));
-                        mLoginCodeErrorText.setVisibility(View.GONE);
+                        LoginPhoneCode.setBackground(getResources().getDrawable(R.drawable.register_edit_selector_window));
+                        CodeErrorText.setVisibility(View.GONE);
                     }
                 }
             }
         });
-        mLoginUserHintText.setText("123");
-        mLoginPassHintText.setText("123");
     }
 
     private void PhoneLogin(){
-        if(mLoginPhoneHintText.getText().length()==0&&mLoginCodeHintText.getText().length()==0){
-            Utils.ShowToast(getBaseContext(),"请填写好帐号和密码!");
+        if(LoginPhoneName.getText().length()==0&&LoginPhoneCode.getText().length()==0){
+            Utils.ShowToast(getBaseContext(),"请填写好手机和验证码!");
             return;
         }
-        if(!mLoginPassHintText.getText().toString().equals("13489807056")){
+        if(!LoginPhoneName.getText().toString().equals("13489807056")){
             Utils.ShowToast(getBaseContext(),"该手机号未注册!");
             return;
         }
-        if(!mLoginCodeHintText.getText().toString().equals("125891")){
+        if(!LoginPhoneCode.getText().toString().equals("125891")){
             Utils.ShowToast(getBaseContext(),"验证码错误!");
             return;
         }
@@ -268,33 +291,93 @@ public class LoginActivity extends RxBaseActivity {
     }
 
     private void UserLogin(){
-        if(mLoginUserHintText.getText().length()==0&&mLoginPassHintText.getText().length()==0){
-            Utils.ShowToast(getBaseContext(),"请填写好帐号和密码!");
+        if(LoginUserName.getText().length()==0){
+            Utils.ShowToast(getBaseContext(),"请填写帐号!");
             return;
         }
-        if(!mLoginUserHintText.getText().toString().equals("123")){
-            Utils.ShowToast(getBaseContext(),"该帐号未注册!");
+        if(LoginUserPass.getText().length()==0){
+            Utils.ShowToast(getBaseContext(),"请填写密码!");
             return;
         }
-        if(!mLoginPassHintText.getText().toString().equals("123")){
-            Utils.ShowToast(getBaseContext(),"密码错误!");
-            return;
-        }
+        netLogin();
+        mLoginInfo=new LoginInfo();
+        mLoginInfo.setUser_name("你好");
+        mLoginInfo.setToken("11");
+        mLoginInfo.setUser_id(5);
+        mLoginInfo.setAvatar("11111");
+        mLoginInfo.setLast_login_at("dada");
+        mLoginInfo.setRecited_book(5);
+        insertUser();
         PreferencesUtils.putBoolean(ConstantUtils.LOGIN_STATIC,true);
-        startActivity(new Intent(LoginActivity.this,MainActivity.class));
-        overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_stay);
+        Log.e("LoginActivity","mLoginInfo="+mLoginInfo.getBook_status());
+        ExitActivity();
+        MainActivity.launch(LoginActivity.this,mLoginInfo.getBook_status());
+        finish();
+
+
+    }
+
+    private void netLogin(){
+        Retrofits.getUserAPI()
+                .getLoginInfo(LoginUserName.getText().toString(),LoginUserPass.getText().toString())
+                .enqueue(new Callback<LoginInfo>() {
+                    @Override
+                    public void onResponse(Call<LoginInfo> call, Response<LoginInfo> response) {
+                        if(response.code() !=200){
+                            Utils.ShowToast(getBaseContext(),"code="+response.code());
+                        }else{
+                            switch (response.body().getCode()){
+                                //帐号未注册
+                                case 101:
+                                    Utils.ShowToast(getBaseContext(),"该帐号未注册!");
+                                    break;
+                                //密码错误
+                                case 102:
+                                    Utils.ShowToast(getBaseContext(),"密码错误!");
+                                    break;
+                                //登录成功
+                                case 103:
+                                    mLoginInfo=response.body();
+                                    insertUser();
+                                    PreferencesUtils.putBoolean(ConstantUtils.LOGIN_STATIC,true);
+                                    Log.e("LoginActivity","mLoginInfo="+mLoginInfo.getBook_status());
+                                    ExitActivity();
+                                    MainActivity.launch(LoginActivity.this,mLoginInfo.getBook_status());
+                                    finish();
+                                    break;
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<LoginInfo> call, Throwable t) {
+                        Utils.ShowToast(getBaseContext(),getResources().getString(R.string.forget_net_error));
+                    }
+                });
+    }
+
+    public void insertUser(){
+        ContentValues values=new ContentValues();
+        values.put("_id","1");
+        values.put("user_name",mLoginInfo.getUser_name());
+        values.put("token",mLoginInfo.getToken());
+        values.put("user_id",mLoginInfo.getUser_id());
+        values.put("avatar",mLoginInfo.getAvatar());
+        values.put("last_login_at",mLoginInfo.getLast_login_at());
+        values.put("recited_book",mLoginInfo.getRecited_book());
+        mUserSql.insert(values);
     }
 
     @Override
     protected void initToolBar() {
-        mLoginOut.setOnClickListener(new View.OnClickListener() {
+        DefaultOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
 
-        mLoginRegister.setOnClickListener(new View.OnClickListener() {
+        LoginRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this,RegisterActivity.class));

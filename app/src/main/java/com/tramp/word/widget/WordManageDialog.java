@@ -4,8 +4,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -107,11 +105,11 @@ public class WordManageDialog extends Dialog {
     }
 
     public interface OkOnClickListener{
-        public void onOkClick();
+        void onOkClick();
     }
 
     public interface CancelOnClickListener{
-        public void onCancelClick();
+        void onCancelClick();
     }
 
 }

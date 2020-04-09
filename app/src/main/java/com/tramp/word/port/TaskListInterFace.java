@@ -5,6 +5,7 @@ package com.tramp.word.port;
  */
 
 public interface TaskListInterFace {
-    void ShowLayout(int value);
+    void ShowLayout(int status,int value);
     void HideLayout(int value);
+    void ShowPopLayout(int star,int money);
 }

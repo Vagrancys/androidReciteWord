@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/default_margin_size">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/group_rank_time"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/default_text_size_14sp"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="@dimen/default_margin_size"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_1"
+        android:text="@string/group_rank_text"
+        android:textSize="@dimen/default_text_size_14sp"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/group_rank_help"/>
+    <ImageView
+        android:id="@+id/group_rank_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/group_lobby_rule_icon"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/default_margin_size"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/group_rank_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_below="@+id/group_rank_help"
+        android:layout_marginTop="@dimen/default_margin_size"/>
+</RelativeLayout>

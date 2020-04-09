@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/default_margin_size"
+    android:paddingStart="@dimen/default_margin_size"
+    android:paddingEnd="@dimen/default_margin_size">
+
+    <TextView
+        android:id="@+id/item_group_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/btn_group_black_bg"
+        android:gravity="center"
+        android:text="@string/item_group_level"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size_10sp" />
+
+    <View
+        android:id="@+id/item_group_bar_bottom"
+        android:layout_width="2dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/item_group_level"
+        android:layout_marginStart="@dimen/default_margin_size_2"
+        android:layout_marginTop="3dp"
+        android:background="@color/black_2" />
+
+    <View
+        android:id="@+id/item_group_bar_top"
+        android:layout_width="2dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/item_group_level"
+        android:layout_marginStart="@dimen/default_margin_size_2"
+        android:layout_marginTop="3dp"
+        android:background="@color/blue"
+        android:visibility="gone" />
+    <TextView
+        android:id="@+id/item_group_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/item_group_level"
+        android:paddingBottom="@dimen/default_margin_size"
+        android:paddingStart="@dimen/default_margin_size_2"
+        android:text="@string/item_group_text"
+        android:textColor="@color/black_3"
+        android:textSize="@dimen/default_text_size_18sp" />
+    <TextView
+        android:id="@+id/item_group_texts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/item_group_text"
+        android:paddingBottom="@dimen/default_margin_size"
+        android:text="@string/item_group_texts"
+        android:textColor="@color/black_3"
+        android:textSize="@dimen/default_text_size_18sp"/>
+    <TextView
+        android:id="@+id/item_group_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_group_text"
+        android:layout_toEndOf="@+id/item_group_level"
+        android:paddingStart="@dimen/default_margin_size_2"
+        android:text="@string/item_group_number"
+        android:textColor="@color/black_3"
+        android:textSize="@dimen/default_text_size_14sp" />
+    <TextView
+        android:id="@+id/item_group_numbers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_group_text"
+        android:layout_toEndOf="@+id/item_group_number"
+        android:text="@string/item_group_numbers"
+        android:textColor="@color/black_3"
+        android:textSize="@dimen/default_text_size_14sp" />
+
+    <TextView
+        android:id="@+id/item_group_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/item_group_time"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/default_text_size_14sp"
+        android:visibility="gone" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/item_group_number"
+        android:layout_marginStart="@dimen/default_margin_size_2"
+        android:layout_marginTop="@dimen/default_margin_size_4"
+        android:layout_toEndOf="@+id/item_group_level"
+        android:background="@color/black_2" />
+</RelativeLayout>

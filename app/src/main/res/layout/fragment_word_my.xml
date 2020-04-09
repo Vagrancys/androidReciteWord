@@ -5,11 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:overScrollMode="never">
-    </android.support.v7.widget.RecyclerView>
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never" />
+
+        <LinearLayout
+            android:id="@+id/view_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/review_empty_icon_for_loading_data" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_size_4"
+                android:text="@string/word_my_empty"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size_18sp" />
+        </LinearLayout>
+    </LinearLayout>
 
 </android.support.v4.widget.SwipeRefreshLayout>

@@ -1,22 +1,22 @@
 package com.tramp.word.module.forget;
 
-import android.animation.ValueAnimator;
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import com.nineoldandroids.animation.Animator;
-import com.nineoldandroids.animation.AnimatorInflater;
-import com.nineoldandroids.animation.AnimatorListenerAdapter;
-import com.nineoldandroids.animation.AnimatorSet;
-import com.nineoldandroids.animation.ObjectAnimator;
 import com.tramp.word.R;
 import com.tramp.word.base.RxBaseActivity;
 import com.tramp.word.utils.Utils;
-import com.tramp.word.widget.forgetpoint.ForgetPoint;
-import com.tramp.word.widget.forgetpoint.PointEvaluator;
 
 import butterknife.BindView;
 
@@ -26,18 +26,22 @@ import butterknife.BindView;
  */
 
 public class ForgetPassActivity extends RxBaseActivity {
-    @BindView(R.id.forget_out)
-    ImageView mForgetOut;
+    @BindView(R.id.app_toolbar)
+    AppBarLayout AppToolbar;
+    @BindView(R.id.default_out)
+    ImageView DefaultOut;
+    @BindView(R.id.default_title)
+    TextView DefaultTitle;
     @BindView(R.id.forget_short)
-    LinearLayout mForgetShort;
+    LinearLayout ForgetShort;
     @BindView(R.id.forget_email)
-    LinearLayout mForgetEmail;
+    LinearLayout ForgetEmail;
     @BindView(R.id.forget_weixin)
-    LinearLayout mForgetWeiXin;
+    LinearLayout ForgetWeiXin;
     @BindView(R.id.forget_qq)
-    LinearLayout mForgetQq;
+    LinearLayout ForgetQq;
     @BindView(R.id.forget_weibo)
-    LinearLayout mForgetWeiBo;
+    LinearLayout ForgetWeiBo;
     @Override
     public int getLayoutId() {
         return R.layout.activity_forget_pass;
@@ -46,36 +50,35 @@ public class ForgetPassActivity extends RxBaseActivity {
     @Override
     public void initView(Bundle save) {
 
-        mForgetShort.setOnClickListener(new View.OnClickListener() {
+        ForgetShort.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ForgetPassActivity.this,ForgetShortActivity.class));
-                overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_stay);
+                ForgetShortActivity.launch(ForgetPassActivity.this);
             }
         });
 
-        mForgetEmail.setOnClickListener(new View.OnClickListener() {
+        ForgetEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ForgetPassActivity.this,ForgetEmailActivity.class));
+                ForgetEmailActivity.launch(ForgetPassActivity.this);
             }
         });
 
-        mForgetWeiXin.setOnClickListener(new View.OnClickListener() {
+        ForgetWeiXin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Utils.ShowToast(getBaseContext(),"微信");
             }
         });
 
-        mForgetQq.setOnClickListener(new View.OnClickListener() {
+        ForgetQq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Utils.ShowToast(getBaseContext(),"qq");
             }
         });
 
-        mForgetWeiBo.setOnClickListener(new View.OnClickListener() {
+        ForgetWeiBo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Utils.ShowToast(getBaseContext(),"微博");
@@ -85,9 +88,9 @@ public class ForgetPassActivity extends RxBaseActivity {
 
     public void Animation(){
         //rotation translationX scaleY
-        ObjectAnimator moveIn=ObjectAnimator.ofFloat(mForgetQq,"translationX",-500f,0f);
-        ObjectAnimator rotate=ObjectAnimator.ofFloat(mForgetQq,"rotation",0f,360f);
-        ObjectAnimator fadeInOut=ObjectAnimator.ofFloat(mForgetQq,"alpha",1f,0f,1f);
+        ObjectAnimator moveIn= ObjectAnimator.ofFloat(ForgetQq,"translationX",-500f,0f);
+        ObjectAnimator rotate=ObjectAnimator.ofFloat(ForgetQq,"rotation",0f,360f);
+        ObjectAnimator fadeInOut=ObjectAnimator.ofFloat(ForgetQq,"alpha",1f,0f,1f);
         AnimatorSet animSet=new AnimatorSet();
         animSet.play(rotate).with(fadeInOut).after(moveIn);
         animSet.setDuration(5000);
@@ -99,29 +102,33 @@ public class ForgetPassActivity extends RxBaseActivity {
             }
         });
         Animator animator= AnimatorInflater.loadAnimator(getBaseContext(),R.animator.forget_title_anim);
-        animator.setTarget(mForgetQq);
+        animator.setTarget(ForgetQq);
         animator.start();
-        ForgetPoint point1=new ForgetPoint(0,0);
-        ForgetPoint point2=new ForgetPoint(300,300);
-        ValueAnimator anim=ValueAnimator.ofObject(new PointEvaluator(),point1,point2);
-        anim.setDuration(5000);
-        anim.start();
     }
 
     @Override
     protected void initToolBar() {
-        mForgetOut.setOnClickListener(new View.OnClickListener() {
+        AppToolbar.setBackgroundColor(getResources().getColor(R.color.white));
+        DefaultOut.setImageResource(R.drawable.common_back_normal);
+        DefaultOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+        DefaultTitle.setText(getResources().getString(R.string.forget_title_text));
     }
 
     @Override
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.activity_stay,R.anim.activity_out_anim);
+    }
+
+    public static void launch(Activity activity){
+        Intent intent=new Intent(activity,ForgetPassActivity.class);
+        activity.startActivity(intent);
+        Utils.StarActivityInAnim(activity);
     }
 }
 

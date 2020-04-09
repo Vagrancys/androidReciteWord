@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_toolbar"
@@ -14,58 +15,30 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/recite_background"
+            android:background="@color/blue_2"
             app:contentInsetStart="0dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="@dimen/default_margin_size">
 
                 <ImageView
-                    android:id="@+id/recite_word_book"
-                    android:layout_width="@dimen/recite_word_book_width"
-                    android:layout_height="@dimen/recite_word_book_height"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="@dimen/default_margin_size"
-                    android:layout_marginTop="@dimen/default_margin_size"
+                    android:id="@+id/default_book"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
                     android:src="@drawable/icon_wordbook" />
 
                 <TextView
-                    android:id="@+id/recite_head_title"
+                    android:id="@+id/recite_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
                     android:layout_centerInParent="true"
-                    android:layout_marginTop="@dimen/default_margin_size"
                     android:text="@string/recite_head_title"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/recite_head_title_size" />
-
-                <RelativeLayout
-                    android:id="@+id/recite_head_new"
-                    android:layout_width="@dimen/recite_head_circle_width"
-                    android:layout_height="@dimen/recite_head_circle_height"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginEnd="@dimen/default_margin_size"
-                    android:layout_marginTop="@dimen/default_margin_size">
-
-                    <ImageView
-                        android:id="@+id/recite_head_new_circle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginEnd="@dimen/default_margin_size_1"
-                        android:layout_marginTop="@dimen/default_margin_size_1"
-                        android:src="@drawable/icon_new" />
-
-                    <ImageView
-                        android:layout_width="@dimen/recite_head_circle_width"
-                        android:layout_height="@dimen/recite_head_circle_height"
-                        android:src="@drawable/abc_btn_switch" />
-                </RelativeLayout>
-
+                    android:textSize="@dimen/default_text_size_18sp" />
             </RelativeLayout>
 
         </android.support.v7.widget.Toolbar>
@@ -74,15 +47,399 @@
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/app_toolbar">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler"
+        android:layout_height="match_parent">
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:overScrollMode="never">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_above="@+id/recite_start"
+                        android:layout_marginBottom="@dimen/default_margin_no_size_4"
+                        android:background="@color/blue_2"/>
+
+                    <LinearLayout
+                        android:id="@+id/recite_star_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_margin_size_3"
+                        android:padding="@dimen/default_margin_size"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="@dimen/default_margin_size_3"
+                            android:layout_height="@dimen/default_margin_size_3"
+                            android:src="@drawable/icon_star_group_small" />
+
+                        <TextView
+                            android:id="@+id/recite_star_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/default_margin_size_1"
+                            android:textColor="@color/white"
+                            android:text="@string/recite_star_text"
+                            android:textSize="@dimen/default_text_size_14sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/recite_gate_linear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/default_margin_size"
+                        android:padding="@dimen/default_margin_size_1"
+                        android:gravity="center"
+                        android:background="@drawable/recite_head_task_background">
+
+                        <ImageView
+                            android:layout_width="@dimen/default_margin_size_2_1"
+                            android:layout_height="@dimen/default_margin_size_2_1"
+                            android:src="@drawable/study_plan_finish"
+                            android:layout_marginEnd="@dimen/default_margin_size_1"/>
+                        <TextView
+                            android:id="@+id/recite_gate_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/default_text_size_16sp"
+                            android:textColor="@color/white"
+                            android:text="@string/recite_head_task_text"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_arrow_right_white"
+                            android:layout_marginStart="@dimen/default_margin_size_1"
+                            android:layout_marginEnd="@dimen/default_margin_size"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/recite_task_layout"
+                        android:layout_width="@dimen/default_margin_size_4"
+                        android:layout_height="@dimen/default_margin_size_8"
+                        android:layout_marginTop="@dimen/default_margin_size"
+                        android:layout_marginEnd="@dimen/default_margin_size"
+                        android:layout_alignParentEnd="true"
+                        android:orientation="vertical"
+                        android:gravity="center|bottom">
+
+                        <RelativeLayout
+                            android:id="@+id/recite_task_img"
+                            android:layout_width="@dimen/default_margin_size_4"
+                            android:layout_height="@dimen/default_margin_size_4"
+                            android:background="@drawable/group_medal_small_grey">
+
+                            <ImageView
+                                android:layout_width="@dimen/default_margin_size_2"
+                                android:layout_height="@dimen/default_margin_size_2"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/icon_group_2_task" />
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/recite_task_icon_text"
+                            android:textSize="@dimen/default_text_size_10sp"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/recite_down_audio"
+                        android:layout_below="@+id/recite_task_layout"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/default_margin_size_4"
+                        android:layout_marginEnd="@dimen/default_margin_size"
+                        android:layout_width="@dimen/default_margin_size_4"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_downcloud_a1"/>
+
+                    <com.tramp.word.widget.CircleProgressView
+                        android:id="@+id/circle_progress"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:layout_width="@dimen/default_margin_size_26"
+                        android:layout_height="@dimen/default_margin_size_26"
+                        android:layout_marginTop="@dimen/default_margin_size_6"
+                        app:circle_un_finish_color="@color/recite_circle_un_background"
+                        app:circle_finish_color="@color/recite_circle_background"
+                        app:circle_arc_angle="270"
+                        app:circle_stroke_width="@dimen/default_margin_size"
+                        app:circle_arc_max="100"/>
+
+                    <TextView
+                        android:id="@+id/recite_sign"
+                        android:layout_width="@dimen/default_margin_size_8"
+                        android:layout_height="@dimen/default_margin_size_4"
+                        android:layout_below="@+id/circle_progress"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/default_margin_no_size_6"
+                        android:background="@drawable/btn_recite_sign"
+                        android:gravity="center"
+                        android:text="@string/recite_sign"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/default_text_size_16sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/recite_talent"
+                        android:layout_width="@dimen/default_margin_size_8"
+                        android:layout_height="@dimen/default_margin_size_4"
+                        android:layout_below="@+id/circle_progress"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/default_margin_no_size_6"
+                        android:background="@drawable/btn_recite_sign"
+                        android:gravity="center"
+                        android:text="@string/recite_talent"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/default_text_size_16sp"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:id="@+id/recite_start"
+                        android:layout_width="@dimen/default_margin_size_27"
+                        android:layout_height="@dimen/default_margin_size_8"
+                        android:background="@drawable/btn_start_level"
+                        android:layout_marginTop="@dimen/default_margin_size"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/circle_progress"
+                        android:gravity="top|center"
+                        android:paddingTop="@dimen/default_margin_size">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/recite_start_rush_text"
+                            android:textColor="@color/blue"
+                            android:textSize="@dimen/default_text_size_20sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/recite_star_hint"
+                        android:layout_width="@dimen/default_margin_size_16"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_margin_size_2"
+                        android:layout_toEndOf="@+id/recite_star_layout"
+                        android:background="@drawable/combined_shape"
+                        android:padding="@dimen/default_margin_size"
+                        android:text="@string/recite_star_hint"
+                        android:textColor="@color/black_1"
+                        android:textSize="@dimen/default_text_size_12sp"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/default_margin_size"
+                    android:paddingEnd="@dimen/default_margin_size">
+                    <LinearLayout
+                        android:id="@+id/recite_revise"
+                        android:layout_width="@dimen/default_margin_size_0"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/revise_img"
+                                android:layout_width="@dimen/default_margin_size_6"
+                                android:layout_height="@dimen/default_margin_size_6"
+                                android:src="@drawable/main_review_icon_finished"
+                                android:layout_centerInParent="true"/>
+
+                            <TextView
+                                android:id="@+id/revise_number"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="@dimen/default_margin_no_size_2"
+                                android:layout_toEndOf="@+id/revise_img"
+                                android:background="@drawable/btn_point_bg"
+                                android:gravity="center"
+                                android:padding="2dp"
+                                android:text="@string/revise_number"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/default_text_size_10sp"
+                                android:visibility="gone" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/default_margin_size_1"
+                            android:text="@string/recite_tab_revise"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/default_text_size_16sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/recite_pk"
+                        android:layout_width="@dimen/default_margin_size_0"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/default_margin_size"
+                        android:layout_marginEnd="@dimen/default_margin_size"
+                        android:gravity="center">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/pk_img"
+                                android:layout_width="@dimen/default_margin_size_5"
+                                android:layout_height="@dimen/default_margin_size_5"
+                                android:src="@drawable/icon_group_2_pk"
+                                android:layout_centerInParent="true"/>
+
+                            <TextView
+                                android:id="@+id/pk_number"
+                                android:layout_width="@dimen/default_margin_size_2"
+                                android:layout_height="@dimen/default_margin_size_2"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="@dimen/default_margin_no_size_2"
+                                android:layout_toEndOf="@+id/pk_img"
+                                android:background="@drawable/btn_point_bg"
+                                android:gravity="center"
+                                android:text="@string/pk_number"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/default_text_size_12sp"
+                                android:visibility="gone" />
+
+                        </RelativeLayout>
+                        <TextView
+                            android:gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/default_margin_size"
+                            android:text="@string/recite_tab_pk"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/default_text_size_16sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/recite_group"
+                        android:layout_width="@dimen/default_margin_size_0"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="@dimen/default_margin_size"
+                        android:layout_marginStart="@dimen/default_margin_size">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/group_img"
+                                android:layout_width="@dimen/default_margin_size_5"
+                                android:layout_height="@dimen/default_margin_size_5"
+                                android:src="@drawable/group_icon_default"
+                                android:layout_centerInParent="true"/>
+
+                            <TextView
+                                android:id="@+id/group_number"
+                                android:layout_width="@dimen/default_margin_size_2"
+                                android:layout_height="@dimen/default_margin_size_2"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="@dimen/default_margin_no_size_2"
+                                android:layout_toEndOf="@+id/group_img"
+                                android:background="@drawable/btn_point_bg"
+                                android:gravity="center"
+                                android:text="@string/pk_number"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/default_text_size_12sp"
+                                android:visibility="gone" />
+
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/default_margin_size"
+                            android:text="@string/recite_tab_group"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/default_text_size_16sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="@dimen/default_margin_size_6"
+                            android:layout_height="@dimen/default_margin_size_6"
+                            android:src="@drawable/main_review_icon_reviewing"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/default_margin_size_1"
+                            android:text="@string/recite_tab_dynamic"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/default_text_size_16sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin_size_2"
+                    android:padding="@dimen/default_margin_size_2">
+                    <ImageView
+                        android:id="@+id/recite_push_img"
+                        android:layout_width="@dimen/default_margin_size_5"
+                        android:layout_height="@dimen/default_margin_size_5"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/award_icon_common"/>
+
+                    <TextView
+                        android:id="@+id/recite_push_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/recite_push_img"
+                        android:paddingStart="@dimen/default_margin_size_2_1"
+                        android:text="@string/recite_footer_push_head_text"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/default_text_size_14sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/recite_push_img"
+                        android:layout_below="@+id/recite_push_title"
+                        android:paddingStart="@dimen/default_margin_size_2_1"
+                        android:paddingTop="@dimen/default_margin_size_1"
+                        android:text="@string/recite_footer_push_footer_text"
+                        android:textColor="@color/black_1"
+                        android:textSize="@dimen/default_text_size_12sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/group_share_invite_back"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
     </android.support.v4.widget.SwipeRefreshLayout>
 
-</RelativeLayout>
+</LinearLayout>
 

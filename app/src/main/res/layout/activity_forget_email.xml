@@ -1,49 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/forget_out"
-        android:layout_width="@dimen/default_margin_size_2"
-        android:layout_height="@dimen/default_margin_size_3"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="@dimen/default_margin_size"
-        android:layout_marginTop="@dimen/default_margin_size"
-        android:src="@drawable/common_back_normal" />
-
-    <TextView
-        android:id="@+id/forget_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/default_margin_size"
-        android:text="@string/forget_title_text"
-        android:textColor="@color/black"
-        android:textSize="@dimen/default_text_size" />
-
+    android:layout_height="match_parent"
+    android:gravity="top">
+    <include layout="@layout/common_toolbar"/>
     <View
-        android:id="@+id/forget_view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/forget_title"
-        android:layout_marginBottom="@dimen/default_margin_size_3"
-        android:layout_marginTop="@dimen/default_margin_size"
-        android:background="@color/register_view" />
+        android:background="@color/black_1" />
 
-    <EditText
-                android:id="@+id/forget_email_hint_text"
-                android:layout_width="match_parent"
+    <RelativeLayout
+        android:id="@+id/forget_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/default_margin_size_2"
+        android:paddingTop="@dimen/default_margin_size_3"
+        android:paddingEnd="@dimen/default_margin_size_2">
+
+        <LinearLayout
+            android:id="@+id/forget_email_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/register_edit_selector_window"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/forget_email_name"
+                android:layout_width="@dimen/default_margin_size_0"
                 android:layout_height="@dimen/default_margin_size_5"
-                android:layout_below="@id/forget_view"
-                android:layout_marginEnd="@dimen/default_margin_size_2"
-                android:layout_marginStart="@dimen/default_margin_size_2"
-                android:layout_marginTop="@dimen/default_margin_size"
+                android:layout_weight="6"
                 android:background="@drawable/register_hint_back"
-                android:drawablePadding="@dimen/default_margin_size_1"
                 android:drawableStart="@drawable/icon_report_mail"
+                android:drawablePadding="@dimen/default_margin_size_1"
                 android:hint="@string/email_hint_text"
                 android:inputType="textEmailSubject"
                 android:maxLength="11"
@@ -51,90 +42,154 @@
                 android:padding="@dimen/default_margin_size_1"
                 android:textColor="@color/black"
                 android:textCursorDrawable="@color/black"
-                android:textSize="@dimen/default_text_size" />
+                android:textSize="@dimen/default_text_size_16sp" />
 
+            <ImageView
+                android:id="@+id/forget_email_img"
+                android:layout_width="@dimen/default_margin_size_0"
+                android:layout_height="@dimen/default_margin_size_2"
+                android:layout_weight="1"
+                android:src="@drawable/icon_login_delate_normal"
+                android:visibility="gone" />
+        </LinearLayout>
 
-    <EditText
-            android:id="@+id/forget_code_hint_text"
-            android:layout_width="@dimen/login_code_hint_text_width"
-            android:layout_height="@dimen/default_margin_size_5"
-            android:layout_below="@+id/forget_email_hint_text"
-            android:layout_marginEnd="@dimen/default_margin_size_2"
-            android:layout_marginStart="@dimen/default_margin_size_2"
-            android:layout_marginTop="@dimen/default_margin_size_3"
-            android:background="@drawable/register_edit_selector"
-            android:drawablePadding="@dimen/default_margin_size_1"
-            android:drawableStart="@drawable/icon_report_mail"
-            android:hint="@string/forget_email_code_hint_text"
-            android:inputType="number"
-            android:maxLength="11"
-            android:maxLines="1"
-            android:padding="@dimen/default_margin_size_1"
-            android:textColor="@color/black"
-            android:textCursorDrawable="@color/black"
-            android:textSize="@dimen/default_text_size" />
-
-    <TextView
-            android:id="@+id/forget_code_error_text"
+        <TextView
+            android:id="@+id/email_error_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/forget_code_hint_text"
-            android:layout_below="@+id/forget_code_hint_text"
-            android:padding="@dimen/default_margin_size_1"
-            android:text="@string/login_code_error_text"
+            android:layout_below="@+id/forget_email_linear"
+            android:paddingTop="@dimen/default_margin_size"
+            android:text="@string/email_error_text"
             android:textColor="@color/red"
+            android:textSize="@dimen/default_text_size_12sp"
             android:visibility="gone" />
 
-    <TextView
-            android:id="@+id/forget_code_text"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/forget_email_hint_text"
-            android:layout_marginTop="@dimen/default_margin_size_3"
-            android:layout_toEndOf="@+id/forget_code_hint_text"
-            android:background="@color/white"
-            android:gravity="center"
-            android:padding="@dimen/default_margin_size_2_1"
-            android:text="@string/forget_code_text"
-            android:textColor="@color/black"
-            android:textSize="@dimen/default_text_size" />
-
-    <TextView
-            android:id="@+id/forget_email_button_start"
+        <LinearLayout
+            android:id="@+id/forget_code_linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/forget_code_hint_text"
+            android:layout_below="@+id/forget_email_linear"
+            android:layout_marginTop="@dimen/default_margin_size_4"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/forget_code_name"
+                android:layout_width="@dimen/default_margin_size_0"
+                android:layout_height="@dimen/default_margin_size_5"
+                android:layout_marginEnd="@dimen/default_margin_size_3"
+                android:layout_weight="3"
+                android:background="@drawable/register_edit_selector"
+                android:drawableStart="@drawable/icon_report_mail"
+                android:drawablePadding="@dimen/default_margin_size_1"
+                android:hint="@string/forget_email_code_hint_text"
+                android:inputType="number"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:padding="@dimen/default_margin_size_1"
+                android:textColor="@color/black"
+                android:textCursorDrawable="@color/black"
+                android:textSize="@dimen/default_text_size_16sp" />
+
+            <TextView
+                android:id="@+id/forget_code_text"
+                android:layout_width="@dimen/default_margin_size_0"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@color/white"
+                android:gravity="center"
+                android:padding="@dimen/default_margin_size_2_1"
+                android:text="@string/forget_code_text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size_16sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/code_error_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/forget_code_linear"
+            android:paddingTop="@dimen/default_margin_size"
+            android:text="@string/login_code_error_text"
+            android:textColor="@color/red"
+            android:textSize="@dimen/default_text_size_12sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/forget_email_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/forget_code_linear"
             android:layout_centerInParent="true"
-            android:layout_marginBottom="@dimen/default_margin_size_2"
-            android:layout_marginEnd="@dimen/default_margin_size_2"
-            android:layout_marginStart="@dimen/default_margin_size_2"
             android:layout_marginTop="@dimen/default_margin_size_4"
             android:background="@drawable/btn_register_button_start"
             android:gravity="center"
-            android:paddingBottom="@dimen/default_margin_size"
             android:paddingTop="@dimen/default_margin_size"
+            android:paddingBottom="@dimen/default_margin_size"
             android:text="@string/forget_button_start_text"
             android:textColor="@color/white"
-            android:textSize="@dimen/default_text_size" />
+            android:textSize="@dimen/default_text_size_18sp" />
+    </RelativeLayout>
 
-    <TextView
-            android:id="@+id/forget_bottom_left_text"
+    <LinearLayout
+        android:id="@+id/forget_done"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/default_margin_size_2"
+        android:paddingTop="@dimen/default_margin_size_9"
+        android:paddingEnd="@dimen/default_margin_size_2"
+        android:visibility="gone">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/forget_email_button_start"
-            android:layout_below="@+id/forget_email_button_start"
+            android:paddingBottom="@dimen/default_margin_size"
+            android:text="@string/forget_email_send"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_16sp" />
+
+        <TextView
+            android:id="@+id/forget_email_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_text_size_16sp" />
+
+        <TextView
+            android:id="@+id/forget_email_done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_size_4"
+            android:background="@drawable/btn_register_button_start"
+            android:gravity="center"
+            android:paddingTop="@dimen/default_margin_size"
+            android:paddingBottom="@dimen/default_margin_size"
+            android:text="@string/forget_done_start"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size_18sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:orientation="horizontal"
+        android:padding="@dimen/default_margin_size_2">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/default_margin_size_1"
             android:text="@string/forget_bottom_left_text"
             android:textColor="@color/black_1"
-            android:textSize="@dimen/forget_bottom_text_size" />
+            android:textSize="@dimen/default_text_size_14sp" />
 
-    <TextView
-            android:id="@+id/forget_bottom_right_text"
+        <TextView
+            android:id="@+id/forget_help"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/forget_email_button_start"
-            android:layout_toEndOf="@+id/forget_bottom_left_text"
             android:text="@string/forget_bottom_right_text"
             android:textColor="@color/green_1"
-            android:textSize="@dimen/forget_bottom_text_size" />
-</RelativeLayout>
+            android:textSize="@dimen/default_text_size_14sp" />
+    </LinearLayout>
+</LinearLayout>

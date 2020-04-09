@@ -5,16 +5,22 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.tramp.word.R;
+import com.tramp.word.entity.user.UserShareInfo;
+
+import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2019/2/1.
  */
 
 public class MeShareAdapter extends AbsRecyclerViewAdapter {
-    public MeShareAdapter(RecyclerView recyclerView){
+    private ArrayList<UserShareInfo.Share.Day> Days;
+    public MeShareAdapter(RecyclerView recyclerView,ArrayList<UserShareInfo.Share.Day> days){
         super(recyclerView);
+        Days=days;
     }
 
     @NonNull
@@ -27,18 +33,37 @@ public class MeShareAdapter extends AbsRecyclerViewAdapter {
     @Override
     public void onBindViewHolder(ClickableViewHolder holder, int position) {
         ItemViewHolder mHolder=(ItemViewHolder) holder;
-
+        switch (Days.get(position).getDay_status()){
+            case 0:
+                mHolder.ItemShare.setVisibility(View.GONE);
+                mHolder.ItemShareCircle.setVisibility(View.GONE);
+                break;
+            case 1:
+                mHolder.ItemShare.setVisibility(View.VISIBLE);
+                mHolder.ItemShareCircle.setVisibility(View.GONE);
+                mHolder.ItemShare.setText(Days.get(position).getDay_number());
+                break;
+            case 2:
+                mHolder.ItemShareCircle.setVisibility(View.VISIBLE);
+                mHolder.ItemShare.setVisibility(View.GONE);
+                mHolder.ItemShareCircle.setText(Days.get(position).getDay_number());
+                break;
+        }
         super.onBindViewHolder(holder, position);
     }
 
     @Override
     public int getItemCount() {
-        return 31;
+        return Days.size();
     }
 
     public class ItemViewHolder extends ClickableViewHolder{
+        TextView ItemShare;
+        TextView ItemShareCircle;
         public ItemViewHolder(View itemView){
             super(itemView);
+            ItemShare=$(R.id.item_share);
+            ItemShareCircle=$(R.id.item_share_circle);
         }
     }
 }

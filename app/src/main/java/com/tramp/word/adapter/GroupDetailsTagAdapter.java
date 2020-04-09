@@ -5,16 +5,21 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.tramp.word.R;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2019/2/1.
  */
 
 public class GroupDetailsTagAdapter extends AbsRecyclerViewAdapter {
-    public GroupDetailsTagAdapter(RecyclerView recyclerView){
+    private List<String> Tags;
+    public GroupDetailsTagAdapter(RecyclerView recyclerView,List<String> tags){
         super(recyclerView);
+        Tags=tags;
     }
 
     @NonNull
@@ -27,18 +32,20 @@ public class GroupDetailsTagAdapter extends AbsRecyclerViewAdapter {
     @Override
     public void onBindViewHolder(ClickableViewHolder holder, int position) {
         ItemViewHolder mHolder=(ItemViewHolder) holder;
-
+        mHolder.ItemText.setText(Tags.get(position));
         super.onBindViewHolder(holder, position);
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return Tags.size();
     }
 
     public class ItemViewHolder extends ClickableViewHolder{
+        TextView ItemText;
         public ItemViewHolder(View itemView){
             super(itemView);
+            ItemText=$(R.id.group_details_tag);
         }
     }
 }

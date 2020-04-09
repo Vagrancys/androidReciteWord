@@ -6,71 +6,76 @@
     android:layout_height="match_parent"
     android:background="@color/white">
     <LinearLayout
-        android:id="@+id/recite_list_linear"
+        android:id="@+id/repeat_linear"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/default_margin_size_2"
-            android:paddingBottom="@dimen/default_margin_size_2">
+            android:padding="@dimen/default_margin_size">
             <TextView
-                android:id="@+id/recite_repeat_text"
+                android:id="@+id/repeat_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
                 android:text="@string/recite_repeat_text"
-                android:layout_marginStart="@dimen/default_margin_size"
                 android:textColor="@color/black"
-                android:textSize="@dimen/default_text_size"/>
+                android:textSize="@dimen/default_text_size_16sp"/>
+            <TextView
+                android:id="@+id/repeat_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/repeat_text"
+                android:text="@string/repeat_number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/default_text_size_16sp"
+                android:paddingEnd="@dimen/default_margin_size"/>
             <ImageView
-                android:id="@+id/recite_list_lobby"
-                android:layout_width="@dimen/recite_list_lobby"
-                android:layout_height="@dimen/recite_list_lobby"
+                android:id="@+id/repeat_lobby"
+                android:layout_width="@dimen/default_margin_size_2"
+                android:layout_height="@dimen/default_margin_size_2"
                 android:src="@drawable/group_lobby_rule_icon"
-                android:layout_centerInParent="true"
-                android:layout_toEndOf="@+id/recite_repeat_text"
-                android:layout_marginStart="@dimen/default_margin_size"/>
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/repeat_number"/>
             <LinearLayout
-                android:id="@+id/recite_item_manage"
+                android:id="@+id/manage_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_alignParentEnd="true"
                 android:background="@drawable/btn_recite_item_button"
                 android:orientation="horizontal"
-                android:layout_marginStart="@dimen/default_margin_size"
-                android:layout_marginEnd="@dimen/default_margin_size"
-                android:gravity="center">
+                android:gravity="center"
+                android:padding="@dimen/default_margin_size_1">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/default_margin_size_2"
+                    android:layout_height="@dimen/default_margin_size_2"
                     android:src="@drawable/icon_manage"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/recite_item_manage"
                     android:gravity="center"
-                    android:textColor="@color/recite_item_list_color"
+                    android:textColor="@color/black_1"
                     android:layout_marginStart="@dimen/default_margin_size"
                     android:layout_marginEnd="@dimen/default_margin_size"
-                    android:textSize="@dimen/recite_item_list_size"/>
+                    android:textSize="@dimen/default_text_size_12sp"/>
             </LinearLayout>
         </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recite_repeat_recycler"
+            android:id="@+id/repeat_recycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:overScrollMode="never"/>
     </LinearLayout>
 
-
     <LinearLayout
-        android:id="@+id/recite_empty"
+        android:id="@+id/repeat_empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -78,8 +83,8 @@
         android:visibility="gone">
 
         <ImageView
-            android:layout_width="@dimen/default_recite_empty_width"
-            android:layout_height="@dimen/default_recite_empty_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/default_margin_size_2"
             android:src="@drawable/pic_wordlist_review_empty" />
 
@@ -88,7 +93,7 @@
             android:layout_height="wrap_content"
             android:text="@string/repeat_text"
             android:textColor="@color/black"
-            android:textSize="@dimen/default_text_size" />
+            android:textSize="@dimen/default_text_size_18sp" />
     </LinearLayout>
 
 </LinearLayout>
